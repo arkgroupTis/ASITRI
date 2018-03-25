@@ -17,4 +17,4 @@ Route::get('/', function () {
 
 Route::get('/daniel', function(){
 	return view ('daniel');
-})
+});
