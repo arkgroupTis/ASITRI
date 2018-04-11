@@ -1,0 +1,36 @@
+<!-- https://mdbootstrap.com/freebies/ -->
+<!-- https://mdbootstrap.com/freebies/admin-dashboard-template/ -->
+
+    <!-- Material form login -->
+    <!-- <form> -->
+        <!-- <p class="h4 text-center mb-4">Sign in</p> -->
+
+        <!-- Material input email -->
+        <!-- <div class="md-form">
+            <i class="fa fa-envelope prefix grey-text"></i>
+            <input type="email" id="materialFormLoginEmailEx" class="form-control">
+            <label for="materialFormLoginEmailEx">Your email</label>
+        </div> -->
+
+        <!-- Material input password -->
+        <!-- <div class="md-form">
+            <i class="fa fa-lock prefix grey-text"></i>
+            <input type="password" id="materialFormLoginPasswordEx" class="form-control">
+            <label for="materialFormLoginPasswordEx">Your password</label>
+        </div>
+
+        <div class="text-center mt-4">
+            <button class="btn btn-default" type="submit">Login</button>
+        </div>
+    </form> -->
+
+    <!--user icon in two different styles-->
+    <!-- <i class="fas fa-user"></i>
+    <i class="far fa-user"></i> -->
+    <!--brand icon-->
+    <!-- <i class="fab fa-github-square"></i>
+    <button type="button" class="btn peach-gradient btn-lg">Large button</button>
+    <button type="button" class="btn btn-default btn-lg btn-block">Block level button</button>
+<button type="button" class="btn btn-light-blue btn-lg btn-block">Block level button</button> -->
+    <!-- Material form login -->
+
