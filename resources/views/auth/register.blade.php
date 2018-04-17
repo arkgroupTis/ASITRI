@@ -6,9 +6,13 @@
 </head>
 
 <body class="grey lighten-3">
-
+    
+    <br>
+    <br>
+    <br>
     <!--Grid row-->
     <div class="row wow fadeIn">
+        <div class="col-md"></div>
         <!--Grid column-->
         <div class="col-md-6 col-xl-5 mb-4 col-md-offset-3">
             <!--Card-->
@@ -74,6 +78,7 @@
             <!--/.Card-->
         </div>
         <!--Grid column-->
+        <div class="col-md"></div>
     </div>
     <!--Grid row-->
 

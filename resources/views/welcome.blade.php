@@ -13,6 +13,53 @@
         <link href="css/mdb.min.css" rel="stylesheet">
         <!-- Your custom styles (optional) -->
         <link href="css/style.min.css" rel="stylesheet">
+        <style type="text/css" media="screen">
+            /* Required for full background image */
+            html,
+            body,
+            header,
+            .view {
+              height: 100%;
+            }
+
+            @media (max-width: 740px) {
+              header {
+                height: 100vh;
+              }
+            }
+
+            .top-nav-collapse {
+              background-color: #78909c !important;
+            }
+
+            .navbar:not(.top-nav-collapse) {
+              background: transparent !important;
+            }
+
+            @media (max-width: 768px) {
+              .navbar:not(.top-nav-collapse) {
+                background: #78909c !important;
+              }
+            }
+
+            h1 {
+              letter-spacing: 8px;
+            }
+
+            h5 {
+              letter-spacing: 3px;
+            }
+
+            .hr-light {
+              border-top: 3px solid #fff;
+              width: 80px;
+            }
+
+            .jarallax {
+              min-height: auto;
+            }
+                    
+        </style>
     </head>
     <body>
 
@@ -40,7 +87,7 @@
                         </ul>
                         <form class="form-inline">
                             <div class="md-form mt-0">
-                                <input class="form-control mr-sm-2" type="text" placeholder="Search" aria-label="Search">
+                                <a class="form-control mr-sm-2"" href="{{ url('login')}}">Iniciar Sesion</a>
                             </div>
                         </form>
                     </div>
@@ -48,7 +95,7 @@
             </nav>
             <!-- Navbar -->
             <!-- Full Page Intro -->
-            <div class="view jarallax" data-jarallax='{"speed": 0.2}' style="background-image: url('https://mdbootstrap.com/img/Photos/Others/img%20%2848%29.jpg'); background-repeat: no-repeat; background-size: cover; background-position: center center;">
+            <div class="view jarallax" data-jarallax='{"speed": 0.2}' style="background-image: url('/img/fondo.jpg'); background-repeat: no-repeat; background-size: cover; background-position: center center;">
                 <!-- Mask & flexbox options-->
                 <div class="mask rgba-black-light d-flex justify-content-center align-items-center">
                     <!-- Content -->
@@ -90,5 +137,6 @@
         // Animations initialization
         new WOW().init();
         </script>
+        
     </body>
 </html>

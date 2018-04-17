@@ -37,25 +37,25 @@
             <ul class="navbar-nav nav-flex-icons">
                 <li class="nav-item">
                     <a href="#" class="nav-link waves-effect">
-                        <i class="fa fa-facebook"></i>
+                        <i class="fab fa-facebook"></i>
                     </a>
                 </li>
                 <li class="nav-item">
                     <a href="#" class="nav-link waves-effect">
-                        <i class="fa fa-twitter"></i>
+                        <i class="fab fa-twitter"></i>
                     </a>
                 </li>
                 @if (Auth::guest())
                     <li class="nav-item">
                         <a href="{{ url('/login') }}" class="nav-link border border-light rounded waves-effect"
                            >
-                            <i class="fa fa-sign-out mr-2"></i>Login
+                            <i class="fab fa-sign-out mr-2"></i>Login
                         </a>
                     </li>
                     <li class="nav-item">
                         <a href="{{ url('/register') }}" class="nav-link border border-light rounded waves-effect"
                            >
-                            <i class="fa fa-sign-out mr-2"></i>Register
+                            <i class="fab fa-sign-out mr-2"></i>Register
                         </a>
                     </li>
                 @else
@@ -67,7 +67,7 @@
                     <li class="nav-item">
                         <a href="{{ url('/logout') }}" class="nav-link border border-light rounded waves-effect"
                            >
-                            <i class="fa fa-sign-out mr-2"></i>Logout
+                            <i class="fas fa-sign-out-alt"></i>Logout
                         </a>
                     </li>
                 @endif
