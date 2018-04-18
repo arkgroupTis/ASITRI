@@ -43,7 +43,13 @@
 
     <!-- SCRIPTS -->
     @include('layouts.scripts')
-
+    
+    <script>
+        // Show sideNav
+// $('.button-collapse').sideNav('show');
+// Hide sideNav
+$('.button-collapse').sideNav('hide');
+    </script>
 </body>
 
 </html>

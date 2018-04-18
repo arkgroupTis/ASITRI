@@ -1,14 +1,14 @@
 <footer class="page-footer text-center font-small primary-color-dark darken-2 mt-4 wow fadeIn">
 
     <!--Call to action-->
-    <div class="pt-4">
+    <!-- <div class="pt-4">
         <a class="btn btn-outline-white" href="#" role="button">boton 1
             <i class="fa fa-download ml-2"></i>
         </a>
         <a class="btn btn-outline-white" href="#" role="button">boton 2
             <i class="fa fa-graduation-cap ml-2"></i>
         </a>
-    </div>
+    </div> -->
     <!--/.Call to action-->
 
     <hr class="my-4">

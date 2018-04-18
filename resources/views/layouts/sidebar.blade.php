@@ -9,7 +9,7 @@
             <i class="fa fa-chart-pie mr-3"></i>Dashboard
         </a>
         <a href="#" class="list-group-item list-group-item-action waves-effect">
-            <i class="fa fa-user mr-3"></i>Profile
+            <i class="fa fa-user mr-3"></i>Users
         </a>
         <a href="#" class="list-group-item list-group-item-action waves-effect">
             <i class="fa fa-table mr-3"></i>Tables

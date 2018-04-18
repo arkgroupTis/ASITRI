@@ -3,28 +3,29 @@
 
 <head>
     @include('layouts.htmlheader')
+    <style>
+        body,html{height:100%}
+    </style>
 </head>
 
-<body class="grey lighten-3">
+<body style="background-image: url('/img/fondo.jpg'); background-repeat: no-repeat; background-size: cover; background-position: center center;">
     <br>
     <br>
     <br>
     <!--Grid row-->
-    <div class="row wow fadeIn aling-items-center">
-        <div class="col"></div>
-        <!--Grid column-->
-        <div class="col-md-5 mb-4 text-center text-md-left">
-            <!--Card-->
-            <div class="card">
+    <div class="row wow fadeIn aling-items-center" style="margin-right: 0px;margin-left:0px;">
+        <div class="col-md"></div>
+        <div class="col-md-5">
+            <!--Form with header-->
+            <div class="card z-depth-5">
                 <div class="card-body">
-                    <!-- Form -->
                     <form class="form-horizontal" role="form" method="POST" action="{{ url('/login') }}">
                         {{ csrf_field() }}
                         <!--Header-->
-                        <div class="text-center cyan-text">
+                        <div class="form-header peach-gradient">
                             <h3>
-                                <i class="fa fa-lock cyan-text"></i> Login:</h3>
-                            <hr class="my-4">
+                                <i class="fa fa-lock white-text"></i> Login:
+                            </h3>
                         </div>
 
                         <!--Body-->
@@ -34,35 +35,34 @@
                             <label for="email">Your email</label>
                         </div>
 
+                        <br>
+
                         <div class="md-form">
                             <i class="fa fa-lock prefix grey-text"></i>
                             <input type="password" id="password" class="form-control validate" name="password">
                             <label for="password">Your password</label>
                         </div>
 
+                        <br>
+
                         <div class="text-center">
-                            <button class="btn btn-info waves-effect waves-light">Login</button>
+                            <button class="btn btn-deep-orange waves-effect waves-light">Login</button>
                         </div>
                     </form>
                     <!-- Form -->
                 </div>
-
                 <!--Footer-->
                 <div class="modal-footer">
+                    <a href="/">Ir Welcome</a>
                     <div class="footer-copyright py-3">
                         © 2018 Copyright:
                         <a href="#"> ArkGroup.com </a>
                     </div>
                 </div>
             </div>
-            <!--/.Card-->
-
+            <!--/Form with header-->
         </div>
-        <!--Grid column-->
-        <div class="col"></div>
-
-
-
+        <div class="col-md"></div>
     </div>
     <!--Grid row-->
 

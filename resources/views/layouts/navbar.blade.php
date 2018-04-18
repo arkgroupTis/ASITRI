@@ -2,10 +2,10 @@
     <div class="container-fluid">
 
         <!-- Brand -->
-        <a class="navbar-brand waves-effect" href="#">
-            <strong class="blue-text">MDB</strong>
+        <a class="navbar-brand waves-effect button-collapse" href="#">
+            <i class="fa fa-bars"></i>
         </a>
-
+        
         <!-- Collapse -->
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
             aria-expanded="false" aria-label="Toggle navigation">
@@ -45,32 +45,16 @@
                         <i class="fab fa-twitter"></i>
                     </a>
                 </li>
-                @if (Auth::guest())
-                    <li class="nav-item">
-                        <a href="{{ url('/login') }}" class="nav-link border border-light rounded waves-effect"
-                           >
-                            <i class="fab fa-sign-out mr-2"></i>Login
-                        </a>
-                    </li>
-                    <li class="nav-item">
-                        <a href="{{ url('/register') }}" class="nav-link border border-light rounded waves-effect"
-                           >
-                            <i class="fab fa-sign-out mr-2"></i>Register
-                        </a>
-                    </li>
-                @else
-                    <li class="nav-item">
-                        <button class="nav-link border border-light rounded waves-effect" type="button" >
-                            {{ Auth::user()->name }}
-                        </button>
-                    </li>
-                    <li class="nav-item">
-                        <a href="{{ url('/logout') }}" class="nav-link border border-light rounded waves-effect"
-                           >
-                            <i class="fas fa-sign-out-alt"></i>Logout
-                        </a>
-                    </li>
-                @endif
+                <li class="nav-item">
+                    <button class="nav-link border border-light rounded waves-effect" type="button" >
+                        {{ Auth::user()->name }}
+                    </button>
+                </li>
+                <li class="nav-item">
+                    <a href="{{ url('/logout') }}" class="nav-link waves-effect blue-gradient rounded white-text">
+                        <i class="fas fa-sign-out-alt"></i>Logout
+                    </a>
+                </li>
             </ul>
 
         </div>
