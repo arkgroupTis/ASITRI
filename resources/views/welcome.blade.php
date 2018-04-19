@@ -269,7 +269,7 @@
                         <div class="col-lg-6 col-md-12">
                             <p class="h5 text-center mb-4">Watch our "5 min Quick Start" tutorial</p>
                             <div class="embed-responsive embed-responsive-16by9">
-                                <iframe class="embed-responsive-item" src="#" allowfullscreen></iframe>
+                                <iframe class="embed-responsive-item" src="" allowfullscreen></iframe>
                             </div>
                         </div>
                         <!--/Grid column-->
