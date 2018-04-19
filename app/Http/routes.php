@@ -18,6 +18,17 @@ Route::get('/', function () {
 Route::get('/daniel', function(){
 	return view ('daniel');
 });
+Route::get('/docentes', function(){
+	return view ('docentes');
+});
+Route::get('/d&p',function()
+{
+	return view ('d&p');
+});
+Route::get('/tabla4',function()
+{
+	return view ('tabla4');
+});
 
 Route::auth();
 
