@@ -5,10 +5,10 @@
 <title>Material Design Bootstrap Template</title>
 
 <!-- Bootstrap core CSS -->
-<link href="/css/bootstrap.min1.css" rel="stylesheet">
+<link href="/css/bootstrap.min.css" rel="stylesheet">
 
 <!-- Material Design Bootstrap -->
-<link href="/css/mdb.min1.css" rel="stylesheet">
+<link href="/css/mdb.min.css" rel="stylesheet">
 
 <!-- Your custom styles (optional) -->
 <link href="css/style.min.css" rel="stylesheet">
