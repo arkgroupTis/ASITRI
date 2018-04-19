@@ -15,9 +15,6 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('/daniel', function(){
-	return view ('daniel');
-});
 Route::get('/docentes', function(){
 	return view ('docentes');
 });

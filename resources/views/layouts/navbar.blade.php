@@ -1,79 +1,41 @@
-<nav class="navbar fixed-top navbar-expand-lg navbar-light white scrolling-navbar">
-    <div class="container-fluid">
-
-        <!-- Brand -->
-        <a class="navbar-brand waves-effect" href="#">
-            <strong class="blue-text">MDB</strong>
-        </a>
-
-        <!-- Collapse -->
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
-            aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-        </button>
-
-        <!-- Links -->
-        <div class="collapse navbar-collapse" id="navbarSupportedContent">
-
-            <!-- Left -->
-            <ul class="navbar-nav mr-auto">
-                <li class="nav-item active">
-                    <a class="nav-link waves-effect" href="#">Home
-                        <span class="sr-only">(current)</span>
-                    </a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link waves-effect" href="#">nav 1</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link waves-effect" href="#">nav 2</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link waves-effect" href="#">nav 3</a>
-                </li>
-            </ul>
-
-            <!-- Right -->
-            <ul class="navbar-nav nav-flex-icons">
-                <li class="nav-item">
-                    <a href="#" class="nav-link waves-effect">
-                        <i class="fa fa-facebook"></i>
-                    </a>
-                </li>
-                <li class="nav-item">
-                    <a href="#" class="nav-link waves-effect">
-                        <i class="fa fa-twitter"></i>
-                    </a>
-                </li>
-                @if (Auth::guest())
-                    <li class="nav-item">
-                        <a href="{{ url('/login') }}" class="nav-link border border-light rounded waves-effect"
-                           >
-                            <i class="fa fa-sign-out mr-2"></i>Login
-                        </a>
-                    </li>
-                    <li class="nav-item">
-                        <a href="{{ url('/register') }}" class="nav-link border border-light rounded waves-effect"
-                           >
-                            <i class="fa fa-sign-out mr-2"></i>Register
-                        </a>
-                    </li>
-                @else
-                    <li class="nav-item">
-                        <button class="nav-link border border-light rounded waves-effect" type="button" >
-                            {{ Auth::user()->name }}
-                        </button>
-                    </li>
-                    <li class="nav-item">
-                        <a href="{{ url('/logout') }}" class="nav-link border border-light rounded waves-effect"
-                           >
-                            <i class="fa fa-sign-out mr-2"></i>Logout
-                        </a>
-                    </li>
-                @endif
-            </ul>
-
-        </div>
-
+<!-- Navbar -->
+<nav class="navbar fixed-top navbar-toggleable-md navbar-expand-lg scrolling-navbar double-nav">
+    <!-- SideNav slide-out button -->
+    <div class="float-left">
+        <a href="#" data-activates="slide-out" class="button-collapse"><i class="fa fa-bars"></i></a>
     </div>
+    <!-- Breadcrumb-->
+    <div class="breadcrumb-dn mr-auto">
+        <p>Material Design for Bootstrap</p>
+    </div>
+    <ul class="nav navbar-nav nav-flex-icons ml-auto">
+        <li class="nav-item">
+            <a class="nav-link"><i class="fa fa-envelope"></i> <span class="clearfix d-none d-sm-inline-block">Contact</span></a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link"><i class="fa fa-comments-o"></i> <span class="clearfix d-none d-sm-inline-block">Support</span></a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link"><i class="fa fa-user"></i> <span class="clearfix d-none d-sm-inline-block">Account</span></a>
+        </li>
+        <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                Dropdown
+            </a>
+            <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdownMenuLink">
+                <a class="dropdown-item" href="#">Action</a>
+                <a class="dropdown-item" href="#">Another action</a>
+                <a class="dropdown-item" href="#">Something else here</a>
+            </div>
+        </li>
+
+        
+        <li class="nav-item">
+            <a class="nav-link"><i class="fa fa-user"></i> <span class="clearfix d-none d-sm-inline-block">{{ Auth::user()->name }}</span></a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" href="{{ url('/logout') }}"><i class="fas fa-sign-out-alt"></i>Logout</a>
+        </li>
+    </ul>
 </nav>
+<!-- /.Navbar -->
