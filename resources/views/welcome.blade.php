@@ -1,18 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
     <head>
-        <meta charset="utf-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-        <meta http-equiv="x-ua-compatible" content="ie=edge">
-        <title>Material Design Bootstrap</title>
-        <!-- Font Awesome -->
-        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
-        <!-- Bootstrap core CSS -->
-        <link href="css/bootstrap.min.css" rel="stylesheet">
-        <!-- Material Design Bootstrap -->
-        <link href="css/mdb.min.css" rel="stylesheet">
-        <!-- Your custom styles (optional) -->
-        <!-- <link href="css/style.min.css" rel="stylesheet"> -->
+        @include('layouts.htmlheader')
         <style>
             .carousel,.carousel .carousel-inner,.carousel .carousel-inner .active,.carousel .carousel-inner .carousel-item,.view,body,html{height:100%}.navbar{background-color:rgba(0,0,0,.2)}.page-footer,.top-nav-collapse{background-color:#1C2331}@media only screen and (max-width:768px){.navbar{background-color:#1C2331}}
         </style>
@@ -61,11 +50,19 @@
                                 <i class="fa fa-twitter"></i>
                             </a>
                         </li>
+                        @if(auth()->guest())
                         <li class="nav-item">
                             <a href="{{url('login')}}" class="nav-link border border-light rounded">
                                 <i class="fa fa-lock mr-2"></i>Iniciar Sesion
                             </a>
                         </li>
+                        @else
+                        <li class="nav-item">
+                            <a href="{{url('/home')}}" class="nav-link border border-light rounded">
+                                <i class="fa fa-home mr-2"></i>Home
+                            </a>
+                        </li>
+                        @endif
                     </ul>
                 </div>
             </div>
@@ -330,18 +327,7 @@
         </footer>
         <!--/.Footer-->
         <!-- SCRIPTS -->
-        <!-- JQuery -->
-        <script type="text/javascript" src="js/jquery-3.2.1.min.js"></script>
-        <!-- Bootstrap tooltips -->
-        <script type="text/javascript" src="js/popper.min.js"></script>
-        <!-- Bootstrap core JavaScript -->
-        <script type="text/javascript" src="js/bootstrap.min.js"></script>
-        <!-- MDB core JavaScript -->
-        <script type="text/javascript" src="js/mdb.min.js"></script>
-        <!-- Initializations -->
-        <script type="text/javascript">
-        // Animations initialization
-        new WOW().init();
-        </script>
+
+        @include('layouts.scripts')
     </body>
 </html>
