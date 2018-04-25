@@ -27,6 +27,16 @@ Route::get('/tabla4',function()
 	return view ('tabla4');
 });
 
+Route::get('/areas',function()
+{
+	return view ('areas.create');
+});
+
+Route::get('/areas/edit',function()
+{
+	return view ('areas.edit');
+});
+
 Route::auth();
 
 Route::get('/home', 'HomeController@index');
