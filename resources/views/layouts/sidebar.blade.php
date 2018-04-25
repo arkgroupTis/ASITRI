@@ -3,80 +3,131 @@
         <!-- Logo -->
         <li>
             <div class="logo-wrapper waves-light">
-                <a href="#"><img src="/img/mdb-transparent.png" class="img-fluid flex-center"></a>
+                <a href="#">
+                    <img src="/img/logo-transparent.png" class="img-fluid flex-center">
+                </a>
             </div>
         </li>
         <!--/. Logo -->
         <!--Social-->
         <li>
             <ul class="social">
-                <li><a href="#" class="icons-sm fb-ic"><i class="fa fa-facebook"> </i></a></li>
-                <li><a href="#" class="icons-sm pin-ic"><i class="fa fa-pinterest"> </i></a></li>
-                <li><a href="#" class="icons-sm gplus-ic"><i class="fa fa-google-plus"> </i></a></li>
-                <li><a href="#" class="icons-sm tw-ic"><i class="fa fa-twitter"> </i></a></li>
+                <li><a href="#" class="icons-sm fb-ic"><i class="fab fa-facebook-f"> </i></a></li>
+                <li><a href="#" class="icons-sm pin-ic"><i class="fab fa-pinterest"> </i></a></li>
+                <li><a href="#" class="icons-sm gplus-ic"><i class="fab fa-google-plus"> </i></a></li>
+                <li><a href="#" class="icons-sm tw-ic"><i class="fab fa-twitter"> </i></a></li>
             </ul>
         </li>
         <!--/Social-->
-        <!--Search Form-->
-        <li>
-            <form class="search-form" role="search">
-                        <div class="form-group md-form mt-0 pt-1 waves-light">
-                            <input type="text" class="form-control" placeholder="Search">
-                        </div>
-                    </form>
-        </li>
-        <!--/.Search Form-->
+        <hr class="white">
         <!-- Side navigation links -->
         <li>
             <ul class="collapsible collapsible-accordion">
-                <li><a class="collapsible-header waves-effect arrow-r"><i class="fa fa-chevron-right"></i> Submit blog<i class="fa fa-angle-down rotate-icon"></i></a>
+                <li>
+                    <a class="collapsible-header waves-effect arrow-r">
+                        <i class="fa fa-chevron-right"></i> 
+                        Submit blog
+                        <i class="fa fa-angle-down rotate-icon"></i>
+                    </a>
                     <div class="collapsible-body">
                         <ul>
-                            <li><a href="#" class="waves-effect">Submit listing</a>
+                            <li>
+                                <a href="#" class="waves-effect">Submit listing</a>
                             </li>
-                            <li><a href="#" class="waves-effect">Registration form</a>
+                            <li>
+                                <a href="#" class="waves-effect">Registration form</a>
                             </li>
                         </ul>
                     </div>
                 </li>
-                <li><a class="collapsible-header waves-effect arrow-r"><i class="fa fa-hand-pointer-o"></i> Instruction<i class="fa fa-angle-down rotate-icon"></i></a>
+                <li>
+                    <a class="collapsible-header waves-effect arrow-r">
+                        <i class="fa fa-hand-pointer-o"></i> 
+                        Instruction
+                        <i class="fa fa-angle-down rotate-icon"></i>
+                    </a>
                     <div class="collapsible-body">
                         <ul>
-                            <li><a href="#" class="waves-effect">For bloggers</a>
+                            <li>
+                                <a href="#" class="waves-effect">For bloggers</a>
                             </li>
-                            <li><a href="#" class="waves-effect">For authors</a>
+                            <li>
+                                <a href="#" class="waves-effect">For authors</a>
                             </li>
                         </ul>
                     </div>
                 </li>
-                <li><a class="collapsible-header waves-effect arrow-r"><i class="fa fa-eye"></i> About<i class="fa fa-angle-down rotate-icon"></i></a>
+                <li>
+                    <a class="collapsible-header waves-effect arrow-r">
+                        <i class="fa fa-eye"></i> 
+                        About
+                    </a>
+                </li>
+                <li>
+                    <a class="collapsible-header waves-effect arrow-r">
+                        <i class="fa fa-eye"></i> 
+                        About
+                        <i class="fa fa-angle-down rotate-icon"></i>
+                    </a>
                     <div class="collapsible-body">
                         <ul>
-                            <li><a href="#" class="waves-effect">Introduction</a>
+                            <li>
+                                <a href="#" class="waves-effect">Introduction</a>
                             </li>
-                            <li><a href="#" class="waves-effect">Monthly meetings</a>
+                            <li>
+                                <a href="#" class="waves-effect">Monthly meetings</a>
                             </li>
                         </ul>
                     </div>
                 </li>
-                <li><a class="collapsible-header waves-effect arrow-r"><i class="fa fa-envelope-o"></i> Contact me<i class="fa fa-angle-down rotate-icon"></i></a>
+                <hr class="white">
+                <li>
+                    <a class="collapsible-header waves-effect arrow-r">
+                        <i class="fa fa-envelope-o"></i> 
+                        Contact me
+                        <i class="fa fa-angle-down rotate-icon"></i>
+                    </a>
                     <div class="collapsible-body">
                         <ul>
-                            <li><a href="#" class="waves-effect">FAQ</a>
+                            <li>
+                                <a href="#" class="waves-effect">
+                                    FAQ
+                                </a>
                             </li>
-                            <li><a href="#" class="waves-effect">Write a message</a>
+                            <li>
+                                <a href="#" class="waves-effect">
+                                    Write a message
+                                </a>
                             </li>
-                            <li><a href="#" class="waves-effect">FAQ</a>
+                            <li>
+                                <a href="#" class="waves-effect">
+                                    FAQ
+                                </a>
                             </li>
-                            <li><a href="#" class="waves-effect">Write a message</a>
+                            <li>
+                                <a href="#" class="waves-effect">
+                                    Write a message
+                                </a>
                             </li>
-                            <li><a href="#" class="waves-effect">FAQ</a>
+                            <li>
+                                <a href="#" class="waves-effect">
+                                    FAQ
+                                </a>
                             </li>
-                            <li><a href="#" class="waves-effect">Write a message</a>
+                            <li>
+                                <a href="#" class="waves-effect">
+                                    Write a message
+                                </a>
                             </li>
-                            <li><a href="#" class="waves-effect">FAQ</a>
+                            <li>
+                                <a href="#" class="waves-effect">
+                                    FAQ
+                                </a>
                             </li>
-                            <li><a href="#" class="waves-effect">Write a message</a>
+                            <li>
+                                <a href="#" class="waves-effect">
+                                    Write a message
+                                </a>
                             </li>
                         </ul>
                     </div>
@@ -85,5 +136,7 @@
         </li>
         <!--/. Side navigation links -->
     </ul>
-    <div class="sidenav-bg mask-strong"></div>
+    <div class="sidenav-bg mask-strong">
+        
+    </div>
 </div>
