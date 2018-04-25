@@ -7,10 +7,10 @@
     <!-- Grid row -->
     <div class="form-group row">
         <!-- Material input -->
-        <label for="inputEmail3MD" class="col-sm-2 col-form-label">Nombre:</label>
+        <label for="nombre" class="col-sm-2 col-form-label">Nombre:</label>
         <div class="col-sm-10">
             <div class="md-form mt-0">
-                <input type="text" class="form-control" id="inputEmail3MD" placeholder="Nombre">
+                <input type="text" class="form-control" id="nombre" placeholder="Nombre">
             </div>
         </div>
     </div>
@@ -19,10 +19,10 @@
     <!-- Grid row -->
     <div class="form-group row">
         <!-- Material input -->
-        <label for="inputPassword3MD" class="col-sm-2 col-form-label">Password</label>
+        <label for="descripcion" class="col-sm-2 col-form-label">Descripcion:</label>
         <div class="col-sm-10">
             <div class="md-form mt-0">
-              <input type="password" class="form-control" id="inputPassword3MD" placeholder="Password">
+              <textarea type="text" id="descripcion" class="form-control md-textarea" rows="3" placeholder="Descripcion"></textarea>
             </div>
         </div>
     </div>
@@ -30,8 +30,11 @@
 
     <!-- Grid row -->
     <div class="form-group row">
-        <div class="col-sm-10">
-            <button type="submit" class="btn btn-primary btn-md">Sign in</button>
+        <div class="col-sm-15">
+            <button type="reset" class="btn btn-danger btn-md">Cancelar</button>
+        </div>
+        <div class="col-sm-5">
+            <button type="submit" class="btn btn-primary btn-md">Guardar</button>
         </div>
     </div>
     <!-- Grid row -->
