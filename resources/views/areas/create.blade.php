@@ -27,7 +27,19 @@
         </div>
     </div>
     <!-- Grid row -->
-
+    <!-- Grid row -->
+    <div class="form-group row">
+        <!--Blue select-->
+        <select class="mdb-select colorful-select dropdown-primary">
+            <option value="1">Option 1</option>
+            <option value="2">Option 2</option>
+            <option value="3">Option 3</option>
+            <option value="4">Option 4</option>
+            <option value="5">Option 5</option>
+        </select>
+        <label>Blue select</label>
+        <!--/Blue select-->
+    </div>
     <!-- Grid row -->
     <div class="form-group row">
         <div class="col-sm-15">
