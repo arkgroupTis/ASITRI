@@ -15,16 +15,12 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('/docentes', function(){
-	return view ('docentes');
+Route::get('/daniel', function(){
+	return view ('daniel');
 });
-Route::get('/d&p',function()
+Route::get('/maindoc',function()
 {
-	return view ('d&p');
-});
-Route::get('/tabla4',function()
-{
-	return view ('tabla4');
+	return view ('maindoc');
 });
 
 Route::auth();
