@@ -9,6 +9,6 @@ $home = [
 @endphp
 
 @section('content')
-
+<button class="btn aqua-gradient btn-rounded">este es un boton</button>
 
 @endsection
