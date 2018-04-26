@@ -70,6 +70,12 @@
                     </a>
                 </li>
                 <li>
+                    <a class="collapsible-header waves-effect arrow-r" href="/tribunales">
+                        <i class="fa fa-eye"></i> 
+                        Tribunales
+                    </a>
+                </li>
+                <li>
                     <a class="collapsible-header waves-effect arrow-r">
                         <i class="fa fa-eye"></i> 
                         About
