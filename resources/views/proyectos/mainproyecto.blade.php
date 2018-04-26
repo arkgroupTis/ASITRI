@@ -2,9 +2,9 @@
 @section('content')
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 <div class='container'>
-	<h1>Docentes & Profesionales</h1>
+	<h1>Proyectos</h1>
 	<div class="container">
-	<div class="row">
+	<div class="form-row">
 		<div class="col-md-4">
         <!--Blue select-->
         <select class="mdb-select colorful-select dropdown-primary">
@@ -23,11 +23,11 @@
 		<table class="table table-bordered table-striped">
 		  <thead>
 		    <tr>
-		      <th width="15"><font size="3">Codigo Docente</font></th>
-		      <th><font size="3">Nombre Docente</font></th>
-		      <th width="25"><font size="3">Tipo</font></th>
-		      <th width="5"><font size="3">N</font></th>
-		      <th width="15"><font size="3">Proyectos</font></th>
+		      <th><font size="3">Codigo Proyecto</font></th>
+		      <th><font size="3">Nombre Proyecto</font></th>
+		      <th><font size="3">Tipo Proyecto</font></th>
+		      <th><font size="3">Informacion</font></th>
+		      <th><font size="3">Tribunales</font></th>
 		    </tr>
 		  </thead>
 		  <tbody id="table1">
@@ -36,57 +36,89 @@
 		      <td>Mark</td>
 		      <td>Docente</td>
 		      <td>5</td>
-		      <td><button type="button">Mostrar</button></td>
+		      <td class="form-row">
+		      	<button type="button">Asignar</button>
+		      	<button type="button">Eliminar</button>
+		      	<button type="button">Reasignar</button>
+		      </td>
 		    </tr>
 		    <tr>
 		      <th >2</th>
 		      <td>Jacob</td>
 		      <td>Docente</td>
 		      <td>3</td>
-		      <td><button type="button">Mostrar</button></td>
+		      <td class="form-row">
+		      	<button type="button">Asignar</button>
+		      	<button type="button">Eliminar</button>
+		      	<button type="button">Reasignar</button>
+		      </td>
 		    </tr>
 		    <tr>
 		      <th>3</th>
 		      <td>Larry the Bird</td>
 		      <td>Profesional</td>
 		      <td>4</td>
-		      <td><button type="button">Mostrar</button></td>
+		      <td class="form-row">
+		      	<button type="button">Asignar</button>
+		      	<button type="button">Eliminar</button>
+		      	<button type="button">Reasignar</button>
+		      </td>
 		    </tr>
 		    <tr>
 		      <th>4</th>
 		      <td>Marco Valencia</td>
 		      <td>Profesional</td>
 		      <td>3</td>
-		      <td><button type="button">Mostrar</button></td>
+		      <td class="form-row">
+		      	<button type="button">Asignar</button>
+		      	<button type="button">Eliminar</button>
+		      	<button type="button">Reasignar</button>
+		      </td>
 		    </tr>
 		    <tr>
 		      <th>5</th>
 		      <td>Armando Paredes</td>
 		      <td>Docente</td>
 		      <td>2</td>
-		      <td><button type="button">Mostrar</button></td>
+		      <td class="form-row">
+		      	<button type="button">Asignar</button>
+		      	<button type="button">Eliminar</button>
+		      	<button type="button">Reasignar</button>
+		      </td>
 		    </tr>
 		    <tr>
 		      <th>6</th>
 		      <td>Camila Sanchez</td>
 		      <td>Docente</td>
 		      <td>6</td>
-		      <td><button type="button">Mostrar</button></td>
+		      <td class="form-row">
+		      	<button type="button">Asignar</button>
+		      	<button type="button">Eliminar</button>
+		      	<button type="button">Reasignar</button>
+		      </td>
 		    </tr>
 		    <tr>
 		      <th>7</th>
 		      <td>Pedro Martinez</td>
 		      <td>Profesional</td>
 		      <td>4</td>
-		      <td><button type="button">Mostrar</button></td>
+		      <td class="form-row">
+		      	<button type="button">Asignar</button>
+		      	<button type="button">Eliminar</button>
+		      	<button type="button">Reasignar</button>
+		      </td>
 		    </tr>
 		    <tr>
 		      <th>8</th>
 		      <td>Solomeo Quintana</td>
 		      <td>Profesional</td>
 		      <td>3</td>
-		      <td><button type="button">Mostrar</button></td>
-		    </tr>
+		      <td class="form-row">
+		      	<button type="button">Asignar</button>
+		      	<button type="button">Eliminar</button>
+		      	<button type="button">Reasignar</button>
+		      </td>		    
+		  	</tr>
 		  </tbody>
 		</table>
 	</div>

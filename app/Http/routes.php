@@ -35,6 +35,11 @@ Route::get('/areas/edit',function()
 	return view ('areas.edit');
 });
 
+Route::get('/proyectos',function()
+{
+	return view ('proyectos.mainproyecto');
+});
+
 Route::get('/nuevoDocente', function () {
     return view('docentes.nuevoDocente');
 });
