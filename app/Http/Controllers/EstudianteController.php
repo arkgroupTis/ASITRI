@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
+use App\Estudiante;
 
 class EstudianteController extends Controller
 {
@@ -16,7 +17,8 @@ class EstudianteController extends Controller
      */
     public function index()
     {
-        //
+        $estudiantes = Estudiante::orderBy('apellidoEst', 'asc')->get();
+        return view('estudiante.index', compact('estudiantes'));
     }
 
     /**

@@ -46,3 +46,5 @@ Route::get('/nuevoDocente', function () {
 Route::auth();
 
 Route::get('/home', 'HomeController@index');
+
+Route::resource('/estudiante', 'EstudianteController');
