@@ -69,7 +69,7 @@
                                 <a href="/maindoc" class="waves-effect">Docente & Profesionales</a>
                             </li>
                             <li>
-                                <a href="#" class="waves-effect">Nuevo Docente</a>
+                                <a href="/nuevoDocente" class="waves-effect">Nuevo Docente</a>
                             </li>
                             <li>
                                 <a href="#" class="waves-effect">Nuevo Profesional</a>

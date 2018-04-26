@@ -35,6 +35,9 @@ Route::get('/areas/edit',function()
 	return view ('areas.edit');
 });
 
+Route::get('/nuevoDocente', function () {
+    return view('docentes.nuevoDocente');
+});
 Route::auth();
 
 Route::get('/home', 'HomeController@index');
