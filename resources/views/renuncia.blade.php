@@ -1,7 +1,4 @@
 @extends('layouts.app')
-@php
-$home = []
-@endphp
 @section('content')
 <form>
   <div class="form-row">
