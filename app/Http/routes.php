@@ -19,7 +19,7 @@ Route::get('/pruebas', function(){
 });
 Route::get('/maindoc',function()
 {
-	return view ('maindoc');
+	return view ('docentes.maindoc');
 });
 Route::get('/renuncia', function(){
 	return view ('renuncia');

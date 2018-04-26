@@ -1,12 +1,15 @@
-@extends('DocLayouts.layout1')
+@extends('layouts.app')
+@php
+$home = []
+@endphp
 @section('content')
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 <div class='container'>
 	<h1>Docentes & Profesionales</h1>
 	<div class="container">
 		<h2>Docentes</h2>
-	<div class="form-row">
-		<div>
+	<div class="row">
+		<div class="col-md-4">
         <!--Blue select-->
         <select class="mdb-select colorful-select dropdown-primary">
             <option value="1">Option 1</option>
@@ -15,10 +18,9 @@
             <option value="4">Option 4</option>
             <option value="5">Option 5</option>
         </select>
-        <label>Blue select</label>
         <!--/Blue select-->
     	</div>
-    	<div>
+    	<div class="col-md-8">
     		<input class="form-control" id="Search1" type="text" placeholder="Search..">	
     	</div>    	
     </div>
@@ -53,8 +55,23 @@
 	
 	<div class="container">
 		<h2>Profesionales</h2>
-		<input class="form-control" id="Search2" type="text" placeholder="Search..">
-		<table class="table table-striped table-bordered">
+		<div class="row">
+		<div class="col-md-4">
+        <!--Blue select-->
+        <select class="mdb-select colorful-select dropdown-primary">
+            <option value="1">Option 1</option>
+            <option value="2">Option 2</option>
+            <option value="3">Option 3</option>
+            <option value="4">Option 4</option>
+            <option value="5">Option 5</option>
+        </select>
+        <!--/Blue select-->
+    	</div>
+    	<div class="col-md-8">
+    		<input class="form-control" id="Search2" type="text" placeholder="Search..">	
+    	</div>    	
+    </div>
+    <table class="table table-striped table-bordered">
 		  <thead>
 		    <tr>
 		      <th><font size="3">Codigo Profesional</font></th>
