@@ -7,7 +7,7 @@
         <!--Double navigation-->
         <header>
             <!-- Sidebar navigation -->
-            @include('DocLayouts.side')
+            @include('DocLayouts.sideRen')
             <!--/. Sidebar navigation -->
             <!-- Navbar -->
             @include('layouts.navbar')

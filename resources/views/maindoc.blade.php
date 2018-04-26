@@ -5,7 +5,24 @@
 	<h1>Docentes & Profesionales</h1>
 	<div class="container">
 		<h2>Docentes</h2>
-		<input class="form-control" id="Search1" type="text" placeholder="Search..">
+	<div class="form-row">
+		<div>
+        <!--Blue select-->
+        <select class="mdb-select colorful-select dropdown-primary">
+            <option value="1">Option 1</option>
+            <option value="2">Option 2</option>
+            <option value="3">Option 3</option>
+            <option value="4">Option 4</option>
+            <option value="5">Option 5</option>
+        </select>
+        <label>Blue select</label>
+        <!--/Blue select-->
+    	</div>
+    	<div>
+    		<input class="form-control" id="Search1" type="text" placeholder="Search..">	
+    	</div>    	
+    </div>
+	
 		<table class="table table-bordered table-striped">
 		  <thead>
 		    <tr>
@@ -85,6 +102,7 @@
 		  });
 		});
 	</script>
+
 @endsection
 
 </body>

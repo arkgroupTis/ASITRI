@@ -14,12 +14,15 @@
 Route::get('/', function () {
     return view('welcome');
 });
-Route::get('/daniel', function(){
-	return view ('daniel');
+Route::get('/pruebas', function(){
+	return view ('pruebas');
 });
 Route::get('/maindoc',function()
 {
 	return view ('maindoc');
+});
+Route::get('/renuncia', function(){
+	return view ('renuncia');
 });
 
 Route::auth();
