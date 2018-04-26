@@ -18,9 +18,7 @@
         <!--Main Layout-->
         <main>
             <div class="container-fluid mt-5">
-                <!-- Heading -->
-                @include('layouts.heading')
-                <!-- Heading -->
+               
 
                 <!-- Content -->
                 @yield('content')
