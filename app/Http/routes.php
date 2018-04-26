@@ -14,17 +14,15 @@
 Route::get('/', function () {
     return view('welcome');
 });
-
-Route::get('/docentes', function(){
-	return view ('docentes');
+Route::get('/pruebas', function(){
+	return view ('pruebas');
 });
-Route::get('/d&p',function()
+Route::get('/maindoc',function()
 {
-	return view ('d&p');
+	return view ('docentes.maindoc');
 });
-Route::get('/tabla4',function()
-{
-	return view ('tabla4');
+Route::get('/renuncia', function(){
+	return view ('renuncia');
 });
 
 Route::get('/areas',function()
@@ -37,10 +35,28 @@ Route::get('/areas/edit',function()
 	return view ('areas.edit');
 });
 
+Route::get('/proyectos',function()
+{
+	return view ('proyectos.mainproyecto');
+});
+
+Route::get('/nuevoDocente', function () {
+    return view('docentes.nuevoDocente');
+});
 Route::auth();
 
 Route::get('/home', 'HomeController@index');
 
-Route::get('/nuevoDocente', function () {
-    return view('docentes/nuevoDocente');
+Route::get('/create', function () {
+    return view('proyectos/create');
 });
+
+Route::get('/newDoc', function () {
+    return view('docentes/newDoc');
+});
+
+Route::get('/newStudent', function () {
+    return view('students/newStudent');
+});
+
+

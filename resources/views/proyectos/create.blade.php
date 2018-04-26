@@ -3,6 +3,8 @@
 			
 
 @section('content')
+    
+    <h1 align="center">NUEVO PROYECTO</h1>
 
 	<form>
 
@@ -25,7 +27,7 @@
     <!-- Grid row -->
 
     
-
+                        <div>
 							<label class="control-label">Area Proyecto: </label>
 				
 							<select class="mdb-select colorful-select dropdown-primary col-md-12" name="area">
@@ -46,9 +48,9 @@
 								<option value="">Tecnologías de Control
 								<option value="">Teoría de la Computación
 							</select>
-				
+				        </div>
 						
-
+                    <div>
 						<label class="control-label">Subarea Proyecto: </label>
 						
 							<select class="mdb-select colorful-select dropdown-primary col-md-12" name="subarea">
@@ -69,7 +71,7 @@
 								<option value="">Tecnologías de Control
 								<option value="">Teoría de la Computación
 							</select>
-							
+					</div>	
 
     <!-- Grid row -->
     <div class="form-row">
@@ -136,7 +138,7 @@
         <div class="col-md-3">
             <!-- Material input -->
             <div class="md-form form-group">
-                <input type="text" class="form-control">
+                <input type="text" class="form-control" placeholder="Autocompletado">
                 <label >Numero: </label>
             </div>
         </div>
@@ -150,10 +152,11 @@
 							</select>
 
 
-    <button type="submit" class="btn btn-primary btn-md">GUARDAR</button>
-    <button type="submit" class="btn btn-info btn-md">CANCELAR</button>
+    <button type="submit" class="btn blue-gradient btn-rounded">GUARDAR</button>
+    <button type="submit" class="btn blue-gradient btn-rounded">CANCELAR</button>
 
-    </div>
+
+
 </form>
 	
 
