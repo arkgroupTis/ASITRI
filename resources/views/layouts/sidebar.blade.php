@@ -69,7 +69,7 @@
                                 <a href="/proyectos" class="waves-effect">Proyectos</a>
                             </li>
                             <li>
-                                <a href="#" class="waves-effect">Nuevo Proyecto</a>
+                                <a href="/create" class="waves-effect">Nuevo Proyecto</a>
                             </li>
                             <li>
                                 <a href="#" class="waves-effect">Nuevo Estudiante</a>
