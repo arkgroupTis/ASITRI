@@ -88,9 +88,8 @@
                             <li>
                                 <a href="/maindoc" class="waves-effect">Docente & Profesionales</a>
                             </li>
-
                             <li>
-                                <a href="#" class="waves-effect">Nuevo Profesional</a>
+                                <a href="newDoc" class="waves-effect">Nuevo Docente</a>
                             </li>
                         </ul>
                     </div>
