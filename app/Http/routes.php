@@ -40,3 +40,7 @@ Route::get('/areas/edit',function()
 Route::auth();
 
 Route::get('/home', 'HomeController@index');
+
+Route::get('/nuevoDocente', function () {
+    return view('docentes/nuevoDocente');
+});
