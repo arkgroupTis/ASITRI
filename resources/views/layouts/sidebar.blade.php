@@ -64,6 +64,12 @@
                     </a>
                 </li>
                 <li>
+                    <a class="collapsible-header waves-effect arrow-r" href="/areas">
+                        <i class="fa fa-eye"></i> 
+                        Areas
+                    </a>
+                </li>
+                <li>
                     <a class="collapsible-header waves-effect arrow-r">
                         <i class="fa fa-eye"></i> 
                         About
