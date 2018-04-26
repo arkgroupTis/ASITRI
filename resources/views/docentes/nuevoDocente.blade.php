@@ -15,19 +15,19 @@
             <!-- Material input -->
             <div class="md-form form-group">
                 <input type="text" class="form-control">
-                <label for="inputEmail4MD">Nombre del Proyecto</label>
+                <label>Nombre del Proyecto</label>
             </div>
         </div>
         <!-- Grid column -->
 
-         
-    </div>
+    </div>   
+    
     <!-- Grid row -->
 
     
 
 							<label class="control-label">Area Proyecto: </label>
-							<div class="">
+				
 							<select class="mdb-select colorful-select dropdown-primary col-md-12" name="area">
 								<option value="">Base de Datos</option>
 								<option value="">Comercio Electrónico</option>
@@ -46,11 +46,11 @@
 								<option value="">Tecnologías de Control
 								<option value="">Teoría de la Computación
 							</select>
-							</div>
+				
 						
 
 						<label class="control-label">Subarea Proyecto: </label>
-							<div class="">
+						
 							<select class="mdb-select colorful-select dropdown-primary col-md-12" name="subarea">
 								<option value="">Base de Datos</option>
 								<option value="">Comercio Electrónico</option>
@@ -69,33 +69,91 @@
 								<option value="">Tecnologías de Control
 								<option value="">Teoría de la Computación
 							</select>
-							</div>
-						</div>
+							
 
     <!-- Grid row -->
     <div class="form-row">
+        
+    	<div class="col-md-6">
+            <!-- Material input -->
+            <div class="md-form form-group">
+                <input type="text" class="form-control">
+                <label >Fecha: </label>
+            </div>
+        </div>
+
+        <div class="col-md-6">
+            <!-- Material input -->
+            <div class="md-form form-group">
+                <input type="text" class="form-control">
+                <label >Sesion de consejo</label>
+            </div>
+        </div>
+
+  </div>
+
+	<div class="form-row">
+        
+    	<div class="col-md-4">
+            <!-- Material input -->
+            <div class="md-form form-group">
+                <input type="text" class="form-control">
+                <label >SISS: </label>
+            </div>
+        </div>
+
+        <div class="col-md-8">
+            <!-- Material input -->
+            <div class="md-form form-group">
+                <input type="text" class="form-control" placeholder="Autocompletado">
+                <label >Nombre estudiante</label>
+            </div>
+        </div>
+
+  </div>  
+  <!-- Grid row -->
+
+      <div class="form-row">
         <!-- Grid column -->
         <div class="col-md-6">
             <!-- Material input -->
             <div class="md-form form-group">
-                <input type="text" class="form-control" id="inputCityMD" placeholder="New York City">
-                <label for="inputCityMD">City</label>
+                <input type="email" class="form-control" placeholder="Autocompletado" >
+                <label >Email</label>
             </div>
         </div>
         <!-- Grid column -->
 
         <!-- Grid column -->
-        <div class="col-md-6">
+        <div class="col-md-3">
             <!-- Material input -->
             <div class="md-form form-group">
-                <input type="text" class="form-control" id="inputZipMD" placeholder="11206-1117">
-                <label for="inputZipMD">Zip</label>
+                <input type="text" class="form-control" placeholder="Autocompletado">
+                <label >CI: </label>
+            </div>
+        </div>
+
+        <div class="col-md-3">
+            <!-- Material input -->
+            <div class="md-form form-group">
+                <input type="text" class="form-control">
+                <label >Numero: </label>
             </div>
         </div>
         <!-- Grid column -->
-  </div>
-  <!-- Grid row -->
-    <button type="submit" class="btn btn-primary btn-md">Sign in</button>
+    </div>
+
+    					<label class="control-label">Tutor: </label>
+						
+							<select class="mdb-select colorful-select dropdown-primary col-md-12" name="subarea">
+								<option value="">Tutores registrados</option>
+							</select>
+
+
+    <button type="submit" class="btn btn-primary btn-md">GUARDAR</button>
+    <button type="submit" class="btn btn-info btn-md">CANCELAR</button>
+
+    </div>
 </form>
 	
 
