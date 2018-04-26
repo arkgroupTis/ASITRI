@@ -112,6 +112,12 @@
                     </a>
                 </li>
                 <li>
+                    <a class="collapsible-header waves-effect arrow-r" href="/estudiante">
+                        <i class="fa fa-eye"></i> 
+                        Estudiantes
+                    </a>
+                </li>
+                <li>
                     <a class="collapsible-header waves-effect arrow-r">
                         <i class="fa fa-eye"></i> 
                         About
