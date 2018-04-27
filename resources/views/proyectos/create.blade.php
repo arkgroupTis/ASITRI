@@ -95,66 +95,61 @@
   </div>
 
 	<div class="form-row">
-        
-    	<div class="col-md-4">
-            <!-- Material input -->
-            <div class="md-form form-group">
-                <input type="text" class="form-control">
-                <label >SISS: </label>
-            </div>
-        </div>
-
-        <div class="col-md-8">
-            <!-- Material input -->
-            <div class="md-form form-group">
-                <input type="text" class="form-control" placeholder="Autocompletado">
-                <label >Nombre estudiante</label>
-            </div>
-        </div>
-
-  </div>  
-  <!-- Grid row -->
-
-      <div class="form-row">
-        <!-- Grid column -->
         <div class="col-md-6">
-            <!-- Material input -->
-            <div class="md-form form-group">
-                <input type="email" class="form-control" placeholder="Autocompletado" >
-                <label >Email</label>
+            <div>
+                <!-- Material input -->
+                <div class="md-form form-group">
+                    <input type="text" class="form-control" placeholder="Codigo SISS">
+                    <label >SISS: </label>
+                </div>
             </div>
-        </div>
-        <!-- Grid column -->
 
-        <!-- Grid column -->
-        <div class="col-md-3">
-            <!-- Material input -->
-            <div class="md-form form-group">
-                <input type="text" class="form-control" placeholder="Autocompletado">
-                <label >CI: </label>
+            <div>
+                <!-- Material input -->
+                <div class="md-form form-group">
+                    <input type="text" class="form-control" placeholder="Autocompletado">
+                    <label >Nombre estudiante</label>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-6">
+            <div>
+                <!-- Material input -->
+                <div class="md-form form-group">
+                    <input type="text" class="form-control" placeholder="Codigo SISS">
+                    <label >SISS: </label>
+                </div>
+            </div>
+
+            <div>
+                <!-- Material input -->
+                <div class="md-form form-group">
+                    <input type="text" class="form-control" placeholder="Autocompletado">
+                    <label >Nombre estudiante</label>
+                </div>
             </div>
         </div>
 
-        <div class="col-md-3">
-            <!-- Material input -->
-            <div class="md-form form-group">
-                <input type="text" class="form-control" placeholder="Autocompletado">
-                <label >Numero: </label>
-            </div>
+  </div>
+    <label class="control-label">Tutor: </label>
+    <div class="form-row">
+        <div class="col-md-6" >
+            
+            <select class="mdb-select colorful-select dropdown-primary col-md-12" name="subarea">
+                <option value="">Tutores registrados</option>
+            </select>
         </div>
-        <!-- Grid column -->
+        <div class="col-md-6" >
+            <select class="mdb-select colorful-select dropdown-primary col-md-12" name="subarea">
+                <option value="">Tutores registrados</option>
+            </select>
+        </div>
     </div>
-
-    					<label class="control-label">Tutor: </label>
-						
-							<select class="mdb-select colorful-select dropdown-primary col-md-12" name="subarea">
-								<option value="">Tutores registrados</option>
-							</select>
-
-
-    <button type="submit" class="btn blue-gradient btn-rounded">GUARDAR</button>
-    <button type="submit" class="btn blue-gradient btn-rounded">CANCELAR</button>
-
+    <div class="text-right">
+        <button type="submit" class="btn blue-gradient btn-rounded">GUARDAR</button>
+        <button type="submit" class="btn blue-gradient btn-rounded">CANCELAR</button>    
+    </div>
+    
 
 
 </form>
