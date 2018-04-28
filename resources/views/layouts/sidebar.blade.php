@@ -59,6 +59,48 @@
                 </li>
                 <li>
                     <a class="collapsible-header waves-effect arrow-r">
+                        <i class="fa fa-hand-pointer-o"></i> 
+                        Proyectos
+                        <i class="fa fa-angle-down rotate-icon"></i>
+                    </a>
+                    <div class="collapsible-body">
+                        <ul>
+                            <li>
+                                <a href="/proyectos" class="waves-effect">Proyectos</a>
+                            </li>
+                            <li>
+                                <a href="/create" class="waves-effect">Nuevo Proyecto</a>
+                            </li>
+                            <li>
+                                <a href="#" class="waves-effect">Nuevo Estudiante</a>
+                            </li>
+                        </ul>
+                    </div>
+                </li>
+                <li>
+                    <a class="collapsible-header waves-effect arrow-r">
+                        <i class="fa fa-hand-pointer-o"></i> 
+                        Docentes & Profesionales
+                        <i class="fa fa-angle-down rotate-icon"></i>
+                    </a>
+                    <div class="collapsible-body">
+                        <ul>
+                            <li>
+                                <a href="/maindoc" class="waves-effect">Docente & Profesionales</a>
+                            </li>
+
+                            <li>
+                                <a href="#" class="waves-effect">Nuevo Profesional</a>
+                            </li>
+                        </ul>
+                    </div>
+                </li>
+                <li>
+                    <a href="/renuncia" class="collapsible-header waves-effect arrow-r">
+                        <i class="fa fa-eye"></i> 
+                            Renuncia Tribunal
+                    </a>
+                    <a class="collapsible-header waves-effect arrow-r">
                         <i class="fa fa-eye"></i> 
                         About
                     </a>
@@ -70,9 +112,15 @@
                     </a>
                 </li>
                 <li>
+<<<<<<< HEAD
                     <a class="collapsible-header waves-effect arrow-r" href="/tribunales">
                         <i class="fa fa-eye"></i> 
                         Tribunales
+=======
+                    <a class="collapsible-header waves-effect arrow-r" href="/estudiante">
+                        <i class="fa fa-eye"></i> 
+                        Estudiantes
+>>>>>>> b71dabac831e6f1c2c5603c1117d16a22cd2370f
                     </a>
                 </li>
                 <li>
