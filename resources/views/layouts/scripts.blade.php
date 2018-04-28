@@ -26,3 +26,4 @@
 		$('[data-toggle="tooltip"]').tooltip()
 	})
 </script>
+@yield('script')
