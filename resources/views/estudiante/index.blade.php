@@ -247,10 +247,7 @@
         </div>
         <!--/.Content-->
     </div>
-</div>
-<!-- Modal delete estudiante -->
-  
-                                          
+</div>                               
 @endsection
 @section('script')
 <script>
