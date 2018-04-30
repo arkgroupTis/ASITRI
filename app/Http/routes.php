@@ -61,3 +61,4 @@ Route::get('/newStudent', function () {
 
 
 Route::resource('/estudiante', 'EstudianteController');
+Route::resource('/docentes', 'DocenteController');
