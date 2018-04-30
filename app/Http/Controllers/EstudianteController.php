@@ -17,7 +17,7 @@ class EstudianteController extends Controller
      */
     public function index()
     {
-        $estudiantes = Estudiante::orderBy('apellidoEst', 'asc')->get();
+        $estudiantes = Estudiante::orderBy('apellidoEst', 'asc')->paginate(5);
         return view('estudiante.index', compact('estudiantes'));
     }
 
@@ -39,7 +39,25 @@ class EstudianteController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $this->validate($request, [
+            'ciEst' => 'required|string',
+            'nombreEst' => 'required|string',
+            'apellidoEst' => 'required|string',
+            'emailEst' => 'required|email',
+            'telefono' => 'required|integer',
+        ]);
+        Estudiante::create([
+            'ciEst' => $request['ciEst'],
+            'nombreEst' => $request['nombreEst'],
+            'apellidoEst' => $request['apellidoEst'],
+            'emailEst' => $request['emailEst'],
+            'telefono' => $request['telefono'],
+            'idProyecto' => NULL,
+            'idCarrera' => $request['idCarrera'],
+        ]);
+        return response()->json([
+            'message' => 'Se agrego correctamente!',
+        ]);
     }
 
     /**
@@ -50,7 +68,9 @@ class EstudianteController extends Controller
      */
     public function show($id)
     {
-        //
+        return response()->json([
+            'estudiante' => Estudiante::where('idEstudiante', $id)->firstOrFail(),
+        ]);
     }
 
     /**
@@ -73,7 +93,26 @@ class EstudianteController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $this->validate($request, [
+            'ciEst' => 'required|string',
+            'nombreEst' => 'required|string',
+            'apellidoEst' => 'required|string',
+            'emailEst' => 'required|email',
+            'telefono' => 'integer',
+        ]);
+        Estudiante::where('idEstudiante', $id)->update(
+            array(
+                'ciEst' => $request->ciEst,
+                'nombreEst' => $request->nombreEst,
+                'apellidoEst' => $request->apellidoEst,
+                'emailEst' => $request->emailEst,
+                'telefono' => $request->telefono,
+                'idCarrera' => $request->idCarrera,
+            )
+        );
+        return response()->json([
+            'message' => 'Se modifico correctamente!',
+        ]);
     }
 
     /**
@@ -84,6 +123,9 @@ class EstudianteController extends Controller
      */
     public function destroy($id)
     {
-        //
+        Estudiante::where('idEstudiante', $id)->delete();
+        return response()->json([
+            'mensaje' => 'Se elimino correctamente!',
+        ]);
     }
 }
