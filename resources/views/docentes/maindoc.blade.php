@@ -2,7 +2,11 @@
 @section('content')
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 <div class='container'>
-	<h1>Docentes & Profesionales</h1>
+    <div class="row">
+        <div class="col-md-8"><h1>Docentes & Profesionales</h1></div>
+        <div class="col-md-2"></div>
+        <div><button class="btn btn-indigo"><a href="/newDoc"><font color="white" size="2">Nuevo Docente</font></a></button></div>
+	</div>
 	<div class="container">
 	<div class="row">
 		<div class="col-md-4">

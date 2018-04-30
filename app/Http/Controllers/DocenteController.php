@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
+use App\Docente;
 
 class DocenteController extends Controller
 {
@@ -16,9 +17,12 @@ class DocenteController extends Controller
      */
     public function index()
     {
-        //
+        $docentes = Docente::orderBy('apePaternoDoc', 'asc')->get();
+        return view('docentes.maindoc', compact('docentes'));
     }
-
+//     @foreach($docentes as $docente)
+// <h1> {{ $docente->ciDoc }} </h1>
+// @endforeach 
     /**
      * Show the form for creating a new resource.
      *

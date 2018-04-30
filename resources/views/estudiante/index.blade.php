@@ -154,6 +154,6 @@
     </div>
 </div>
 <!-- Central Modal Medium Info-->
-  
+
                                           
 @endsection
