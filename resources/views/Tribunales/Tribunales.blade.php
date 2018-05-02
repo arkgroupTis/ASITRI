@@ -10,8 +10,6 @@
 				<input class="form-control form-control-lg" id="buscador" type="text" placeholder="Tribunal..">	
 			</div>
 		</div>
-
-
 		<div class="tablaScroll2">
 			<table id="tabla" class="table table-bordered table-striped tablaScroll2">
 			  <thead style="">
@@ -30,7 +28,6 @@
 			  </tbody>
 			</table>
 		</div>
-		<div class="tablaScroll2"><h1>Prueba</h1></div>
 		
 	</div>
 

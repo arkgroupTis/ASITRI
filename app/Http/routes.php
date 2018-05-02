@@ -62,9 +62,7 @@ Route::get('/newStudent', function () {
 
 Route::resource('/estudiante', 'EstudianteController');
 
-Route::get('/AsignacionTribunales', function(){
-	return view('Tribunales/AsignacionTribunales');
-});
+Route::resource('/Tribunales', 'DocenteController@tribunales');
 
 /**
 Route::get('/Tribunales', function(){
@@ -72,4 +70,10 @@ Route::get('/Tribunales', function(){
 });
 */
 
-Route::resource('/Tribunales', 'DocenteController');
+Route::resource('/AsignacionTribunales', 'DocenteController@asignacionTribunales');
+
+/**
+Route::get('/AsignacionTribunales', function(){
+	return view('Tribunales/AsignacionTribunales');
+});
+*/

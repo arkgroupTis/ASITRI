@@ -21,53 +21,31 @@
 				<input class="form-control form-control-lg" id="buscador" type="text" placeholder="Tribunal..">	
 			</div>
 	    </div>
-		<table class="table table-bordered table-striped">
-		  <thead>
-		    <tr>
-		      <th><font size="3">Nombre Tribunal</font></th>
-		      <th width=""><font size="3">Proyectos</font></th>
-		    </tr>
-		  </thead>
-		  <tbody id="table1">
-		    <tr>
-		      <td>
-		      	Mark
-		      	<a class="btn-floating btn-sm btn-indigo float-right" data-toggle="tooltip" data-placement="top" title="Asignar">
-		      		<i class="fas fa-plus-circle mt-1 ml-1 fa-2x"></i></i>
-		      	</a>
-		      </td>
-		      <td>5</td>
-		    </tr>
-		    <tr>
-		      <td>Jacob</td>
-		      <td>3</td>
-		    </tr>
-		    <tr>
-		      <td>Larry the Bird</td>
-		      <td>4</td>
-		    </tr>
-		    <tr>
-		      <td>Marco Valencia</td>
-		      <td>3</td>
-		    </tr>
-		    <tr>
-		      <td>Armando Paredes</td>
-		      <td>2</td>
-		    </tr>
-		    <tr>
-		      <td>Camila Sanchez</td>
-		      <td>6</td>
-		    </tr>
-		    <tr>
-		      <td>Pedro Martinez</td>
-		      <td>4</td>
-		    </tr>
-		    <tr>
-		      <td>Solomeo Quintana</td>
-		      <td>3</td>
-		    </tr>
-		  </tbody>
-		</table>
+
+	    <div class="tablaScroll2">
+			<table id="tabla" class="table table-bordered table-striped tablaScroll2">
+			  <thead style="">
+			    <tr>
+			      <th><font size="3">Nombre Tribunal</font></th>
+			      <th><font size="3">Proyectos</font></th>
+			    </tr>
+			  </thead>
+			  <tbody id="datosTabla" >
+			  	@foreach($docentes as $docente)
+			  		<tr>
+			  			 <td>
+			  			 	{{$docente -> apePaternoDoc}} {{$docente -> apeMaternoDoc}} {{$docente -> nombreDoc}}
+			  			 	<a class="btn-floating btn-sm btn-indigo float-right" data-toggle="tooltip" data-placement="top" title="Asignar como Tribunal">
+			  			 		<i class="fas fa-plus-circle mt-1 ml-1 fa-2x"></i></i>
+			  			 	</a>
+			  			</td>
+				    	<td align="center">{{$docente -> telefonoDoc}}</td>
+				    </tr>
+			    @endforeach
+			  </tbody>
+			</table>
+		</div>
+
 		<div class="form-group row">
 			<label for="buscador" class="col-sm-5 col-form-label col-form-label-lg">Tribunales Asignados:</label>
 		</div>

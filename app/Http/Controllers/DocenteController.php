@@ -18,8 +18,18 @@ class DocenteController extends Controller
     public function index()
     {
         
-        $docentes = Docente::orderBy('apePaternoDoc', 'asc')->paginate(0);
-        return view('Tribunales.Tribunales', compact('docentes'));
+    }
+
+    public function tribunales()
+    {
+        $docentes = Docente::orderBy('apePaternoDoc', 'asc')->paginate(500);
+        return view('Tribunales.Tribunales', compact('docentes'));   
+    }
+
+    public function asignacionTribunales()
+    {
+        $docentes = Docente::orderBy('apePaternoDoc', 'asc')->paginate(500);
+        return view('Tribunales.AsignacionTribunales', compact('docentes'));   
     }
 
     /**
@@ -31,7 +41,6 @@ class DocenteController extends Controller
     {
         //
     }
-
     /**
      * Store a newly created resource in storage.
      *
