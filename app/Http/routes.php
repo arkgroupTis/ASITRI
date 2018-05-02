@@ -66,6 +66,10 @@ Route::get('/AsignacionTribunales', function(){
 	return view('Tribunales/AsignacionTribunales');
 });
 
+/**
 Route::get('/Tribunales', function(){
 	return view('Tribunales/Tribunales');
 });
+*/
+
+Route::resource('/Tribunales', 'DocenteController');

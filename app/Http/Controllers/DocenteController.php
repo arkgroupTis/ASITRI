@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
+use App\Docente;
 
 class DocenteController extends Controller
 {
@@ -16,7 +17,9 @@ class DocenteController extends Controller
      */
     public function index()
     {
-        //
+        
+        $docentes = Docente::orderBy('apePaternoDoc', 'asc')->paginate(0);
+        return view('Tribunales.Tribunales', compact('docentes'));
     }
 
     /**

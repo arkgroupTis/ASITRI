@@ -32,7 +32,9 @@
 		    <tr>
 		      <td>
 		      	Mark
-		      	<button type="button" class="btn btn-success float-right btn-sm">+</button>
+		      	<a class="btn-floating btn-sm btn-indigo float-right" data-toggle="tooltip" data-placement="top" title="Asignar">
+		      		<i class="fas fa-plus-circle mt-1 ml-1 fa-2x"></i></i>
+		      	</a>
 		      </td>
 		      <td>5</td>
 		    </tr>
@@ -80,7 +82,7 @@
 		    <tr>
 		      <td>
 		      	Mark
-		      	<button type="button" class="btn btn-danger float-right btn-sm">X</button>
+		      	<a class="btn-floating btn-sm btn-danger float-right" data-toggle="tooltip" data-placement="top" title="Eliminar"><i class="fa fa-trash mt-2 ml-2 fa-lg"></i></a>
 		      </td>
 		      <td>5</td>
 		    </tr>
