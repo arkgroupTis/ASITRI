@@ -61,3 +61,19 @@ Route::get('/newStudent', function () {
 
 
 Route::resource('/estudiante', 'EstudianteController');
+
+Route::resource('/Tribunales', 'DocenteController@tribunales');
+
+/**
+Route::get('/Tribunales', function(){
+	return view('Tribunales/Tribunales');
+});
+*/
+
+Route::resource('/AsignacionTribunales', 'DocenteController@asignacionTribunales');
+
+/**
+Route::get('/AsignacionTribunales', function(){
+	return view('Tribunales/AsignacionTribunales');
+});
+*/

@@ -89,7 +89,7 @@
                                 <a href="/maindoc" class="waves-effect">Docente & Profesionales</a>
                             </li>
                             <li>
-                                <a href="newDoc" class="waves-effect">Nuevo Docente</a>
+                                <a href="/newDoc" class="waves-effect">Nuevo Docente</a>
                             </li>
                         </ul>
                     </div>
@@ -109,6 +109,22 @@
                         <i class="fa fa-eye"></i> 
                         Areas
                     </a>
+                </li>
+                <li>
+                    <a class="collapsible-header waves-effect arrow-r">
+                        Tribunales
+                        <i class="fa fa-angle-down rotate-icon"></i>
+                    </a>
+                    <div class="collapsible-body">  
+                        <ul>
+                            <li>
+                                <a href="/Tribunales" class="waves-effect">Tribunales</a>
+                            </li>
+                            <li>
+                                <a href="/AsignacionTribunales" class="waves-effect">Asignacion de Tribunales</a>
+                            </li>
+                        </ul>
+                    </div>  
                 </li>
                 <li>
                     <a class="collapsible-header waves-effect arrow-r" href="/estudiante">

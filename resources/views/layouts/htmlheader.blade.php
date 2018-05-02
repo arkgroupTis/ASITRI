@@ -15,3 +15,6 @@
 
 <!-- Favicon-->
 <link rel="shortcut icon" href="img/favicon.ico">
+
+<!-- Css de Fer -->
+<link href="{{ asset('css/fer.min.css') }}" rel="stylesheet">
