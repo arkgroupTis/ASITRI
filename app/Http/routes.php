@@ -14,9 +14,6 @@
 Route::get('/', function () {
     return view('welcome');
 });
-Route::get('/pruebas', function(){
-	return view ('pruebas');
-});
 Route::get('/maindoc',function()
 {
 	return view ('docentes.maindoc');
@@ -77,3 +74,4 @@ Route::get('/AsignacionTribunales', function(){
 	return view('Tribunales/AsignacionTribunales');
 });
 */
+Route::resource('/docentes', 'DocenteController');

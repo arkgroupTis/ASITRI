@@ -86,7 +86,7 @@
                     <div class="collapsible-body">
                         <ul>
                             <li>
-                                <a href="/maindoc" class="waves-effect">Docente & Profesionales</a>
+                                <a href="/docentes" class="waves-effect">Docente & Profesionales</a>
                             </li>
                             <li>
                                 <a href="/newDoc" class="waves-effect">Nuevo Docente</a>
@@ -130,7 +130,18 @@
                     <a class="collapsible-header waves-effect arrow-r" href="/estudiante">
                         <i class="fa fa-eye"></i> 
                         Estudiantes
+                        <i class="fa fa-angle-down rotate-icon"></i>
                     </a>
+                    <div class="collapsible-body">
+                        <ul>
+                            <li>
+                                <a href="/estudiante" class="waves-effect">Estudiantes</a>
+                            </li>
+                            <li>
+                                <a href="/newStudent" class="waves-effect">Nuevo Estudiante</a>
+                            </li>
+                        </ul>
+                    </div>
                 </li>
                 <li>
                     <a class="collapsible-header waves-effect arrow-r">

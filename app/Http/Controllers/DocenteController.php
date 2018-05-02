@@ -52,7 +52,20 @@ class DocenteController extends Controller
      */
     public function store(Request $request)
     {
-        //
+            Estudiante::create([
+            'ciDocc' => $request['ciDocc'],
+            'nombreDoc' => $request['nombreDoc'],
+            'apePaternoDoc' => $request['apePaternoDoc'],
+            'apeMaternoDoc' => $request['apeMaternoDoc'],
+            'emailDoc' => $request['emailDoc'],
+            'telefonoDoc' => $request['telefonoDoc'],
+            'tituloDoc' => $request['tituloDoc'],
+            'cargaHoraria' => $request['cargaHoraria'],
+            'codigoDoc' => $request['codigoDoc'],
+        ]);
+        return response()->json([
+            'message' => 'Se agrego correctamente!',
+        ]);
     }
 
     /**
@@ -63,7 +76,9 @@ class DocenteController extends Controller
      */
     public function show($id)
     {
-        //
+       return response()->json([
+            'docente' => Docente::where('idDoc', $id)->firstOrFail(),
+        ]);
     }
 
     /**
