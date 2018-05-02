@@ -52,7 +52,7 @@ class DocenteController extends Controller
      */
     public function store(Request $request)
     {
-            Estudiante::create([
+            Docente::create([
             'ciDocc' => $request['ciDocc'],
             'nombreDoc' => $request['nombreDoc'],
             'apePaternoDoc' => $request['apePaternoDoc'],

@@ -120,14 +120,13 @@
 
 
 
-    <button type="submit" class="btn  btn-primary btn-md" id="agregar">GUARDAR</button>
-    <button type="submit" class="btn  btn-info btn-md">CANCELAR</button>
+    <button class="btn  btn-primary btn-md" id="add">GUARDAR</button>
+    <button class="btn  btn-info btn-md">CANCELAR</button>
 
 
 </form>
-
 <script>
-    $(document).on('click', '#agregar', function(e) {
+    $(document).on('click', '#add', function(e) {
         e.preventDefault();
         $.ajax({
             type: 'POST',
@@ -146,18 +145,13 @@
             },
             success : function(data) {
                 toastr.success(data.message);
-                location.reload();
+                lacation.reload();
             },
             error : function(xhr, status) {
                 toastr.error('Disculpe, existio un problema!');
             },
         });
-        $('#agregar').modal('hide');
-        clear();
     });
 </script>
-						
-						
-
 
 @endsection
