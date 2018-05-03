@@ -3,7 +3,7 @@
     <head>
         @include('layouts.htmlheader')
     </head>
-    <body class="fixed-sn light-blue-skin">
+    <body class="fixed-sn black-skin">
         <!--Double navigation-->
         <header>
             <!-- Sidebar navigation -->
@@ -18,8 +18,11 @@
         <!--Main Layout-->
         <main>
             <div class="container-fluid mt-5">
+<<<<<<< HEAD
                
 
+=======
+>>>>>>> 8ada8eddca5dd570b14e7ed5e2cec281ace98b1b
                 <!-- Content -->
                 @yield('content')
                 <!-- Content -->

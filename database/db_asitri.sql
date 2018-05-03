@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 11-04-2018 a las 21:29:06
+-- Tiempo de generación: 27-04-2018 a las 23:27:28
 -- Versión del servidor: 10.1.25-MariaDB
 -- Versión de PHP: 7.1.7
 
@@ -60,6 +60,14 @@ CREATE TABLE `carrera` (
   `nombreCarrera` varchar(60) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
+--
+-- Volcado de datos para la tabla `carrera`
+--
+
+INSERT INTO `carrera` (`idCarrera`, `nombreCarrera`) VALUES
+(1, 'Ing Sistemas'),
+(2, 'Ing Informatica');
+
 -- --------------------------------------------------------
 
 --
@@ -68,7 +76,6 @@ CREATE TABLE `carrera` (
 
 CREATE TABLE `docente` (
   `idDoc` int(11) NOT NULL,
-  `universidad` varchar(60) NOT NULL,
   `ciDoc` varchar(15) NOT NULL,
   `nombreDoc` varchar(60) NOT NULL,
   `apePaternoDoc` varchar(60) NOT NULL,
@@ -93,9 +100,27 @@ CREATE TABLE `estudiante` (
   `apellidoEst` varchar(60) NOT NULL,
   `emailEst` varchar(50) NOT NULL,
   `telefono` decimal(10,0) NOT NULL,
-  `idProyecto` int(11) NOT NULL,
+  `idProyecto` int(11) DEFAULT NULL,
   `idCarrera` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Volcado de datos para la tabla `estudiante`
+--
+
+INSERT INTO `estudiante` (`idEstudiante`, `ciEst`, `nombreEst`, `apellidoEst`, `emailEst`, `telefono`, `idProyecto`, `idCarrera`) VALUES
+(6, '546464', 'juan', 'perez', 'juan@gmail.com', '4545454', NULL, 1),
+(8, '345353', 'luis miguel', 'martinez', 'asda@bfghfg.com', '6764534', NULL, 1),
+(9, '65322421', 'pedro', 'rojas', 'pedrito@gmail.com', '74324631', NULL, 1),
+(10, '34524233', 'juancho', 'lopez', 'juanito@gmail.com', '6446345', NULL, 1),
+(11, '345232113', 'jorge', 'paredes', 'jorge@gmail.com', '67675545', NULL, 2),
+(12, '45634344', 'rene', 'martinez', 'rene@gmail.com', '74327322', NULL, 1),
+(13, '2342342', 'norma ', 'rocha', 'norma@gmail.com', '9898988', NULL, 2),
+(14, '435353', 'emiliano', 'cardenaz', 'emi@gmail.com', '6565434', NULL, 1),
+(15, '345353', 'arturo', 'vidal', 'arturito@gmail.com', '45324564', NULL, 2),
+(16, '64556464', 'sandro', 'bargas', 'sandro@gmail.com', '767676676', NULL, 1),
+(17, '6565643', 'ariel', 'ramos', 'ariel@gmail.com', '67675455', NULL, 2),
+(18, '56464546', 'edgar', 'carballo', 'edgar@gmail.com', '76754543', NULL, 1);
 
 -- --------------------------------------------------------
 
@@ -107,6 +132,14 @@ CREATE TABLE `modalidad` (
   `idModalidad` int(11) NOT NULL,
   `nombreMod` varchar(45) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Volcado de datos para la tabla `modalidad`
+--
+
+INSERT INTO `modalidad` (`idModalidad`, `nombreMod`) VALUES
+(1, 'Proyecto de Grado'),
+(2, 'Tesis');
 
 -- --------------------------------------------------------
 
@@ -137,6 +170,13 @@ CREATE TABLE `proyecto` (
   `sesionDeConsejo` varchar(45) DEFAULT NULL,
   `idModalidad` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Volcado de datos para la tabla `proyecto`
+--
+
+INSERT INTO `proyecto` (`idProyecto`, `titulo`, `objetivos`, `descripcion`, `fecha`, `fechaFin`, `periodo`, `sesionDeConsejo`, `idModalidad`) VALUES
+(1, 'proyecto X', 'objetivo 1\r\nobjetivo 2', 'descripcion del proyecto', '2018-04-01', '2018-04-30', 'I', '123', 1);
 
 -- --------------------------------------------------------
 
@@ -195,9 +235,8 @@ CREATE TABLE `users` (
 --
 
 INSERT INTO `users` (`id`, `name`, `email`, `password`, `remember_token`, `created_at`, `updated_at`) VALUES
-(1, 'daniel', 'dani@gmail.com', '$2y$10$lcAxwK5l5WGGUxoErNRLQuGt6y.iVJFgjFPQEw9/nEjC7aE56VVD.', 'z6RBCCyChhXRaRv8jKRETHghiDobKAQanh0tXj4voRe04xxfEVLAbUPnwyVl', '2018-04-11 00:47:17', '2018-04-11 07:36:03'),
 (2, 'fercho', 'fercho@gmail.com', '$2y$10$MS0JnvsyzLjRf3ld.X3NB.p.DW4taFLc9ZBZDe1VTg6wBbIHIXtRG', 'o4L4er3VF2qmlbJf9xLr2FXeA5RSJwdNLiVrQJygdwKnvkT0exMDCnQgUL5z', '2018-04-11 00:57:57', '2018-04-11 00:58:34'),
-(3, 'daniel', 'dandiel_23@hotmail.es', '$2y$10$z08Qq2TMxx8bo66pHpHMSuu14zcjn0riEjyRvbsqpWkfFmJqbLzHe', 'qucVd5ki5ix2PSSGhRn3R96npEWFBpGKUiPYAWM4hmGK6xTcj1kXSODuUB5A', '2018-04-11 07:58:38', '2018-04-11 08:16:09');
+(3, 'luis daniel', 'dandiel_23@hotmail.es', '$2y$10$z08Qq2TMxx8bo66pHpHMSuu14zcjn0riEjyRvbsqpWkfFmJqbLzHe', 'wiJFc7cS40chVrtOnla7UqBUIQVo1yH3GwW9i5j7Arku3GLjRsgWmKN6SzCE', '2018-04-11 07:58:38', '2018-04-27 04:40:24');
 
 --
 -- Índices para tablas volcadas
@@ -306,17 +345,17 @@ ALTER TABLE `asignacion`
 -- AUTO_INCREMENT de la tabla `carrera`
 --
 ALTER TABLE `carrera`
-  MODIFY `idCarrera` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `idCarrera` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 --
 -- AUTO_INCREMENT de la tabla `estudiante`
 --
 ALTER TABLE `estudiante`
-  MODIFY `idEstudiante` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `idEstudiante` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=19;
 --
 -- AUTO_INCREMENT de la tabla `modalidad`
 --
 ALTER TABLE `modalidad`
-  MODIFY `idModalidad` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `idModalidad` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 --
 -- AUTO_INCREMENT de la tabla `pertenece`
 --
@@ -326,7 +365,7 @@ ALTER TABLE `pertenece`
 -- AUTO_INCREMENT de la tabla `proyecto`
 --
 ALTER TABLE `proyecto`
-  MODIFY `idProyecto` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `idProyecto` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 --
 -- AUTO_INCREMENT de la tabla `renuncia`
 --

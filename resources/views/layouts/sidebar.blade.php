@@ -69,7 +69,7 @@
                                 <a href="/proyectos" class="waves-effect">Proyectos</a>
                             </li>
                             <li>
-                                <a href="#" class="waves-effect">Nuevo Proyecto</a>
+                                <a href="/create" class="waves-effect">Nuevo Proyecto</a>
                             </li>
                             <li>
                                 <a href="#" class="waves-effect">Nuevo Estudiante</a>
@@ -88,9 +88,8 @@
                             <li>
                                 <a href="/maindoc" class="waves-effect">Docente & Profesionales</a>
                             </li>
-
                             <li>
-                                <a href="#" class="waves-effect">Nuevo Profesional</a>
+                                <a href="newDoc" class="waves-effect">Nuevo Docente</a>
                             </li>
                         </ul>
                     </div>
@@ -109,6 +108,12 @@
                     <a class="collapsible-header waves-effect arrow-r" href="/areas">
                         <i class="fa fa-eye"></i> 
                         Areas
+                    </a>
+                </li>
+                <li>
+                    <a class="collapsible-header waves-effect arrow-r" href="/estudiante">
+                        <i class="fa fa-eye"></i> 
+                        Estudiantes
                     </a>
                 </li>
                 <li>
