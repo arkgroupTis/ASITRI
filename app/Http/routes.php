@@ -75,3 +75,4 @@ Route::get('/AsignacionTribunales', function(){
 });
 */
 Route::resource('/docentes', 'DocenteController');
+Route::resource('/areasCatalogo', 'AreaController');

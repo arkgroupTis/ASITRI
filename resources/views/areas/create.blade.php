@@ -3,7 +3,7 @@
 
 @section('content')
 <!-- Horizontal material form -->
-<form>
+<form id="miForm">
     <!-- Grid row -->
     <div class="form-group row">
         <!-- Material input -->
@@ -31,10 +31,38 @@
             <button type="reset" class="btn btn-danger btn-md">Cancelar</button>
         </div>
         <div class="col-sm-5">
-            <button type="submit" class="btn btn-primary btn-md">Guardar</button>
+            <button type="submit" class="btn btn-primary btn-md" id="add">Guardar</button>
         </div>
     </div>
     <!-- Grid row -->
 </form>
 <!-- Horizontal material form -->
+@endsection
+@section('script')
+<script>
+    $(document).on('click', '#add', function(e) {
+        e.preventDefault();
+        $.ajax({
+            type: 'POST',
+            url: '/areasCatalogo',
+            data: {
+                '_token': $('input[name=_token]').val(),
+                'nombreArea': $('#nombre').val(),
+                'descripcionArea': $('#descripcion').val(),
+            },
+            success : function(data) {
+                toastr.success(data.message);
+                lacation.reload();
+            },
+            error : function(xhr, status) {
+                toastr.error('Disculpe, existio un problema!');
+            },
+        });
+        clear();
+    });
+    function clear() {
+    document.getElementById("miForm").reset();
+  }
+</script>
+
 @endsection

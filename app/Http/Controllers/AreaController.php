@@ -6,7 +6,7 @@ use Illuminate\Http\Request;
 
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
-
+use App\Area;
 class AreaController extends Controller
 {
     /**
@@ -16,7 +16,8 @@ class AreaController extends Controller
      */
     public function index()
     {
-        //
+        $areas = Area::orderBy('nombreArea', 'asc')->paginate(500);
+        return view('areas.edit', compact('areas'));
     }
 
     /**
@@ -37,7 +38,17 @@ class AreaController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $this->validate([$request,
+        ]);
+        Area::create([
+            'nombreArea' => $request['nombreArea'],
+            'descripcionArea' => $request['descripcionArea'],
+            'cod_sudarea' => NULL,
+        ]);
+        return response()->json([
+            'message' => 'Se agrego correctamente!',
+        ]);
+
     }
 
     /**

@@ -1,68 +1,39 @@
 @extends('layouts.app')
 @section('content')
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-<div class='container'>
-	<h1 class="text-center">Asignacion de Tribunales</h1>
-	<div class="container">
-	<div class="row">
-		<div class="col-sm-8">
-        <h3 class="text-left">Tribunales :</h3>
-        <select class="mdb-select btn-sm colorful-select dropdown-primary col-md-4">
+	<h1 class="text-center">Catalogo Areas</h1>
+	<h3 class="text-left">Areas:</h3>
+	<div class="form-row">
+		<div class="col-md-4">
+        <select class="mdb-select colorful-select dropdown-primary">
         	<option>Seleccione una Categoria</option>
-            <option value="1">Tipo</option>
-            <option value="2">Cantidad de Proyectos</option>
-            <option value="3">Codigo</option>
+            <option value="1">Area1</option>
+            <option value="2">Area2</option>
+            <option value="3">Area3</option>
         </select>
     	</div>
-    	<div class="col-md-4">
-    		<input class="form-control" id="Search1" type="text" placeholder="Tribunal..">	
+    	<div class="col-md-8">
+    		<input class="form-control" id="Search1" type="text" placeholder="Buscar..">	
     	</div>    	
     </div>
-	
-		<table class="table table-bordered table-striped">
+	<div class="tablaScroll2">
+		<table class="table table-bordered table-striped tablaScroll2">
 		  <thead>
 		    <tr>
-		      <th><font size="3">Nombre Tribunal</font></th>
-		      <th width=""><font size="3">Proyectos</font></th>
+		      <th><font size="3">Area</font></th>
+		      <th width=""><font size="3">Descripcion</font></th>
 		    </tr>
 		  </thead>
 		  <tbody id="table1">
-		    <tr>
-		      <td>Mark</td>
-		      <td>5</td>
-		    </tr>
-		    <tr>
-		      <td>Jacob</td>
-		      <td>3</td>
-		    </tr>
-		    <tr>
-		      <td>Larry the Bird</td>
-		      <td>4</td>
-		    </tr>
-		    <tr>
-		      <td>Marco Valencia</td>
-		      <td>3</td>
-		    </tr>
-		    <tr>
-		      <td>Armando Paredes</td>
-		      <td>2</td>
-		    </tr>
-		    <tr>
-		      <td>Camila Sanchez</td>
-		      <td>6</td>
-		    </tr>
-		    <tr>
-		      <td>Pedro Martinez</td>
-		      <td>4</td>
-		    </tr>
-		    <tr>
-		      <td>Solomeo Quintana</td>
-		      <td>3</td>
-		    </tr>
+		    @foreach($areas as $area)
+			  		<tr>
+			  			<td >{{$area -> nombreArea}}</td>
+				    	<td >{{$area -> descripcionArea}}</td>
+				    </tr>
+		    @endforeach
 		  </tbody>
 		</table>
 	</div>
-</div>
 	<script>
 		$(document).ready(function(){
 		  $("#Search1").on("keyup", function() {

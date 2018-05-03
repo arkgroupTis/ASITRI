@@ -89,9 +89,6 @@
 
     	           <label>Area: </label>
                     <div class="form-row">
-                        
-
-                        
                             <div class="col-md-12">
                             <select class="mdb-select colorful-select dropdown-primary col-md-12" multiple name="area" id="select">
                                 <option value="">Base de Datos</option>
