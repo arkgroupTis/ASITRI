@@ -244,13 +244,10 @@
             <div class="modal-footer justify-content-center">
                 <button class="btn btn-danger" id="modal-delete-btn" data-dismiss="modal">Eliminar</button>
             </div>
-        </div>
-        <!--/.Content-->
+        </div
+>        <!--/.Content-->
     </div>
-</div>
-<!-- Modal delete estudiante -->
-  
-                                          
+</div>                               
 @endsection
 @section('script')
 <script>
