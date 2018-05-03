@@ -1,15 +1,13 @@
 -- phpMyAdmin SQL Dump
--- version 4.7.0
--- https://www.phpmyadmin.net/
+-- version 4.5.1
+-- http://www.phpmyadmin.net
 --
--- Servidor: 127.0.0.1
--- Tiempo de generación: 27-04-2018 a las 23:27:28
--- Versión del servidor: 10.1.25-MariaDB
--- Versión de PHP: 7.1.7
+-- Host: 127.0.0.1
+-- Generation Time: May 03, 2018 at 04:44 AM
+-- Server version: 10.1.9-MariaDB
+-- PHP Version: 5.6.15
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
-SET AUTOCOMMIT = 0;
-START TRANSACTION;
 SET time_zone = "+00:00";
 
 
@@ -19,13 +17,13 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Base de datos: `db_asitri`
+-- Database: `db_asitri`
 --
 
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `area`
+-- Table structure for table `area`
 --
 
 CREATE TABLE `area` (
@@ -38,7 +36,7 @@ CREATE TABLE `area` (
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `asignacion`
+-- Table structure for table `asignacion`
 --
 
 CREATE TABLE `asignacion` (
@@ -52,7 +50,7 @@ CREATE TABLE `asignacion` (
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `carrera`
+-- Table structure for table `carrera`
 --
 
 CREATE TABLE `carrera` (
@@ -61,7 +59,7 @@ CREATE TABLE `carrera` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
--- Volcado de datos para la tabla `carrera`
+-- Dumping data for table `carrera`
 --
 
 INSERT INTO `carrera` (`idCarrera`, `nombreCarrera`) VALUES
@@ -71,7 +69,7 @@ INSERT INTO `carrera` (`idCarrera`, `nombreCarrera`) VALUES
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `docente`
+-- Table structure for table `docente`
 --
 
 CREATE TABLE `docente` (
@@ -87,10 +85,23 @@ CREATE TABLE `docente` (
   `codigoDoc` varchar(45) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
+--
+-- Dumping data for table `docente`
+--
+
+INSERT INTO `docente` (`idDoc`, `ciDoc`, `nombreDoc`, `apePaternoDoc`, `apeMaternoDoc`, `emailDoc`, `telefonoDoc`, `tituloDoc`, `cargaHoraria`, `codigoDoc`) VALUES
+(1, '4545154', 'Kenny', 'Dalton', 'Cardozo', 'kenny@yahoo.com', '4548462', 'Docente', 8, NULL),
+(2, '212122', 'Martin', 'Valasquez', 'Martinez', 'Martin@yahoo.com', '1254665', 'Profesional', 4, NULL),
+(7, '7847564', 'Marco ', 'Valencia', 'Martinez', 'marcoV@yahoo.com', '7854214', 'Profesional', 8, ''),
+(8, '1245675', 'Pedro ', 'Fuentes', 'Carbajo', 'pedroC@gmail.com', '4758451', 'Docente', 4, ''),
+(9, '1457584', 'Pedro Pablo', 'Leon', 'Jaramillo', 'pedroPablo@hotmail.com', '3424884', 'Profesional', 4, ''),
+(10, '4147851', 'Carlos', 'Sanchez', 'Mamani', 'carlosS@hotmail.com', '7778962', 'Profesional', 8, ''),
+(11, '7854244', 'Javier', 'Mendoza', 'Castro', 'Mendozajavier@gmail.com', '1148567', 'Profesional', 4, '');
+
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `estudiante`
+-- Table structure for table `estudiante`
 --
 
 CREATE TABLE `estudiante` (
@@ -105,7 +116,7 @@ CREATE TABLE `estudiante` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
--- Volcado de datos para la tabla `estudiante`
+-- Dumping data for table `estudiante`
 --
 
 INSERT INTO `estudiante` (`idEstudiante`, `ciEst`, `nombreEst`, `apellidoEst`, `emailEst`, `telefono`, `idProyecto`, `idCarrera`) VALUES
@@ -120,12 +131,13 @@ INSERT INTO `estudiante` (`idEstudiante`, `ciEst`, `nombreEst`, `apellidoEst`, `
 (15, '345353', 'arturo', 'vidal', 'arturito@gmail.com', '45324564', NULL, 2),
 (16, '64556464', 'sandro', 'bargas', 'sandro@gmail.com', '767676676', NULL, 1),
 (17, '6565643', 'ariel', 'ramos', 'ariel@gmail.com', '67675455', NULL, 2),
-(18, '56464546', 'edgar', 'carballo', 'edgar@gmail.com', '76754543', NULL, 1);
+(18, '56464546', 'edgar', 'carballo', 'edgar@gmail.com', '76754543', NULL, 1),
+(19, '59145214', 'kenny', 'dalton', 'ke@ya.com', '1541541', NULL, 2);
 
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `modalidad`
+-- Table structure for table `modalidad`
 --
 
 CREATE TABLE `modalidad` (
@@ -134,7 +146,7 @@ CREATE TABLE `modalidad` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
--- Volcado de datos para la tabla `modalidad`
+-- Dumping data for table `modalidad`
 --
 
 INSERT INTO `modalidad` (`idModalidad`, `nombreMod`) VALUES
@@ -144,7 +156,7 @@ INSERT INTO `modalidad` (`idModalidad`, `nombreMod`) VALUES
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `pertenece`
+-- Table structure for table `pertenece`
 --
 
 CREATE TABLE `pertenece` (
@@ -156,7 +168,7 @@ CREATE TABLE `pertenece` (
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `proyecto`
+-- Table structure for table `proyecto`
 --
 
 CREATE TABLE `proyecto` (
@@ -172,7 +184,7 @@ CREATE TABLE `proyecto` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
--- Volcado de datos para la tabla `proyecto`
+-- Dumping data for table `proyecto`
 --
 
 INSERT INTO `proyecto` (`idProyecto`, `titulo`, `objetivos`, `descripcion`, `fecha`, `fechaFin`, `periodo`, `sesionDeConsejo`, `idModalidad`) VALUES
@@ -181,7 +193,7 @@ INSERT INTO `proyecto` (`idProyecto`, `titulo`, `objetivos`, `descripcion`, `fec
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `proyecto_has_area`
+-- Table structure for table `proyecto_has_area`
 --
 
 CREATE TABLE `proyecto_has_area` (
@@ -192,7 +204,7 @@ CREATE TABLE `proyecto_has_area` (
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `renuncia`
+-- Table structure for table `renuncia`
 --
 
 CREATE TABLE `renuncia` (
@@ -205,7 +217,7 @@ CREATE TABLE `renuncia` (
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `tiene`
+-- Table structure for table `tiene`
 --
 
 CREATE TABLE `tiene` (
@@ -217,7 +229,7 @@ CREATE TABLE `tiene` (
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `users`
+-- Table structure for table `users`
 --
 
 CREATE TABLE `users` (
@@ -231,26 +243,27 @@ CREATE TABLE `users` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
--- Volcado de datos para la tabla `users`
+-- Dumping data for table `users`
 --
 
 INSERT INTO `users` (`id`, `name`, `email`, `password`, `remember_token`, `created_at`, `updated_at`) VALUES
 (2, 'fercho', 'fercho@gmail.com', '$2y$10$MS0JnvsyzLjRf3ld.X3NB.p.DW4taFLc9ZBZDe1VTg6wBbIHIXtRG', 'o4L4er3VF2qmlbJf9xLr2FXeA5RSJwdNLiVrQJygdwKnvkT0exMDCnQgUL5z', '2018-04-11 00:57:57', '2018-04-11 00:58:34'),
-(3, 'luis daniel', 'dandiel_23@hotmail.es', '$2y$10$z08Qq2TMxx8bo66pHpHMSuu14zcjn0riEjyRvbsqpWkfFmJqbLzHe', 'wiJFc7cS40chVrtOnla7UqBUIQVo1yH3GwW9i5j7Arku3GLjRsgWmKN6SzCE', '2018-04-11 07:58:38', '2018-04-27 04:40:24');
+(3, 'luis daniel', 'dandiel_23@hotmail.es', '$2y$10$z08Qq2TMxx8bo66pHpHMSuu14zcjn0riEjyRvbsqpWkfFmJqbLzHe', 'wiJFc7cS40chVrtOnla7UqBUIQVo1yH3GwW9i5j7Arku3GLjRsgWmKN6SzCE', '2018-04-11 07:58:38', '2018-04-27 04:40:24'),
+(4, 'kenny', 'kennydaltonc@yahoo.com', '$2y$10$d6R5VQffRs870S2W3Bjhhui.5JCqcHBDyEZlaKeYGcvEH3jDFtgX2', NULL, '2018-05-01 00:36:25', '2018-05-01 00:36:25');
 
 --
--- Índices para tablas volcadas
+-- Indexes for dumped tables
 --
 
 --
--- Indices de la tabla `area`
+-- Indexes for table `area`
 --
 ALTER TABLE `area`
   ADD PRIMARY KEY (`idArea`),
   ADD KEY `fk_area_area2_idx` (`cod_subarea`);
 
 --
--- Indices de la tabla `asignacion`
+-- Indexes for table `asignacion`
 --
 ALTER TABLE `asignacion`
   ADD PRIMARY KEY (`idAsig`),
@@ -258,19 +271,19 @@ ALTER TABLE `asignacion`
   ADD KEY `fk_Asignacion_Docente1_idx` (`idDoc`);
 
 --
--- Indices de la tabla `carrera`
+-- Indexes for table `carrera`
 --
 ALTER TABLE `carrera`
   ADD PRIMARY KEY (`idCarrera`);
 
 --
--- Indices de la tabla `docente`
+-- Indexes for table `docente`
 --
 ALTER TABLE `docente`
   ADD PRIMARY KEY (`idDoc`);
 
 --
--- Indices de la tabla `estudiante`
+-- Indexes for table `estudiante`
 --
 ALTER TABLE `estudiante`
   ADD PRIMARY KEY (`idEstudiante`),
@@ -278,13 +291,13 @@ ALTER TABLE `estudiante`
   ADD KEY `fk_estudiante_carrera1_idx` (`idCarrera`);
 
 --
--- Indices de la tabla `modalidad`
+-- Indexes for table `modalidad`
 --
 ALTER TABLE `modalidad`
   ADD PRIMARY KEY (`idModalidad`);
 
 --
--- Indices de la tabla `pertenece`
+-- Indexes for table `pertenece`
 --
 ALTER TABLE `pertenece`
   ADD PRIMARY KEY (`idPertenece`),
@@ -292,14 +305,14 @@ ALTER TABLE `pertenece`
   ADD KEY `fk_Pertenece_Docente1_idx` (`idDoc`);
 
 --
--- Indices de la tabla `proyecto`
+-- Indexes for table `proyecto`
 --
 ALTER TABLE `proyecto`
   ADD PRIMARY KEY (`idProyecto`),
   ADD KEY `fk_proyecto_modalidad1_idx` (`idModalidad`);
 
 --
--- Indices de la tabla `proyecto_has_area`
+-- Indexes for table `proyecto_has_area`
 --
 ALTER TABLE `proyecto_has_area`
   ADD PRIMARY KEY (`idProyecto`,`idArea`),
@@ -307,14 +320,14 @@ ALTER TABLE `proyecto_has_area`
   ADD KEY `fk_proyecto_has_area_proyecto1_idx` (`idProyecto`);
 
 --
--- Indices de la tabla `renuncia`
+-- Indexes for table `renuncia`
 --
 ALTER TABLE `renuncia`
   ADD PRIMARY KEY (`idRenuncia`),
   ADD KEY `fk_Renuncia_Asignacion1_idx` (`idAsig`);
 
 --
--- Indices de la tabla `tiene`
+-- Indexes for table `tiene`
 --
 ALTER TABLE `tiene`
   ADD PRIMARY KEY (`idTiene`),
@@ -322,122 +335,126 @@ ALTER TABLE `tiene`
   ADD KEY `fk_Tiene_Docente1_idx` (`idDoc`);
 
 --
--- Indices de la tabla `users`
+-- Indexes for table `users`
 --
 ALTER TABLE `users`
   ADD PRIMARY KEY (`id`);
 
 --
--- AUTO_INCREMENT de las tablas volcadas
+-- AUTO_INCREMENT for dumped tables
 --
 
 --
--- AUTO_INCREMENT de la tabla `area`
+-- AUTO_INCREMENT for table `area`
 --
 ALTER TABLE `area`
   MODIFY `idArea` int(11) NOT NULL AUTO_INCREMENT;
 --
--- AUTO_INCREMENT de la tabla `asignacion`
+-- AUTO_INCREMENT for table `asignacion`
 --
 ALTER TABLE `asignacion`
   MODIFY `idAsig` int(11) NOT NULL AUTO_INCREMENT;
 --
--- AUTO_INCREMENT de la tabla `carrera`
+-- AUTO_INCREMENT for table `carrera`
 --
 ALTER TABLE `carrera`
   MODIFY `idCarrera` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 --
--- AUTO_INCREMENT de la tabla `estudiante`
+-- AUTO_INCREMENT for table `docente`
+--
+ALTER TABLE `docente`
+  MODIFY `idDoc` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
+--
+-- AUTO_INCREMENT for table `estudiante`
 --
 ALTER TABLE `estudiante`
-  MODIFY `idEstudiante` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=19;
+  MODIFY `idEstudiante` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=20;
 --
--- AUTO_INCREMENT de la tabla `modalidad`
+-- AUTO_INCREMENT for table `modalidad`
 --
 ALTER TABLE `modalidad`
   MODIFY `idModalidad` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 --
--- AUTO_INCREMENT de la tabla `pertenece`
+-- AUTO_INCREMENT for table `pertenece`
 --
 ALTER TABLE `pertenece`
   MODIFY `idPertenece` int(11) NOT NULL AUTO_INCREMENT;
 --
--- AUTO_INCREMENT de la tabla `proyecto`
+-- AUTO_INCREMENT for table `proyecto`
 --
 ALTER TABLE `proyecto`
   MODIFY `idProyecto` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 --
--- AUTO_INCREMENT de la tabla `renuncia`
+-- AUTO_INCREMENT for table `renuncia`
 --
 ALTER TABLE `renuncia`
   MODIFY `idRenuncia` int(11) NOT NULL AUTO_INCREMENT;
 --
--- AUTO_INCREMENT de la tabla `tiene`
+-- AUTO_INCREMENT for table `tiene`
 --
 ALTER TABLE `tiene`
   MODIFY `idTiene` int(11) NOT NULL AUTO_INCREMENT;
 --
--- AUTO_INCREMENT de la tabla `users`
+-- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 --
--- Restricciones para tablas volcadas
+-- Constraints for dumped tables
 --
 
 --
--- Filtros para la tabla `area`
+-- Constraints for table `area`
 --
 ALTER TABLE `area`
   ADD CONSTRAINT `fk_area_area2` FOREIGN KEY (`cod_subarea`) REFERENCES `area` (`idArea`) ON DELETE NO ACTION ON UPDATE NO ACTION;
 
 --
--- Filtros para la tabla `asignacion`
+-- Constraints for table `asignacion`
 --
 ALTER TABLE `asignacion`
   ADD CONSTRAINT `fk_Asignacion_Docente1` FOREIGN KEY (`idDoc`) REFERENCES `docente` (`idDoc`) ON DELETE NO ACTION ON UPDATE NO ACTION,
   ADD CONSTRAINT `fk_Asignacion_Proyecto1` FOREIGN KEY (`idProyecto`) REFERENCES `proyecto` (`idProyecto`) ON DELETE NO ACTION ON UPDATE NO ACTION;
 
 --
--- Filtros para la tabla `estudiante`
+-- Constraints for table `estudiante`
 --
 ALTER TABLE `estudiante`
   ADD CONSTRAINT `fk_Estudiante_Proyecto1` FOREIGN KEY (`idProyecto`) REFERENCES `proyecto` (`idProyecto`) ON DELETE NO ACTION ON UPDATE NO ACTION,
   ADD CONSTRAINT `fk_estudiante_carrera1` FOREIGN KEY (`idCarrera`) REFERENCES `carrera` (`idCarrera`) ON DELETE NO ACTION ON UPDATE NO ACTION;
 
 --
--- Filtros para la tabla `pertenece`
+-- Constraints for table `pertenece`
 --
 ALTER TABLE `pertenece`
   ADD CONSTRAINT `fk_Pertenece_Carrera1` FOREIGN KEY (`idCarrera`) REFERENCES `carrera` (`idCarrera`) ON DELETE NO ACTION ON UPDATE NO ACTION,
   ADD CONSTRAINT `fk_Pertenece_Docente1` FOREIGN KEY (`idDoc`) REFERENCES `docente` (`idDoc`) ON DELETE NO ACTION ON UPDATE NO ACTION;
 
 --
--- Filtros para la tabla `proyecto`
+-- Constraints for table `proyecto`
 --
 ALTER TABLE `proyecto`
   ADD CONSTRAINT `fk_proyecto_modalidad1` FOREIGN KEY (`idModalidad`) REFERENCES `modalidad` (`idModalidad`) ON DELETE NO ACTION ON UPDATE NO ACTION;
 
 --
--- Filtros para la tabla `proyecto_has_area`
+-- Constraints for table `proyecto_has_area`
 --
 ALTER TABLE `proyecto_has_area`
   ADD CONSTRAINT `fk_proyecto_has_area_area1` FOREIGN KEY (`idArea`) REFERENCES `area` (`idArea`) ON DELETE NO ACTION ON UPDATE NO ACTION,
   ADD CONSTRAINT `fk_proyecto_has_area_proyecto1` FOREIGN KEY (`idProyecto`) REFERENCES `proyecto` (`idProyecto`) ON DELETE NO ACTION ON UPDATE NO ACTION;
 
 --
--- Filtros para la tabla `renuncia`
+-- Constraints for table `renuncia`
 --
 ALTER TABLE `renuncia`
   ADD CONSTRAINT `fk_Renuncia_Asignacion1` FOREIGN KEY (`idAsig`) REFERENCES `asignacion` (`idAsig`) ON DELETE NO ACTION ON UPDATE NO ACTION;
 
 --
--- Filtros para la tabla `tiene`
+-- Constraints for table `tiene`
 --
 ALTER TABLE `tiene`
   ADD CONSTRAINT `fk_Tiene_Area` FOREIGN KEY (`idArea`) REFERENCES `area` (`idArea`) ON DELETE NO ACTION ON UPDATE NO ACTION,
   ADD CONSTRAINT `fk_Tiene_Docente1` FOREIGN KEY (`idDoc`) REFERENCES `docente` (`idDoc`) ON DELETE NO ACTION ON UPDATE NO ACTION;
-COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
