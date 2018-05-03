@@ -36,9 +36,9 @@
 		  <tbody id="table1">
 		    @foreach($docentes as $docente)
         	<tr data-id="{{ $docente->idDoc }}">
-	            <td>{{ $docente->ciDoc }}</td>
-	            <td>{{ $docente->nombreDoc }}</td>
-	            <td>{{ $docente->tituloDoc }}</td>
+	            <td> {{ $docente->ciDoc }} </td>
+	            <td> {{ $docente->nombreDoc }} {{ $docente->apePaternoDoc }} {{ $docente->apeMaternoDoc }}</td>
+	            <td> {{ $docente->tituloDoc }} </td>
 	            <td>3</td>
 	            <td>
 	            	<a class="btn-floating btn-sm btn-indigo btn-modal-show" data-toggle="tooltip" data-placement="top" title="ver"><i class="fa fa-eye mt-2 ml-2 fa-lg"></i></a>

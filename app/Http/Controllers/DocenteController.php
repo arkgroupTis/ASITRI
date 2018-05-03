@@ -17,7 +17,7 @@ class DocenteController extends Controller
      */
     public function index()
     {
-        $docentes = Docente::orderBy('apePaternoDoc', 'asc')->paginate(500);
+        $docentes = Docente::orderBy('apePaternoDoc', 'asc')->paginate(5);
         return view('docentes.maindoc', compact('docentes'));
     }
 
@@ -52,8 +52,17 @@ class DocenteController extends Controller
      */
     public function store(Request $request)
     {
+        $this->validate($request, [
+            'ciDoc' => 'required|string',
+            'nombreDoc' => 'required|string',
+            'apePaternoDoc' => 'required|string',
+            'apeMaternoDoc' => 'required|string',
+            'emailDoc' => 'required|email',
+            'telefonoDoc' => 'required|integer',
+            'tituloDoc' => 'required|string',
+        ]);
             Docente::create([
-            'ciDocc' => $request['ciDocc'],
+            'ciDoc' => $request['ciDoc'],
             'nombreDoc' => $request['nombreDoc'],
             'apePaternoDoc' => $request['apePaternoDoc'],
             'apeMaternoDoc' => $request['apeMaternoDoc'],
