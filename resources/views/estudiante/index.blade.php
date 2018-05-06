@@ -37,7 +37,8 @@
             <td>{{ $estudiante->emailEst }}</td>
             <td>{{ $estudiante->telefono }}</td>
             <td>{{ $estudiante->idProyecto }}</td>
-            <td>{{ $estudiante->carrera->nombreCarrera }}</td>
+            <td>{{ $estudiante->idCarrera }}</td>
+           
             <td>
             	<a class="btn-floating btn-sm btn-indigo btn-modal-show" data-toggle="tooltip" data-placement="top" title="ver"><i class="fa fa-eye mt-2 ml-2 fa-lg"></i></a>
             	<a class="btn-floating btn-sm btn-info btn-modal-edit" data-toggle="tooltip" data-placement="top" title="editar"><i class="fa fa-edit mt-2 ml-2 fa-lg"></i></a>

@@ -34,100 +34,21 @@
 		    </tr>
 		  </thead>
 		  <tbody id="table1">
-		    <tr>
-		      <th>1</th>
-		      <td>Mark</td>
-		      <td>area 1</td>
-		      <td><a href="#" class="btn aqua-gradient btn-sm">MAS INFO</a></td>
-		      
-		      <td>
+
+		  	@foreach($proyectos as $proyecto)
+		  	<tr data-id="{{ $proyecto->idProyecto }}">
+	            <td> {{ $proyecto->idProyecto }} </td>
+	            <td> {{ $proyecto->titulo }} </td>
+	            <td> Area </td>
+	            <td><a href="#" class="btn aqua-gradient btn-sm">MAS INFO</a></td>
+	            <td>
 	              <a class="btn-floating btn-sm btn-indigo" data-toggle="tooltip" data-placement="top" title="Asignar"><i class="fas fa-plus-circle mt-1 ml-1 fa-2x"></i></i></a>
 	              <a class="btn-floating btn-sm btn-info" data-toggle="tooltip" data-placement="top" title="Reasignar"><i class="fa fa-edit mt-2 ml-2 fa-lg"></i></a>
 	              <a class="btn-floating btn-sm btn-danger" data-toggle="tooltip" data-placement="top" title="Eliminar"><i class="fa fa-trash mt-2 ml-2 fa-lg"></i></a>
-        	  </td>
-		    </tr>
-		    <tr>
-		      <th >2</th>
-		      <td>Jacob</td>
-		      <td>area 2</td>
-		      <td><a href="#" class="btn aqua-gradient btn-sm">MAS INFO</a></td>
-		      
-		      <td>
-	              <a class="btn-floating btn-sm btn-indigo" data-toggle="tooltip" data-placement="top" title="Asignar"><i class="fas fa-plus-circle mt-1 ml-1 fa-2x"></i></i></a>
-	              <a class="btn-floating btn-sm btn-info" data-toggle="tooltip" data-placement="top" title="Reasignar"><i class="fa fa-edit mt-2 ml-2 fa-lg"></i></a>
-	              <a class="btn-floating btn-sm btn-danger" data-toggle="tooltip" data-placement="top" title="Eliminar"><i class="fa fa-trash mt-2 ml-2 fa-lg"></i></a>
-        	  </td>
-		    </tr>
-		    <tr>
-		      <th>3</th>
-		      <td>Larry the Bird</td>
-		      <td>area 3</td>
-		      <td><a href="#" class="btn aqua-gradient btn-sm">MAS INFO</a></td>
+        	  </td>   
+        	</tr>
+		  	@endforeach
 		    
-		      <td>
-	              <a class="btn-floating btn-sm btn-indigo" data-toggle="tooltip" data-placement="top" title="Asignar"><i class="fas fa-plus-circle mt-1 ml-1 fa-2x"></i></i></a>
-	              <a class="btn-floating btn-sm btn-info" data-toggle="tooltip" data-placement="top" title="Reasignar"><i class="fa fa-edit mt-2 ml-2 fa-lg"></i></a>
-	              <a class="btn-floating btn-sm btn-danger" data-toggle="tooltip" data-placement="top" title="Eliminar"><i class="fa fa-trash mt-2 ml-2 fa-lg"></i></a>
-        	  </td>
-		    </tr>
-		    <tr>
-		      <th>4</th>
-		      <td>Marco Valencia</td>
-		      <td>area 4</td>
-		      <td><a href="#" class="btn aqua-gradient btn-sm">MAS INFO</a></td>
-		    
-		      <td>
-	              <a class="btn-floating btn-sm btn-indigo" data-toggle="tooltip" data-placement="top" title="Asignar"><i class="fas fa-plus-circle mt-1 ml-1 fa-2x"></i></i></a>
-	              <a class="btn-floating btn-sm btn-info" data-toggle="tooltip" data-placement="top" title="Reasignar"><i class="fa fa-edit mt-2 ml-2 fa-lg"></i></a>
-	              <a class="btn-floating btn-sm btn-danger" data-toggle="tooltip" data-placement="top" title="Eliminar"><i class="fa fa-trash mt-2 ml-2 fa-lg"></i></a>
-        	  </td>
-		    </tr>
-		    <tr>
-		      <th>5</th>
-		      <td>Armando Paredes</td>
-		      <td>area 5</td>
-		      <td><a href="#" class="btn aqua-gradient btn-sm">MAS INFO</a></td>
-		      <td>
-	              <a class="btn-floating btn-sm btn-indigo" data-toggle="tooltip" data-placement="top" title="Asignar"><i class="fas fa-plus-circle mt-1 ml-1 fa-2x"></i></i></a>
-	              <a class="btn-floating btn-sm btn-info" data-toggle="tooltip" data-placement="top" title="Reasignar"><i class="fa fa-edit mt-2 ml-2 fa-lg"></i></a>
-	              <a class="btn-floating btn-sm btn-danger" data-toggle="tooltip" data-placement="top" title="Eliminar"><i class="fa fa-trash mt-2 ml-2 fa-lg"></i></a>
-        	  </td>
-		    </tr>
-		    <tr>
-		      <th>6</th>
-		      <td>Camila Sanchez</td>
-		      <td>area 6</td>
-		      <td><a href="#" class="btn aqua-gradient btn-sm">MAS INFO</a></td>
-		      
-		      <td>
-	              <a class="btn-floating btn-sm btn-indigo" data-toggle="tooltip" data-placement="top" title="Asignar"><i class="fas fa-plus-circle mt-1 ml-1 fa-2x"></i></i></a>
-	              <a class="btn-floating btn-sm btn-info" data-toggle="tooltip" data-placement="top" title="Reasignar"><i class="fa fa-edit mt-2 ml-2 fa-lg"></i></a>
-	              <a class="btn-floating btn-sm btn-danger" data-toggle="tooltip" data-placement="top" title="Eliminar"><i class="fa fa-trash mt-2 ml-2 fa-lg"></i></a>
-        	  </td>
-		    </tr>
-		    <tr>
-		      <th>7</th>
-		      <td>Pedro Martinez</td>
-		      <td>area 7</td>
-		      <td><a href="#" class="btn aqua-gradient btn-sm">MAS INFO</a></td>
-		     
-		      <td>
-	              <a class="btn-floating btn-sm btn-indigo" data-toggle="tooltip" data-placement="top" title="Asignar"><i class="fas fa-plus-circle mt-1 ml-1 fa-2x"></i></i></a>
-	              <a class="btn-floating btn-sm btn-info" data-toggle="tooltip" data-placement="top" title="Reasignar"><i class="fa fa-edit mt-2 ml-2 fa-lg"></i></a>
-	              <a class="btn-floating btn-sm btn-danger" data-toggle="tooltip" data-placement="top" title="Eliminar"><i class="fa fa-trash mt-2 ml-2 fa-lg"></i></a>
-        	  </td>
-		    </tr>
-		    <tr>
-		      <th>8</th>
-		      <td>Solomeo Quintana</td>
-		      <td>area 8</td>
-		      <td><a href="#" class="btn aqua-gradient btn-sm">MAS INFO</a></td>
-		      <td>
-	              <a class="btn-floating btn-sm btn-indigo" data-toggle="tooltip" data-placement="top" title="Asignar"><i class="fas fa-plus-circle mt-1 ml-1 fa-2x"></i></i></a>
-	              <a class="btn-floating btn-sm btn-info" data-toggle="tooltip" data-placement="top" title="Reasignar"><i class="fa fa-edit mt-2 ml-2 fa-lg"></i></a>
-	              <a class="btn-floating btn-sm btn-danger" data-toggle="tooltip" data-placement="top" title="Eliminar"><i class="fa fa-trash mt-2 ml-2 fa-lg"></i></a>
-        	  </td>		    
-		  	</tr>
 		  </tbody>
 		</table>
 	</div>

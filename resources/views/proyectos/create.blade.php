@@ -195,9 +195,9 @@
 
     <input type="hidden" name="fecha">
 
-    <div class="text-right">
-        <button type="submit" class="btn blue-gradient btn-rounded">GUARDAR</button>
-        <button type="submit" class="btn blue-gradient btn-rounded">CANCELAR</button>    
+    <div class="">
+        <button type="submit" class="btn  btn-primary btn-md">GUARDAR</button>
+        <button type="submit" class="btn  btn-info btn-md">CANCELAR</button>    
     </div>
     
 
