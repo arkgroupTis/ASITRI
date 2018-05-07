@@ -6,8 +6,8 @@
     
     <h1 align="center">NUEVO PROYECTO</h1>
 
-	<form>
-
+	<form action="{{url('/create')}}" method="POST">
+        {{csrf_field()}}
 
 
     <!-- Grid row -->
@@ -16,7 +16,7 @@
         <div class="col-md-12">
             <!-- Material input -->
             <div class="md-form form-group">
-                <input type="text" class="form-control">
+                <input type="text" class="form-control" name="nombreProy" required>
                 <label>Nombre del Proyecto</label>
             </div>
         </div>
@@ -30,7 +30,7 @@
                         <div>
 							<label class="control-label">Area Proyecto: </label>
 				
-							<select class="mdb-select colorful-select dropdown-primary col-md-12" name="area">
+							<select class="mdb-select colorful-select dropdown-primary col-md-12" name="">
 								<option value="">Base de Datos</option>
 								<option value="">Comercio Electrónico</option>
 								<option value="">Computación Gráfica
@@ -76,20 +76,20 @@
     <!-- Grid row -->
     <div class="form-group row">
         <!-- Material input -->
-        <label for="objetivos" class="col-sm-2 col-form-label">Objetivos:</label>
+        <label class="col-sm-2 col-form-label">Objetivos:</label>
         <div class="col-sm-10">
             <div class="md-form mt-0">
-              <textarea type="text" id="objetivos" class="form-control md-textarea" rows="2"></textarea>
+              <textarea type="text" name="objetivos" class="form-control md-textarea" rows="2"></textarea>
             </div>
         </div>
     </div>
 
     <div class="form-group row">
         <!-- Material input -->
-        <label for="descripcion" class="col-sm-2 col-form-label">Descripcion:</label>
+        <label class="col-sm-2 col-form-label">Descripcion:</label>
         <div class="col-sm-10">
             <div class="md-form mt-0">
-              <textarea type="text" id="descripcion" class="form-control md-textarea" rows="2"></textarea>
+              <textarea type="text" name="descripcion" class="form-control md-textarea" rows="2"></textarea>
             </div>
         </div>
     </div>
@@ -98,7 +98,7 @@
     	<div class="col-md-4">
             <!-- Material input -->
             <div class="md-form form-group">
-                <input type="text" class="form-control">
+                <input type="text" class="form-control" name="periodo">
                 <label >Periodo: </label>
             </div>
         </div>
@@ -106,7 +106,7 @@
         <div class="col-md-4">
             <!-- Material input -->
             <div class="md-form form-group">
-                <input type="text" class="form-control">
+                <input type="text" class="form-control" name="sesion">
                 <label >Sesion de consejo</label>
             </div>
         </div>
@@ -114,10 +114,10 @@
         <div class="col-md-4">
                             <label class="control-label">Modalidad: </label>
                 
-                            <select class="mdb-select colorful-select dropdown-primary col-md-12" name="area">
-                                <option value="">Proyecto de grado</option>
-                                <option value="">Tesis</option>
-                                <option value="">Trabajo dirigido</option>
+                            <select class="mdb-select colorful-select dropdown-primary col-md-12" name="modalidad">
+                                <option value="1">Proyecto de grado</option>
+                                <option value="2">Tesis</option>
+                                <option value="3">Trabajo dirigido</option>
                             </select>
                         </div>
   </div>
@@ -163,13 +163,13 @@
     <div class="form-row">
         <div class="col-md-6" >
             
-            <select class="mdb-select colorful-select dropdown-primary col-md-12" name="subarea">
+            <select class="mdb-select colorful-select dropdown-primary col-md-12" name="">
                 <option value=""></option>
                 <option value="">Estudiantes registrados</option>
             </select>
         </div>
         <div class="col-md-6" >
-            <select class="mdb-select colorful-select dropdown-primary col-md-12" name="subarea">
+            <select class="mdb-select colorful-select dropdown-primary col-md-12" name="">
                 <option value=""></option>
                 <option value="">Estudiantes registrados</option>
             </select>
@@ -180,25 +180,27 @@
     <div class="form-row">
         <div class="col-md-6" >
             
-            <select class="mdb-select colorful-select dropdown-primary col-md-12" name="subarea">
+            <select class="mdb-select colorful-select dropdown-primary col-md-12" name="">
                 <option value=""></option>
                 <option value="">Tutores registrados</option>
             </select>
         </div>
         <div class="col-md-6" >
-            <select class="mdb-select colorful-select dropdown-primary col-md-12" name="subarea">
+            <select class="mdb-select colorful-select dropdown-primary col-md-12" name="">
                 <option value=""></option>
                 <option value="">Tutores registrados</option>
             </select>
         </div>
     </div>
 
-    <input type="hidden" name="fecha">
+    <input type="hidden" name="fecha" value="2018-05-07">
 
     <div class="">
         <button type="submit" class="btn  btn-primary btn-md">GUARDAR</button>
         <button type="submit" class="btn  btn-info btn-md">CANCELAR</button>    
     </div>
+
+    
     
 
 

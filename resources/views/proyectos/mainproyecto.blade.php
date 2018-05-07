@@ -28,8 +28,8 @@
 		    <tr>
 		      <th style="width:10%;"><font size="3">Codigo Proyecto</font></th>
 		      <th style="width:40%;"><font size="3">Nombre Proyecto</font></th>
-		      <th style="width:20%;"><font size="3">Area Proyecto</font></th>
-		      <th style="width:15%;"><font size="3">Detalles</font></th>
+		      <th style="width:25%;"><font size="3">Area Proyecto</font></th>
+		      <th style="width:10%;"><font size="3">Detalles</font></th>
 		      <th style="width:15%;"><font size="3">Tribunales</font></th>
 		    </tr>
 		  </thead>
@@ -40,7 +40,7 @@
 	            <td> {{ $proyecto->idProyecto }} </td>
 	            <td> {{ $proyecto->titulo }} </td>
 	            <td> Area </td>
-	            <td><a href="#" class="btn aqua-gradient btn-sm">MAS INFO</a></td>
+	            <td><a class="btn-floating btn-sm btn-indigo btn-modal-show" data-toggle="tooltip" data-placement="top" title="ver"><i class="fa fa-eye mt-2 ml-2 fa-lg"></i></a></td>
 	            <td>
 	              <a class="btn-floating btn-sm btn-indigo" data-toggle="tooltip" data-placement="top" title="Asignar"><i class="fas fa-plus-circle mt-1 ml-1 fa-2x"></i></i></a>
 	              <a class="btn-floating btn-sm btn-info" data-toggle="tooltip" data-placement="top" title="Reasignar"><i class="fa fa-edit mt-2 ml-2 fa-lg"></i></a>
@@ -53,6 +53,82 @@
 		</table>
 	</div>
 </div>
+
+<div class="modal fade" id="modal-show" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-notify modal-info modal-lg" role="document">
+        <!--Content-->
+        <div class="modal-content">
+            <!--Header-->
+            <div class="modal-header">
+                <p class="heading lead">Proyecto</p>
+                
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true" class="white-text">&times;</span>
+                </button>
+            </div>
+            
+            <!--Body-->
+            <div class="modal-body">
+                <!-- Grid row -->
+                <div class="form-row">
+                    <!-- Grid column -->
+                    <div class="col-md-12">
+                        <table class="table table-bordered">
+                            <tbody>
+                                <tr>
+                                    <th scope="row">Id Proyecto</th>
+                                    <td id="td-idProy"></td>
+                                </tr>
+                                <tr>
+                                    <th scope="row">Titulo</th>
+                                    <td id="td-titulo"></td>
+                                </tr>
+                                <tr>
+                                    <th scope="row">Objetivos</th>
+                                    <td id="td-objetivos"></td>
+                                </tr>
+                                <tr>
+                                    <th scope="row">Descripcion</th>
+                                    <td id="td-descripcion"></td>
+                                </tr>
+                                <tr>
+                                    <th scope="row">Fecha Inicio</th>
+                                    <td id="td-fechaIni"></td>
+                                </tr>
+                                <tr>
+                                    <th scope="row">Fecha Fin</th>
+                                    <td id="td-fechaFin"></td>
+                                </tr>
+                                <tr>
+                                    <th scope="row">Periodo</th>
+                                    <td id="td-periodo"></td>
+                                </tr>
+                                <tr>
+                                    <th scope="row">Sesion de consejo</th>
+                                    <td id="td-sesion"></td>
+                                </tr>
+                                <tr>
+                                    <th scope="row">Modalidad</th>
+                                    <td id="td-modalidad"></td>
+                                </tr>
+                                
+                            </tbody>
+                        </table>
+                    </div>
+                    <!-- Grid column -->
+                </div>
+                <!-- Grid row -->              
+            </div>
+            <!--Footer-->
+            <div class="modal-footer">
+                <button class="btn btn-danger" data-dismiss="modal">Cerrar</button>
+            </div>
+        </div>
+        <!--/.Content-->
+    </div>
+</div>
+
+	{{ $proyectos->links() }}
 	<script>
 		$(document).ready(function(){
 		  $("#Search1").on("keyup", function() {
@@ -62,6 +138,21 @@
 		    });
 		  });
 		});
+
+		$(document).on('click', '.btn-modal-show', function() {
+        $.get('/proyectos/'+$($(this).parents("tr")).data('id'), function(data){
+            $('#td-idProy').text(data.proyecto.idProyecto);
+            $('#td-titulo').text(data.proyecto.titulo);
+            $('#td-objetivos').text(data.proyecto.objetivos);
+            $('#td-descripcion').text(data.proyecto.descripcion);
+            $('#td-fechaIni').text(data.proyecto.fecha);
+            $('#td-fechaFin').text();
+            $('#td-periodo').text(data.proyecto.periodo);
+            $('#td-sesion').text(data.proyecto.sesionDeConsejo);
+            $('#td-modalidad').text(data.proyecto.idModalidad);
+        });
+        $('#modal-show').modal('show');
+    	});
 	</script>
 	
 

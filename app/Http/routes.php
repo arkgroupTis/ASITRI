@@ -42,6 +42,9 @@ Route::auth();
 Route::get('/home', 'HomeController@index');
 
 Route::get('/create', 'ProyectoController@create');
+Route::post('/create', 'ProyectoController@store');
+
+Route::resource('/proyectos', 'proyectoController');
 
 Route::get('/newDoc', function () {
     return view('docentes/newDoc');

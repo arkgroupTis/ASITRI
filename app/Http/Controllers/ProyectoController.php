@@ -40,7 +40,20 @@ class ProyectoController extends Controller
      */
     public function store(Request $request)
     {
-        //
+
+        Proyecto::create([
+            'idProyecto'=>NULL,
+            'titulo' => $request['nombreProy'],
+            'objetivos'=>$request['objetivos'],
+            'descripcion'=>$request['descripcion'],
+            'periodo'=>$request['periodo'],
+            'sesionDeConsejo'=>$request['sesion'],
+            'idModalidad'=>$request['modalidad'],
+            'fecha'=>$request['fecha'],
+        ]);
+        return response()->json([
+            'message' => 'Se agrego correctamente!',
+        ]);
     }
 
     /**
@@ -52,6 +65,9 @@ class ProyectoController extends Controller
     public function show($id)
     {
         //
+        return response()->json([
+            'proyecto' => Proyecto::where('idProyecto', $id)->firstOrFail(),
+        ]);
     }
 
     /**
