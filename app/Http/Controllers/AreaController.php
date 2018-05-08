@@ -38,17 +38,18 @@ class AreaController extends Controller
      */
     public function store(Request $request)
     {
-        $this->validate([$request,
+        $this->validate($request, [
+            'nombreArea' => 'required|string',
+            'descripcionArea' => 'required|string',
         ]);
         Area::create([
             'nombreArea' => $request['nombreArea'],
             'descripcionArea' => $request['descripcionArea'],
-            'cod_sudarea' => NULL,
+            'cod_subarea' => NULL,
         ]);
         return response()->json([
             'message' => 'Se agrego correctamente!',
         ]);
-
     }
 
     /**
