@@ -2,10 +2,10 @@
 -- version 4.5.1
 -- http://www.phpmyadmin.net
 --
--- Host: 127.0.0.1
--- Generation Time: May 03, 2018 at 04:44 AM
--- Server version: 10.1.9-MariaDB
--- PHP Version: 5.6.15
+-- Servidor: 127.0.0.1
+-- Tiempo de generación: 08-05-2018 a las 02:05:33
+-- Versión del servidor: 10.1.9-MariaDB
+-- Versión de PHP: 5.6.15
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET time_zone = "+00:00";
@@ -17,13 +17,13 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Database: `db_asitri`
+-- Base de datos: `db_asitri`
 --
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `area`
+-- Estructura de tabla para la tabla `area`
 --
 
 CREATE TABLE `area` (
@@ -36,7 +36,7 @@ CREATE TABLE `area` (
 -- --------------------------------------------------------
 
 --
--- Table structure for table `asignacion`
+-- Estructura de tabla para la tabla `asignacion`
 --
 
 CREATE TABLE `asignacion` (
@@ -50,7 +50,7 @@ CREATE TABLE `asignacion` (
 -- --------------------------------------------------------
 
 --
--- Table structure for table `carrera`
+-- Estructura de tabla para la tabla `carrera`
 --
 
 CREATE TABLE `carrera` (
@@ -59,7 +59,7 @@ CREATE TABLE `carrera` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
--- Dumping data for table `carrera`
+-- Volcado de datos para la tabla `carrera`
 --
 
 INSERT INTO `carrera` (`idCarrera`, `nombreCarrera`) VALUES
@@ -69,7 +69,7 @@ INSERT INTO `carrera` (`idCarrera`, `nombreCarrera`) VALUES
 -- --------------------------------------------------------
 
 --
--- Table structure for table `docente`
+-- Estructura de tabla para la tabla `docente`
 --
 
 CREATE TABLE `docente` (
@@ -81,27 +81,102 @@ CREATE TABLE `docente` (
   `emailDoc` varchar(50) NOT NULL,
   `telefonoDoc` decimal(10,0) NOT NULL,
   `tituloDoc` varchar(20) DEFAULT NULL,
-  `cargaHoraria` tinyint(1) DEFAULT NULL,
-  `codigoDoc` varchar(45) DEFAULT NULL
+  `cargaHoraria` varchar(40) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
--- Dumping data for table `docente`
+-- Volcado de datos para la tabla `docente`
 --
 
-INSERT INTO `docente` (`idDoc`, `ciDoc`, `nombreDoc`, `apePaternoDoc`, `apeMaternoDoc`, `emailDoc`, `telefonoDoc`, `tituloDoc`, `cargaHoraria`, `codigoDoc`) VALUES
-(1, '4545154', 'Kenny', 'Dalton', 'Cardozo', 'kenny@yahoo.com', '4548462', 'Docente', 8, NULL),
-(2, '212122', 'Martin', 'Valasquez', 'Martinez', 'Martin@yahoo.com', '1254665', 'Profesional', 4, NULL),
-(7, '7847564', 'Marco ', 'Valencia', 'Martinez', 'marcoV@yahoo.com', '7854214', 'Profesional', 8, ''),
-(8, '1245675', 'Pedro ', 'Fuentes', 'Carbajo', 'pedroC@gmail.com', '4758451', 'Docente', 4, ''),
-(9, '1457584', 'Pedro Pablo', 'Leon', 'Jaramillo', 'pedroPablo@hotmail.com', '3424884', 'Profesional', 4, ''),
-(10, '4147851', 'Carlos', 'Sanchez', 'Mamani', 'carlosS@hotmail.com', '7778962', 'Profesional', 8, ''),
-(11, '7854244', 'Javier', 'Mendoza', 'Castro', 'Mendozajavier@gmail.com', '1148567', 'Profesional', 4, '');
+INSERT INTO `docente` (`idDoc`, `ciDoc`, `nombreDoc`, `apePaternoDoc`, `apeMaternoDoc`, `emailDoc`, `telefonoDoc`, `tituloDoc`, `cargaHoraria`) VALUES
+(12, '', 'Samuel Roberto', 'Achá', 'Perez', 'cibo@supernet.com.bo', '70719123', 'Ing.', 'Tiempo Parcial'),
+(13, '', 'Luis Roberto', 'Agreda', 'Corrales', 'luisagreda@hotmail.com', '4529557', 'Ing.', 'Tiempo Parcial'),
+(14, '', 'Nancy Tatiana', 'Aparicio', 'Yuja', 'aparicio@ucbcba.edu.bo', '0', 'Msc.', 'Tiempo Parcial'),
+(15, '', 'Ligia Jacqueline', 'Aranibar', 'La Fuente', 'ligiajacqueline@hotmail.com', '0', 'Lic.', 'Tiempo Parcial'),
+(16, '', 'Walter', 'Arispe', 'Santander', 'santander@hotmail.com', '0', 'Ing.', 'Tiempo Parcial'),
+(17, '', 'Jose Richard', 'Ayoroa', 'Cardozo', 'richard@correo.com', '0', 'Ing.', 'Tiempo Completo'),
+(18, '', 'Pablo Ramon', 'Azero', 'Alcocer', 'pabloazero@memi.umss.edu.bo', '4252439', 'Lic.', 'Tiempo Parcial'),
+(19, '', 'Maria Leticia', 'Blanco', 'Coca', 'leticia@memi.umss.edu.bo', '4252439', 'Lic.', 'Tiempo Parcial'),
+(20, '', 'Alex Israel', 'Bustillos', 'Vargas', 'bustillos@hotmail.com', '0', 'Lic.', 'Tiempo Parcial'),
+(21, '', 'Boris Marcelo', 'Calancha', 'Navia', 'boris@fcyt.umss.edu.bo', '4233719', 'Lic.', 'Tiempo Completo'),
+(22, '', 'Indira Elva', 'Camacho', 'del Castillo', 'agrofru@gmail.com', '4529433', 'Msc.', 'Tiempo Parcial'),
+(23, '', 'Alvaro Hernando', 'Carrasco', 'Calvo', 'null', '4233719', 'Lic.', 'Tiempo Parcial'),
+(24, '', 'Cecilia Beatriz', 'Castro', 'Lazarte', 'castro@hotmail.com', '0', 'Lic.', 'Tiempo Parcial'),
+(25, '', 'Raul', 'Catari', 'Rios', 'micorreo@yahoo.com', '4233719', 'Lic.', 'Tiempo Parcial'),
+(26, '', 'Maria Benita', 'Cespedes', 'Guizada', 'cespedes@hotmail.com', '0', 'Lic.', 'Tiempo Parcial'),
+(27, '', 'Alex Danchgelo', 'Choque', 'Flores', 'choque@hotmail.com', '0', 'Lic.', 'Tiempo Parcial'),
+(28, '', 'Francisco', 'Choque', 'Uno', 'uno@hotmail.com', '4233719', 'Lic.', 'Tiempo Parcial'),
+(29, '', 'Carlos J. Alfredo', 'Cosio', 'Papadopolis', 'null', '4233719', 'Ing.', 'Tiempo Parcial'),
+(30, '', 'Walter', 'Cossio', 'Cabrera', 'cossio@hotmail.com', '4233719', 'Msc. Ing.', 'Tiempo Parcial'),
+(31, '', 'Vladimir', 'Costas', 'Jáuregui', 'vcostas@cs.umss.edu.bo', '4666037', 'Msc.', 'Tiempo Completo'),
+(32, '', 'Grover', 'Cussi', 'Nicolas', 'gcussi@yahoo.com', '0', 'Lic.', 'Tiempo Parcial'),
+(33, '', 'Jorge', 'Davalos', 'Brozovic', 'null', '4233719', 'Lic.', 'Tiempo Parcial'),
+(34, '', 'David Alfredo', 'Delgadillo', 'Cossio', 'delgadillo@hotmail.com', '0', 'Lic.', 'Tiempo Parcial'),
+(35, '', 'David', 'Escalera', 'Fernandez', 'descalera@cs.umss.edu.bo', '0', 'Lic.', 'Tiempo Parcial'),
+(36, '', 'Juan A.', 'Fernandez', 'León', 'null', '4233719', 'Lic.', 'Tiempo Parcial'),
+(37, '', 'David', 'Fernandez', 'Ramos', 'fernandez@hotmail.com', '0', 'Ing.', 'Tiempo Parcial'),
+(38, '', 'Americo', 'Fiorilo', 'Lozada', 'amefio@gmail.com', '0', 'Msc. Ing.', 'Tiempo Parcial'),
+(39, '', 'Juan Marcelo', 'Flores', 'Soliz', 'marcelo@memi.umss.edu.bo', '4233719', 'Lic.', 'Tiempo Parcial'),
+(40, '', 'Corina Justina', 'Flores', 'Villarroel', 'corina@memi.umss.edu.bo', '4252439', 'Lic.', 'Tiempo Parcial'),
+(41, '', 'Juan Ruben', 'Garcia', 'Molina', 'garcia@hotmail.com', '0', 'Ing.', 'Tiempo Parcial'),
+(42, '', 'Carmen Rosa', 'Garcia', 'Perez', 'carmenrosagarcia@hotmail.com', '0', 'Lic.', 'Tiempo Parcial'),
+(43, '', 'Maria Estela', 'Grilo', 'Salvatierra', 'null', '4233719', 'Lic.', 'Tiempo Parcial'),
+(44, '', 'Osvaldo Walter', 'Gutierrez', 'Andrade', 'gutierrez@hotmail.com', '0', 'Ing.', 'Tiempo Parcial'),
+(45, '', 'Victor', 'Gutierrez', 'Martinez', 'null', '4233719', 'Lic.', 'Tiempo Parcial'),
+(46, '', 'Gonzalo E. Antonio', 'Guzman', 'Orellana', 'guzman@hotmail.com', '0', 'Ing.', 'Tiempo Parcial'),
+(47, '', 'Johnny', 'Herrera', 'Acebey', 'herrera@hotmail.com', '0', 'Ing.', 'Tiempo Parcial'),
+(48, '', 'Mauricio', 'Hoepfner', 'Reynolds', 'null', '4233719', 'Lic.', 'Tiempo Parcial'),
+(49, '', 'K. Rolando', 'Jaldin', 'Rosales', 'rjaldin@hotmail.com', '0', 'Msc. Lic.', 'Tiempo Completo'),
+(50, '', 'Demetrio', 'Juchani', 'Bazualdo', 'juchani@hotmail.com', '0', 'Ing.', 'Tiempo Parcial'),
+(51, '', 'Valentin', 'Laime', 'Zapata', 'laime@gmail.com', '0', 'Lic.', 'Tiempo Parcial'),
+(52, '', 'Gualberto', 'Leon', 'Romero', 'leon@hotmail.com', '0', 'Ing.', 'Tiempo Parcial'),
+(53, '', 'Ruperto', 'León', 'Romero', 'ruperto@cs.umss.edu.bo', '4233719', 'Msc. Ing.', 'Tiempo Parcial'),
+(54, '', 'Tito Anibal', 'Lima', 'Vacaflor', 'tlima@quadraplastsrl.com', '70744138', 'Msc. Ing.', 'Tiempo Parcial'),
+(55, '', 'Marcelo Javier', 'Lucano', 'Lucano', 'lucano@hotmail.com', '0', 'Lic.', 'Tiempo Parcial'),
+(56, '', 'Mabel Gloria', 'Magariños', 'Villarroel', 'mabelm@fcyt.umss.edu.bo', '4234244', 'Ing.', 'Tiempo Parcial'),
+(57, '', 'Roberto Juan', 'Manchego', 'Castellon', 'rmanchego@hotmail.com', '4232189', 'Ing.', 'Tiempo Parcial'),
+(58, '', 'Carlos Benito', 'Manzur', 'Soria', 'ca.manzu@umss.edu.bo', '4233719', 'Lic.', 'Tiempo Parcial'),
+(59, '', 'Amilcar Saul', 'Martinez', 'Maida', 'martinez@hotmail.com', '0', 'Lic.', 'Tiempo Parcial'),
+(60, '', 'Julio', 'Medina', 'Gamboa', '', '4233719', 'Ing.', 'Tiempo Parcial'),
+(61, '', 'Victor R.', 'Mejia', 'Urquieta', '', '4233719', 'Lic.', 'Tiempo Parcial'),
+(62, '', 'Victor Hugo', 'Montaño', 'Quiroga', 'victor@memi.umss.edu.bo', '4233719', 'Lic.', 'Tiempo Parcial'),
+(63, '', 'Marco Antonio', 'Montecinos', 'Choque', 'markmcbo@gmail.com', '0', 'Msc. Lic.', 'Tiempo Parcial'),
+(64, '', 'Yony Richard', 'Montoya', 'Burgos', 'yony@setbol.net', '71725138', 'Msc. Lic.', 'Tiempo Parcial'),
+(65, '', 'Jose Gil', 'Omonte', 'Ojalvo', '', '4233719', 'Ing.', 'Tiempo Parcial'),
+(66, '', 'Jose Roberto', 'Omonte', 'Ojalvo', '', '4233719', 'Ing.', 'Tiempo Parcial'),
+(67, '', 'Jorge Walter', 'Orellana', 'Araoz', 'jw.orellana@umss.edu.bo', '0', 'Msc. Ing.', 'Tiempo Completo'),
+(68, '', 'Ronald Edgar', 'Patiño', 'Tito', 'patino@hotmail.com', '0', 'Ing.', 'Tiempo Parcial'),
+(69, '', 'Magda Lena', 'Peeters', 'Ilonaa', 'peeters@hotmail.com', '0', 'Lic.', 'Tiempo Parcial'),
+(70, '', 'Omar David', 'Perez', 'Fuentes', 'omar_perez_f@hotmail.com', '4233719', 'Msc. Ing.', 'Tiempo Parcial'),
+(71, '', 'Alfredo', 'Pericon', 'Balderrama', 'pericon@hotmail.com', '0', 'Ing.', 'Tiempo Parcial'),
+(72, '', 'Abdon', 'Quiroz', 'Chavez', 'quiroz@hotmail.com', '0', 'Ing.', 'Tiempo Parcial'),
+(73, '', 'Erika Patricia', 'Rodriguez', 'Bilbao', 'akirebilbao@gmail.com', '0', 'Msc. Lic.', 'Tiempo Completo'),
+(74, '', 'Juan Antonio', 'Rodriguez', 'Sejas', 'rodriguez@hotmail.com', '0', 'Ing.', 'Tiempo Parcial'),
+(75, '', 'Ramiro', 'Rojas', 'Zurita', '', '4233719', 'Ing.', 'Tiempo Parcial'),
+(76, '', 'Patricia Elizabeth', 'Romero', 'Rodríguez', 'paromeror@gmail.com', '0', 'Msc. Lic.', 'Tiempo Parcial'),
+(77, '', 'Rose Mary', 'Salazar', 'Anaya', 'rsalazar@umss.edu.bo', '4233719', 'Lic.', 'Tiempo Parcial'),
+(78, '', 'Carla', 'Salazar', 'Serrudo', 'csalazar@memi.umss.edu.bo', '4233719', 'Msc. Lic.', 'Tiempo Completo'),
+(79, '', 'Ariel Antonio', 'Sarmiento', 'Franco', 'sarmiento@hotmail.com', '0', 'Ing.', 'Tiempo Parcial'),
+(80, '', 'Roxana', 'Silva', 'Murillo', 'tersil@supernet.com.bo', '4233719', 'Lic.', 'Tiempo Parcial'),
+(81, '', 'Jose Antonio', 'Soruco', 'Maita', '', '4233719', 'Lic.', 'Tiempo Parcial'),
+(82, '', 'Fidel', 'Taborga', 'Acha', '', '4233719', 'Lic.', 'Tiempo Parcial'),
+(83, '', 'Darlong Howard', 'Taylor', 'Terrazas', 'taylor@hotmail.com', '0', 'Lic.', 'Tiempo Parcial'),
+(84, '', 'Juan', 'Terrazas', 'Lobo', 'terrazas@hotmail.com', '0', 'Ing.', 'Tiempo Parcial'),
+(85, '', 'Rosemary', 'Torrico', 'Bascopé', 'rosemary@cs.umss.edu.bo', '71778384', 'Msc. Lic.', 'Tiempo Parcial'),
+(86, '', 'Hernan', 'Ustariz', 'Vargas', 'hustariz@memi.umss.edu.bo', '4233719', 'Lic.', 'Tiempo Parcial'),
+(87, '', 'Roberto', 'Valenzuela', 'Miranda', '', '4233719', 'Ing.', 'Tiempo Parcial'),
+(88, '', 'Marco Antonio', 'Vallejos', 'Camacho', 'vallejos@hotmail.com', '0', 'Ing.', 'Tiempo Parcial'),
+(89, '', 'Ademar Marcelo', 'Vargas', 'Antezana', 'vargas@hotmail.com', '0', 'Ing.', 'Tiempo Parcial'),
+(90, '', 'Aidée', 'Vargas', 'Colque', 'aideevc@fcyt.umss.edu.bo', '4233719', 'Lic.', 'Tiempo Parcial'),
+(91, '', 'Jimmy', 'Villarroel', 'Novillo', 'jimmyvn_@hotmail.com', '0', 'Ing.', 'Tiempo Completo'),
+(92, '', 'Henrry Frank', 'Villarroel', 'Tapia', 'hvillarroel@memi.umss.edu.bo', '77931275', 'Lic.', 'Tiempo Completo'),
+(93, '', 'Christian', 'Villazon', 'Alcocer', 'villazon@gmial.com', '0', 'Lic.', 'Tiempo Parcial'),
+(94, '', 'Oscar A', 'Zabalaga', 'Montano', 'zabalaga@hotmail.com', '0', 'Ing.', 'Tiempo Parcial');
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `estudiante`
+-- Estructura de tabla para la tabla `estudiante`
 --
 
 CREATE TABLE `estudiante` (
@@ -116,7 +191,7 @@ CREATE TABLE `estudiante` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
--- Dumping data for table `estudiante`
+-- Volcado de datos para la tabla `estudiante`
 --
 
 INSERT INTO `estudiante` (`idEstudiante`, `ciEst`, `nombreEst`, `apellidoEst`, `emailEst`, `telefono`, `idProyecto`, `idCarrera`) VALUES
@@ -137,7 +212,7 @@ INSERT INTO `estudiante` (`idEstudiante`, `ciEst`, `nombreEst`, `apellidoEst`, `
 -- --------------------------------------------------------
 
 --
--- Table structure for table `modalidad`
+-- Estructura de tabla para la tabla `modalidad`
 --
 
 CREATE TABLE `modalidad` (
@@ -146,7 +221,7 @@ CREATE TABLE `modalidad` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
--- Dumping data for table `modalidad`
+-- Volcado de datos para la tabla `modalidad`
 --
 
 INSERT INTO `modalidad` (`idModalidad`, `nombreMod`) VALUES
@@ -156,7 +231,7 @@ INSERT INTO `modalidad` (`idModalidad`, `nombreMod`) VALUES
 -- --------------------------------------------------------
 
 --
--- Table structure for table `pertenece`
+-- Estructura de tabla para la tabla `pertenece`
 --
 
 CREATE TABLE `pertenece` (
@@ -168,7 +243,7 @@ CREATE TABLE `pertenece` (
 -- --------------------------------------------------------
 
 --
--- Table structure for table `proyecto`
+-- Estructura de tabla para la tabla `proyecto`
 --
 
 CREATE TABLE `proyecto` (
@@ -184,7 +259,7 @@ CREATE TABLE `proyecto` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
--- Dumping data for table `proyecto`
+-- Volcado de datos para la tabla `proyecto`
 --
 
 INSERT INTO `proyecto` (`idProyecto`, `titulo`, `objetivos`, `descripcion`, `fecha`, `fechaFin`, `periodo`, `sesionDeConsejo`, `idModalidad`) VALUES
@@ -193,7 +268,7 @@ INSERT INTO `proyecto` (`idProyecto`, `titulo`, `objetivos`, `descripcion`, `fec
 -- --------------------------------------------------------
 
 --
--- Table structure for table `proyecto_has_area`
+-- Estructura de tabla para la tabla `proyecto_has_area`
 --
 
 CREATE TABLE `proyecto_has_area` (
@@ -204,7 +279,7 @@ CREATE TABLE `proyecto_has_area` (
 -- --------------------------------------------------------
 
 --
--- Table structure for table `renuncia`
+-- Estructura de tabla para la tabla `renuncia`
 --
 
 CREATE TABLE `renuncia` (
@@ -217,7 +292,7 @@ CREATE TABLE `renuncia` (
 -- --------------------------------------------------------
 
 --
--- Table structure for table `tiene`
+-- Estructura de tabla para la tabla `tiene`
 --
 
 CREATE TABLE `tiene` (
@@ -229,7 +304,7 @@ CREATE TABLE `tiene` (
 -- --------------------------------------------------------
 
 --
--- Table structure for table `users`
+-- Estructura de tabla para la tabla `users`
 --
 
 CREATE TABLE `users` (
@@ -243,7 +318,7 @@ CREATE TABLE `users` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
--- Dumping data for table `users`
+-- Volcado de datos para la tabla `users`
 --
 
 INSERT INTO `users` (`id`, `name`, `email`, `password`, `remember_token`, `created_at`, `updated_at`) VALUES
@@ -252,18 +327,18 @@ INSERT INTO `users` (`id`, `name`, `email`, `password`, `remember_token`, `creat
 (4, 'kenny', 'kennydaltonc@yahoo.com', '$2y$10$d6R5VQffRs870S2W3Bjhhui.5JCqcHBDyEZlaKeYGcvEH3jDFtgX2', NULL, '2018-05-01 00:36:25', '2018-05-01 00:36:25');
 
 --
--- Indexes for dumped tables
+-- Índices para tablas volcadas
 --
 
 --
--- Indexes for table `area`
+-- Indices de la tabla `area`
 --
 ALTER TABLE `area`
   ADD PRIMARY KEY (`idArea`),
   ADD KEY `fk_area_area2_idx` (`cod_subarea`);
 
 --
--- Indexes for table `asignacion`
+-- Indices de la tabla `asignacion`
 --
 ALTER TABLE `asignacion`
   ADD PRIMARY KEY (`idAsig`),
@@ -271,19 +346,19 @@ ALTER TABLE `asignacion`
   ADD KEY `fk_Asignacion_Docente1_idx` (`idDoc`);
 
 --
--- Indexes for table `carrera`
+-- Indices de la tabla `carrera`
 --
 ALTER TABLE `carrera`
   ADD PRIMARY KEY (`idCarrera`);
 
 --
--- Indexes for table `docente`
+-- Indices de la tabla `docente`
 --
 ALTER TABLE `docente`
   ADD PRIMARY KEY (`idDoc`);
 
 --
--- Indexes for table `estudiante`
+-- Indices de la tabla `estudiante`
 --
 ALTER TABLE `estudiante`
   ADD PRIMARY KEY (`idEstudiante`),
@@ -291,13 +366,13 @@ ALTER TABLE `estudiante`
   ADD KEY `fk_estudiante_carrera1_idx` (`idCarrera`);
 
 --
--- Indexes for table `modalidad`
+-- Indices de la tabla `modalidad`
 --
 ALTER TABLE `modalidad`
   ADD PRIMARY KEY (`idModalidad`);
 
 --
--- Indexes for table `pertenece`
+-- Indices de la tabla `pertenece`
 --
 ALTER TABLE `pertenece`
   ADD PRIMARY KEY (`idPertenece`),
@@ -305,14 +380,14 @@ ALTER TABLE `pertenece`
   ADD KEY `fk_Pertenece_Docente1_idx` (`idDoc`);
 
 --
--- Indexes for table `proyecto`
+-- Indices de la tabla `proyecto`
 --
 ALTER TABLE `proyecto`
   ADD PRIMARY KEY (`idProyecto`),
   ADD KEY `fk_proyecto_modalidad1_idx` (`idModalidad`);
 
 --
--- Indexes for table `proyecto_has_area`
+-- Indices de la tabla `proyecto_has_area`
 --
 ALTER TABLE `proyecto_has_area`
   ADD PRIMARY KEY (`idProyecto`,`idArea`),
@@ -320,14 +395,14 @@ ALTER TABLE `proyecto_has_area`
   ADD KEY `fk_proyecto_has_area_proyecto1_idx` (`idProyecto`);
 
 --
--- Indexes for table `renuncia`
+-- Indices de la tabla `renuncia`
 --
 ALTER TABLE `renuncia`
   ADD PRIMARY KEY (`idRenuncia`),
   ADD KEY `fk_Renuncia_Asignacion1_idx` (`idAsig`);
 
 --
--- Indexes for table `tiene`
+-- Indices de la tabla `tiene`
 --
 ALTER TABLE `tiene`
   ADD PRIMARY KEY (`idTiene`),
@@ -335,122 +410,122 @@ ALTER TABLE `tiene`
   ADD KEY `fk_Tiene_Docente1_idx` (`idDoc`);
 
 --
--- Indexes for table `users`
+-- Indices de la tabla `users`
 --
 ALTER TABLE `users`
   ADD PRIMARY KEY (`id`);
 
 --
--- AUTO_INCREMENT for dumped tables
+-- AUTO_INCREMENT de las tablas volcadas
 --
 
 --
--- AUTO_INCREMENT for table `area`
+-- AUTO_INCREMENT de la tabla `area`
 --
 ALTER TABLE `area`
   MODIFY `idArea` int(11) NOT NULL AUTO_INCREMENT;
 --
--- AUTO_INCREMENT for table `asignacion`
+-- AUTO_INCREMENT de la tabla `asignacion`
 --
 ALTER TABLE `asignacion`
   MODIFY `idAsig` int(11) NOT NULL AUTO_INCREMENT;
 --
--- AUTO_INCREMENT for table `carrera`
+-- AUTO_INCREMENT de la tabla `carrera`
 --
 ALTER TABLE `carrera`
   MODIFY `idCarrera` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 --
--- AUTO_INCREMENT for table `docente`
+-- AUTO_INCREMENT de la tabla `docente`
 --
 ALTER TABLE `docente`
-  MODIFY `idDoc` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
+  MODIFY `idDoc` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=95;
 --
--- AUTO_INCREMENT for table `estudiante`
+-- AUTO_INCREMENT de la tabla `estudiante`
 --
 ALTER TABLE `estudiante`
   MODIFY `idEstudiante` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=20;
 --
--- AUTO_INCREMENT for table `modalidad`
+-- AUTO_INCREMENT de la tabla `modalidad`
 --
 ALTER TABLE `modalidad`
   MODIFY `idModalidad` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 --
--- AUTO_INCREMENT for table `pertenece`
+-- AUTO_INCREMENT de la tabla `pertenece`
 --
 ALTER TABLE `pertenece`
   MODIFY `idPertenece` int(11) NOT NULL AUTO_INCREMENT;
 --
--- AUTO_INCREMENT for table `proyecto`
+-- AUTO_INCREMENT de la tabla `proyecto`
 --
 ALTER TABLE `proyecto`
   MODIFY `idProyecto` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 --
--- AUTO_INCREMENT for table `renuncia`
+-- AUTO_INCREMENT de la tabla `renuncia`
 --
 ALTER TABLE `renuncia`
   MODIFY `idRenuncia` int(11) NOT NULL AUTO_INCREMENT;
 --
--- AUTO_INCREMENT for table `tiene`
+-- AUTO_INCREMENT de la tabla `tiene`
 --
 ALTER TABLE `tiene`
   MODIFY `idTiene` int(11) NOT NULL AUTO_INCREMENT;
 --
--- AUTO_INCREMENT for table `users`
+-- AUTO_INCREMENT de la tabla `users`
 --
 ALTER TABLE `users`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 --
--- Constraints for dumped tables
+-- Restricciones para tablas volcadas
 --
 
 --
--- Constraints for table `area`
+-- Filtros para la tabla `area`
 --
 ALTER TABLE `area`
   ADD CONSTRAINT `fk_area_area2` FOREIGN KEY (`cod_subarea`) REFERENCES `area` (`idArea`) ON DELETE NO ACTION ON UPDATE NO ACTION;
 
 --
--- Constraints for table `asignacion`
+-- Filtros para la tabla `asignacion`
 --
 ALTER TABLE `asignacion`
   ADD CONSTRAINT `fk_Asignacion_Docente1` FOREIGN KEY (`idDoc`) REFERENCES `docente` (`idDoc`) ON DELETE NO ACTION ON UPDATE NO ACTION,
   ADD CONSTRAINT `fk_Asignacion_Proyecto1` FOREIGN KEY (`idProyecto`) REFERENCES `proyecto` (`idProyecto`) ON DELETE NO ACTION ON UPDATE NO ACTION;
 
 --
--- Constraints for table `estudiante`
+-- Filtros para la tabla `estudiante`
 --
 ALTER TABLE `estudiante`
   ADD CONSTRAINT `fk_Estudiante_Proyecto1` FOREIGN KEY (`idProyecto`) REFERENCES `proyecto` (`idProyecto`) ON DELETE NO ACTION ON UPDATE NO ACTION,
   ADD CONSTRAINT `fk_estudiante_carrera1` FOREIGN KEY (`idCarrera`) REFERENCES `carrera` (`idCarrera`) ON DELETE NO ACTION ON UPDATE NO ACTION;
 
 --
--- Constraints for table `pertenece`
+-- Filtros para la tabla `pertenece`
 --
 ALTER TABLE `pertenece`
   ADD CONSTRAINT `fk_Pertenece_Carrera1` FOREIGN KEY (`idCarrera`) REFERENCES `carrera` (`idCarrera`) ON DELETE NO ACTION ON UPDATE NO ACTION,
   ADD CONSTRAINT `fk_Pertenece_Docente1` FOREIGN KEY (`idDoc`) REFERENCES `docente` (`idDoc`) ON DELETE NO ACTION ON UPDATE NO ACTION;
 
 --
--- Constraints for table `proyecto`
+-- Filtros para la tabla `proyecto`
 --
 ALTER TABLE `proyecto`
   ADD CONSTRAINT `fk_proyecto_modalidad1` FOREIGN KEY (`idModalidad`) REFERENCES `modalidad` (`idModalidad`) ON DELETE NO ACTION ON UPDATE NO ACTION;
 
 --
--- Constraints for table `proyecto_has_area`
+-- Filtros para la tabla `proyecto_has_area`
 --
 ALTER TABLE `proyecto_has_area`
   ADD CONSTRAINT `fk_proyecto_has_area_area1` FOREIGN KEY (`idArea`) REFERENCES `area` (`idArea`) ON DELETE NO ACTION ON UPDATE NO ACTION,
   ADD CONSTRAINT `fk_proyecto_has_area_proyecto1` FOREIGN KEY (`idProyecto`) REFERENCES `proyecto` (`idProyecto`) ON DELETE NO ACTION ON UPDATE NO ACTION;
 
 --
--- Constraints for table `renuncia`
+-- Filtros para la tabla `renuncia`
 --
 ALTER TABLE `renuncia`
   ADD CONSTRAINT `fk_Renuncia_Asignacion1` FOREIGN KEY (`idAsig`) REFERENCES `asignacion` (`idAsig`) ON DELETE NO ACTION ON UPDATE NO ACTION;
 
 --
--- Constraints for table `tiene`
+-- Filtros para la tabla `tiene`
 --
 ALTER TABLE `tiene`
   ADD CONSTRAINT `fk_Tiene_Area` FOREIGN KEY (`idArea`) REFERENCES `area` (`idArea`) ON DELETE NO ACTION ON UPDATE NO ACTION,
