@@ -28,6 +28,15 @@
             </div>
         </div>
     </div>
+    <div class="col-md-">
+        <label class="control-label">Area Principal: </label>
+        <select class="mdb-select colorful-select dropdown-primary col-md-12" name="tipo" id="codigo">
+            @foreach($areas as $area)
+            <option value= {{ $area-> idArea}} > {{ $area-> nombreArea}} </option>
+            $a++;
+            @endforeach
+        </select>
+    </div>
             <button type="reset" class="btn btn-danger btn-md">Cancelar</button>
             <button class="btn  btn-primary btn-md" id="add">GUARDAR</button>
     <!-- Grid row -->
@@ -45,6 +54,7 @@
                 '_token': $('input[name=_token]').val(),
                 'nombreArea': $('#nombre').val(),
                 'descripcionArea': $('#descripcion').val(),
+                'cod_subarea': $('#codigo').val(),
             },
             success : function(data) {
                 toastr.success(data.message);

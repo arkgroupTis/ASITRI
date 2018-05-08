@@ -77,6 +77,9 @@
                             <li>
                                 <a href="/areas" class="waves-effect">Nueva Area</a>
                             </li>
+                            <li>
+                                <a href="/subarea" class="waves-effect">Nueva Sub-Area</a>
+                            </li>
                         </ul>
                     </div>
                 </li>
