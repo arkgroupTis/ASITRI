@@ -29,7 +29,7 @@
 		      <th width="15"><font size="3">Codigo Docente</font></th>
 		      <th><font size="3">Nombre Docente</font></th>
 		      <th width="25"><font size="3">Tipo</font></th>
-		      <th width="5"><font size="3">N</font></th>
+		      <th width="15"><font size="3">Carga horaria</font></th>
 		      <th width="15"><font size="3">Proyectos</font></th>
 		    </tr>
 		  </thead>
@@ -39,7 +39,7 @@
 	            <td> {{ $docente->ciDoc }} </td>
 	            <td> {{ $docente->nombreDoc }} {{ $docente->apePaternoDoc }} {{ $docente->apeMaternoDoc }}</td>
 	            <td> {{ $docente->tituloDoc }} </td>
-	            <td>3</td>
+	            <td> {{ $docente->cargaHoraria }}</td>
 	            <td>
 	            	<a class="btn-floating btn-sm btn-indigo btn-modal-show" data-toggle="tooltip" data-placement="top" title="ver"><i class="fa fa-eye mt-2 ml-2 fa-lg"></i></a>
 	            </td>
