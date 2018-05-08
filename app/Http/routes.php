@@ -26,7 +26,6 @@ Route::get('/areas',function()
 {
 	return view ('areas.create');
 });
-
 Route::get('/areas/edit',function()
 {
 	return view ('areas.edit');
@@ -67,9 +66,11 @@ Route::get('/Tribunales', function(){
 
 Route::resource('/AsignacionTribunales', 'DocenteController@asignacionTribunales');
 
+Route::resource('subarea','AreaController@subarea');
 /**
 Route::get('/AsignacionTribunales', function(){
 	return view('Tribunales/AsignacionTribunales');
 });
 */
 Route::resource('/docentes', 'DocenteController');
+Route::resource('/areasCatalogo', 'AreaController');
