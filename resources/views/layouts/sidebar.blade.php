@@ -25,40 +25,6 @@
             <ul class="collapsible collapsible-accordion">
                 <li>
                     <a class="collapsible-header waves-effect arrow-r">
-                        <i class="fa fa-chevron-right"></i> 
-                        Submit blog
-                        <i class="fa fa-angle-down rotate-icon"></i>
-                    </a>
-                    <div class="collapsible-body">
-                        <ul>
-                            <li>
-                                <a href="#" class="waves-effect">Submit listing</a>
-                            </li>
-                            <li>
-                                <a href="#" class="waves-effect">Registration form</a>
-                            </li>
-                        </ul>
-                    </div>
-                </li>
-                <li>
-                    <a class="collapsible-header waves-effect arrow-r">
-                        <i class="fa fa-hand-pointer-o"></i> 
-                        Instruction
-                        <i class="fa fa-angle-down rotate-icon"></i>
-                    </a>
-                    <div class="collapsible-body">
-                        <ul>
-                            <li>
-                                <a href="#" class="waves-effect">For bloggers</a>
-                            </li>
-                            <li>
-                                <a href="#" class="waves-effect">For authors</a>
-                            </li>
-                        </ul>
-                    </div>
-                </li>
-                <li>
-                    <a class="collapsible-header waves-effect arrow-r">
                         <i class="fa fa-hand-pointer-o"></i> 
                         Proyectos
                         <i class="fa fa-angle-down rotate-icon"></i>
@@ -70,9 +36,6 @@
                             </li>
                             <li>
                                 <a href="/create" class="waves-effect">Nuevo Proyecto</a>
-                            </li>
-                            <li>
-                                <a href="#" class="waves-effect">Nuevo Estudiante</a>
                             </li>
                         </ul>
                     </div>
@@ -99,16 +62,26 @@
                         <i class="fa fa-eye"></i> 
                             Renuncia Tribunal
                     </a>
-                    <a class="collapsible-header waves-effect arrow-r">
-                        <i class="fa fa-eye"></i> 
-                        About
-                    </a>
                 </li>
                 <li>
-                    <a class="collapsible-header waves-effect arrow-r" href="/areas">
-                        <i class="fa fa-eye"></i> 
+                    <a class="collapsible-header waves-effect arrow-r">
+                        <i class="fa fa-hand-pointer-o"></i> 
                         Areas
+                        <i class="fa fa-angle-down rotate-icon"></i>
                     </a>
+                    <div class="collapsible-body">
+                        <ul>
+                            <li>
+                                <a href="/areasCatalogo" class="waves-effect">Catalogo Areas</a>
+                            </li>
+                            <li>
+                                <a href="/areas" class="waves-effect">Nueva Area</a>
+                            </li>
+                            <li>
+                                <a href="/subarea" class="waves-effect">Nueva Sub-Area</a>
+                            </li>
+                        </ul>
+                    </div>
                 </li>
                 <li>
                     <a class="collapsible-header waves-effect arrow-r">
@@ -139,23 +112,6 @@
                             </li>
                             <li>
                                 <a href="/newStudent" class="waves-effect">Nuevo Estudiante</a>
-                            </li>
-                        </ul>
-                    </div>
-                </li>
-                <li>
-                    <a class="collapsible-header waves-effect arrow-r">
-                        <i class="fa fa-eye"></i> 
-                        About
-                        <i class="fa fa-angle-down rotate-icon"></i>
-                    </a>
-                    <div class="collapsible-body">
-                        <ul>
-                            <li>
-                                <a href="#" class="waves-effect">Introduction</a>
-                            </li>
-                            <li>
-                                <a href="#" class="waves-effect">Monthly meetings</a>
                             </li>
                         </ul>
                     </div>
