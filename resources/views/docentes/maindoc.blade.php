@@ -37,7 +37,7 @@
 		    @foreach($docentes as $docente)
         	<tr data-id="{{ $docente->idDoc }}">
 	            <td> {{ $docente->ciDoc }} </td>
-	            <td> {{ $docente->nombreDoc }} {{ $docente->apePaternoDoc }} {{ $docente->apeMaternoDoc }}</td>
+	            <td> {{ $docente->apePaternoDoc }} {{ $docente->apeMaternoDoc }} {{ $docente->nombreDoc }} </td>
 	            <td> {{ $docente->tituloDoc }} </td>
 	            <td> {{ $docente->cargaHoraria }}</td>
 	            <td>
