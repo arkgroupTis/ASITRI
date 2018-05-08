@@ -19,7 +19,11 @@ class AreaController extends Controller
         $areas = Area::orderBy('nombreArea', 'asc')->paginate(500);
         return view('areas.edit', compact('areas'));
     }
-
+    public function subarea()
+    {
+        $areas = Area::orderBy('nombreArea', 'asc')->paginate(500);
+        return view('areas.sub', compact('areas'));
+    }
     /**
      * Show the form for creating a new resource.
      *
@@ -38,17 +42,18 @@ class AreaController extends Controller
      */
     public function store(Request $request)
     {
-        $this->validate([$request,
+        $this->validate($request, [
+            'nombreArea' => 'required|string',
+            'descripcionArea' => 'required|string',
         ]);
         Area::create([
             'nombreArea' => $request['nombreArea'],
             'descripcionArea' => $request['descripcionArea'],
-            'cod_sudarea' => NULL,
+            'cod_subarea' => $request['cod_subarea'],
         ]);
         return response()->json([
             'message' => 'Se agrego correctamente!',
         ]);
-
     }
 
     /**

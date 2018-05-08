@@ -2,9 +2,11 @@
 
 
 @section('content')
+{{ csrf_field() }}
 <!-- Horizontal material form -->
 <form id="miForm">
     <!-- Grid row -->
+    <h1>Nueva Area</h1>
     <div class="form-group row">
         <!-- Material input -->
         <label for="nombre" class="col-sm-2 col-form-label">Nombre:</label>
@@ -26,14 +28,8 @@
             </div>
         </div>
     </div>
-    <div class="form-group row">
-        <div class="col-sm-15">
             <button type="reset" class="btn btn-danger btn-md">Cancelar</button>
-        </div>
-        <div class="col-sm-5">
-            <button type="submit" class="btn btn-primary btn-md" id="add">Guardar</button>
-        </div>
-    </div>
+            <button class="btn  btn-primary btn-md" id="add">GUARDAR</button>
     <!-- Grid row -->
 </form>
 <!-- Horizontal material form -->
@@ -64,5 +60,4 @@
     document.getElementById("miForm").reset();
   }
 </script>
-
 @endsection
