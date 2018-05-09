@@ -31,10 +31,7 @@ Route::get('/areas/edit',function()
 	return view ('areas.edit');
 });
 
-Route::get('/proyectos',function()
-{
-	return view ('proyectos.mainproyecto');
-});
+Route::get('/proyectos','ProyectoController@index');
 
 Route::get('/nuevoDocente', function () {
     return view('docentes.nuevoDocente');
@@ -43,9 +40,10 @@ Route::auth();
 
 Route::get('/home', 'HomeController@index');
 
-Route::get('/create', function () {
-    return view('proyectos/create');
-});
+Route::get('/create', 'ProyectoController@create');
+Route::post('/create', 'ProyectoController@store');
+
+Route::resource('/proyectos', 'proyectoController');
 
 Route::get('/newDoc', function () {
     return view('docentes/newDoc');

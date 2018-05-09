@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
+use App\Proyecto;
 
 class ProyectoController extends Controller
 {
@@ -16,7 +17,9 @@ class ProyectoController extends Controller
      */
     public function index()
     {
-        //
+        //return view ('proyectos.mainproyecto');
+        $proyectos = Proyecto::orderBy('titulo', 'asc')->paginate(5);
+        return view('proyectos.mainproyecto', compact('proyectos'));
     }
 
     /**
@@ -26,7 +29,7 @@ class ProyectoController extends Controller
      */
     public function create()
     {
-        //
+        return view('proyectos/create');
     }
 
     /**
@@ -37,7 +40,20 @@ class ProyectoController extends Controller
      */
     public function store(Request $request)
     {
-        //
+
+        Proyecto::create([
+            'idProyecto'=>NULL,
+            'titulo' => $request['nombreProy'],
+            'objetivos'=>$request['objetivos'],
+            'descripcion'=>$request['descripcion'],
+            'periodo'=>$request['periodo'],
+            'sesionDeConsejo'=>$request['sesion'],
+            'idModalidad'=>$request['modalidad'],
+            'fecha'=>$request['fecha'],
+        ]);
+        return response()->json([
+            'message' => 'Se agrego correctamente!',
+        ]);
     }
 
     /**
@@ -49,6 +65,9 @@ class ProyectoController extends Controller
     public function show($id)
     {
         //
+        return response()->json([
+            'proyecto' => Proyecto::where('idProyecto', $id)->firstOrFail(),
+        ]);
     }
 
     /**

@@ -28,6 +28,7 @@
             </div>
         </div>
     </div>
+
             <button type="reset" class="btn btn-danger btn-md">Cancelar</button>
             <button class="btn  btn-primary btn-md" id="add">GUARDAR</button>
     <!-- Grid row -->
