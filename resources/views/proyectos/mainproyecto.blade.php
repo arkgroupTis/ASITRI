@@ -41,9 +41,9 @@
 	            <td> Area </td>
 	            <td><a class="btn-floating btn-sm btn-indigo btn-modal-show" data-toggle="tooltip" data-placement="top" title="ver"><i class="fa fa-eye mt-2 ml-2 fa-lg"></i></a></td>
 	            <td>
-	              <a class="btn-floating btn-sm btn-indigo" data-toggle="tooltip" data-placement="top" title="Asignar"><i class="fas fa-plus-circle mt-1 ml-1 fa-2x"></i></i></a>
+	              <a class="btn-floating btn-sm btn-indigo" data-toggle="tooltip" data-placement="top" title="Asignar" href="/AsignacionTribunales"><i class="fas fa-plus-circle mt-1 ml-1 fa-2x"></i></i></a>
 	              <a class="btn-floating btn-sm btn-info" data-toggle="tooltip" data-placement="top" title="Reasignar"><i class="fa fa-edit mt-2 ml-2 fa-lg"></i></a>
-	              <a class="btn-floating btn-sm btn-danger" data-toggle="tooltip" data-placement="top" title="Eliminar"><i class="fa fa-trash mt-2 ml-2 fa-lg"></i></a>
+	              <a class="btn-floating btn-sm btn-danger" data-toggle="tooltip" data-placement="top" title="Renuncia Tribunales" href="/renuncia"><i class="fa fa-trash mt-2 ml-2 fa-lg"></i></a>
         	  </td>   
         	</tr>
 		  	@endforeach
