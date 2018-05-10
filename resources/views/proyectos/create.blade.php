@@ -165,13 +165,17 @@
             
             <select class="mdb-select colorful-select dropdown-primary col-md-12" name="">
                 <option value=""></option>
-                <option value="">Estudiantes registrados</option>
+                @foreach($estudiantes as $estudiante)
+                <option> {{ $estudiante-> apellidoEst}} {{ $estudiante-> nombreEst}} </option>
+                @endforeach
             </select>
         </div>
         <div class="col-md-6" >
             <select class="mdb-select colorful-select dropdown-primary col-md-12" name="">
                 <option value=""></option>
-                <option value="">Estudiantes registrados</option>
+                @foreach($estudiantes as $estudiante)
+                <option> {{ $estudiante-> apellidoEst}} {{ $estudiante-> nombreEst}} </option>
+                @endforeach
             </select>
         </div>
     </div>
@@ -182,13 +186,11 @@
             
             <select class="mdb-select colorful-select dropdown-primary col-md-12" name="">
                 <option value=""></option>
-                <option value="">Tutores registrados</option>
             </select>
         </div>
         <div class="col-md-6" >
             <select class="mdb-select colorful-select dropdown-primary col-md-12" name="">
                 <option value=""></option>
-                <option value="">Tutores registrados</option>
             </select>
         </div>
     </div>

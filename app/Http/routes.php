@@ -55,6 +55,8 @@ Route::get('/newStudent', function () {
 
 
 Route::resource('/estudiante', 'EstudianteController');
+Route::resource('/estudianteproyecto', 'EstudianteController@create_sub');
+//Route::resource('/estudianteproyecto', 'DocenteController@create_sub');
 
 Route::resource('/Tribunales', 'DocenteController@tribunales');
 

@@ -16,12 +16,14 @@
     		<input class="form-control" id="Search1" type="text" placeholder="Buscar..">	
     	</div>    	
     </div>
-	<div class="tablaScroll2">
-		<table class="table table-bordered table-striped tablaScroll2">
+	<div class="tablaScroll3">
+		<table class="table table-striped tablaScroll3">
 		  <thead>
 		    <tr>
 		      <th><font size="3">Area</font></th>
 		      <th width=""><font size="3">Descripcion</font></th>
+		      <th><font size="3">Codigo Area</font></th>
+		      <th><font size="3">Codigo Sub-Area</font></th>
 		    </tr>
 		  </thead>
 		  <tbody id="table1">
@@ -29,6 +31,8 @@
 			  		<tr>
 			  			<td >{{$area -> nombreArea}}</td>
 				    	<td >{{$area -> descripcionArea}}</td>
+				    	<td>{{$area -> idArea}}</td>
+				    	<td>{{$area -> cod_subarea}}</td>
 				    </tr>
 		    @endforeach
 		  </tbody>
