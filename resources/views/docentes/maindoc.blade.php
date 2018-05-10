@@ -7,7 +7,8 @@
         <div class="col-md-2"></div>
         <div><button class="btn btn-indigo"><a href="/newDoc"><font color="white" size="2">Nuevo Docente</font></a></button></div>
 	</div>
-		<div class="row">
+    <div class="container">
+        <div class="row">
 			<div class="col-md-4">
 	        <!--Blue select-->
 	        <select class="mdb-select colorful-select dropdown-primary">
@@ -22,24 +23,24 @@
 	    		<input class="form-control" id="Search1" type="text" placeholder="Search..">	
 	    	</div>    	
 	    </div>
-	
-		<table class="table table-bordered table-striped">
+	<div class="tablaScroll4">
+		<table class="table table-striped tablaScroll4">
 		  <thead>
 		    <tr>
-		      <th width="15"><font size="3">Codigo Docente</font></th>
+		      <th><font size="3">Codigo Docente</font></th>
 		      <th><font size="3">Nombre Docente</font></th>
-		      <th width="25"><font size="3">Tipo</font></th>
-		      <th width="5"><font size="3">N</font></th>
-		      <th width="15"><font size="3">Proyectos</font></th>
+		      <th><font size="3">Tipo</font></th>
+		      <th><font size="3">N</font></th>
+		      <th><font size="3">Detalles</font></th>
 		    </tr>
 		  </thead>
 		  <tbody id="table1">
 		    @foreach($docentes as $docente)
         	<tr data-id="{{ $docente->idDoc }}">
 	            <td> {{ $docente->ciDoc }} </td>
-	            <td> {{ $docente->nombreDoc }} {{ $docente->apePaternoDoc }} {{ $docente->apeMaternoDoc }}</td>
+	            <td> {{ $docente->apePaternoDoc }} {{ $docente->apeMaternoDoc }} {{ $docente->nombreDoc }} </td>
 	            <td> {{ $docente->tituloDoc }} </td>
-	            <td>3</td>
+	            <td align="center">3</td>
 	            <td>
 	            	<a class="btn-floating btn-sm btn-indigo btn-modal-show" data-toggle="tooltip" data-placement="top" title="ver"><i class="fa fa-eye mt-2 ml-2 fa-lg"></i></a>
 	            </td>
@@ -47,6 +48,8 @@
         	@endforeach
 		  </tbody>
 		</table>
+    </div>
+    </div>
 <div class="modal fade" id="modal-show" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
     <div class="modal-dialog modal-notify modal-info modal-lg" role="document">
         <!--Content-->
@@ -136,7 +139,7 @@
             $('#td-nombre').text(data.docente.nombreDoc);
             $('#td-email').text(data.docente.emailDoc);
             $('#td-telefono').text(data.docente.telefonoDoc);
-            $('#td-proyecto').text();
+            $('#td-proyecto').text(data.docente.proyecto);
             $('#td-codigodoc').text(data.docente.codigoDoc);
             $('#td-cargahoraria').text(data.docente.cargaHoraria);
             $('#td-titulo').text(data.docente.tituloDoc);

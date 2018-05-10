@@ -18,7 +18,7 @@ class ProyectoController extends Controller
     public function index()
     {
         //return view ('proyectos.mainproyecto');
-        $proyectos = Proyecto::orderBy('titulo', 'asc')->paginate(5);
+        $proyectos = Proyecto::orderBy('titulo', 'asc')->paginate(500);
         return view('proyectos.mainproyecto', compact('proyectos'));
     }
 
@@ -42,7 +42,6 @@ class ProyectoController extends Controller
     {
 
         Proyecto::create([
-            'idProyecto'=>NULL,
             'titulo' => $request['nombreProy'],
             'objetivos'=>$request['objetivos'],
             'descripcion'=>$request['descripcion'],

@@ -33,7 +33,6 @@
         <select class="mdb-select colorful-select dropdown-primary col-md-12" name="tipo" id="codigo">
             @foreach($areas as $area)
             <option value= {{ $area-> idArea}} > {{ $area-> nombreArea}} </option>
-            $a++;
             @endforeach
         </select>
     </div>
