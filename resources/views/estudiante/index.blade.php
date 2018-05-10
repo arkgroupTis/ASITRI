@@ -15,7 +15,8 @@
     </script>
 @endif
 <hr>
-<table class="table table-striped table-sm">
+<div class="tablaScroll5">
+<table class="table table-striped table-sm tablaScroll5">
     <thead>
         <tr>
             <th>CI</th>
@@ -37,7 +38,7 @@
             <td>{{ $estudiante->emailEst }}</td>
             <td>{{ $estudiante->telefono }}</td>
             <td>{{ $estudiante->idProyecto }}</td>
-            <td>{{ $estudiante->idCarrera }}</td>
+            <td>{{ $estudiante->carrera->nombreCarrera}}</td>
            
             <td>
             	<a class="btn-floating btn-sm btn-indigo btn-modal-show" data-toggle="tooltip" data-placement="top" title="ver"><i class="fa fa-eye mt-2 ml-2 fa-lg"></i></a>
@@ -48,6 +49,7 @@
 		@endforeach
     </tbody>
 </table>
+</div>
 {{ $estudiantes->links() }}
   
 <!-- Modal agregar y modificar estudiante -->

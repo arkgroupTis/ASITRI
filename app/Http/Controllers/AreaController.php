@@ -16,7 +16,7 @@ class AreaController extends Controller
      */
     public function index()
     {
-        $areas = Area::orderBy('nombreArea', 'asc')->paginate(500);
+        $areas = Area::orderBy('idArea', 'asc')->paginate(500);
         return view('areas.edit', compact('areas'));
     }
     public function subarea()
