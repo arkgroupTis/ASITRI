@@ -18,7 +18,7 @@ class ProyectoController extends Controller
     public function index()
     {
         //return view ('proyectos.mainproyecto');
-        $proyectos = Proyecto::orderBy('titulo', 'asc')->paginate(500);
+        $proyectos = Proyecto::orderBy('idProyecto', 'des')->paginate(500);
         return view('proyectos.mainproyecto', compact('proyectos'));
     }
 
@@ -48,7 +48,10 @@ class ProyectoController extends Controller
             'periodo'=>$request['periodo'],
             'sesionDeConsejo'=>$request['sesion'],
             'idModalidad'=>$request['modalidad'],
-            'fecha'=>$request['fecha'],
+            'fechaIni'=>$request['fechaIni'],
+            'fechaFin'=>$request['fechaFin'],
+            'estadoProyecto'=>$request['estadoProyecto'],
+            'fechaRegistroProy'=>$request['fechaRegistroProy'],
         ]);
         return response()->json([
             'message' => 'Se agrego correctamente!',
