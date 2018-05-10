@@ -29,9 +29,12 @@
 		    <tr>
 		      <th><font size="3">Codigo Docente</font></th>
 		      <th><font size="3">Nombre Docente</font></th>
+
+
 		      <th><font size="3">Tipo</font></th>
 		      <th><font size="3">N</font></th>
 		      <th><font size="3">Detalles</font></th>
+
 		    </tr>
 		  </thead>
 		  <tbody id="table1">
@@ -40,7 +43,9 @@
 	            <td> {{ $docente->ciDoc }} </td>
 	            <td> {{ $docente->apePaternoDoc }} {{ $docente->apeMaternoDoc }} {{ $docente->nombreDoc }} </td>
 	            <td> {{ $docente->tituloDoc }} </td>
+
 	            <td align="center">3</td>
+
 	            <td>
 	            	<a class="btn-floating btn-sm btn-indigo btn-modal-show" data-toggle="tooltip" data-placement="top" title="ver"><i class="fa fa-eye mt-2 ml-2 fa-lg"></i></a>
 	            </td>
