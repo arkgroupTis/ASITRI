@@ -25,22 +25,22 @@
 		<table class="table table-striped tablaScroll4">
 		  <thead>
 		    <tr>
-		      <th><font size="3">Codigo Proyecto</font></th>
-		      <th><font size="3">Nombre Proyecto</font></th>
-		      <th><font size="3">Area Proyecto</font></th>
-		      <th><font size="3">Detalles</font></th>
-		      <th><font size="3">Tribunales</font></th>
+		      <th style="width: 10%"><font size="2">Codigo Proyecto</font></th>
+		      <th style="width: 40%"><font size="3">Nombre Proyecto</font></th>
+		      <th style="width: 20%"><font size="3">Area Proyecto</font></th>
+		      <th style="width: 10%"><font size="3">Detalles</font></th>
+		      <th style="width: 20%"><font size="3">Tribunales</font></th>
 		    </tr>
 		  </thead>
 		  <tbody id="table1">
 
 		  	@foreach($proyectos as $proyecto)
 		  	<tr data-id="{{ $proyecto->idProyecto }}">
-	            <td> {{ $proyecto->idProyecto }} </td>
-	            <td> {{ $proyecto->titulo }} </td>
-	            <td> Area </td>
-	            <td><a class="btn-floating btn-sm btn-indigo btn-modal-show" data-toggle="tooltip" data-placement="top" title="ver"><i class="fa fa-eye mt-2 ml-2 fa-lg"></i></a></td>
-	            <td>
+	            <td style="width: 10%"> {{ $proyecto->idProyecto }} </td>
+	            <td style="width: 40%"> {{ $proyecto->titulo }} </td>
+	            <td style="width: 20%"> Area </td>
+	            <td style="width: 10%"><a class="btn-floating btn-sm btn-indigo btn-modal-show" data-toggle="tooltip" data-placement="top" title="ver"><i class="fa fa-eye mt-2 ml-2 fa-lg"></i></a></td>
+	            <td style="width: 20%">
 	              <a class="btn-floating btn-sm btn-indigo" data-toggle="tooltip" data-placement="top" title="Asignar" href="/AsignacionTribunales"><i class="fas fa-plus-circle mt-1 ml-1 fa-2x"></i></i></a>
 	              <a class="btn-floating btn-sm btn-info" data-toggle="tooltip" data-placement="top" title="Reasignar"><i class="fa fa-edit mt-2 ml-2 fa-lg"></i></a>
 	              <a class="btn-floating btn-sm btn-danger" data-toggle="tooltip" data-placement="top" title="Renuncia Tribunales" href="/renuncia"><i class="fa fa-trash mt-2 ml-2 fa-lg"></i></a>

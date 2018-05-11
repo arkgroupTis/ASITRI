@@ -24,6 +24,11 @@ class AreaController extends Controller
         $areas = Area::orderBy('nombreArea', 'asc')->paginate(500);
         return view('areas.sub', compact('areas'));
     }
+    public function create_area()
+    {
+        $areas = Area::orderBy('nombreArea', 'asc')->paginate(500);
+        return view('docentes.newDoc', compact('areas'));
+    }
     /**
      * Show the form for creating a new resource.
      *
