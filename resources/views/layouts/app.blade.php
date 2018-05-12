@@ -18,13 +18,7 @@
         <!--Main Layout-->
         <main>
             <div class="container-fluid mt-5">
-<<<<<<< HEAD
 
-
-
-
-=======
->>>>>>> 5a93aa0f1a4e3b9c7e352c1105d52a18d47afa22
                 <!-- Content -->
                 @yield('content')
                 <!-- Content -->

@@ -25,7 +25,6 @@
     </div>   
     
     <!-- Grid row -->
-<<<<<<< HEAD
 
     
                         <div>
@@ -62,38 +61,7 @@
 							</select>
 					</div>-->	
 
-=======
-    <label class="control-label">Area Proyecto: </label>
-        <div class="form-row">
-            
-            <div class="col-sm-4">
-            <select class="mdb-select colorful-select dropdown-primary col-md-12" name="">
-                <option value="">Base de Datos</option>
-                <option value="">Comercio Electrónico</option>
-                <option value="">Computación Gráfica
-                <option value="">Evaluación y Auditoria de Sistemas
-                <option value="">Ingeniería de Producción
-                <option value="">Ingeniería de Software
-                <option value="">Inteligencia Artificial
-                <option value="">Interacción Humano Computador
-                <option value="">Investigación Operativa
-                <option value="">Matemática Computacional
-                <option value="">Programación en Internet
-                <option value="">Redes y Sistemas Distribuidos
-                <option value="">Simulación
-                <option value="">Sistemas de Información
-                <option value="">Tecnologías de Control
-                <option value="">Teoría de la Computación
-            </select>
-            </div>
-            <div class='col-sm-4'>
-                <input placeholder="Fecha Inicio del Proyecto" type="text" name="fechaIni" class="form-control datepicker">
-            </div>
-            <div class='col-sm-4'>
-                <input placeholder="Fecha Fin del Proyecto" type="text" name="fechaFin" class="form-control datepicker">
-            </div>
-        </div>
->>>>>>> d26acd37b5e92cdd4db75b966e3fb4a8407d8c33
+
     <!-- Grid row -->
     <div class="row">
         <!-- Material input -->
@@ -146,9 +114,9 @@
             <label class="control-label">Modalidad: </label>
 
             <select class="mdb-select colorful-select dropdown-primary col-md-12" name="modalidad">
-                <option value="1">Proyecto de grado</option>
-                <option value="2">Tesis</option>
-                <option value="3">Trabajo dirigido</option>
+                @foreach($res[3] as $modalidad)
+                <option> {{ $modalidad-> nombreMod}} </option>
+                @endforeach
             </select>
         </div>
   </div>

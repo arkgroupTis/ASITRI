@@ -7,8 +7,6 @@ use Illuminate\Http\Request;
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
 use App\Estudiante;
-use App\Docente;
-use App\Area;
 
 class EstudianteController extends Controller
 {
@@ -22,17 +20,7 @@ class EstudianteController extends Controller
         $estudiantes = Estudiante::orderBy('apellidoEst', 'asc')->paginate(500);
         return view('estudiante.index', compact('estudiantes'));
     }
-    public function create_sub()
-    {
-        $estudiantes = Estudiante::orderBy('apellidoEst', 'asc')->paginate(500);
-        $docentes = Docente::orderBy('apePaternoDoc', 'asc')->paginate(500);
-        $areas = Area::orderby('nombreArea','asc')->paginate(500);
 
-        $res[0]=$estudiantes;
-        $res[1]=$docentes;
-        $res[2]=$areas;
-        return view('proyectos.create', compact('res'));
-    }
     /**
      * Show the form for creating a new resource.
      *
