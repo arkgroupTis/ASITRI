@@ -52,7 +52,7 @@
                                 <a href="/docentes" class="waves-effect">Docente & Profesionales</a>
                             </li>
                             <li>
-                                <a href="/newDoc" class="waves-effect">Nuevo Docente</a>
+                                <a href="/newdoc" class="waves-effect">Nuevo Docente</a>
                             </li>
                         </ul>
                     </div>
