@@ -81,24 +81,25 @@
             <div class="carousel-inner" role="listbox">
                 <!--First slide-->
                 <div class="carousel-item active">
+<<<<<<< HEAD
                     <div class="view" style="background-image: url('/img/imgFondo.jpg'); background-repeat: no-repeat; background-size: cover;">
+=======
+                    <div class="view" style="background-image: url('/img/FONDD.jpg'); background-repeat: no-repeat; background-size: cover;">
+>>>>>>> 23b6468e99b9a7e3c8203bff0b050766966411b0
                         <!-- Mask & flexbox options-->
                         <div class="mask rgba-black-light d-flex justify-content-center align-items-center">
                             <!-- Content -->
                             <div class="text-center white-text mx-5 wow fadeIn">
                                 <h1 class="mb-4">
-                                <strong>Learn Bootstrap 4 with MDB</strong>
+                                <strong></strong>
                                 </h1>
                                 <p>
-                                    <strong>Best & free guide of responsive web design</strong>
+                                    <strong></strong>
                                 </p>
                                 <p class="mb-4 d-none d-md-block">
-                                    <strong>The most comprehensive tutorial for the Bootstrap 4. Loved by over 500 000 users. Video and written versions
-                                    available. Create your own, stunning website.</strong>
+                                    <strong></strong>
                                 </p>
-                                <a href="https://mdbootstrap.com/bootstrap-tutorial/" class="btn btn-outline-white btn-lg">Start free tutorial
-                                    <i class="fa fa-graduation-cap ml-2"></i>
-                                </a>
+                                
                             </div>
                             <!-- Content -->
                         </div>
@@ -108,24 +109,25 @@
                 <!--/First slide-->
                 <!--Second slide-->
                 <div class="carousel-item">
+<<<<<<< HEAD
                     <div class="view" style="background-image: url('/img/imgFondo.jpg'); background-repeat: no-repeat; background-size: cover;">
+=======
+                    <div class="view" style="background-image: url('/img/FONDD.jpg'); background-repeat: no-repeat; background-size: cover;">
+>>>>>>> 23b6468e99b9a7e3c8203bff0b050766966411b0
                         <!-- Mask & flexbox options-->
                         <div class="mask rgba-black-light d-flex justify-content-center align-items-center">
                             <!-- Content -->
                             <div class="text-center white-text mx-5 wow fadeIn">
                                 <h1 class="mb-4">
-                                <strong>Learn Bootstrap 4 with MDB</strong>
+                                <strong></strong>
                                 </h1>
                                 <p>
-                                    <strong>Best & free guide of responsive web design</strong>
+                                    <strong></strong>
                                 </p>
                                 <p class="mb-4 d-none d-md-block">
-                                    <strong>The most comprehensive tutorial for the Bootstrap 4. Loved by over 500 000 users. Video and written versions
-                                    available. Create your own, stunning website.</strong>
+                                    <strong></strong>
                                 </p>
-                                <a href="https://mdbootstrap.com/bootstrap-tutorial/" class="btn btn-outline-white btn-lg">Start free tutorial
-                                    <i class="fa fa-graduation-cap ml-2"></i>
-                                </a>
+                               
                             </div>
                             <!-- Content -->
                         </div>
@@ -135,24 +137,25 @@
                 <!--/Second slide-->
                 <!--Third slide-->
                 <div class="carousel-item">
+<<<<<<< HEAD
                     <div class="view" style="background-image: url('/img/imgFondo.jpg'); background-repeat: no-repeat; background-size: cover;">
+=======
+                    <div class="view" style="background-image: url('/img/FONDD.jpg'); background-repeat: no-repeat; background-size: cover;">
+>>>>>>> 23b6468e99b9a7e3c8203bff0b050766966411b0
                         <!-- Mask & flexbox options-->
                         <div class="mask rgba-black-light d-flex justify-content-center align-items-center">
                             <!-- Content -->
                             <div class="text-center white-text mx-5 wow fadeIn">
                                 <h1 class="mb-4">
-                                <strong>Learn Bootstrap 4 with MDB</strong>
+                                <strong></strong>
                                 </h1>
                                 <p>
-                                    <strong>Best & free guide of responsive web design</strong>
+                                    <strong></strong>
                                 </p>
                                 <p class="mb-4 d-none d-md-block">
-                                    <strong>The most comprehensive tutorial for the Bootstrap 4. Loved by over 500 000 users. Video and written versions
-                                    available. Create your own, stunning website.</strong>
+                                    <strong></strong>
                                 </p>
-                                <a href="https://mdbootstrap.com/bootstrap-tutorial/" class="btn btn-outline-white btn-lg">Start free tutorial
-                                    <i class="fa fa-graduation-cap ml-2"></i>
-                                </a>
+                                
                             </div>
                             <!-- Content -->
                         </div>
