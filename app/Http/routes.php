@@ -45,9 +45,6 @@ Route::post('/create', 'ProyectoController@store');
 
 Route::resource('/proyectos', 'proyectoController');
 
-Route::get('/newDoc', function () {
-    return view('docentes/newDoc');
-});
 
 Route::get('/newStudent', function () {
     return view('students/newStudent');
@@ -75,4 +72,6 @@ Route::get('/AsignacionTribunales', function(){
 });
 */
 Route::resource('/docentes', 'DocenteController');
+Route::resource('/newdoc', 'AreaController@create_area');
+
 Route::resource('/areasCatalogo', 'AreaController');

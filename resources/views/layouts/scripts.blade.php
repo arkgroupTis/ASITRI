@@ -25,5 +25,16 @@
 	$(function () {
 		$('[data-toggle="tooltip"]').tooltip()
 	})
+	$('.datepicker').pickadate({
+		monthsFull: ['Enero', 'Febrero', 'Marzo', 'Abril', 'Mayo', 'Junio', 'Julio', 'Agosto', 'Septiembre', 'Octubre', 'Noviembre', 'Diciembre'],
+		monthsShort: ['Enero', 'Febrero', 'Marzo', 'Abril', 'Mayo', 'Junio', 'Julio', 'Agosto', 'Septiembre', 'Octubre', 'Noviembre', 'Diciembre'],
+		weekdaysShort: ['Dom', 'Lun', 'Mar', 'Mie', 'Jue', 'Vie', 'Sab'],
+		weekdaysFull: ['Domingo', 'Lunes', 'Martes', 'Miercoles', 'Jueves', 'Viernes', 'Sabado'],
+		format: 'La Fecha es: dddd, dd mmm, yyyy',
+		formatSubmit: 'yyyy/mm/dd',
+		today: 'Actual',
+		clear: 'Limpiar',
+		close: 'Cerrar',
+	});
 </script>
 @yield('script')
