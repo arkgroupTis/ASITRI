@@ -81,7 +81,7 @@
             <div class="carousel-inner" role="listbox">
                 <!--First slide-->
                 <div class="carousel-item active">
-                    <div class="view" style="background-image: url('/img/fondo1.jpg'); background-repeat: no-repeat; background-size: cover;">
+                    <div class="view" style="background-image: url('/img/imgFondo.jpg'); background-repeat: no-repeat; background-size: cover;">
                         <!-- Mask & flexbox options-->
                         <div class="mask rgba-black-light d-flex justify-content-center align-items-center">
                             <!-- Content -->
@@ -108,7 +108,7 @@
                 <!--/First slide-->
                 <!--Second slide-->
                 <div class="carousel-item">
-                    <div class="view" style="background-image: url('/img/fondo2.jpg'); background-repeat: no-repeat; background-size: cover;">
+                    <div class="view" style="background-image: url('/img/imgFondo.jpg'); background-repeat: no-repeat; background-size: cover;">
                         <!-- Mask & flexbox options-->
                         <div class="mask rgba-black-light d-flex justify-content-center align-items-center">
                             <!-- Content -->
@@ -135,7 +135,7 @@
                 <!--/Second slide-->
                 <!--Third slide-->
                 <div class="carousel-item">
-                    <div class="view" style="background-image: url('/img/fondo3.jpg'); background-repeat: no-repeat; background-size: cover;">
+                    <div class="view" style="background-image: url('/img/imgFondo.jpg'); background-repeat: no-repeat; background-size: cover;">
                         <!-- Mask & flexbox options-->
                         <div class="mask rgba-black-light d-flex justify-content-center align-items-center">
                             <!-- Content -->
