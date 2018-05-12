@@ -31,22 +31,10 @@
 							<label class="control-label">Area Proyecto: </label>
 				
 							<select class="mdb-select colorful-select dropdown-primary col-md-12" name="">
-								<option value="">Base de Datos</option>
-								<option value="">Comercio Electrónico</option>
-								<option value="">Computación Gráfica
-								<option value="">Evaluación y Auditoria de Sistemas
-								<option value="">Ingeniería de Producción
-								<option value="">Ingeniería de Software
-								<option value="">Inteligencia Artificial
-								<option value="">Interacción Humano Computador
-								<option value="">Investigación Operativa
-								<option value="">Matemática Computacional
-								<option value="">Programación en Internet
-								<option value="">Redes y Sistemas Distribuidos
-								<option value="">Simulación
-								<option value="">Sistemas de Información
-								<option value="">Tecnologías de Control
-								<option value="">Teoría de la Computación
+								<option value=""></option>
+								@foreach(($res[2]) as $area)
+                                        <option> {{ $area-> nombreArea}}</option>
+                                @endforeach
 							</select>
 				        </div>
 						
@@ -165,7 +153,7 @@
             
             <select class="mdb-select colorful-select dropdown-primary col-md-12" name="">
                 <option value=""></option>
-                @foreach($estudiantes as $estudiante)
+                @foreach(($res[0]) as $estudiante)
                 <option> {{ $estudiante-> apellidoEst}} {{ $estudiante-> nombreEst}} </option>
                 @endforeach
             </select>
@@ -173,7 +161,7 @@
         <div class="col-md-6" >
             <select class="mdb-select colorful-select dropdown-primary col-md-12" name="">
                 <option value=""></option>
-                @foreach($estudiantes as $estudiante)
+                @foreach($res[0] as $estudiante)
                 <option> {{ $estudiante-> apellidoEst}} {{ $estudiante-> nombreEst}} </option>
                 @endforeach
             </select>
@@ -186,11 +174,17 @@
             
             <select class="mdb-select colorful-select dropdown-primary col-md-12" name="">
                 <option value=""></option>
+                @foreach($res[1] as $docente)
+                <option> {{ $docente-> apePaternoDoc}} {{ $docente-> apeMaternoDoc}} {{$docente->nombreDoc}}</option>
+                @endforeach
             </select>
         </div>
         <div class="col-md-6" >
             <select class="mdb-select colorful-select dropdown-primary col-md-12" name="">
                 <option value=""></option>
+                @foreach($res[1] as $docente)
+                <option> {{ $docente-> apePaternoDoc}} {{ $docente-> apeMaternoDoc}} {{$docente->nombreDoc}}</option>
+                @endforeach
             </select>
         </div>
     </div>
