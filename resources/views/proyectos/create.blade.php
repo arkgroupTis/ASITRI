@@ -30,10 +30,10 @@
                         <div>
 							<label class="control-label">Area Proyecto: </label>
 				
-							<select class="mdb-select colorful-select dropdown-primary col-md-12" name="">
+							<select class="mdb-select colorful-select dropdown-primary col-md-12" name="area">
 								<option value=""></option>
 								@foreach(($res[2]) as $area)
-                                        <option> {{ $area-> nombreArea}}</option>
+                                        <option value="{{ $area-> idArea}}"> {{ $area-> nombreArea}}</option>
                                 @endforeach
 							</select>
 				        </div>
@@ -115,7 +115,7 @@
 
             <select class="mdb-select colorful-select dropdown-primary col-md-12" name="modalidad">
                 @foreach($res[3] as $modalidad)
-                <option> {{ $modalidad-> nombreMod}} </option>
+                <option value="{{ $modalidad-> idModalidad}}"> {{ $modalidad-> nombreMod}} </option>
                 @endforeach
             </select>
         </div>
@@ -124,18 +124,18 @@
     <div class="form-row">
         <div class="col-md-6" >
             
-            <select class="mdb-select colorful-select dropdown-primary col-md-12" name="">
+            <select class="mdb-select colorful-select dropdown-primary col-md-12" name="estudiante1">
                 <option value=""></option>
                 @foreach(($res[0]) as $estudiante)
-                <option> {{ $estudiante-> apellidoEst}} {{ $estudiante-> nombreEst}} </option>
+                <option value="{{ $estudiante-> idEstudiante}}"> {{ $estudiante-> apellidoEst}} {{ $estudiante-> nombreEst}} </option>
                 @endforeach
             </select>
         </div>
         <div class="col-md-6" >
-            <select class="mdb-select colorful-select dropdown-primary col-md-12" name="">
+            <select class="mdb-select colorful-select dropdown-primary col-md-12" name="estudiante2">
                 <option value=""></option>
                 @foreach($res[0] as $estudiante)
-                <option> {{ $estudiante-> apellidoEst}} {{ $estudiante-> nombreEst}} </option>
+                <option value="{{ $estudiante-> idEstudiante}}"> {{ $estudiante-> apellidoEst}} {{ $estudiante-> nombreEst}} </option>
                 @endforeach
             </select>
         </div>
@@ -145,24 +145,22 @@
     <div class="form-row">
         <div class="col-md-6" >
             
-            <select class="mdb-select colorful-select dropdown-primary col-md-12" name="">
+            <select class="mdb-select colorful-select dropdown-primary col-md-12" name="tutor1">
                 <option value=""></option>
                 @foreach($res[1] as $docente)
-                <option> {{ $docente-> apePaternoDoc}} {{ $docente-> apeMaternoDoc}} {{$docente->nombreDoc}}</option>
+                <option value="{{ $docente-> idDoc}}"> {{ $docente-> apePaternoDoc}} {{ $docente-> apeMaternoDoc}} {{$docente->nombreDoc}}</option>
                 @endforeach
             </select>
         </div>
         <div class="col-md-6" >
-            <select class="mdb-select colorful-select dropdown-primary col-md-12" name="">
+            <select class="mdb-select colorful-select dropdown-primary col-md-12" name="tutor2">
                 <option value=""></option>
                 @foreach($res[1] as $docente)
-                <option> {{ $docente-> apePaternoDoc}} {{ $docente-> apeMaternoDoc}} {{$docente->nombreDoc}}</option>
+                <option value="{{ $docente-> idDoc}}"> {{ $docente-> apePaternoDoc}} {{ $docente-> apeMaternoDoc}} {{$docente->nombreDoc}}</option>
                 @endforeach
             </select>
         </div>
     </div>
-
-    <input type="hidden" name="fecha" value="2018-05-07">
 
     <div class="">
         <button type="submit" class="btn  btn-primary btn-md">GUARDAR</button>

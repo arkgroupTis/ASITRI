@@ -11,6 +11,7 @@ use App\Estudiante;
 use App\Docente;
 use App\Area;
 use App\Modalidad;
+use App\Proyecto_has_area;
 
 class ProyectoController extends Controller
 {
@@ -63,19 +64,35 @@ class ProyectoController extends Controller
             'titulo' => $request['nombreProy'],
             'objetivos'=>$request['objetivos'],
             'descripcion'=>$request['descripcion'],
+            'fechaIni'=>$request['fechaIni'],
+            'fechaFin'=>$request['fechaFin'],
             'periodo'=>$request['periodo'],
             'sesionDeConsejo'=>$request['sesion'],
             'idModalidad'=>$request['modalidad'],
-            'fechaIni'=>$request['fechaIni'],
-            'fechaFin'=>$request['fechaFin'],
             'estadoProyecto'=>$request['estadoProyecto'],
             'fechaRegistroProy'=>$request['fechaRegistro'],
+
+            //area
+            //estudiante1
+            //estudiante2
+            //tutor1
+            //tutor2
         ]);
-        return resource('/estudianteproyecto');
-        // return response()->json([
-        //     'message' => 'Se agrego correctamente!',
-        // ]);
+        
+        //Proyecto_has_area::create([
+
+         //   'idProyecto' => "",
+          //  'idArea' =>$request['area'],
+
+        //]);
+
+
+        //return resource('/estudianteproyecto');
+        return response()->json([
+           'message' => 'Se agrego correctamente!',
+         ]);
     }
+
 
     /**
      * Display the specified resource.
