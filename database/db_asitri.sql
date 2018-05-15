@@ -1,13 +1,15 @@
 -- phpMyAdmin SQL Dump
--- version 4.5.1
--- http://www.phpmyadmin.net
+-- version 4.7.4
+-- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 08-05-2018 a las 05:22:24
--- Versión del servidor: 10.1.9-MariaDB
--- Versión de PHP: 5.6.15
+-- Tiempo de generación: 15-05-2018 a las 19:12:54
+-- Versión del servidor: 10.1.28-MariaDB
+-- Versión de PHP: 7.1.10
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
+SET AUTOCOMMIT = 0;
+START TRANSACTION;
 SET time_zone = "+00:00";
 
 
@@ -523,11 +525,29 @@ INSERT INTO `area` (`idArea`, `nombreArea`, `descripcionArea`, `cod_subarea`) VA
 
 CREATE TABLE `asignacion` (
   `idAsig` int(11) NOT NULL,
-  `rol` varchar(30) CHARACTER SET utf8 COLLATE utf8_bin DEFAULT NULL,
+  `rol` enum('tribunal','tutor') CHARACTER SET utf8 COLLATE utf8_bin DEFAULT NULL,
   `idProyecto` int(11) NOT NULL,
   `idDoc` int(11) NOT NULL,
-  `estado` tinyint(1) DEFAULT NULL
+  `estado` enum('activo','inactivo') DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Volcado de datos para la tabla `asignacion`
+--
+
+INSERT INTO `asignacion` (`idAsig`, `rol`, `idProyecto`, `idDoc`, `estado`) VALUES
+(1, 'tribunal', 1, 12, 'activo'),
+(2, 'tribunal', 1, 35, 'activo'),
+(3, 'tribunal', 1, 73, 'activo'),
+(8, 'tribunal', 2, 12, 'inactivo'),
+(9, 'tribunal', 2, 30, 'inactivo'),
+(10, 'tribunal', 2, 35, 'inactivo'),
+(11, 'tribunal', 2, 13, 'inactivo'),
+(13, 'tribunal', 2, 35, 'inactivo'),
+(14, 'tribunal', 2, 12, 'inactivo'),
+(15, 'tribunal', 2, 12, 'activo'),
+(16, 'tribunal', 2, 35, 'inactivo'),
+(17, 'tribunal', 2, 30, 'inactivo');
 
 -- --------------------------------------------------------
 
@@ -668,7 +688,6 @@ CREATE TABLE `estudiante` (
   `apellidoEst` varchar(60) NOT NULL,
   `emailEst` varchar(50) NOT NULL,
   `telefono` decimal(10,0) NOT NULL,
-  `idProyecto` int(11) DEFAULT NULL,
   `idCarrera` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
@@ -676,20 +695,20 @@ CREATE TABLE `estudiante` (
 -- Volcado de datos para la tabla `estudiante`
 --
 
-INSERT INTO `estudiante` (`idEstudiante`, `ciEst`, `nombreEst`, `apellidoEst`, `emailEst`, `telefono`, `idProyecto`, `idCarrera`) VALUES
-(6, '546464', 'juan', 'perez', 'juan@gmail.com', '4545454', NULL, 1),
-(8, '345353', 'luis miguel', 'martinez', 'asda@bfghfg.com', '6764534', NULL, 1),
-(9, '65322421', 'pedro', 'rojas', 'pedrito@gmail.com', '74324631', NULL, 1),
-(10, '34524233', 'juancho', 'lopez', 'juanito@gmail.com', '6446345', NULL, 1),
-(11, '345232113', 'jorge', 'paredes', 'jorge@gmail.com', '67675545', NULL, 2),
-(12, '45634344', 'rene', 'martinez', 'rene@gmail.com', '74327322', NULL, 1),
-(13, '2342342', 'norma ', 'rocha', 'norma@gmail.com', '9898988', NULL, 2),
-(14, '435353', 'emiliano', 'cardenaz', 'emi@gmail.com', '6565434', NULL, 1),
-(15, '345353', 'arturo', 'vidal', 'arturito@gmail.com', '45324564', NULL, 2),
-(16, '64556464', 'sandro', 'bargas', 'sandro@gmail.com', '767676676', NULL, 1),
-(17, '6565643', 'ariel', 'ramos', 'ariel@gmail.com', '67675455', NULL, 2),
-(18, '56464546', 'edgar', 'carballo', 'edgar@gmail.com', '76754543', NULL, 1),
-(19, '59145214', 'kenny', 'dalton', 'ke@ya.com', '1541541', NULL, 2);
+INSERT INTO `estudiante` (`idEstudiante`, `ciEst`, `nombreEst`, `apellidoEst`, `emailEst`, `telefono`, `idCarrera`) VALUES
+(6, '546464', 'juan', 'perez', 'juan@gmail.com', '4545454', 1),
+(8, '345353', 'luis miguel', 'martinez', 'asda@bfghfg.com', '6764534', 1),
+(9, '65322421', 'pedro', 'rojas', 'pedrito@gmail.com', '74324631', 1),
+(10, '34524233', 'juancho', 'lopez', 'juanito@gmail.com', '6446345', 1),
+(11, '345232113', 'jorge', 'paredes', 'jorge@gmail.com', '67675545', 2),
+(12, '45634344', 'rene', 'martinez', 'rene@gmail.com', '74327322', 1),
+(13, '2342342', 'norma ', 'rocha', 'norma@gmail.com', '9898988', 2),
+(14, '435353', 'emiliano', 'cardenaz', 'emi@gmail.com', '6565434', 1),
+(15, '345353', 'arturo', 'vidal', 'arturito@gmail.com', '45324564', 2),
+(16, '64556464', 'sandro', 'bargas', 'sandro@gmail.com', '767676676', 1),
+(17, '6565643', 'ariel', 'ramos', 'ariel@gmail.com', '67675455', 2),
+(18, '56464546', 'edgar', 'carballo', 'edgar@gmail.com', '76754543', 1),
+(19, '59145214', 'kenny', 'dalton', 'ke@ya.com', '1541541', 2);
 
 -- --------------------------------------------------------
 
@@ -745,7 +764,28 @@ CREATE TABLE `proyecto` (
 --
 
 INSERT INTO `proyecto` (`idProyecto`, `titulo`, `objetivos`, `descripcion`, `fecha`, `fechaFin`, `periodo`, `sesionDeConsejo`, `idModalidad`) VALUES
-(1, 'proyecto X', 'objetivo 1\r\nobjetivo 2', 'descripcion del proyecto', '2018-04-01', '2018-04-30', 'I', '123', 1);
+(1, 'proyecto X', 'objetivo 1\r\nobjetivo 2', 'descripcion del proyecto', '2018-04-01', '2018-04-30', 'I', '123', 1),
+(2, 'proyecto con rv', 'objetivo 1\r\nobjetivo 2\r\nobjetivo 3\r\nobjetivo 4\r\nobjetivo 5', 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptatibus, ex, recusandae. Facere modi sunt, quod quibusdam dignissimos neque rem nihil ratione est placeat vel, natus non quos laudantium veritatis sequi.Ut enim ad minima veniam, quis nostrum.', '2018-05-07', NULL, 'I-', '1', 1);
+
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `proyecto_estudiante`
+--
+
+CREATE TABLE `proyecto_estudiante` (
+  `idProyecto` int(11) NOT NULL,
+  `idEstudiante` int(11) NOT NULL,
+  `estado` enum('activo','inactivo') NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Volcado de datos para la tabla `proyecto_estudiante`
+--
+
+INSERT INTO `proyecto_estudiante` (`idProyecto`, `idEstudiante`, `estado`) VALUES
+(2, 8, 'activo'),
+(2, 15, 'activo');
 
 -- --------------------------------------------------------
 
@@ -757,6 +797,14 @@ CREATE TABLE `proyecto_has_area` (
   `idProyecto` int(11) NOT NULL,
   `idArea` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Volcado de datos para la tabla `proyecto_has_area`
+--
+
+INSERT INTO `proyecto_has_area` (`idProyecto`, `idArea`) VALUES
+(2, 7),
+(2, 191);
 
 -- --------------------------------------------------------
 
@@ -771,6 +819,19 @@ CREATE TABLE `renuncia` (
   `idAsig` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
+--
+-- Volcado de datos para la tabla `renuncia`
+--
+
+INSERT INTO `renuncia` (`idRenuncia`, `fechaRenuncia`, `motivosRenuncia`, `idAsig`) VALUES
+(1, '0000-00-00', 'sdfsdfsdgsdgsdg', 8),
+(2, '0000-00-00', 'escribieron en la puerta de su casa, fue amedrentado', 10),
+(3, '0000-00-00', 'fasdasdadafasd', 13),
+(4, '0000-00-00', 'ggfgfgfgfgfgf', 13),
+(5, '0000-00-00', 'sin comentarios', 14),
+(6, '0000-00-00', '2', 17),
+(7, '0000-00-00', '4', 16);
+
 -- --------------------------------------------------------
 
 --
@@ -782,6 +843,20 @@ CREATE TABLE `tiene` (
   `idArea` int(11) NOT NULL,
   `idDoc` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Volcado de datos para la tabla `tiene`
+--
+
+INSERT INTO `tiene` (`idTiene`, `idArea`, `idDoc`) VALUES
+(1, 7, 73),
+(2, 191, 30),
+(3, 7, 30),
+(4, 191, 13),
+(5, 7, 92),
+(6, 191, 42),
+(7, 7, 12),
+(8, 191, 35);
 
 -- --------------------------------------------------------
 
@@ -844,7 +919,6 @@ ALTER TABLE `docente`
 --
 ALTER TABLE `estudiante`
   ADD PRIMARY KEY (`idEstudiante`),
-  ADD KEY `fk_Estudiante_Proyecto1_idx` (`idProyecto`),
   ADD KEY `fk_estudiante_carrera1_idx` (`idCarrera`);
 
 --
@@ -867,6 +941,13 @@ ALTER TABLE `pertenece`
 ALTER TABLE `proyecto`
   ADD PRIMARY KEY (`idProyecto`),
   ADD KEY `fk_proyecto_modalidad1_idx` (`idModalidad`);
+
+--
+-- Indices de la tabla `proyecto_estudiante`
+--
+ALTER TABLE `proyecto_estudiante`
+  ADD KEY `idProyecto` (`idProyecto`),
+  ADD KEY `idEstudiante` (`idEstudiante`);
 
 --
 -- Indices de la tabla `proyecto_has_area`
@@ -905,57 +986,68 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT de la tabla `area`
 --
 ALTER TABLE `area`
-  MODIFY `idArea` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=953;
+  MODIFY `idArea` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=477;
+
 --
 -- AUTO_INCREMENT de la tabla `asignacion`
 --
 ALTER TABLE `asignacion`
-  MODIFY `idAsig` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `idAsig` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=18;
+
 --
 -- AUTO_INCREMENT de la tabla `carrera`
 --
 ALTER TABLE `carrera`
   MODIFY `idCarrera` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+
 --
 -- AUTO_INCREMENT de la tabla `docente`
 --
 ALTER TABLE `docente`
   MODIFY `idDoc` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=95;
+
 --
 -- AUTO_INCREMENT de la tabla `estudiante`
 --
 ALTER TABLE `estudiante`
   MODIFY `idEstudiante` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=20;
+
 --
 -- AUTO_INCREMENT de la tabla `modalidad`
 --
 ALTER TABLE `modalidad`
   MODIFY `idModalidad` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+
 --
 -- AUTO_INCREMENT de la tabla `pertenece`
 --
 ALTER TABLE `pertenece`
   MODIFY `idPertenece` int(11) NOT NULL AUTO_INCREMENT;
+
 --
 -- AUTO_INCREMENT de la tabla `proyecto`
 --
 ALTER TABLE `proyecto`
-  MODIFY `idProyecto` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `idProyecto` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+
 --
 -- AUTO_INCREMENT de la tabla `renuncia`
 --
 ALTER TABLE `renuncia`
-  MODIFY `idRenuncia` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `idRenuncia` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+
 --
 -- AUTO_INCREMENT de la tabla `tiene`
 --
 ALTER TABLE `tiene`
-  MODIFY `idTiene` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `idTiene` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
+
 --
 -- AUTO_INCREMENT de la tabla `users`
 --
 ALTER TABLE `users`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+
 --
 -- Restricciones para tablas volcadas
 --
@@ -977,7 +1069,6 @@ ALTER TABLE `asignacion`
 -- Filtros para la tabla `estudiante`
 --
 ALTER TABLE `estudiante`
-  ADD CONSTRAINT `fk_Estudiante_Proyecto1` FOREIGN KEY (`idProyecto`) REFERENCES `proyecto` (`idProyecto`) ON DELETE NO ACTION ON UPDATE NO ACTION,
   ADD CONSTRAINT `fk_estudiante_carrera1` FOREIGN KEY (`idCarrera`) REFERENCES `carrera` (`idCarrera`) ON DELETE NO ACTION ON UPDATE NO ACTION;
 
 --
@@ -992,6 +1083,13 @@ ALTER TABLE `pertenece`
 --
 ALTER TABLE `proyecto`
   ADD CONSTRAINT `fk_proyecto_modalidad1` FOREIGN KEY (`idModalidad`) REFERENCES `modalidad` (`idModalidad`) ON DELETE NO ACTION ON UPDATE NO ACTION;
+
+--
+-- Filtros para la tabla `proyecto_estudiante`
+--
+ALTER TABLE `proyecto_estudiante`
+  ADD CONSTRAINT `proyecto_estudiante_ibfk_1` FOREIGN KEY (`idProyecto`) REFERENCES `proyecto` (`idProyecto`) ON DELETE CASCADE ON UPDATE CASCADE,
+  ADD CONSTRAINT `proyecto_estudiante_ibfk_2` FOREIGN KEY (`idEstudiante`) REFERENCES `estudiante` (`idEstudiante`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
 -- Filtros para la tabla `proyecto_has_area`
@@ -1012,6 +1110,7 @@ ALTER TABLE `renuncia`
 ALTER TABLE `tiene`
   ADD CONSTRAINT `fk_Tiene_Area` FOREIGN KEY (`idArea`) REFERENCES `area` (`idArea`) ON DELETE NO ACTION ON UPDATE NO ACTION,
   ADD CONSTRAINT `fk_Tiene_Docente1` FOREIGN KEY (`idDoc`) REFERENCES `docente` (`idDoc`) ON DELETE NO ACTION ON UPDATE NO ACTION;
+COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;

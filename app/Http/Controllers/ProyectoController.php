@@ -7,6 +7,10 @@ use Illuminate\Http\Request;
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
 use App\Proyecto;
+use App\Proyecto_estudiante;
+use App\Docente;
+use App\Asignacion;
+use App\Renuncia;
 
 class ProyectoController extends Controller
 {
@@ -102,5 +106,100 @@ class ProyectoController extends Controller
     public function destroy($id)
     {
         //
+    }
+
+    public function proyectoEstudiante($idEstudiante){
+        $proy_est = Proyecto_estudiante::where('idEstudiante', $idEstudiante)->where('estado', 'activo')->first();
+        if ($proy_est) {
+            return view('proyectos.motivo', compact('proy_est'));
+        }
+        else {
+            return view('proyectos.motivo', compact('proy_est'));
+        }
+        
+    }
+
+    public function posiblesTribunales($idProyecto){
+        $proyecto = Proyecto::where('idProyecto', $idProyecto)->firstOrFail();
+        $area = collect([]);
+        foreach ($proyecto->proyecto_has_area as $areas) {
+            $area->push($areas->area->nombreArea);
+        }
+        $docentes = Docente::select('docente.idDoc', 'nombreDoc', 'apePaternoDoc', 'apeMaternoDoc', 'nombreArea')
+        ->join('tiene', 'docente.idDoc', '=', 'tiene.idDoc')
+        ->join('area', 'tiene.idArea', '=', 'area.idArea')
+        ->whereIn('area.nombreArea', $area)
+        ->orderBy('apePaternoDoc', 'asc')
+        ->paginate(5);
+        foreach ($docentes as $key => $value) {
+            $value->cant = Asignacion::where('idDoc', $value->idDoc)->where('estado', 'activo')->where('rol', 'tribunal')->count();
+            $value->tribunal = Asignacion::where('idDoc', $value->idDoc)->where('idProyecto', $idProyecto)->where('estado', 'activo')->where('rol', 'tribunal')->count();
+        }
+        return view('tribunales.asignacion')->with([
+            'proyecto' => $proyecto,
+            'docentes' => $docentes,
+        ]);
+    }
+
+    public function renunciaTribunales($idProyecto){
+        $proyecto = Proyecto::where('idProyecto', $idProyecto)->firstOrFail();
+        $docentes = Docente::select('docente.idDoc', 'nombreDoc', 'apePaternoDoc', 'apeMaternoDoc', 'nombreArea')
+        ->join('tiene', 'docente.idDoc', '=', 'tiene.idDoc')
+        ->join('area', 'tiene.idArea', '=', 'area.idArea')
+        ->join('asignacion', 'docente.idDoc', '=', 'asignacion.idDoc')
+        ->where([
+            ['asignacion.rol', '=', 'tribunal'],
+            ['asignacion.idProyecto', '=', $proyecto->idProyecto],
+            ['asignacion.estado', '=', 'activo'],
+        ])->paginate(5);
+        foreach ($docentes as $key => $value) {
+            $value->cant = Asignacion::where('idDoc', $value->idDoc)->where('estado', 'activo')->where('rol', 'tribunal')->count();
+            $value->tribunal = 1;
+        }
+        return view('tribunales.asignacion')->with([
+            'proyecto' => $proyecto,
+            'docentes' => $docentes,
+        ]);
+    }
+
+    public function asignarTribunal($idProyecto, $idDoc){
+        //controlar solo tres tribunales
+        $count_tribu = Asignacion::where([
+            ['rol', '=', 'tribunal'],
+            ['idProyecto', '=', $idProyecto],
+            ['estado', '=', 'activo'],
+        ])->count();
+        if ($count_tribu < 3) {//controla la cantidad de tribunales
+            Asignacion::create([
+                'rol' => 'tribunal',
+                'idProyecto' => $idProyecto,
+                'idDoc' => $idDoc,
+                'estado' => 'activo',
+            ]);
+        }
+        return back();
+    }
+    public function renunciaTribunal(Request $request){
+        $Asig = Asignacion::where('idProyecto', $request->idProyecto)
+        ->where('idDoc', $request->idDoc)
+        ->where('rol', 'tribunal')
+        ->where('estado', 'activo')
+        ->first();
+        Asignacion::where('idProyecto', $request->idProyecto)
+        ->where('idDoc', $request->idDoc)
+        ->where('rol', 'tribunal')
+        ->update(
+            array(
+                'estado' => 'inactivo',
+            )
+        );
+        Renuncia::create([
+            'fechaRenuncia' => $request->idProyecto,
+            'motivosRenuncia' => $request->motivo,
+            'idAsig' => $Asig->idAsig,
+        ]);
+        return response()->json([
+            'message' => 'todo okey!',
+        ]);
     }
 }

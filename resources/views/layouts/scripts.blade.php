@@ -25,5 +25,7 @@
 	$(function () {
 		$('[data-toggle="tooltip"]').tooltip()
 	})
+	// Data Picker Initialization
+	$('.datepicker').pickadate();
 </script>
 @yield('script')

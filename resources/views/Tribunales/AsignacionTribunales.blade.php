@@ -1,5 +1,6 @@
 @extends('layouts.app')
 @section('content')
+{{ csrf_field() }}
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 <div class='container'>
 	<h1 class="text-center">Asignacion de Tribunales</h1>
@@ -32,10 +33,11 @@
 			  </thead>
 			  <tbody id="datosTabla" >
 			  	@foreach($docentes as $docente)
-			  		<tr>
+			  		
+			  		<tr id="{{ $docente->idDoc }}">
 			  			 <td>
 			  			 	{{$docente -> apePaternoDoc}} {{$docente -> apeMaternoDoc}} {{$docente -> nombreDoc}}
-			  			 	<a class="btn-floating btn-sm btn-indigo float-right" data-toggle="tooltip" data-placement="top" title="Asignar como Tribunal">
+			  			 	<a class="btn-floating btn-sm btn-indigo float-right btn-modal-show" data-toggle="tooltip" data-placement="top" title="Asignar" 
 			  			 		<i class="fas fa-plus-circle mt-1 ml-1 fa-2x"></i></i>
 			  			 	</a>
 			  			</td>
@@ -49,7 +51,7 @@
 		<div class="form-group row">
 			<label for="buscador" class="col-sm-5 col-form-label col-form-label-lg">Tribunales Asignados:</label>
 		</div>
-		<table class="table table-bordered table-striped">
+		<table id="tabla2" class="table table-bordered table-striped">
 		  <thead>
 		    <tr>
 		      <th><font size="3">Nombre Tribunal</font></th>
@@ -96,5 +98,26 @@
 		    });
 		  });
 		});
+
+		function move_row()
+		{ 
+			var row = $("#fila").detach();
+			$("#tabla2").append(row);
+		}
+
+		$(document).on('click', '.btn-modal-show', function() 
+		{
+			alert("funciona");
+			var aux;
+			$.get('/docentes/'+$($(this).parents("tr")).data('id'), function(data)
+			{
+				aux = text(data.docente.ciDoc);
+				
+			});
+			alert(aux);
+			
+			var row = $("#").detach();
+				$("#tabla2").append(Texto);
+    	});
 	</script>
 @endsection

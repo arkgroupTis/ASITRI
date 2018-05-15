@@ -20,21 +20,6 @@ class DocenteController extends Controller
         $docentes = Docente::orderBy('apePaternoDoc', 'asc')->paginate(5);
         return view('docentes.maindoc', compact('docentes'));
     }
-
-    public function tribunales()
-    {
-        $docentes = Docente::orderBy('apePaternoDoc', 'asc')->paginate(500);
-        return view('Tribunales.Tribunales', compact('docentes'));
-    }
-
-    public function asignacionTribunales()
-    {
-        $docentes = Docente::orderBy('apePaternoDoc', 'asc')->paginate(500);
-        return view('Tribunales.AsignacionTribunales', compact('docentes'));   
-    }
-//     @foreach($docentes as $docente)
-// <h1> {{ $docente->ciDoc }} </h1>
-// @endforeach 
     /**
      * Show the form for creating a new resource.
      *

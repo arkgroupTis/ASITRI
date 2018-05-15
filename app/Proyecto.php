@@ -16,4 +16,12 @@ class Proyecto extends Model
     public function modalidad(){
     	return $this->hasOne(Modalidad::class, 'idModalidad', 'idModalidad');
     }
+
+    public function proyecto_estudiante(){
+        return $this->hasMany('App\Proyecto_estudiante', 'idProyecto', 'idProyecto');
+    }
+
+    public function proyecto_has_area(){
+        return $this->hasMany('App\Proyecto_has_area', 'idProyecto', 'idProyecto');
+    }
 }
