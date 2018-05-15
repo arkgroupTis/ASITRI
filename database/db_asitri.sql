@@ -769,7 +769,7 @@ CREATE TABLE `proyecto` (
 -- Volcado de datos para la tabla `proyecto`
 --
 
-<<<<<<< HEAD
+
 INSERT INTO `proyecto` (`idProyecto`, `titulo`, `objetivos`, `descripcion`, `fechaIni`, `fechaFin`, `periodo`, `sesionDeConsejo`, `idModalidad`, `estadoProyecto`, `fechaRegistroProy`) VALUES
 (1, 'SISTEMA DE APOYO PARA LA PREDICCION DE LA COBERTUR', 'Sin descripcion ', 'El proyecto tiene como objetivo diseñar una herramienta que permita la predicción de la cobertura y propagación de señales celulares. ', NULL, NULL, 'Sin fecha de registro ', NULL, 2, 'Terminado', NULL),
 (2, 'SISTEMA INTERPRETE DE LENGUAJE NATURAL PARA UN SIS', 'Sin descripcion ', 'En el presente proyecto de grado tiene como objetivo desarrollar y demostrar un sistema de interpretación de frases en Lenguaje Natural restringido en el dominio de reconocimiento del Código de Familla Boliviano Para alcanzar dicho objetivo, se procedió al (...) ', NULL, NULL, 'Sin fecha de registro ', NULL, 2, 'Terminado', NULL),
@@ -4001,7 +4001,7 @@ INSERT INTO `proyecto` (`idProyecto`, `titulo`, `objetivos`, `descripcion`, `fec
 (3300, 'PLATAFORMA ONLINE PARA CURSOS MASIVOS Y ABIERTOS. ', 'Desarrollar una plataforma que de soporte MOOC. ', 'La plataforma MOOC es un sistema que soporta cursos online, su finalidad es alojar a cursos del tipo MOOC, estos tipos de portales promueven los cursos abiertos, de participación masiva y sin restricciones. ', NULL, NULL, '2 ', NULL, 2, 'Terminado', '19/12/2017'),
 (3301, 'RED SOCIAL PARA EL CONTROL DISCIPLINARIO E INFORMA', 'Mejorar el control disciplinario e informativo de los estudiantes mediante una aplicación móvil basada en notificaciones para permitir mayor comunicación entre la unidad educativa, el responsable académico y los padres de familia de los estudiantes de nive (...) ', 'La aplicación permitirá realizar un control administrativo e informativo sobre el cumplimiento de las normas disciplinarias de los estudiantes en las instituciones educativas, mediante una aplicación móvil que permita mayor comunicación entre la institució (...) ', NULL, NULL, '2 ', NULL, 2, 'Terminado', '20/12/2017'),
 (3302, 'APLICACIÓN MÓVIL PARA EL APOYO DE APRENDIZAJE DE L', 'Desarrollar una Aplicación móvil para la Enseñanza de las Matemáticas en Niños Discalculicos. ', 'La discalculia es un problema psicopedagógico que dificulta el aprendizaje de las matemáticas, el uso de los Smartphone, tablets va en aumento considerablemente. Con este proyecto se pretende apalear este problema en niños discalculicos en edad escolar, ev (...) ', NULL, NULL, '1 ', NULL, 2, 'Terminado', '21/12/2017');
-=======
+
 INSERT INTO `proyecto` (`idProyecto`, `titulo`, `objetivos`, `descripcion`, `fecha`, `fechaFin`, `periodo`, `sesionDeConsejo`, `idModalidad`) VALUES
 (1, 'proyecto X', 'objetivo 1\r\nobjetivo 2', 'descripcion del proyecto', '2018-04-01', '2018-04-30', 'I', '123', 1),
 (2, 'proyecto con rv', 'objetivo 1\r\nobjetivo 2\r\nobjetivo 3\r\nobjetivo 4\r\nobjetivo 5', 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptatibus, ex, recusandae. Facere modi sunt, quod quibusdam dignissimos neque rem nihil ratione est placeat vel, natus non quos laudantium veritatis sequi.Ut enim ad minima veniam, quis nostrum.', '2018-05-07', NULL, 'I-', '1', 1);
@@ -4025,7 +4025,6 @@ CREATE TABLE `proyecto_estudiante` (
 INSERT INTO `proyecto_estudiante` (`idProyecto`, `idEstudiante`, `estado`) VALUES
 (2, 8, 'activo'),
 (2, 15, 'activo');
->>>>>>> daniel
 
 -- --------------------------------------------------------
 
@@ -4043,7 +4042,7 @@ CREATE TABLE `proyecto_has_area` (
 --
 
 INSERT INTO `proyecto_has_area` (`idProyecto`, `idArea`) VALUES
-<<<<<<< HEAD
+
 (210, 14),
 (211, 7),
 (218, 7),
@@ -8379,10 +8378,6 @@ INSERT INTO `proyecto_has_area` (`idProyecto`, `idArea`) VALUES
 (3301, 6),
 (3302, 6),
 (3302, 98);
-=======
-(2, 7),
-(2, 191);
->>>>>>> daniel
 
 -- --------------------------------------------------------
 
@@ -8427,7 +8422,7 @@ CREATE TABLE `tiene` (
 --
 
 INSERT INTO `tiene` (`idTiene`, `idArea`, `idDoc`) VALUES
-<<<<<<< HEAD
+
 (100, 1, 1),
 (101, 2, 2),
 (102, 3, 3),
@@ -8527,16 +8522,7 @@ INSERT INTO `tiene` (`idTiene`, `idArea`, `idDoc`) VALUES
 (196, 200, 14),
 (197, 201, 15),
 (198, 202, 16);
-=======
-(1, 7, 73),
-(2, 191, 30),
-(3, 7, 30),
-(4, 191, 13),
-(5, 7, 92),
-(6, 191, 42),
-(7, 7, 12),
-(8, 191, 35);
->>>>>>> daniel
+
 
 -- --------------------------------------------------------
 
@@ -8668,10 +8654,7 @@ ALTER TABLE `users`
 --
 ALTER TABLE `area`
   MODIFY `idArea` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=477;
-<<<<<<< HEAD
-=======
 
->>>>>>> daniel
 --
 -- AUTO_INCREMENT de la tabla `asignacion`
 --
@@ -8688,12 +8671,9 @@ ALTER TABLE `carrera`
 -- AUTO_INCREMENT de la tabla `docente`
 --
 ALTER TABLE `docente`
-<<<<<<< HEAD
-  MODIFY `idDoc` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=84;
-=======
+
   MODIFY `idDoc` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=95;
 
->>>>>>> daniel
 --
 -- AUTO_INCREMENT de la tabla `estudiante`
 --
@@ -8704,12 +8684,9 @@ ALTER TABLE `estudiante`
 -- AUTO_INCREMENT de la tabla `modalidad`
 --
 ALTER TABLE `modalidad`
-<<<<<<< HEAD
-  MODIFY `idModalidad` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
-=======
+
   MODIFY `idModalidad` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
->>>>>>> daniel
 --
 -- AUTO_INCREMENT de la tabla `pertenece`
 --
@@ -8720,12 +8697,9 @@ ALTER TABLE `pertenece`
 -- AUTO_INCREMENT de la tabla `proyecto`
 --
 ALTER TABLE `proyecto`
-<<<<<<< HEAD
-  MODIFY `idProyecto` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3303;
-=======
+
   MODIFY `idProyecto` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
->>>>>>> daniel
 --
 -- AUTO_INCREMENT de la tabla `renuncia`
 --
@@ -8736,22 +8710,14 @@ ALTER TABLE `renuncia`
 -- AUTO_INCREMENT de la tabla `tiene`
 --
 ALTER TABLE `tiene`
-<<<<<<< HEAD
-  MODIFY `idTiene` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=199;
-=======
   MODIFY `idTiene` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 
->>>>>>> daniel
 --
 -- AUTO_INCREMENT de la tabla `users`
 --
 ALTER TABLE `users`
-<<<<<<< HEAD
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
-=======
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
->>>>>>> daniel
 --
 -- Restricciones para tablas volcadas
 --
