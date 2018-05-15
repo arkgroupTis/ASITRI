@@ -3,9 +3,23 @@
 @section('content')
 {{ csrf_field() }}
 <h1 class="text-center">ESTUDIANTES</h1>
-<button type="button" class="btn btn-indigo" id="btn-modal-add" data-toggle="modal" data-target="#modal-estudiante">
-    Nuevo Estudiante
-</button>
+
+<div class="form-group row">
+    <div class="col-sm-6">
+        <button type="button" class="btn btn-indigo" id="btn-modal-add" data-toggle="modal" data-target="#modal-estudiante">
+            Nuevo Estudiante
+        </button>
+    </div>
+    <div class="col-sm-6">
+        <label class="sr-only" for="search_estudent">Estudiante</label>
+        <div class="md-form input-group mb-3">
+            <div class="input-group-prepend">
+                <span class="input-group-text md-addon">Buscar</span>
+            </div>
+            <input type="text" class="form-control pl-0 rounded-0" id="search_estudent" placeholder="Estudiante">
+        </div>
+    </div>
+</div>
 <!-- es para mostrar mensaje para cuando hay errores -->
 @if($errors->has())
     <script>
@@ -24,7 +38,6 @@
           	<th>Nombre</th>
           	<th>Email</th>
           	<th>Telefono</th>
-          	<th>Nombre Proyecto</th>
           	<th>Carrera</th>
           	<th>acciones</th>
         </tr>
@@ -37,13 +50,13 @@
             <td>{{ $estudiante->nombreEst }}</td>
             <td>{{ $estudiante->emailEst }}</td>
             <td>{{ $estudiante->telefono }}</td>
-            <td>{{ $estudiante->idProyecto }}</td>
-            <td>{{ $estudiante->carrera->nombreCarrera}}</td>
-           
+
+            <td>{{ $estudiante->carrera->nombreCarrera }}</td>
             <td>
             	<a class="btn-floating btn-sm btn-indigo btn-modal-show" data-toggle="tooltip" data-placement="top" title="ver"><i class="fa fa-eye mt-2 ml-2 fa-lg"></i></a>
             	<a class="btn-floating btn-sm btn-info btn-modal-edit" data-toggle="tooltip" data-placement="top" title="editar"><i class="fa fa-edit mt-2 ml-2 fa-lg"></i></a>
 				<a class="btn-floating btn-sm btn-danger btn-modal-delete" data-toggle="tooltip" data-placement="top" title="eliminar"><i class="fa fa-trash mt-2 ml-2 fa-lg"></i></a>
+                <a class="btn-floating btn-sm btn-info" href="/estudiante/{{ $estudiante->idEstudiante }}/proyecto" data-toggle="tooltip" data-placement="top" title="ver proyecto"><i class="fa fa-eye mt-2 ml-2 fa-lg"></i></a>
             </td>
         </tr>
 		@endforeach
@@ -51,7 +64,36 @@
 </table>
 </div>
 {{ $estudiantes->links() }}
-  
+
+<!--Pagination purple-->
+<nav>
+    <ul class="pagination pg-purple">
+        <!--Arrow left-->
+        <li class="page-item">
+            <a class="page-link" aria-label="Previous">
+                <span aria-hidden="true">&laquo;</span>
+                <span class="sr-only">Previous</span>
+            </a>
+        </li>
+
+        <!--Numbers-->
+        <li class="page-item"><a class="page-link">1</a></li>
+        <li class="page-item"><a class="page-link">2</a></li>
+        <li class="page-item active"><a class="page-link">3</a></li>
+        <li class="page-item"><a class="page-link">4</a></li>
+        <li class="page-item"><a class="page-link">5</a></li>
+
+        <!--Arrow right-->
+        <li class="page-item">
+            <a class="page-link" aria-label="Next">
+                <span aria-hidden="true">&raquo;</span>
+                <span class="sr-only">Next</span>
+            </a>
+        </li>
+    </ul>
+</nav>
+<!--/Pagination purple-->
+
 <!-- Modal agregar y modificar estudiante -->
 <div class="modal fade" id="modal-estudiante" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
     <div class="modal-dialog modal-notify modal-info modal-lg" role="document">
@@ -198,10 +240,6 @@
                                     <td id="td-telefono"></td>
                                 </tr>
                                 <tr>
-                                    <th scope="row">Proyecto</th>
-                                    <td id="td-proyecto"></td>
-                                </tr>
-                                <tr>
                                     <th scope="row">Carrera</th>
                                     <td id="td-carrera"></td>
                                 </tr>
@@ -238,7 +276,7 @@
             <!--Body-->
             <div class="modal-body">
                 <div class="text-center">
-                    <i class="fa fa-plus fa-4x mb-3 animated rotateIn"></i>
+                    <i class="fa fa-times fa-4x mb-3 animated rotateIn"></i>
                     <p>Se eliminará al estudiante:</p>
                     <b id="delete-estudiante"></b>
                 </div>
@@ -250,7 +288,7 @@
         </div
 >        <!--/.Content-->
     </div>
-</div>                               
+</div>
 @endsection
 @section('script')
 <script>
@@ -265,7 +303,6 @@
             $('#td-nombre').text(data.estudiante.nombreEst);
             $('#td-email').text(data.estudiante.emailEst);
             $('#td-telefono').text(data.estudiante.telefono);
-            $('#td-proyecto').text(data.estudiante.idProyecto);
             $('#td-carrera').text(data.estudiante.idCarrera);
         });
         $('#modal-show').modal('show');

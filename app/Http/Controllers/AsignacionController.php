@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
+use App\Asignacion;
 
 class AsignacionController extends Controller
 {
@@ -16,7 +17,8 @@ class AsignacionController extends Controller
      */
     public function index()
     {
-        //
+        $tribunales = Asignacion::where('rol', 'tribunal')->orderBy('idProyecto', 'desc')->paginate(20);
+        return view('tribunales.index', compact('tribunales'));
     }
 
     /**
@@ -83,5 +85,9 @@ class AsignacionController extends Controller
     public function destroy($id)
     {
         //
+    }
+
+    public function asignacion(){
+        return view('tribunales.asignacion');
     }
 }
