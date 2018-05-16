@@ -29,8 +29,8 @@
     </script>
 @endif
 <hr>
-<div class="tablaScroll5">
-<table class="table table-striped table-sm tablaScroll5">
+<div class="">
+<table class="table table-striped table-sm">
     <thead>
         <tr>
             <th>CI</th>

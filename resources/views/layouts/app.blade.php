@@ -3,7 +3,7 @@
     <head>
         @include('layouts.htmlheader')
     </head>
-    <body class="light-blue-skin">
+    <body class="fixed-sn black-skin">
         <!--Double navigation-->
         <header>
             <!-- Sidebar navigation -->

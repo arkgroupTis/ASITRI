@@ -8,7 +8,7 @@
     </style>
 </head>
 
-<body style="background-image: url('/img/FONDD.jpg'); background-repeat: no-repeat; background-size: cover; background-position: center center;">
+<body style="background-image: url('/img/fondo1.jpg'); background-repeat: no-repeat; background-size: cover; background-position: center center;">
     <br>
     <br>
     <br>
