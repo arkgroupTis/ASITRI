@@ -82,10 +82,14 @@
                 <!--First slide-->
                 <div class="carousel-item active">
 <<<<<<< HEAD
+<<<<<<< HEAD
                     <div class="view" style="background-image: url('/img/imgFondo.jpg'); background-repeat: no-repeat; background-size: cover;">
 =======
                     <div class="view" style="background-image: url('/img/FONDD.jpg'); background-repeat: no-repeat; background-size: cover;">
 >>>>>>> 23b6468e99b9a7e3c8203bff0b050766966411b0
+=======
+                    <div class="view" style="background-image: url('/img/fondo1.jpg'); background-repeat: no-repeat; background-size: cover;">
+>>>>>>> 746190361033b257b708050ec49149e79bc037d8
                         <!-- Mask & flexbox options-->
                         <div class="mask rgba-black-light d-flex justify-content-center align-items-center">
                             <!-- Content -->
@@ -110,10 +114,14 @@
                 <!--Second slide-->
                 <div class="carousel-item">
 <<<<<<< HEAD
+<<<<<<< HEAD
                     <div class="view" style="background-image: url('/img/imgFondo.jpg'); background-repeat: no-repeat; background-size: cover;">
 =======
                     <div class="view" style="background-image: url('/img/FONDD.jpg'); background-repeat: no-repeat; background-size: cover;">
 >>>>>>> 23b6468e99b9a7e3c8203bff0b050766966411b0
+=======
+                    <div class="view" style="background-image: url('/img/fondo2.jpg'); background-repeat: no-repeat; background-size: cover;">
+>>>>>>> 746190361033b257b708050ec49149e79bc037d8
                         <!-- Mask & flexbox options-->
                         <div class="mask rgba-black-light d-flex justify-content-center align-items-center">
                             <!-- Content -->
@@ -138,10 +146,14 @@
                 <!--Third slide-->
                 <div class="carousel-item">
 <<<<<<< HEAD
+<<<<<<< HEAD
                     <div class="view" style="background-image: url('/img/imgFondo.jpg'); background-repeat: no-repeat; background-size: cover;">
 =======
                     <div class="view" style="background-image: url('/img/FONDD.jpg'); background-repeat: no-repeat; background-size: cover;">
 >>>>>>> 23b6468e99b9a7e3c8203bff0b050766966411b0
+=======
+                    <div class="view" style="background-image: url('/img/fondo3.jpg'); background-repeat: no-repeat; background-size: cover;">
+>>>>>>> 746190361033b257b708050ec49149e79bc037d8
                         <!-- Mask & flexbox options-->
                         <div class="mask rgba-black-light d-flex justify-content-center align-items-center">
                             <!-- Content -->
@@ -186,7 +198,7 @@
                     <div class="row">
                         <!--Grid column-->
                         <div class="col-md-6 mb-4">
-                            <img src="/img/fondo-login.jpg" class="img-fluid z-depth-1-half" alt="">
+                            <img src="/img/fondo1.jpg" class="img-fluid z-depth-1-half" alt="">
                         </div>
                         <!--Grid column-->
                         <!--Grid column-->

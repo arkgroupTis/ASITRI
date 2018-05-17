@@ -5,10 +5,14 @@
             <div class="logo-wrapper waves-light">
                 <a href="#">
 <<<<<<< HEAD
+<<<<<<< HEAD
                     <img src="/img/imgIcono.png" class="img-fluid flex-center">
 =======
                     <img src="/img/ICONO2.png" class="img-fluid flex-center">
 >>>>>>> 23b6468e99b9a7e3c8203bff0b050766966411b0
+=======
+                    <img src="/img/logo-transparent.png" class="img-fluid flex-center">
+>>>>>>> 746190361033b257b708050ec49149e79bc037d8
                 </a>
             </div>
         </li>
@@ -95,10 +99,10 @@
                     <div class="collapsible-body">  
                         <ul>
                             <li>
-                                <a href="/Tribunales" class="waves-effect">Tribunales</a>
+                                <a href="/tribunales" class="waves-effect">Tribunales</a>
                             </li>
                             <li>
-                                <a href="/AsignacionTribunales" class="waves-effect">Asignacion de Tribunales</a>
+                                <a href="/tribunales/asignacion" class="waves-effect">Asignacion de Tribunales</a>
                             </li>
                         </ul>
                     </div>  
@@ -107,18 +111,7 @@
                     <a class="collapsible-header waves-effect arrow-r" href="/estudiante">
                         <i class="fa fa-eye"></i> 
                         Estudiantes
-                        <i class="fa fa-angle-down rotate-icon"></i>
                     </a>
-                    <div class="collapsible-body">
-                        <ul>
-                            <li>
-                                <a href="/estudiante" class="waves-effect">Estudiantes</a>
-                            </li>
-                            <li>
-                                <a href="/newStudent" class="waves-effect">Nuevo Estudiante</a>
-                            </li>
-                        </ul>
-                    </div>
                 </li>
                 <hr class="white">
                 <li>

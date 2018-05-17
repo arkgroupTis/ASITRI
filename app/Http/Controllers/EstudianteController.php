@@ -17,7 +17,7 @@ class EstudianteController extends Controller
      */
     public function index()
     {
-        $estudiantes = Estudiante::orderBy('apellidoEst', 'asc')->paginate(500);
+        $estudiantes = Estudiante::orderBy('apellidoEst', 'asc')->paginate(5);
         return view('estudiante.index', compact('estudiantes'));
     }
     public function create_sub()
