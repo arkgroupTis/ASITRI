@@ -126,7 +126,7 @@
 .tablaScroll5 > tbody > tr > td,.tablaScroll5 > thead > tr > th 
 {
     /* Este valor varia segun la siguiente formula: 100%/# de celdas */
-    width: 12.5%;
+    width: 14%;
     float: left;
 }
 /*--------------------------------------------------------------*/

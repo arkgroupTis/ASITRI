@@ -3,9 +3,23 @@
 @section('content')
 {{ csrf_field() }}
 <h1 class="text-center">ESTUDIANTES</h1>
-<button type="button" class="btn btn-indigo" id="btn-modal-add" data-toggle="modal" data-target="#modal-estudiante">
-    Nuevo Estudiante
-</button>
+
+<div class="form-group row">
+    <div class="col-sm-6">
+        <button type="button" class="btn btn-indigo" id="btn-modal-add" data-toggle="modal" data-target="#modal-estudiante">
+            Nuevo Estudiante
+        </button>
+    </div>
+    <div class="col-sm-6">
+        <label class="sr-only" for="search_estudent">Estudiante</label>
+        <div class="md-form input-group mb-3">
+            <div class="input-group-prepend">
+                <span class="input-group-text md-addon">Buscar</span>
+            </div>
+            <input type="text" class="form-control pl-0 rounded-0" id="search_estudent" placeholder="Estudiante">
+        </div>
+    </div>
+</div>
 <!-- es para mostrar mensaje para cuando hay errores -->
 @if($errors->has())
     <script>
@@ -19,39 +33,35 @@
 <table class="table table-striped table-sm tablaScroll5">
     <thead>
         <tr>
-            <th>CI</th>
-          	<th>Apellidos</th>
-          	<th>Nombre</th>
-          	<th>Email</th>
-          	<th>Telefono</th>
-          	<th>Nombre Proyecto</th>
-          	<th>Carrera</th>
-          	<th>acciones</th>
+            <th style="width: 10%" class="text-center">CI</th>
+          	<th style="width: 10%" class="text-center">Apellidos</th>
+          	<th style="width: 10%" class="text-center">Nombre</th>
+          	<th style="width: 20%" class="text-center">Email</th>
+          	<th style="width: 10%" class="text-center">Telefono</th>
+          	<th style="width: 10%" class="text-center">Carrera</th>
+          	<th style="width: 30%" class="text-center">acciones</th>
         </tr>
     </thead>
-    <tbody>
+    <tbody id="tabla1">
     	@foreach($estudiantes as $estudiante)
         <tr data-id="{{ $estudiante->idEstudiante }}">
-            <td>{{ $estudiante->ciEst }}</td>
-            <td>{{ $estudiante->apellidoEst }}</td>
-            <td>{{ $estudiante->nombreEst }}</td>
-            <td>{{ $estudiante->emailEst }}</td>
-            <td>{{ $estudiante->telefono }}</td>
-            <td>{{ $estudiante->idProyecto }}</td>
-            <td>{{ $estudiante->carrera->nombreCarrera}}</td>
-           
-            <td>
-            	<a class="btn-floating btn-sm btn-indigo btn-modal-show" data-toggle="tooltip" data-placement="top" title="ver"><i class="fa fa-eye mt-2 ml-2 fa-lg"></i></a>
-            	<a class="btn-floating btn-sm btn-info btn-modal-edit" data-toggle="tooltip" data-placement="top" title="editar"><i class="fa fa-edit mt-2 ml-2 fa-lg"></i></a>
-				<a class="btn-floating btn-sm btn-danger btn-modal-delete" data-toggle="tooltip" data-placement="top" title="eliminar"><i class="fa fa-trash mt-2 ml-2 fa-lg"></i></a>
+            <td style="width: 10%" class="text-center">{{ $estudiante->ciEst }}</td>
+            <td style="width: 10%" class="text-center">{{ $estudiante->apellidoEst }}</td>
+            <td style="width: 10%" class="text-center">{{ $estudiante->nombreEst }}</td>
+            <td style="width: 20%" class="text-center">{{ $estudiante->emailEst }}</td>
+            <td style="width: 10%" class="text-center">{{ $estudiante->telefono }}</td>
+            <td style="width: 10%" class="text-center">{{ $estudiante->carrera->nombreCarrera }}</td>
+            <td style="width: 30%" class="text-center">
+            	<a class="btn-floating btn-sm btn-indigo btn-modal-show" data-toggle="tooltip" data-placement="top" title="ver"><i class="fa fa-eye mt-2 ml-1 fa-lg"></i></a>
+            	<a class="btn-floating btn-sm btn-info btn-modal-edit" data-toggle="tooltip" data-placement="top" title="editar"><i class="fa fa-edit mt-2 ml-1 fa-lg"></i></a>
+				<a class="btn-floating btn-sm btn-danger btn-modal-delete" data-toggle="tooltip" data-placement="top" title="eliminar"><i class="fa fa-trash mt-2 ml-1 fa-lg"></i></a>
+                <a class="btn-floating btn-sm btn-info" href="/estudiante/{{ $estudiante->idEstudiante }}/proyecto" data-toggle="tooltip" data-placement="top" title="ver proyecto"><i class="fa fa-eye mt-2 ml-1 fa-lg"></i></a>
             </td>
         </tr>
 		@endforeach
     </tbody>
 </table>
 </div>
-{{ $estudiantes->links() }}
-  
 <!-- Modal agregar y modificar estudiante -->
 <div class="modal fade" id="modal-estudiante" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
     <div class="modal-dialog modal-notify modal-info modal-lg" role="document">
@@ -198,10 +208,6 @@
                                     <td id="td-telefono"></td>
                                 </tr>
                                 <tr>
-                                    <th scope="row">Proyecto</th>
-                                    <td id="td-proyecto"></td>
-                                </tr>
-                                <tr>
                                     <th scope="row">Carrera</th>
                                     <td id="td-carrera"></td>
                                 </tr>
@@ -238,7 +244,7 @@
             <!--Body-->
             <div class="modal-body">
                 <div class="text-center">
-                    <i class="fa fa-plus fa-4x mb-3 animated rotateIn"></i>
+                    <i class="fa fa-times fa-4x mb-3 animated rotateIn"></i>
                     <p>Se eliminará al estudiante:</p>
                     <b id="delete-estudiante"></b>
                 </div>
@@ -250,7 +256,7 @@
         </div
 >        <!--/.Content-->
     </div>
-</div>                               
+</div>
 @endsection
 @section('script')
 <script>
@@ -265,7 +271,6 @@
             $('#td-nombre').text(data.estudiante.nombreEst);
             $('#td-email').text(data.estudiante.emailEst);
             $('#td-telefono').text(data.estudiante.telefono);
-            $('#td-proyecto').text(data.estudiante.idProyecto);
             $('#td-carrera').text(data.estudiante.idCarrera);
         });
         $('#modal-show').modal('show');
@@ -363,5 +368,13 @@
         type_ = null;
         url_ = null;
     }
+    $(document).ready(function(){
+          $("#search_estudent").on("keyup", function() {
+            var value = $(this).val().toLowerCase();
+            $("#tabla1 tr").filter(function() {
+              $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
+            });
+          });
+        });
 </script>
 @endsection

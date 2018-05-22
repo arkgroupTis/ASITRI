@@ -30,7 +30,6 @@ Route::get('/areas/edit',function()
 {
 	return view ('areas.edit');
 });
-
 Route::get('/proyectos','ProyectoController@index');
 
 Route::get('/nuevoDocente', function () {
@@ -50,27 +49,25 @@ Route::get('/newStudent', function () {
     return view('students/newStudent');
 });
 
-
 Route::resource('/estudiante', 'EstudianteController');
 Route::resource('/estudianteproyecto', 'ProyectoController@create_sub');
 //Route::resource('/tutorproyecto', 'DocenteController@create_sub');
+Route::resource('/proyecto_est', 'EstudianteController@proyc_est');
 
-Route::resource('/Tribunales', 'DocenteController@tribunales');
+Route::resource('/estudianteproyecto', 'EstudianteController@create_sub');
+//Route::resource('/estudianteproyecto', 'DocenteController@create_sub');
+Route::get('/estudiante/{id}/proyecto', 'ProyectoController@proyectoEstudiante');
+Route::get('/estudiante/proyecto/{id}/tribunales', 'ProyectoController@posiblesTribunales');
+Route::get('/estudiante/proyecto/{id}/renuncia', 'ProyectoController@renunciaTribunales');
+Route::get('/estudiante/proyecto/{idProy}/{idDoc}/asignacion', 'ProyectoController@asignarTribunal');
+Route::post('/estudiante/proyecto/renuncia', 'ProyectoController@renunciaTribunal');
 
-/**
-Route::get('/Tribunales', function(){
-	return view('Tribunales/Tribunales');
-});
-*/
+Route::resource('/tribunales', 'AsignacionController');
 
-Route::resource('/AsignacionTribunales', 'DocenteController@asignacionTribunales');
+Route::get('/tribunales/asignacion', 'AsignacionController@asignacion');
 
 Route::resource('subarea','AreaController@subarea');
-/**
-Route::get('/AsignacionTribunales', function(){
-	return view('Tribunales/AsignacionTribunales');
-});
-*/
+
 Route::resource('/docentes', 'DocenteController');
 Route::resource('/newdoc', 'AreaController@create_area');
 

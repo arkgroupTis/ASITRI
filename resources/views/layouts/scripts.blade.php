@@ -25,6 +25,7 @@
 	$(function () {
 		$('[data-toggle="tooltip"]').tooltip()
 	})
+
 	$('.datepicker').pickadate({
 		monthsFull: ['Enero', 'Febrero', 'Marzo', 'Abril', 'Mayo', 'Junio', 'Julio', 'Agosto', 'Septiembre', 'Octubre', 'Noviembre', 'Diciembre'],
 		monthsShort: ['Enero', 'Febrero', 'Marzo', 'Abril', 'Mayo', 'Junio', 'Julio', 'Agosto', 'Septiembre', 'Octubre', 'Noviembre', 'Diciembre'],
@@ -36,5 +37,7 @@
 		clear: 'Limpiar',
 		close: 'Cerrar',
 	});
+	// Data Picker Initialization
+	$('.datepicker').pickadate();
 </script>
 @yield('script')
