@@ -7,7 +7,8 @@
             <h1 class="h1-responsive">Estudiante</h1>
             <p class="lead"><b>Nombre:</b> {{ $proy_est->estudiante->nombreEst }}</p>
             <p class="lead"><b>Apellido:</b> {{ $proy_est->estudiante->apellidoEst }}</p>
-            <p class="lead"><b>CI:</b> {{ $proy_est->estudiante->ciEst }}</p>
+            <p class="lead"><b
+                >CI:</b> {{ $proy_est->estudiante->ciEst }}</p>
             <hr class="my-2">
             <h1 class="h1-responsive">Proyecto</h1>
         
@@ -25,7 +26,7 @@
         <blockquote class="blockquote bq-danger">
             <p class="bq-title">No tiene proyecto asignado</p>
             <p>Es necesario asignar un proyecto al estudiante, para poder ver las opciones que se pueden aplicar a un proyecto!</p>
-            <a href="#" class="btn peach-gradient btn-lg btn-block" role="button">Asignar Proyecto</a>
+            <a href="/proyecto_est" class="btn peach-gradient btn-lg btn-block" role="button">Asignar Proyecto</a>
         </blockquote>
     @endif
     

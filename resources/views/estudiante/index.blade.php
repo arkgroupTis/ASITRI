@@ -29,71 +29,39 @@
     </script>
 @endif
 <hr>
-<div class="">
-<table class="table table-striped table-sm">
+<div class="tablaScroll5">
+<table class="table table-striped table-sm tablaScroll5">
     <thead>
         <tr>
-            <th>CI</th>
-          	<th>Apellidos</th>
-          	<th>Nombre</th>
-          	<th>Email</th>
-          	<th>Telefono</th>
-          	<th>Carrera</th>
-          	<th>acciones</th>
+            <th style="width: 10%" class="text-center">CI</th>
+          	<th style="width: 10%" class="text-center">Apellidos</th>
+          	<th style="width: 10%" class="text-center">Nombre</th>
+          	<th style="width: 20%" class="text-center">Email</th>
+          	<th style="width: 10%" class="text-center">Telefono</th>
+          	<th style="width: 10%" class="text-center">Carrera</th>
+          	<th style="width: 30%" class="text-center">acciones</th>
         </tr>
     </thead>
-    <tbody>
+    <tbody id="tabla1">
     	@foreach($estudiantes as $estudiante)
         <tr data-id="{{ $estudiante->idEstudiante }}">
-            <td>{{ $estudiante->ciEst }}</td>
-            <td>{{ $estudiante->apellidoEst }}</td>
-            <td>{{ $estudiante->nombreEst }}</td>
-            <td>{{ $estudiante->emailEst }}</td>
-            <td>{{ $estudiante->telefono }}</td>
-
-            <td>{{ $estudiante->carrera->nombreCarrera }}</td>
-            <td>
-            	<a class="btn-floating btn-sm btn-indigo btn-modal-show" data-toggle="tooltip" data-placement="top" title="ver"><i class="fa fa-eye mt-2 ml-2 fa-lg"></i></a>
-            	<a class="btn-floating btn-sm btn-info btn-modal-edit" data-toggle="tooltip" data-placement="top" title="editar"><i class="fa fa-edit mt-2 ml-2 fa-lg"></i></a>
-				<a class="btn-floating btn-sm btn-danger btn-modal-delete" data-toggle="tooltip" data-placement="top" title="eliminar"><i class="fa fa-trash mt-2 ml-2 fa-lg"></i></a>
-                <a class="btn-floating btn-sm btn-info" href="/estudiante/{{ $estudiante->idEstudiante }}/proyecto" data-toggle="tooltip" data-placement="top" title="ver proyecto"><i class="fa fa-eye mt-2 ml-2 fa-lg"></i></a>
+            <td style="width: 10%" class="text-center">{{ $estudiante->ciEst }}</td>
+            <td style="width: 10%" class="text-center">{{ $estudiante->apellidoEst }}</td>
+            <td style="width: 10%" class="text-center">{{ $estudiante->nombreEst }}</td>
+            <td style="width: 20%" class="text-center">{{ $estudiante->emailEst }}</td>
+            <td style="width: 10%" class="text-center">{{ $estudiante->telefono }}</td>
+            <td style="width: 10%" class="text-center">{{ $estudiante->carrera->nombreCarrera }}</td>
+            <td style="width: 30%" class="text-center">
+            	<a class="btn-floating btn-sm btn-indigo btn-modal-show" data-toggle="tooltip" data-placement="top" title="ver"><i class="fa fa-eye mt-2 ml-1 fa-lg"></i></a>
+            	<a class="btn-floating btn-sm btn-info btn-modal-edit" data-toggle="tooltip" data-placement="top" title="editar"><i class="fa fa-edit mt-2 ml-1 fa-lg"></i></a>
+				<a class="btn-floating btn-sm btn-danger btn-modal-delete" data-toggle="tooltip" data-placement="top" title="eliminar"><i class="fa fa-trash mt-2 ml-1 fa-lg"></i></a>
+                <a class="btn-floating btn-sm btn-info" href="/estudiante/{{ $estudiante->idEstudiante }}/proyecto" data-toggle="tooltip" data-placement="top" title="ver proyecto"><i class="fa fa-eye mt-2 ml-1 fa-lg"></i></a>
             </td>
         </tr>
 		@endforeach
     </tbody>
 </table>
 </div>
-{{ $estudiantes->links() }}
-
-<!--Pagination purple-->
-<nav>
-    <ul class="pagination pg-purple">
-        <!--Arrow left-->
-        <li class="page-item">
-            <a class="page-link" aria-label="Previous">
-                <span aria-hidden="true">&laquo;</span>
-                <span class="sr-only">Previous</span>
-            </a>
-        </li>
-
-        <!--Numbers-->
-        <li class="page-item"><a class="page-link">1</a></li>
-        <li class="page-item"><a class="page-link">2</a></li>
-        <li class="page-item active"><a class="page-link">3</a></li>
-        <li class="page-item"><a class="page-link">4</a></li>
-        <li class="page-item"><a class="page-link">5</a></li>
-
-        <!--Arrow right-->
-        <li class="page-item">
-            <a class="page-link" aria-label="Next">
-                <span aria-hidden="true">&raquo;</span>
-                <span class="sr-only">Next</span>
-            </a>
-        </li>
-    </ul>
-</nav>
-<!--/Pagination purple-->
-
 <!-- Modal agregar y modificar estudiante -->
 <div class="modal fade" id="modal-estudiante" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
     <div class="modal-dialog modal-notify modal-info modal-lg" role="document">
@@ -400,5 +368,13 @@
         type_ = null;
         url_ = null;
     }
+    $(document).ready(function(){
+          $("#search_estudent").on("keyup", function() {
+            var value = $(this).val().toLowerCase();
+            $("#tabla1 tr").filter(function() {
+              $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
+            });
+          });
+        });
 </script>
 @endsection

@@ -57,10 +57,9 @@ class ProyectoController extends Controller
             'estadoProyecto'=>$request['estadoProyecto'],
             'fechaRegistroProy'=>$request['fechaRegistro'],
         ]);
-        return resource('/estudianteproyecto');
-        // return response()->json([
-        //     'message' => 'Se agrego correctamente!',
-        // ]);
+        return response()->json([
+            'message' => 'Se agrego correctamente!',
+        ]);
     }
 
     /**

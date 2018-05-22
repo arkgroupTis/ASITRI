@@ -30,7 +30,6 @@ Route::get('/areas/edit',function()
 {
 	return view ('areas.edit');
 });
-
 Route::get('/proyectos','ProyectoController@index');
 
 Route::get('/nuevoDocente', function () {
@@ -51,6 +50,7 @@ Route::get('/newStudent', function () {
 });
 
 Route::resource('/estudiante', 'EstudianteController');
+Route::resource('/proyecto_est', 'EstudianteController@proyc_est');
 
 Route::resource('/estudianteproyecto', 'EstudianteController@create_sub');
 //Route::resource('/estudianteproyecto', 'DocenteController@create_sub');
