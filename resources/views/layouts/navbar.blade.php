@@ -1,4 +1,3 @@
-<!-- Navbar -->
 <nav class="navbar fixed-top navbar-toggleable-md navbar-expand-lg scrolling-navbar double-nav">
     <!-- SideNav slide-out button -->
     <div class="float-left">
@@ -6,7 +5,8 @@
     </div>
     <!-- Breadcrumb-->
     <div class="breadcrumb-dn mr-auto">
-        <p>Asignacion de Tribunales</p>
+        <a href="{{url()->previous()}}" class="btn btn-sm"><i class="fa fa-arrow-left fa-lg"></i></a>
+        Asignacion de Tribunales
     </div>
     <ul class="nav navbar-nav nav-flex-icons ml-auto">
         <li class="nav-item dropdown">
@@ -23,4 +23,3 @@
         </li>
     </ul>
 </nav>
-<!-- /.Navbar -->

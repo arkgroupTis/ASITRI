@@ -91,25 +91,11 @@
                     <div class="form-row">
                             <div class="col-md-12">
                             <select class="mdb-select colorful-select dropdown-primary col-md-12" multiple name="area" id="select">
-                                <option value="">Base de Datos</option>
-                                <option value="">Comercio Electrónico</option>
-                                <option value="">Computación Gráfica
-                                <option value="">Evaluación y Auditoria de Sistemas
-                                <option value="">Ingeniería de Producción
-                                <option value="">Ingeniería de Software
-                                <option value="">Inteligencia Artificial
-                                <option value="">Interacción Humano Computador
-                                <option value="">Investigación Operativa
-                                <option value="">Matemática Computacional
-                                <option value="">Programación en Internet
-                                <option value="">Redes y Sistemas Distribuidos
-                                <option value="">Simulación
-                                <option value="">Sistemas de Información
-                                <option value="">Tecnologías de Control
-                                <option value="">Teoría de la Computación
+                                @foreach($areas as $area)
+                                <option value= {{ $area-> idArea}} > {{ $area-> nombreArea}} </option>
+                                @endforeach
                             </select>
                             </div>
-
                             <!--<div class="col-md-6">
                                 <input class="form-control" id="Search1" type="text" placeholder="Search..">    
                             </div> -->
@@ -145,16 +131,18 @@
             success : function(data) {
                 toastr.success(data.message);
                 lacation.reload();
+                clear();
             },
             error : function(xhr, status) {
                 toastr.error('Disculpe, existio un problema!');
             },
         });
-        clear();
     });
     function clear() {
     document.getElementById("miForm").reset();
   }
+  var selectedValues = $('#select').val();
+  window.alert($selectedValues);
 </script>
 
 @endsection

@@ -17,24 +17,19 @@ class DocenteController extends Controller
      */
     public function index()
     {
-        $docentes = Docente::orderBy('apePaternoDoc', 'asc')->paginate(5);
+        $docentes = Docente::orderBy('apePaternoDoc', 'asc')->paginate(500);
         return view('docentes.maindoc', compact('docentes'));
     }
-
-    public function tribunales()
+    
+    public function create_sub()
     {
         $docentes = Docente::orderBy('apePaternoDoc', 'asc')->paginate(500);
-        return view('Tribunales.Tribunales', compact('docentes'));
+    return view('proyectos.create', compact('docentes'));
     }
+                // @foreach($docentes as $docente)
+                // <option> {{ $docente->apePaternoDoc }} {{ $docente->apeMaternoDoc }} {{ $docente->nombreDoc }} </option>
+                // @endforeach 
 
-    public function asignacionTribunales()
-    {
-        $docentes = Docente::orderBy('apePaternoDoc', 'asc')->paginate(500);
-        return view('Tribunales.AsignacionTribunales', compact('docentes'));   
-    }
-//     @foreach($docentes as $docente)
-// <h1> {{ $docente->ciDoc }} </h1>
-// @endforeach 
     /**
      * Show the form for creating a new resource.
      *

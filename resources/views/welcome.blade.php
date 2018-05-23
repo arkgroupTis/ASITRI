@@ -87,18 +87,15 @@
                             <!-- Content -->
                             <div class="text-center white-text mx-5 wow fadeIn">
                                 <h1 class="mb-4">
-                                <strong>Learn Bootstrap 4 with MDB</strong>
+                                <strong></strong>
                                 </h1>
                                 <p>
-                                    <strong>Best & free guide of responsive web design</strong>
+                                    <strong></strong>
                                 </p>
                                 <p class="mb-4 d-none d-md-block">
-                                    <strong>The most comprehensive tutorial for the Bootstrap 4. Loved by over 500 000 users. Video and written versions
-                                    available. Create your own, stunning website.</strong>
+                                    <strong></strong>
                                 </p>
-                                <a href="https://mdbootstrap.com/bootstrap-tutorial/" class="btn btn-outline-white btn-lg">Start free tutorial
-                                    <i class="fa fa-graduation-cap ml-2"></i>
-                                </a>
+                                
                             </div>
                             <!-- Content -->
                         </div>
@@ -114,18 +111,15 @@
                             <!-- Content -->
                             <div class="text-center white-text mx-5 wow fadeIn">
                                 <h1 class="mb-4">
-                                <strong>Learn Bootstrap 4 with MDB</strong>
+                                <strong></strong>
                                 </h1>
                                 <p>
-                                    <strong>Best & free guide of responsive web design</strong>
+                                    <strong></strong>
                                 </p>
                                 <p class="mb-4 d-none d-md-block">
-                                    <strong>The most comprehensive tutorial for the Bootstrap 4. Loved by over 500 000 users. Video and written versions
-                                    available. Create your own, stunning website.</strong>
+                                    <strong></strong>
                                 </p>
-                                <a href="https://mdbootstrap.com/bootstrap-tutorial/" class="btn btn-outline-white btn-lg">Start free tutorial
-                                    <i class="fa fa-graduation-cap ml-2"></i>
-                                </a>
+                               
                             </div>
                             <!-- Content -->
                         </div>
@@ -141,18 +135,15 @@
                             <!-- Content -->
                             <div class="text-center white-text mx-5 wow fadeIn">
                                 <h1 class="mb-4">
-                                <strong>Learn Bootstrap 4 with MDB</strong>
+                                <strong></strong>
                                 </h1>
                                 <p>
-                                    <strong>Best & free guide of responsive web design</strong>
+                                    <strong></strong>
                                 </p>
                                 <p class="mb-4 d-none d-md-block">
-                                    <strong>The most comprehensive tutorial for the Bootstrap 4. Loved by over 500 000 users. Video and written versions
-                                    available. Create your own, stunning website.</strong>
+                                    <strong></strong>
                                 </p>
-                                <a href="https://mdbootstrap.com/bootstrap-tutorial/" class="btn btn-outline-white btn-lg">Start free tutorial
-                                    <i class="fa fa-graduation-cap ml-2"></i>
-                                </a>
+                                
                             </div>
                             <!-- Content -->
                         </div>
@@ -183,7 +174,7 @@
                     <div class="row">
                         <!--Grid column-->
                         <div class="col-md-6 mb-4">
-                            <img src="/img/fondo-login.jpg" class="img-fluid z-depth-1-half" alt="">
+                            <img src="/img/fondo1.jpg" class="img-fluid z-depth-1-half" alt="">
                         </div>
                         <!--Grid column-->
                         <!--Grid column-->

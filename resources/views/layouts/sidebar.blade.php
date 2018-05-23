@@ -35,7 +35,7 @@
                                 <a href="/proyectos" class="waves-effect">Proyectos</a>
                             </li>
                             <li>
-                                <a href="/create" class="waves-effect">Nuevo Proyecto</a>
+                                <a href="/estudianteproyecto" class="waves-effect">Nuevo Proyecto</a>
                             </li>
                         </ul>
                     </div>
@@ -52,7 +52,7 @@
                                 <a href="/docentes" class="waves-effect">Docente & Profesionales</a>
                             </li>
                             <li>
-                                <a href="/newDoc" class="waves-effect">Nuevo Docente</a>
+                                <a href="/newdoc" class="waves-effect">Nuevo Docente</a>
                             </li>
                         </ul>
                     </div>
@@ -91,10 +91,10 @@
                     <div class="collapsible-body">  
                         <ul>
                             <li>
-                                <a href="/Tribunales" class="waves-effect">Tribunales</a>
+                                <a href="/tribunales" class="waves-effect">Tribunales</a>
                             </li>
                             <li>
-                                <a href="/AsignacionTribunales" class="waves-effect">Asignacion de Tribunales</a>
+                                <a href="/tribunales/asignacion" class="waves-effect">Asignacion de Tribunales</a>
                             </li>
                         </ul>
                     </div>  
@@ -103,18 +103,7 @@
                     <a class="collapsible-header waves-effect arrow-r" href="/estudiante">
                         <i class="fa fa-eye"></i> 
                         Estudiantes
-                        <i class="fa fa-angle-down rotate-icon"></i>
                     </a>
-                    <div class="collapsible-body">
-                        <ul>
-                            <li>
-                                <a href="/estudiante" class="waves-effect">Estudiantes</a>
-                            </li>
-                            <li>
-                                <a href="/newStudent" class="waves-effect">Nuevo Estudiante</a>
-                            </li>
-                        </ul>
-                    </div>
                 </li>
                 <hr class="white">
                 <li>
