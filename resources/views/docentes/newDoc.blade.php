@@ -86,23 +86,16 @@
         </div>
         <!-- Grid column -->
     </div>
-
-    	           <label>Area: </label>
-                    <div class="form-row">
-                            <div class="col-md-12">
-                            <select class="mdb-select colorful-select dropdown-primary col-md-12" multiple name="area" id="select">
-                                @foreach($areas as $area)
-                                <option value= {{ $area-> idArea}} > {{ $area-> nombreArea}} </option>
-                                @endforeach
-                            </select>
-                            </div>
-                            <!--<div class="col-md-6">
-                                <input class="form-control" id="Search1" type="text" placeholder="Search..">    
-                            </div> -->
-                    </div>  
-
-
-
+       <label>Area: </label>
+        <div class="form-row">
+                <div class="col-md-12">
+                <select class="mdb-select colorful-select dropdown-primary col-md-12" multiple name="area" id="select">
+                    @foreach($areas as $area)
+                    <option value= {{ $area-> idArea}} > {{ $area-> nombreArea}} </option>
+                    @endforeach
+                </select>
+                </div>
+        </div>  
     <button class="btn  btn-primary btn-md" id="add">GUARDAR</button>
     <button class="btn  btn-info btn-md">CANCELAR</button>
 
@@ -141,8 +134,34 @@
     function clear() {
     document.getElementById("miForm").reset();
   }
-  var selectedValues = $('#select').val();
-  window.alert($selectedValues);
+  areas[i]=select.value;
+  foreach($areas as $area)
+  {
+    $.ajax({
+            type: 'POST',
+            url: '/docentes/areas',
+            data: {
+                '_token': $('input[name=_token]').val(),
+                'ciDoc': $('#ci').val(),
+                'nombreDoc': $('#name').val(),
+                'apePaternoDoc': $('#apePaterno').val(),
+                'apeMaternoDoc': $('#apMaterno').val(),
+                'emailDoc': $('#email').val(),
+                'telefonoDoc': $('#telefono').val(),
+                'tituloDoc': $('#tipo').val(),
+                'cargaHoraria': $('#carga').val(),
+                'codigoDoc': $('#codigoDoc').val(),
+            },
+            success : function(data) {
+                toastr.success(data.message);
+                location.reload();
+                clear();
+            },
+            error : function(xhr, status) {
+                toastr.error('Disculpe, existio un problema!');
+            },
+        });
+  }
 </script>
 
 @endsection

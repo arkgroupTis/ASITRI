@@ -25,43 +25,23 @@
     </div>   
     
     <!-- Grid row -->
-
-    
-                        <div>
-							<label class="control-label">Area Proyecto: </label>
-				
-							<select class="mdb-select colorful-select dropdown-primary col-md-12" name="area">
-								<option value=""></option>
-								@foreach(($res[2]) as $area)
-                                        <option value="{{ $area-> idArea}}"> {{ $area-> nombreArea}}</option>
-                                @endforeach
-							</select>
-				        </div>
-						
-                    <!--<div>
-						<label class="control-label">Subarea Proyecto: </label>
-						
-							<select class="mdb-select colorful-select dropdown-primary col-md-12" name="subarea">
-								<option value="">Base de Datos</option>
-								<option value="">Comercio Electrónico</option>
-								<option value="">Computación Gráfica
-								<option value="">Evaluación y Auditoria de Sistemas
-								<option value="">Ingeniería de Producción
-								<option value="">Ingeniería de Software
-								<option value="">Inteligencia Artificial
-								<option value="">Interacción Humano Computador
-								<option value="">Investigación Operativa
-								<option value="">Matemática Computacional
-								<option value="">Programación en Internet
-								<option value="">Redes y Sistemas Distribuidos
-								<option value="">Simulación
-								<option value="">Sistemas de Información
-								<option value="">Tecnologías de Control
-								<option value="">Teoría de la Computación
-							</select>
-					</div>-->	
-
-
+    <label class="control-label">Area Proyecto: </label>
+    <div class="row">
+        <div class="col-md-4">
+			<select class="mdb-select colorful-select dropdown-primary" name="area">
+				<option value=""></option>
+				@foreach(($res[2]) as $area)
+                        <option value="{{ $area-> idArea}}"> {{ $area-> nombreArea}}</option>
+                @endforeach
+			</select>
+        </div>
+        <div class='col-md-4'>
+            <input placeholder="Fecha Inicio del Proyecto" type="text" name="fechaIni" class="form-control datepicker">
+        </div>
+        <div class='col-md-4'>
+            <input placeholder="Fecha Fin del Proyecto" type="text" name="fechaFin" class="form-control datepicker">
+        </div>          
+    </div>
     <!-- Grid row -->
     <div class="row">
         <!-- Material input -->
@@ -120,48 +100,6 @@
             </select>
         </div>
   </div>
-<label class="control-label">Estudiante: </label>
-    <div class="form-row">
-        <div class="col-md-6" >
-            
-            <select class="mdb-select colorful-select dropdown-primary col-md-12" name="estudiante1">
-                <option value=""></option>
-                @foreach(($res[0]) as $estudiante)
-                <option value="{{ $estudiante-> idEstudiante}}"> {{ $estudiante-> apellidoEst}} {{ $estudiante-> nombreEst}} </option>
-                @endforeach
-            </select>
-        </div>
-        <div class="col-md-6" >
-            <select class="mdb-select colorful-select dropdown-primary col-md-12" name="estudiante2">
-                <option value=""></option>
-                @foreach($res[0] as $estudiante)
-                <option value="{{ $estudiante-> idEstudiante}}"> {{ $estudiante-> apellidoEst}} {{ $estudiante-> nombreEst}} </option>
-                @endforeach
-            </select>
-        </div>
-    </div>
-
-    <label class="control-label">Tutor: </label>
-    <div class="form-row">
-        <div class="col-md-6" >
-            
-            <select class="mdb-select colorful-select dropdown-primary col-md-12" name="tutor1">
-                <option value=""></option>
-                @foreach($res[1] as $docente)
-                <option value="{{ $docente-> idDoc}}"> {{ $docente-> apePaternoDoc}} {{ $docente-> apeMaternoDoc}} {{$docente->nombreDoc}}</option>
-                @endforeach
-            </select>
-        </div>
-        <div class="col-md-6" >
-            <select class="mdb-select colorful-select dropdown-primary col-md-12" name="tutor2">
-                <option value=""></option>
-                @foreach($res[1] as $docente)
-                <option value="{{ $docente-> idDoc}}"> {{ $docente-> apePaternoDoc}} {{ $docente-> apeMaternoDoc}} {{$docente->nombreDoc}}</option>
-                @endforeach
-            </select>
-        </div>
-    </div>
-
     <div class="">
         <button type="submit" class="btn  btn-primary btn-md">GUARDAR</button>
         <button type="submit" class="btn  btn-info btn-md">CANCELAR</button>    

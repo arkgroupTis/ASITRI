@@ -8,7 +8,6 @@ use App\Http\Requests;
 use App\Http\Controllers\Controller;
 use App\Proyecto;
 use App\Estudiante;
-use App\Docente;
 use App\Area;
 use App\Modalidad;
 use App\Proyecto_has_area;
@@ -82,25 +81,10 @@ class ProyectoController extends Controller
             //tutor1
             //tutor2
         ]);
-<<<<<<< HEAD
-        
-        //Proyecto_has_area::create([
-
-         //   'idProyecto' => "",
-          //  'idArea' =>$request['area'],
-
-        //]);
-
-
-        //return resource('/estudianteproyecto');
-        return response()->json([
-           'message' => 'Se agrego correctamente!',
-         ]);
-=======
+       
         return response()->json([
             'message' => 'Se agrego correctamente!',
         ]);
->>>>>>> master
     }
 
 
