@@ -142,8 +142,8 @@
             $('#td-titulo').text(data.proyecto.titulo);
             $('#td-objetivos').text(data.proyecto.objetivos);
             $('#td-descripcion').text(data.proyecto.descripcion);
-            $('#td-fechaIni').text(data.proyecto.fecha);
-            $('#td-fechaFin').text();
+            $('#td-fechaIni').text(data.proyecto.fechaIni);
+            $('#td-fechaFin').text(data.proyecto.fechaFin);
             $('#td-periodo').text(data.proyecto.periodo);
             $('#td-sesion').text(data.proyecto.sesionDeConsejo);
             $('#td-modalidad').text(data.proyecto.idModalidad);
