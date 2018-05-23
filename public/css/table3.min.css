@@ -1,0 +1,33 @@
+/* Se llama tablaScrollN segun el numero de celdas que tengas */
+.tablaScroll3 {
+    width: 100% 
+}
+
+.tablaScroll3 > thead,.tablaScroll3 > tbody,.tablaScroll3 > thead > tr,.tablaScroll3 > tbody > tr,.tablaScroll3 > thead > tr > th,.tablaScroll3 > tbody > tr > td {
+    display: block;
+}
+
+.tablaScroll3 > tbody > tr:after,.tablaScroll3 > thead > tr:after 
+{
+    content: ' ';
+    display: block;
+    visibility: hidden;
+    clear: both;
+}
+
+.tablaScroll3 > tbody 
+{
+    width: 101.5%;
+    /* Habilita o deshabilita el Scroll automaticamente: auto/scroll, se recomiendo dejarlo en scrlll */
+    overflow-y: scroll;
+    /* Sirve para manejar la cantidad de filas que se necesitan */
+    height: 283px;
+}
+
+.tablaScroll3 > tbody > tr > td,.tablaScroll3 > thead > tr > th 
+{
+    /* Este valor varia segun la siguiente formula: 100%/# de celdas */
+    width: 25%;
+    float: left;
+}
+/*--------------------------------------------------------------*/
