@@ -4,15 +4,13 @@
         <li>
             <div class="logo-wrapper waves-light">
                 <a href="#">
-<<<<<<< HEAD
-<<<<<<< HEAD
+
                     <img src="/img/imgIcono.png" class="img-fluid flex-center">
-=======
+
                     <img src="/img/ICONO2.png" class="img-fluid flex-center">
->>>>>>> 23b6468e99b9a7e3c8203bff0b050766966411b0
-=======
+
                     <img src="/img/logo-transparent.png" class="img-fluid flex-center">
->>>>>>> 746190361033b257b708050ec49149e79bc037d8
+
                 </a>
             </div>
         </li>
