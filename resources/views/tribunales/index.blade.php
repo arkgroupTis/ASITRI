@@ -15,7 +15,7 @@
                 <th>Proyecto</th>
             </tr>
         </thead>
-        <tbody id="table_tribunales">
+
         @foreach($tribunales as $tribunal)
             <tr>
                 <td>{{ $tribunal->docente->nombreDoc }}</td>
@@ -26,15 +26,4 @@
     </table>
     {{ $tribunales->links() }}
 </div>
-@endsection
-@section('script')
-<script>
-$("#buscador").on("keyup", function() {
-    var value = $(this).val().toLowerCase();
-    $("#table_tribunales tr").filter(function() {
-    $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
-    });
-});
-        
-</script>
 @endsection
