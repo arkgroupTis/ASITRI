@@ -59,6 +59,7 @@ class ProyectoController extends Controller
     public function store(Request $request)
     {
 
+        $mytime = \Carbon\Carbon::now();
         Proyecto::create([
             'titulo' => $request['nombreProy'],
             'objetivos'=>$request['objetivos'],
@@ -69,7 +70,7 @@ class ProyectoController extends Controller
             'sesionDeConsejo'=>$request['sesion'],
             'idModalidad'=>$request['modalidad'],
             //'estadoProyecto'=>$request['estadoProyecto'],
-            'fechaRegistroProy'=>$request['fechaRegistro'],
+            'fechaRegistroProy'=>$mytime,
 
             //area
             //estudiante1
@@ -78,15 +79,17 @@ class ProyectoController extends Controller
             //tutor2
         ]);
         $id = Proyecto::max('idProyecto');
-        $ida = $request['area'];
+        $areas = $request['area'];
         
-        //dd($id, $ida);
-        //dd($ida);
-
-        Proyecto_has_area::create([
+        
+        //dd([$id, $ida, $mytime->toDateString()]);
+            foreach ($areas as $area) {
+             Proyecto_has_area::create([
             'idProyecto' => $id,
-            'idArea' => $ida,
-        ]);  
+            'idArea' => $area,
+        ]);
+               }   
+         
        
         return response()->json([
             'message' => 'Se agrego correctamente!',
