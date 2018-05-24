@@ -5,7 +5,7 @@
     <div class="row">
         <div class="col-md-8"><h1>Docentes & Profesionales</h1></div>
         <div class="col-md-2"></div>
-        <div><button class="btn btn-indigo"><a href="/newDoc"><font color="white" size="2">Nuevo Docente</font></a></button></div>
+        <div class="col-md-2"><button class="btn btn-indigo"><a href="/newdoc"><font color="white" size="2">Nuevo Docente</font></a></button></div>
 	</div>
     <div class="container">
         <div class="row">
@@ -99,10 +99,6 @@
                                     <td id="td-proyecto"></td>
                                 </tr>
                                 <tr>
-                                    <th scope="row">Codigo Docente</th>
-                                    <td id="td-codigodoc"></td>
-                                </tr>
-                                <tr>
                                     <th scope="row">Carga Horaria</th>
                                     <td id="td-cargahoraria"></td>
                                 </tr>
@@ -143,7 +139,6 @@
             $('#td-email').text(data.docente.emailDoc);
             $('#td-telefono').text(data.docente.telefonoDoc);
             $('#td-proyecto').text(data.docente.proyecto);
-            $('#td-codigodoc').text(data.docente.codigoDoc);
             $('#td-cargahoraria').text(data.docente.cargaHoraria);
             $('#td-titulo').text(data.docente.tituloDoc);
         });
