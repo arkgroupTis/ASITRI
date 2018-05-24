@@ -38,7 +38,9 @@
 		  	<tr data-id="{{ $proyecto->idProyecto }}">
 	            <td style="width: 15%"> {{ $proyecto->idProyecto }} </td>
 	            <td style="width: 40%"> {{ $proyecto->titulo }} </td>
-	            <td style="width: 20%"> Area </td>
+	            <td style="width: 20%"> @foreach($proyecto->proyecto_has_area as $pha)
+                {{ $pha->area->nombreArea }}, 
+            @endforeach </td>
 	            <td style="width: 10%"><a class="btn-floating btn-sm btn-indigo btn-modal-show" data-toggle="tooltip" data-placement="top" title="ver"><i class="fa fa-eye mt-2 ml-2 fa-lg"></i></a></td>
 	            <td style="width: 15%">
 	              <a class="btn-floating btn-sm btn-indigo" data-toggle="tooltip" data-placement="top" title="Asignar" href="/AsignacionTribunales"><i class="fas fa-plus-circle mt-1 ml-1 fa-2x"></i></i></a>
@@ -142,8 +144,8 @@
             $('#td-titulo').text(data.proyecto.titulo);
             $('#td-objetivos').text(data.proyecto.objetivos);
             $('#td-descripcion').text(data.proyecto.descripcion);
-            $('#td-fechaIni').text(data.proyecto.fecha);
-            $('#td-fechaFin').text();
+            $('#td-fechaIni').text(data.proyecto.fechaIni);
+            $('#td-fechaFin').text(data.proyecto.fechaFin);
             $('#td-periodo').text(data.proyecto.periodo);
             $('#td-sesion').text(data.proyecto.sesionDeConsejo);
             $('#td-modalidad').text(data.proyecto.idModalidad);

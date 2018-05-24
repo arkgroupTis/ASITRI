@@ -39,6 +39,9 @@
                             <li>
                                 <a href="/estudianteproyecto" class="waves-effect">Nuevo Proyecto</a>
                             </li>
+                            <li>
+                                <a href="/proyecto_est" class="waves-effect">Asignar Proyecto</a>
+                            </li>
                         </ul>
                     </div>
                 </li>
