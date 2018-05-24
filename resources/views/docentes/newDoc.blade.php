@@ -86,23 +86,16 @@
         </div>
         <!-- Grid column -->
     </div>
-
-    	           <label>Area: </label>
-                    <div class="form-row">
-                            <div class="col-md-12">
-                            <select class="mdb-select colorful-select dropdown-primary col-md-12" multiple name="area" id="select">
-                                @foreach($areas as $area)
-                                <option value= {{ $area-> idArea}} > {{ $area-> nombreArea}} </option>
-                                @endforeach
-                            </select>
-                            </div>
-                            <!--<div class="col-md-6">
-                                <input class="form-control" id="Search1" type="text" placeholder="Search..">    
-                            </div> -->
-                    </div>  
-
-
-
+       <label>Area: </label>
+        <div class="form-row">
+                <div class="col-md-12">
+                <select class="mdb-select colorful-select dropdown-primary col-md-12" multiple name="area" id="select">
+                    @foreach($areas as $area)
+                    <option value= {{ $area-> idArea}} > {{ $area-> nombreArea}} </option>
+                    @endforeach
+                </select>
+                </div>
+        </div>  
     <button class="btn  btn-primary btn-md" id="add">GUARDAR</button>
     <button class="btn  btn-info btn-md">CANCELAR</button>
 
@@ -138,11 +131,15 @@
             },
         });
     });
-    function clear() {
-    document.getElementById("miForm").reset();
+    function clear() 
+    {
+        document.getElementById("miForm").reset();
+    }
+  areas[i]=select.value;
+  foreach($areas as $area)
+  {
+
   }
-  var selectedValues = $('#select').val();
-  window.alert($selectedValues);
 </script>
 
 @endsection

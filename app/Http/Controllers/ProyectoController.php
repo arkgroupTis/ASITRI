@@ -7,6 +7,10 @@ use Illuminate\Http\Request;
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
 use App\Proyecto;
+use App\Estudiante;
+use App\Area;
+use App\Modalidad;
+use App\Proyecto_has_area;
 use App\Proyecto_estudiante;
 use App\Docente;
 use App\Asignacion;
@@ -35,6 +39,20 @@ class ProyectoController extends Controller
     {
         return view('proyectos/create');
     }
+    public function create_sub()
+    {
+        $estudiantes = Estudiante::orderBy('apellidoEst', 'asc')->paginate(500);
+        $docentes = Docente::orderBy('apePaternoDoc', 'asc')->paginate(500);
+        $areas = Area::orderby('nombreArea','asc')->paginate(500);
+        $modalidades = Modalidad::orderby('nombreMod','asc')->paginate(500);
+        
+
+        $res[0]=$estudiantes;
+        $res[1]=$docentes;
+        $res[2]=$areas;
+        $res[3]=$modalidades;
+        return view('proyectos.create', compact('res'));
+    }
 
     /**
      * Store a newly created resource in storage.
@@ -49,18 +67,26 @@ class ProyectoController extends Controller
             'titulo' => $request['nombreProy'],
             'objetivos'=>$request['objetivos'],
             'descripcion'=>$request['descripcion'],
+            'fechaIni'=>$request['fechaIni'],
+            'fechaFin'=>$request['fechaFin'],
             'periodo'=>$request['periodo'],
             'sesionDeConsejo'=>$request['sesion'],
             'idModalidad'=>$request['modalidad'],
-            'fechaIni'=>$request['fechaIni'],
-            'fechaFin'=>$request['fechaFin'],
             'estadoProyecto'=>$request['estadoProyecto'],
             'fechaRegistroProy'=>$request['fechaRegistro'],
+
+            //area
+            //estudiante1
+            //estudiante2
+            //tutor1
+            //tutor2
         ]);
+       
         return response()->json([
             'message' => 'Se agrego correctamente!',
         ]);
     }
+
 
     /**
      * Display the specified resource.

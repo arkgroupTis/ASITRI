@@ -7,6 +7,8 @@ use Illuminate\Http\Request;
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
 use App\Estudiante;
+use App\Proyecto;
+use App\Docente;
 
 class EstudianteController extends Controller
 {
@@ -27,8 +29,10 @@ class EstudianteController extends Controller
     }
     public function proyc_est()
     {
-        $estudiantes = Estudiante::orderBy('apellidoEst', 'asc')->paginate(500);
-        return view('estudiante.proyecto_est', compact('estudiantes'));
+        $res[2] = Docente::orderBy('apePaternoDoc', 'asc')->paginate(500);
+        $res[1] = Estudiante::orderBy('apellidoEst', 'asc')->paginate(500);
+        $res[0] = Proyecto::orderBy('titulo', 'asc')->paginate(500);
+        return view('estudiante.proyecto_est', compact('res'));
     }
     /**
      * Show the form for creating a new resource.
