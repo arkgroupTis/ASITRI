@@ -18,6 +18,7 @@
         <!--Main Layout-->
         <main>
             <div class="container-fluid mt-5">
+
                 <!-- Content -->
                 @yield('content')
                 <!-- Content -->

@@ -5,7 +5,7 @@
     <div class="row">
         <div class="col-md-8"><h1>Docentes & Profesionales</h1></div>
         <div class="col-md-2"></div>
-        <div><button class="btn btn-indigo"><a href="/newDoc"><font color="white" size="2">Nuevo Docente</font></a></button></div>
+        <div class="col-md-2"><button class="btn btn-indigo"><a href="/newdoc"><font color="white" size="2">Nuevo Docente</font></a></button></div>
 	</div>
     <div class="container">
         <div class="row">
@@ -27,27 +27,25 @@
 		<table class="table table-striped tablaScroll4">
 		  <thead>
 		    <tr>
-		      <th><font size="3">Codigo Docente</font></th>
-		      <th><font size="3">Nombre Docente</font></th>
-
-
-		      <th><font size="3">Tipo</font></th>
-		      <th><font size="3">N</font></th>
-		      <th><font size="3">Detalles</font></th>
+		      <th style="width: 15%" class="text-center"><font size="3">Codigo Docente</font></th>
+		      <th style="width: 40%" class="text-center"><font size="3">Nombre Docente</font></th>
+		      <th style="width: 10%" class="text-center"><font size="3">Tipo</font></th>
+		      <th style="width: 5%" class="text-center"><font size="3">N</font></th>
+		      <th style="width: 30%" class="text-center"><font size="3">Detalles</font></th>
 
 		    </tr>
 		  </thead>
 		  <tbody id="table1">
 		    @foreach($docentes as $docente)
         	<tr data-id="{{ $docente->idDoc }}">
-	            <td> {{ $docente->ciDoc }} </td>
-	            <td> {{ $docente->apePaternoDoc }} {{ $docente->apeMaternoDoc }} {{ $docente->nombreDoc }} </td>
-	            <td> {{ $docente->tituloDoc }} </td>
+	            <td style="width: 15%" class="text-center"> {{ $docente->ciDoc }} </td>
+	            <td style="width: 40%" class="text-center"> {{ $docente->apePaternoDoc }} {{ $docente->apeMaternoDoc }} {{ $docente->nombreDoc }} </td>
+	            <td style="width: 10%" class="text-center"> {{ $docente->tituloDoc }} </td>
 
-	            <td align="center">3</td>
+	            <td style="width: 5%" class="text-center">3</td>
 
-	            <td>
-	            	<a class="btn-floating btn-sm btn-indigo btn-modal-show" data-toggle="tooltip" data-placement="top" title="ver"><i class="fa fa-eye mt-2 ml-2 fa-lg"></i></a>
+	            <td style="width: 30%" class="text-center">
+	            	<a class="btn-floating btn-sm btn-indigo btn-modal-show" data-toggle="tooltip" data-placement="top" title="ver"><i class="fa fa-eye mt-2 ml-1 fa-lg"></i></a>
 	            </td>
         	</tr>
         	@endforeach
@@ -101,10 +99,6 @@
                                     <td id="td-proyecto"></td>
                                 </tr>
                                 <tr>
-                                    <th scope="row">Codigo Docente</th>
-                                    <td id="td-codigodoc"></td>
-                                </tr>
-                                <tr>
                                     <th scope="row">Carga Horaria</th>
                                     <td id="td-cargahoraria"></td>
                                 </tr>
@@ -145,7 +139,6 @@
             $('#td-email').text(data.docente.emailDoc);
             $('#td-telefono').text(data.docente.telefonoDoc);
             $('#td-proyecto').text(data.docente.proyecto);
-            $('#td-codigodoc').text(data.docente.codigoDoc);
             $('#td-cargahoraria').text(data.docente.cargaHoraria);
             $('#td-titulo').text(data.docente.tituloDoc);
         });

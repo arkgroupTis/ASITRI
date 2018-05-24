@@ -6,10 +6,8 @@ use Illuminate\Http\Request;
 
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
-use App\Docente;
-use App\Area;
-
-class DocenteController extends Controller
+use App\Proyecto_estudiante;
+class Proyecto_estudianteController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -18,9 +16,9 @@ class DocenteController extends Controller
      */
     public function index()
     {
-        $docentes = Docente::orderBy('apePaternoDoc', 'asc')->paginate(500);
-        return view('docentes.maindoc', compact('docentes'));
+        //
     }
+
     /**
      * Show the form for creating a new resource.
      *
@@ -28,9 +26,9 @@ class DocenteController extends Controller
      */
     public function create()
     {
-        $areas = Area::orderBy('nombreArea', 'asc')->paginate(500);
-        return view('docentes.newDoc', compact('areas'));
+        //
     }
+
     /**
      * Store a newly created resource in storage.
      *
@@ -39,30 +37,16 @@ class DocenteController extends Controller
      */
     public function store(Request $request)
     {
-        
         $this->validate($request, [
-            'ciDoc' => 'required|string',
-            'nombreDoc' => 'required|string',
-            'apePaternoDoc' => 'required|string',
-            'apeMaternoDoc' => 'required|string',
-            'emailDoc' => 'required|email',
-            'telefonoDoc' => 'required|integer',
-            'tituloDoc' => 'required|string',
+            'idProyecto' => 'required|integer',
+            'idEstudiante' => 'required|integer',
+            'estado' => 'required|string',
         ]);
-            Docente::create([
-            'ciDoc' => $request['ciDoc'],
-            'nombreDoc' => $request['nombreDoc'],
-            'apePaternoDoc' => $request['apePaternoDoc'],
-            'apeMaternoDoc' => $request['apeMaternoDoc'],
-            'emailDoc' => $request['emailDoc'],
-            'telefonoDoc' => $request['telefonoDoc'],
-            'tituloDoc' => $request['tituloDoc'],
-            'cargaHoraria' => $request['cargaHoraria'],
-            'tipo' => $request['tipo'],
+        Proyecto_estudiante::create([
+            'idProyecto' => $request->idProyecto,
+            'idEstudiante' => $request->idEstudiante,
+            'estado' => $request->estado,
         ]);
-
-
-            
         return response()->json([
             'message' => 'Se agrego correctamente!',
         ]);
@@ -76,9 +60,7 @@ class DocenteController extends Controller
      */
     public function show($id)
     {
-       return response()->json([
-            'docente' => Docente::where('idDoc', $id)->firstOrFail(),
-        ]);
+        //
     }
 
     /**

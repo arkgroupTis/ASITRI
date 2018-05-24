@@ -35,26 +35,50 @@
 
   </div>
     <div class="row">
-        <div class="col-md-">
+
+        <div class="col-md-4">
 		      <label class="control-label">Tipo: </label>
 			     <select class="mdb-select colorful-select dropdown-primary col-md-12" name="tipo" id="tipo">
-			    <option value="Docente">Docente</option>
-				<option value="Profesional">Profesional</option>
+			    <option value="docente">Docente</option>
+				<option value="profesional">Profesional</option>
+
+        <!--<label class="control-label col-md-4">Tipo: </label>
+        <label class="control-label col-md-4">Carga Horaria: </label>
+        <label class="col-md-4">Area: </label>
+        <div class="col-md-4">
+			     <select class="mdb-select colorful-select dropdown-primary" name="tipo" id="tipo">
+				<option value="Licenciado">Licenciado</option>
+                <option value="ingeniero">Ingeniero</option>
+                <option value="Magister">Magister</option>-->
 			</select>
 		</div>
         <div class="col-md-4">
-            <!-- Material input -->
-            <div class="md-form form-group">
-                <input type="text" class="form-control" id="carga">
-                <label >*Carga Horaria: </label>
-            </div>
+            <label class="control-label">Carga Horaria: </label>
+                 <select class="mdb-select colorful-select dropdown-primary" name="carga" id="carga">
+                <option value="Tiempo Parcial">Tiempo Parcial</option>
+                <option value="Tiempo Completo">Tiempo Completo</option>
+            </select>
+
         </div>
         <div class="col-md-4">
+
             <!-- Material input -->
             <div class="md-form form-group">
-                <input type="text" class="form-control" id="codigoDoc">
-                <label >*Codigo Docente: </label>
+                <select class="mdb-select colorful-select dropdown-primary col-md-12" id="tituloDoc">
+                    <option value="Lic.">Licenciado(a)</option>
+                    <option value="Ing.">Ingeniero(a)</option>
+                    <option value="Msc.">Magister</option>
+                </select>
+                <label >*Titulo Docente: </label>
             </div>
+
+            <!--<select class="mdb-select colorful-select dropdown-primary" multiple name="area" id="select">
+                <option disabled=""> Seleccione una o mas Areas</option>
+                @foreach($areas as $area)
+                <option value= {{ $area-> idArea}} > {{ $area-> nombreArea}} </option>
+                @endforeach
+            </select>-->
+
         </div>
     </div>
       <div class="form-row">
@@ -86,22 +110,16 @@
         </div>
         <!-- Grid column -->
     </div>
-
-    	           <label>Area: </label>
-                    <div class="form-row">
-                            <div class="col-md-12">
-                            <select class="mdb-select colorful-select dropdown-primary col-md-12" multiple name="area" id="select">
-                                @foreach($areas as $area)
-                                <option value= {{ $area-> idArea}} > {{ $area-> nombreArea}} </option>
-                                @endforeach
-                            </select>
-                            </div>
-                            <!--<div class="col-md-6">
-                                <input class="form-control" id="Search1" type="text" placeholder="Search..">    
-                            </div> -->
-                    </div>  
-
-
+       <label>Area: </label>
+        <div class="form-row">
+                <div class="col-md-12">
+                <select class="mdb-select colorful-select dropdown-primary col-md-12" name="area" id="area">
+                    @foreach($areas as $area)
+                    <option value="{{ $area-> idArea}}"> {{ $area-> nombreArea}}</option>
+                    @endforeach
+                </select>
+                </div>
+        </div>  
 
     <button class="btn  btn-primary btn-md" id="add">GUARDAR</button>
     <button class="btn  btn-info btn-md">CANCELAR</button>
@@ -124,13 +142,16 @@
                 'apeMaternoDoc': $('#apMaterno').val(),
                 'emailDoc': $('#email').val(),
                 'telefonoDoc': $('#telefono').val(),
-                'tituloDoc': $('#tipo').val(),
+                'tituloDoc': $('#tituloDoc').val(),
                 'cargaHoraria': $('#carga').val(),
-                'codigoDoc': $('#codigoDoc').val(),
+
+                'tipo': $('#tipo').val(),
+                'area': $('#area').val(),
+
             },
             success : function(data) {
                 toastr.success(data.message);
-                lacation.reload();
+                
                 clear();
             },
             error : function(xhr, status) {
@@ -138,11 +159,10 @@
             },
         });
     });
-    function clear() {
-    document.getElementById("miForm").reset();
-  }
-  var selectedValues = $('#select').val();
-  window.alert($selectedValues);
+    function clear() 
+    {
+        document.getElementById("miForm").reset();
+    }
 </script>
 
 @endsection

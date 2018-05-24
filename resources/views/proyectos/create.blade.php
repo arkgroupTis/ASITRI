@@ -6,7 +6,7 @@
     
     <h1 align="center">NUEVO PROYECTO</h1>
 
-	<form action="{{url('/create')}}" method="POST">
+	<form action="{{url('/proyectos')}}" method="POST">
         {{csrf_field()}}
 
 
@@ -25,36 +25,34 @@
     </div>   
     
     <!-- Grid row -->
-    <label class="control-label">Area Proyecto: </label>
-        <div class="form-row">
-            
-            <div class="col-sm-4">
-            <select class="mdb-select colorful-select dropdown-primary col-md-12" name="">
-                <option value="">Base de Datos</option>
-                <option value="">Comercio Electrónico</option>
-                <option value="">Computación Gráfica
-                <option value="">Evaluación y Auditoria de Sistemas
-                <option value="">Ingeniería de Producción
-                <option value="">Ingeniería de Software
-                <option value="">Inteligencia Artificial
-                <option value="">Interacción Humano Computador
-                <option value="">Investigación Operativa
-                <option value="">Matemática Computacional
-                <option value="">Programación en Internet
-                <option value="">Redes y Sistemas Distribuidos
-                <option value="">Simulación
-                <option value="">Sistemas de Información
-                <option value="">Tecnologías de Control
-                <option value="">Teoría de la Computación
-            </select>
-            </div>
-            <div class='col-sm-4'>
-                <input placeholder="Fecha Inicio del Proyecto" type="text" name="fechaIni" class="form-control datepicker">
-            </div>
-            <div class='col-sm-4'>
-                <input placeholder="Fecha Fin del Proyecto" type="text" name="fechaFin" class="form-control datepicker">
-            </div>
+    
+    <div class="row">
+        <label class="col-sm-6 col-form-label">Area Proyecto: </label>
+        <label class="col-sm-6 col-form-label">Subarea Proyecto: </label>
+        <div class="col-md-6">
+			<select class="mdb-select colorful-select dropdown-primary" multiple name="area[]">
+				<option value=""></option>
+				@foreach(($res[2]) as $area)
+                        <option value="{{ $area-> idArea}}"> {{ $area-> nombreArea}}</option>
+                @endforeach
+			</select>
         </div>
+        <div class="col-md-6">
+            <select class="mdb-select colorful-select dropdown-primary" name="subarea">
+                <option value=""></option>
+                @foreach(($res[2]) as $area)
+                        <option value="{{ $area-> idArea}}"> {{ $area-> nombreArea}}</option>
+                @endforeach
+            </select>
+        </div>
+
+        <!--<div class='col-md-4'>
+            <input placeholder="Fecha Inicio del Proyecto" type="text" name="fechaIni" class="form-control datepicker">
+        </div>
+        <div class='col-md-4'>
+            <input placeholder="Fecha Fin del Proyecto" type="text" name="fechaFin" class="form-control datepicker">
+        </div>-->          
+    </div>
     <!-- Grid row -->
     <div class="row">
         <!-- Material input -->
@@ -62,32 +60,24 @@
         <label class="col-sm-6 col-form-label">Descripcion:</label>
         <div class="col-sm-6">
             <div class="md-form mt-0">
-              <textarea type="text" name="objetivos" class="form-control md-textarea" rows="2"></textarea>
+              <textarea type="text" name="objetivos" class="form-control md-textarea" rows="2" required></textarea>
             </div>
         </div>
         <!-- Material input -->
         <div class="col-sm-6">
             <div class="md-form mt-0">
-              <textarea type="text" name="descripcion" class="form-control md-textarea" rows="2"></textarea>
+              <textarea type="text" name="descripcion" class="form-control md-textarea" rows="2" required></textarea>
             </div>
         </div>
     </div>
-    <div class="form-row">
-        <div class="form-row col-sm-6">
-            <label class="col-md-4">Estado del Proyecto:</label>
-            <label class="col-md-1"></label>
-            <select class="mdb-select colorful-select dropdown-primary" name="estadoProyecto">
-                <option value="Encurso">Encurso</option>
-                <option value="Finalizado">Finalizado</option>
-            </select>
-        </div>
-        <div class="col-sm-6">
-            <input placeholder="Fecha Registro del Proyecto" type="text" name="fechaRegistro" class="form-control datepicker">
-        </div>
-    </div>
+    <!--<div class="form-row">
+        <label class="col-md-3">Fecha registro del proyecto:</label>
+        <input placeholder="Fecha Registro del Proyecto" type="text" name="fechaRegistro" class="form-control datepicker col-sm-6">
+    </div>-->
     <div class="form-row">
         
-    	<div class="col-md-4">
+
+    	<div class="col-md-3">
             <!-- Material input -->
             <div class="md-form form-group">
                 <input type="text" class="form-control" name="periodo">
@@ -95,65 +85,26 @@
             </div>
         </div>
 
-        <div class="col-md-4">
+        <div class="col-md-3">
             <!-- Material input -->
             <div class="md-form form-group">
                 <input type="text" class="form-control" name="sesion">
                 <label >Sesion de consejo</label>
             </div>
         </div>
-
+        <label class="col-sm-2 col-form-label">Modalidad: </label>
         <div class="col-md-4">
-            <label class="control-label">Modalidad: </label>
 
             <select class="mdb-select colorful-select dropdown-primary col-md-12" name="modalidad">
-                <option value="1">Proyecto de grado</option>
-                <option value="2">Tesis</option>
-                <option value="3">Trabajo dirigido</option>
+                @foreach($res[3] as $modalidad)
+                <option value="{{ $modalidad-> idModalidad}}"> {{ $modalidad-> nombreMod}} </option>
+                @endforeach
             </select>
         </div>
   </div>
-<label class="control-label">Estudiante: </label>
-    <div class="form-row">
-        <div class="col-md-6" >
-            
-            <select class="mdb-select colorful-select dropdown-primary col-md-12" name="">
-                <option value=""></option>
-                @foreach($estudiantes as $estudiante)
-                <option> {{ $estudiante-> apellidoEst}} {{ $estudiante-> nombreEst}} </option>
-                @endforeach
-            </select>
-        </div>
-        <div class="col-md-6" >
-            <select class="mdb-select colorful-select dropdown-primary col-md-12" name="">
-                <option value=""></option>
-                @foreach($estudiantes as $estudiante)
-                <option> {{ $estudiante-> apellidoEst}} {{ $estudiante-> nombreEst}} </option>
-                @endforeach
-            </select>
-        </div>
-    </div>
-
-    <label class="control-label">Tutor: </label>
-    <div class="form-row">
-        <div class="col-md-6" >
-            
-            <select class="mdb-select colorful-select dropdown-primary col-md-12" name="">
-                <option value=""></option>
-            </select>
-        </div>
-        <div class="col-md-6" >
-            <select class="mdb-select colorful-select dropdown-primary col-md-12" name="">
-                <option value=""></option>
-            </select>
-        </div>
-    </div>
-
-    <input type="hidden" name="fecha" value="2018-05-07">
-
     <div class="">
         <button type="submit" class="btn  btn-primary btn-md">GUARDAR</button>
-        <button type="submit" class="btn  btn-info btn-md">CANCELAR</button>    
+        <button type="reset" class="btn  btn-info btn-md">CANCELAR</button>    
     </div>
 </form>
 @endsection

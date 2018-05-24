@@ -14,28 +14,11 @@
 Route::get('/', function () {
     return view('welcome');
 });
-Route::get('/maindoc',function()
-{
-	return view ('docentes.maindoc');
-});
-Route::get('/renuncia', function(){
-	return view ('renuncia');
-});
 
-Route::get('/areas',function()
-{
-	return view ('areas.create');
-});
-Route::get('/areas/edit',function()
-{
-	return view ('areas.edit');
-});
+Route::resource('/areas', 'AreaController');
 
-Route::get('/proyectos','ProyectoController@index');
+Route::resource('/proyectos','ProyectoController');
 
-Route::get('/nuevoDocente', function () {
-    return view('docentes.nuevoDocente');
-});
 Route::auth();
 
 Route::get('/home', 'HomeController@index');
@@ -45,14 +28,11 @@ Route::post('/create', 'ProyectoController@store');
 
 Route::resource('/proyectos', 'proyectoController');
 
-
-Route::get('/newStudent', function () {
-    return view('students/newStudent');
-});
-
 Route::resource('/estudiante', 'EstudianteController');
 
-Route::resource('/estudianteproyecto', 'EstudianteController@create_sub');
+//Route::resource('/tutorproyecto', 'DocenteController@create_sub');
+Route::get('/proyecto_est', 'EstudianteController@proyc_est');
+Route::resource('/proyecto_estudiante', 'Proyecto_estudianteController');
 //Route::resource('/estudianteproyecto', 'DocenteController@create_sub');
 Route::get('/estudiante/{id}/proyecto', 'ProyectoController@proyectoEstudiante');
 Route::get('/estudiante/proyecto/{id}/tribunales', 'ProyectoController@posiblesTribunales');
@@ -64,9 +44,4 @@ Route::resource('/tribunales', 'AsignacionController');
 
 Route::get('/tribunales/asignacion', 'AsignacionController@asignacion');
 
-Route::resource('subarea','AreaController@subarea');
-
 Route::resource('/docentes', 'DocenteController');
-Route::resource('/newdoc', 'AreaController@create_area');
-
-Route::resource('/areasCatalogo', 'AreaController');
