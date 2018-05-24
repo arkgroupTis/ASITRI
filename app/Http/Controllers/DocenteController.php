@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
 use App\Docente;
+use App\Area;
 
 class DocenteController extends Controller
 {
@@ -20,16 +21,6 @@ class DocenteController extends Controller
         $docentes = Docente::orderBy('apePaternoDoc', 'asc')->paginate(500);
         return view('docentes.maindoc', compact('docentes'));
     }
-    
-    public function create_sub()
-    {
-        $docentes = Docente::orderBy('apePaternoDoc', 'asc')->paginate(500);
-    return view('proyectos.create', compact('docentes'));
-    }
-                // @foreach($docentes as $docente)
-                // <option> {{ $docente->apePaternoDoc }} {{ $docente->apeMaternoDoc }} {{ $docente->nombreDoc }} </option>
-                // @endforeach 
-
     /**
      * Show the form for creating a new resource.
      *
@@ -37,7 +28,8 @@ class DocenteController extends Controller
      */
     public function create()
     {
-        //
+        $areas = Area::orderBy('nombreArea', 'asc')->paginate(500);
+        return view('docentes.newDoc', compact('areas'));
     }
     /**
      * Store a newly created resource in storage.
@@ -67,9 +59,16 @@ class DocenteController extends Controller
             'telefonoDoc' => $request['telefonoDoc'],
             'tituloDoc' => $request['tituloDoc'],
             'cargaHoraria' => $request['cargaHoraria'],
+<<<<<<< HEAD
             'codigoDoc' => $request['codigoDoc'],
             'tipo' => $request['tipo']
+=======
+            'tipo' => $request['tipo'],
+>>>>>>> 58ff68bc398309bdb8be9dd87508a3179a3363d8
         ]);
+
+
+            
         return response()->json([
             'message' => 'Se agrego correctamente!',
         ]);
