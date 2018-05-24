@@ -81,11 +81,22 @@ class ProyectoController extends Controller
             //tutor1
             //tutor2
         ]);
+        $id = Proyecto::max('idProyecto');
+        $ida = $request['area'];
+        
+        //dd($id, $ida);
+        //dd($ida);
+
+        Proyecto_has_area::create([
+            'idProyecto' => $id,
+            'idArea' => $ida,
+        ]);  
        
         return response()->json([
             'message' => 'Se agrego correctamente!',
         ]);
     }
+    
 
 
     /**

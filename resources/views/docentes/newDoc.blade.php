@@ -38,8 +38,8 @@
         <div class="col-md-">
 		      <label class="control-label">Tipo: </label>
 			     <select class="mdb-select colorful-select dropdown-primary col-md-12" name="tipo" id="tipo">
-			    <option value="Docente">Docente</option>
-				<option value="Profesional">Profesional</option>
+			    <option value="docente">Docente</option>
+				<option value="profesional">Profesional</option>
 			</select>
 		</div>
         <div class="col-md-4">
@@ -52,8 +52,12 @@
         <div class="col-md-4">
             <!-- Material input -->
             <div class="md-form form-group">
-                <input type="text" class="form-control" id="codigoDoc">
-                <label >*Codigo Docente: </label>
+                <select class="mdb-select colorful-select dropdown-primary col-md-12" id="tituloDoc">
+                    <option value="Lic.">Licenciado(a)</option>
+                    <option value="Ing.">Ingeniero(a)</option>
+                    <option value="Msc.">Magister</option>
+                </select>
+                <label >*Titulo Docente: </label>
             </div>
         </div>
     </div>
@@ -89,9 +93,9 @@
        <label>Area: </label>
         <div class="form-row">
                 <div class="col-md-12">
-                <select class="mdb-select colorful-select dropdown-primary col-md-12" multiple name="area" id="select">
+                <select class="mdb-select colorful-select dropdown-primary col-md-12" name="area" id="area">
                     @foreach($areas as $area)
-                    <option value= {{ $area-> idArea}} > {{ $area-> nombreArea}} </option>
+                    <option value="{{ $area-> idArea}}"> {{ $area-> nombreArea}}</option>
                     @endforeach
                 </select>
                 </div>
@@ -117,9 +121,10 @@
                 'apeMaternoDoc': $('#apMaterno').val(),
                 'emailDoc': $('#email').val(),
                 'telefonoDoc': $('#telefono').val(),
-                'tituloDoc': $('#tipo').val(),
+                'tituloDoc': $('#tituloDoc').val(),
                 'cargaHoraria': $('#carga').val(),
-                'codigoDoc': $('#codigoDoc').val(),
+                'tipo': $('#tipo').val(),
+                'area': $('#area').val(),
             },
             success : function(data) {
                 toastr.success(data.message);
