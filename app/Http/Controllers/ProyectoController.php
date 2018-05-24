@@ -156,7 +156,7 @@ class ProyectoController extends Controller
         $docentes = Docente::select('docente.idDoc', 'nombreDoc', 'apePaternoDoc', 'apeMaternoDoc', 'nombreArea')
         ->join('tiene', 'docente.idDoc', '=', 'tiene.idDoc')
         ->join('area', 'tiene.idArea', '=', 'area.idArea')
-        ->whereIn('area.nombreArea', $area)
+        // ->whereIn('area.nombreArea', $area)
         ->orderBy('apePaternoDoc', 'asc')
         ->paginate(5);
         foreach ($docentes as $key => $value) {

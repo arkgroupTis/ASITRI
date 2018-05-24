@@ -4,8 +4,6 @@
         <li>
             <div class="logo-wrapper waves-light">
                 <a href="#">
-                    <img src="/img/imgIcono.png" class="img-fluid flex-center">
-                    <img src="/img/ICONO2.png" class="img-fluid flex-center">
                     <img src="/img/logo-transparent.png" class="img-fluid flex-center">
                 </a>
             </div>
@@ -27,7 +25,7 @@
             <ul class="collapsible collapsible-accordion">
                 <li>
                     <a class="collapsible-header waves-effect arrow-r">
-                        <i class="fa fa-hand-pointer-o"></i> 
+                        <i class="fas fa-folder-open"></i> 
                         Proyectos
                         <i class="fa fa-angle-down rotate-icon"></i>
                     </a>
@@ -47,7 +45,7 @@
                 </li>
                 <li>
                     <a class="collapsible-header waves-effect arrow-r">
-                        <i class="fa fa-hand-pointer-o"></i> 
+                        <i class="fas fa-graduation-cap"></i>
                         Docentes & Profesionales
                         <i class="fa fa-angle-down rotate-icon"></i>
                     </a>
@@ -90,6 +88,7 @@
                 </li>
                 <li>
                     <a class="collapsible-header waves-effect arrow-r">
+                        <i class="fas fa-graduation-cap"></i>
                         Tribunales
                         <i class="fa fa-angle-down rotate-icon"></i>
                     </a>
