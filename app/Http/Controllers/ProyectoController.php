@@ -72,7 +72,7 @@ class ProyectoController extends Controller
             'periodo'=>$request['periodo'],
             'sesionDeConsejo'=>$request['sesion'],
             'idModalidad'=>$request['modalidad'],
-            'estadoProyecto'=>$request['estadoProyecto'],
+            //'estadoProyecto'=>$request['estadoProyecto'],
             'fechaRegistroProy'=>$request['fechaRegistro'],
 
             //area
