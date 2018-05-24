@@ -18,7 +18,7 @@
         <tbody>
         @foreach($tribunales as $tribunal)
             <tr>
-                <td>{{ $tribunal->docente->apePaternoDoc }} {{ $tribunal->docente->apeMaternoDoc }} {{ $tribunal->docente->nombreDoc }} </td>
+                <td>{{ $tribunal->docente->nombreDoc }}</td>
                 <td>{{ $tribunal->proyecto->titulo }}</td>
             </tr>
         @endforeach
