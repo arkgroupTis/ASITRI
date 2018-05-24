@@ -56,6 +56,7 @@ class DocenteController extends Controller
             'emailDoc' => 'required|email',
             'telefonoDoc' => 'required|integer',
             'tituloDoc' => 'required|string',
+            'tipo' => 'required|string'
         ]);
             Docente::create([
             'ciDoc' => $request['ciDoc'],
@@ -67,6 +68,7 @@ class DocenteController extends Controller
             'tituloDoc' => $request['tituloDoc'],
             'cargaHoraria' => $request['cargaHoraria'],
             'codigoDoc' => $request['codigoDoc'],
+            'tipo' => $request['tipo']
         ]);
         return response()->json([
             'message' => 'Se agrego correctamente!',
