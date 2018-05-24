@@ -37,15 +37,10 @@ class Proyecto_estudianteController extends Controller
      */
     public function store(Request $request)
     {
-        $this->validate($request, [
-            'idProyecto' => 'required|integer',
-            'idEstudiante' => 'required|integer',
-            'estado' => 'required|string',
-        ]);
         Proyecto_estudiante::create([
-            'idProyecto' => $request['idProyecto'],
-            'idEstudiante' => $request['idEstudiante'],
-            'estado' => $request['estado'],
+            'idProyecto' => $request->idProyecto,
+            'idEstudiante' => $request->idEstudiante,
+            'estado' => $request->estado,
         ]);
         return response()->json([
             'message' => 'Se agrego correctamente!',

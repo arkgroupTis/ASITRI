@@ -12,7 +12,7 @@
         <select class="mdb-select colorful-select dropdown-primary col-md-11" id="idProyecto">
         	<option value=""></option>
             @foreach($res[0] as $proyectos)
-            <option> {{ $proyectos-> titulo}} </option>
+            <option value="{{ $proyectos-> idProyecto}}"> {{ $proyectos-> titulo}} </option>
             @endforeach
         </select>
         <!--/Blue select-->
@@ -24,7 +24,7 @@
         <select class="mdb-select colorful-select dropdown-primary col-md-6" id="estudiante1">
             <option value=""></option>
             @foreach($res[1] as $estudiante)
-            <option> {{ $estudiante-> apellidoEst}} {{ $estudiante-> nombreEst}} </option>
+            <option value="{{ $estudiante-> idEstudiante}}"> {{ $estudiante-> apellidoEst}} {{ $estudiante-> nombreEst}} </option>
             @endforeach
         </select>
         <!--/Blue select-->
@@ -59,7 +59,7 @@
 </div>
     <div class="form-row">
         <label class="col-md-2">Estado del Proyecto:</label>
-        <select class="mdb-select colorful-select dropdown-primary" name="estadoProyecto">
+        <select class="mdb-select colorful-select dropdown-primary" id="estadoProyecto">
             <option value="activo">Activo</option>
             <option value="inactivo">Inactivo</option>
         </select>
@@ -75,7 +75,7 @@
         e.preventDefault();
         $.ajax({
             type: 'POST',
-            url: '/proyecto/proyecto_est',
+            url: '/proyecto_estudiante',
             data: {
                 '_token': $('input[name=_token]').val(),
                 'idProyecto': $('#idProyecto').val(),
@@ -84,7 +84,7 @@
             },
             success : function(data) {
                 toastr.success(data.message);
-                lacation.reload();
+                console.log(data);
                 clear();
             },
             error : function(xhr, status) {
@@ -94,7 +94,6 @@
     });
     function clear() 
     {
-        document.getElementById("miForm").reset();
     }
 </script>
 @endsection

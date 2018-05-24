@@ -47,6 +47,7 @@ class DocenteController extends Controller
      */
     public function store(Request $request)
     {
+        
         $this->validate($request, [
             'ciDoc' => 'required|string',
             'nombreDoc' => 'required|string',

@@ -123,7 +123,7 @@
             },
             success : function(data) {
                 toastr.success(data.message);
-                lacation.reload();
+                
                 clear();
             },
             error : function(xhr, status) {
@@ -135,11 +135,6 @@
     {
         document.getElementById("miForm").reset();
     }
-  areas[i]=select.value;
-  foreach($areas as $area)
-  {
-
-  }
 </script>
 
 @endsection
