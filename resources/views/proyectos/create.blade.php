@@ -60,17 +60,8 @@
         </div>
     </div>
     <div class="form-row">
-        <div class="form-row col-sm-6">
-            <label class="col-md-4">Estado del Proyecto:</label>
-            <label class="col-md-1"></label>
-            <select class="mdb-select colorful-select dropdown-primary" name="estadoProyecto">
-                <option value="Encurso">Encurso</option>
-                <option value="Finalizado">Finalizado</option>
-            </select>
-        </div>
-        <div class="col-sm-6">
-            <input placeholder="Fecha Registro del Proyecto" type="text" name="fechaRegistro" class="form-control datepicker">
-        </div>
+        <label class="col-md-3">Estado del Proyecto:</label>
+        <input placeholder="Fecha Registro del Proyecto" type="text" name="fechaRegistro" class="form-control datepicker col-sm-6">
     </div>
     <div class="form-row">
         

@@ -131,36 +131,14 @@
             },
         });
     });
-    function clear() {
-    document.getElementById("miForm").reset();
-  }
+    function clear() 
+    {
+        document.getElementById("miForm").reset();
+    }
   areas[i]=select.value;
   foreach($areas as $area)
   {
-    $.ajax({
-            type: 'POST',
-            url: '/docentes/areas',
-            data: {
-                '_token': $('input[name=_token]').val(),
-                'ciDoc': $('#ci').val(),
-                'nombreDoc': $('#name').val(),
-                'apePaternoDoc': $('#apePaterno').val(),
-                'apeMaternoDoc': $('#apMaterno').val(),
-                'emailDoc': $('#email').val(),
-                'telefonoDoc': $('#telefono').val(),
-                'tituloDoc': $('#tipo').val(),
-                'cargaHoraria': $('#carga').val(),
-                'codigoDoc': $('#codigoDoc').val(),
-            },
-            success : function(data) {
-                toastr.success(data.message);
-                location.reload();
-                clear();
-            },
-            error : function(xhr, status) {
-                toastr.error('Disculpe, existio un problema!');
-            },
-        });
+
   }
 </script>
 

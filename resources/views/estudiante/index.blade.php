@@ -5,7 +5,7 @@
 <h1 class="text-center">ESTUDIANTES</h1>
 
 <div class="form-group row">
-    <div class="col-sm-6">
+    <div class="col-sm-3">
         <button type="button" class="btn btn-indigo" id="btn-modal-add" data-toggle="modal" data-target="#modal-estudiante">
             Nuevo Estudiante
         </button>
