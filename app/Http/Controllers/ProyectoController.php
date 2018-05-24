@@ -37,10 +37,6 @@ class ProyectoController extends Controller
      */
     public function create()
     {
-        return view('proyectos/create');
-    }
-    public function create_sub()
-    {
         $estudiantes = Estudiante::orderBy('apellidoEst', 'asc')->paginate(500);
         $docentes = Docente::orderBy('apePaternoDoc', 'asc')->paginate(500);
         $areas = Area::orderby('nombreArea','asc')->paginate(500);

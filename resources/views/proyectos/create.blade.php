@@ -6,7 +6,7 @@
     
     <h1 align="center">NUEVO PROYECTO</h1>
 
-	<form action="{{url('/create')}}" method="POST">
+	<form action="{{url('/proyectos/create')}}" method="POST">
         {{csrf_field()}}
 
 

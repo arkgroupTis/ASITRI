@@ -35,7 +35,7 @@
                                 <a href="/proyectos" class="waves-effect">Proyectos</a>
                             </li>
                             <li>
-                                <a href="/estudianteproyecto" class="waves-effect">Nuevo Proyecto</a>
+                                <a href="/proyectos/create" class="waves-effect">Nuevo Proyecto</a>
                             </li>
                             <li>
                                 <a href="/proyecto_est" class="waves-effect">Asignar Proyecto</a>
@@ -55,7 +55,7 @@
                                 <a href="/docentes" class="waves-effect">Docente & Profesionales</a>
                             </li>
                             <li>
-                                <a href="/newdoc" class="waves-effect">Nuevo Docente</a>
+                                <a href="/docentes/create" class="waves-effect">Nuevo Docente</a>
                             </li>
                         </ul>
                     </div>
@@ -75,13 +75,10 @@
                     <div class="collapsible-body">
                         <ul>
                             <li>
-                                <a href="/areasCatalogo" class="waves-effect">Catalogo Areas</a>
+                                <a href="/areas" class="waves-effect">Catalogo Areas</a>
                             </li>
                             <li>
-                                <a href="/areas" class="waves-effect">Nueva Area</a>
-                            </li>
-                            <li>
-                                <a href="/subarea" class="waves-effect">Nueva Sub-Area</a>
+                                <a href="/areas/create" class="waves-effect">Nueva Area</a>
                             </li>
                         </ul>
                     </div>
