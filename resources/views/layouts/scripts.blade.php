@@ -39,5 +39,33 @@
 	});
 	// Data Picker Initialization
 	$('.datepicker').pickadate();
+
+
+
+	// PARA HACER FULL SCREEN LA PANTALLA
+    function launchIntoFullscreen(element) {
+        if(element.requestFullscreen) {
+            element.requestFullscreen();
+        } else if(element.mozRequestFullScreen) {
+            element.mozRequestFullScreen();
+        } else if(element.webkitRequestFullscreen) {
+            element.webkitRequestFullscreen();
+        } else if(element.msRequestFullscreen) {
+            element.msRequestFullscreen();
+        }
+        $('#btn-expand').addClass('d-none');
+        $('#btn-compress').removeClass('d-none');
+    }
+    function exitFullscreen() {
+        if(document.exitFullscreen) {
+            document.exitFullscreen();
+        } else if(document.mozCancelFullScreen) {
+            document.mozCancelFullScreen();
+        } else if(document.webkitExitFullscreen) {
+            document.webkitExitFullscreen();
+        }
+        $('#btn-compress').addClass('d-none');
+        $('#btn-expand').removeClass('d-none');
+    }
 </script>
 @yield('script')

@@ -4,18 +4,7 @@
         <li>
             <div class="logo-wrapper waves-light">
                 <a href="#">
-<<<<<<< HEAD
-
                     <img src="/img/imgIcono.png" class="img-fluid flex-center">
-
-                    <img src="/img/ICONO2.png" class="img-fluid flex-center">
-
-=======
-                    <img src="/img/imgIcono.png" class="img-fluid flex-center">
-                    <img src="/img/ICONO2.png" class="img-fluid flex-center">
->>>>>>> 9d1d0c3f1e9bd7c27c311d554cee664c8bea88da
-                    <img src="/img/logo-transparent.png" class="img-fluid flex-center">
-
                 </a>
             </div>
         </li>
