@@ -49,18 +49,18 @@
         <label class="col-sm-6 col-form-label">Descripcion:</label>
         <div class="col-sm-6">
             <div class="md-form mt-0">
-              <textarea type="text" name="objetivos" class="form-control md-textarea" rows="2"></textarea>
+              <textarea type="text" name="objetivos" class="form-control md-textarea" rows="2" required></textarea>
             </div>
         </div>
         <!-- Material input -->
         <div class="col-sm-6">
             <div class="md-form mt-0">
-              <textarea type="text" name="descripcion" class="form-control md-textarea" rows="2"></textarea>
+              <textarea type="text" name="descripcion" class="form-control md-textarea" rows="2" required></textarea>
             </div>
         </div>
     </div>
     <div class="form-row">
-        <label class="col-md-3">Estado del Proyecto:</label>
+        <label class="col-md-3">Fecha registro del proyecto:</label>
         <input placeholder="Fecha Registro del Proyecto" type="text" name="fechaRegistro" class="form-control datepicker col-sm-6">
     </div>
     <div class="form-row">
