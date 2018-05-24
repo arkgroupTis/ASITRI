@@ -60,6 +60,7 @@
     <div class="form-row">
         <label class="col-md-2">Estado del Proyecto:</label>
         <select class="mdb-select colorful-select dropdown-primary" id="estadoProyecto">
+        <select class="mdb-select colorful-select dropdown-primary" name="estadoProyecto">
             <option value="activo">Activo</option>
             <option value="inactivo">Inactivo</option>
         </select>
@@ -94,6 +95,7 @@
     });
     function clear() 
     {
+        document.getElementById("miForm").reset();
     }
 </script>
 @endsection
