@@ -12,18 +12,24 @@
         <thead style="">
             <tr>
                 <th>Nombre Tribunal</th>
+                <th>Cantidad de Proyectos</th>>
                 <th>Proyecto</th>
             </tr>
         </thead>
         <tbody>
         @foreach($tribunales as $tribunal)
             <tr>
-                <td>{{ $tribunal->docente->nombreDoc }}</td>
-                <td>{{ $tribunal->proyecto->titulo }}</td>
+                <td>{{ $tribunal->apePaternoDoc }} {{ $tribunal->apeMaternoDoc }} {{ $tribunal->nombreDoc }}</td>
+                <td>{{ $tribunal->cantidad}}</td>
+                <td>
+                    @foreach($tribunal->proyecto as $aux)
+                    # {{ $aux}} <br>
+                    @endforeach
+                </td>
             </tr>
         @endforeach
         </tbody>
     </table>
-    {{ $tribunales->links() }}
+    
 </div>
 @endsection

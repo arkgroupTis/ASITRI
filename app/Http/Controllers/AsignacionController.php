@@ -7,6 +7,8 @@ use Illuminate\Http\Request;
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
 use App\Asignacion;
+use App\Docente;
+use App\proyectos;
 
 class AsignacionController extends Controller
 {
@@ -17,8 +19,31 @@ class AsignacionController extends Controller
      */
     public function index()
     {
-        $tribunales = Asignacion::where('rol', 'tribunal')->orderBy('idProyecto', 'desc')->paginate(20);
-        return view('tribunales.index', compact('tribunales'));
+        $tribunales = Docente::orderBy('apePaternoDoc', 'asc')
+        ->join('asignacion','Docente.idDoc', '=', 'asignacion.idDoc')
+        ->where('asignacion.rol', '=' , 'tribunal')
+        ->groupBy('docente.idDoc')
+        ->get();
+        foreach ($tribunales as $key => $value) 
+        {
+                $value->cantidad = Asignacion::where([
+                    'rol' => 'tribunal', 
+                    'estado' => 'Activo',
+                    'idDoc' => $value->idDoc
+                ])->count();
+                $titulos = collect([]);
+                foreach ($value->asignacion as $key => $value2) 
+                {
+
+                    if ($value2->estado== 'Activo') {
+                        dd($value2->proyecto);
+                        $titulos->push($value2->proyecto->titulo);
+                    }
+                }
+                $value->proyecto = $titulos;
+
+        }
+        return view('tribunales.index', compact(['tribunales']));
     }
 
     /**
