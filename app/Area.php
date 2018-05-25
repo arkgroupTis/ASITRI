@@ -16,4 +16,7 @@ class Area extends Model
     public function area(){
     	return $this->hasOne(Area::class, 'idArea', 'cod_subarea');
     }
+    public function tiene(){
+        return $this->hasMany('App\tiene', 'idTiene', 'idTiene');
+    }
 }

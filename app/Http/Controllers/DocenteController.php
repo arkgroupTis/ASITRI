@@ -8,6 +8,7 @@ use App\Http\Requests;
 use App\Http\Controllers\Controller;
 use App\Docente;
 use App\Area;
+use App\Asignacion;
 
 class DocenteController extends Controller
 {
@@ -18,8 +19,43 @@ class DocenteController extends Controller
      */
     public function index()
     {
-        $docentes = Docente::orderBy('apePaternoDoc', 'asc')->paginate(500);
-        return view('docentes.maindoc', compact('docentes'));
+        $docentes = Docente::orderBy('apePaternoDoc', 'asc')
+        ->where('tipo', 'docente')
+        ->get();
+
+        $profesionales = Docente::orderBy('apePaternoDoc', 'asc')
+        ->where('tipo', 'profesional')
+        ->get();
+        
+        foreach ($docentes as $key => $value) {
+            $value->cantTrib = Asignacion::where('idDoc', $value->idDoc)
+            ->where('estado', 'Activo')
+            ->where('rol', 'tribunal')
+            ->count();
+        }
+
+        foreach ($docentes as $key => $value) {
+            $value->cantTut = Asignacion::where('idDoc', $value->idDoc)
+            ->where('estado', 'Activo')
+            ->where('rol', 'tutor')
+            ->count();
+        }
+
+        foreach ($profesionales as $key => $value) {
+            $value->cantTribP = Asignacion::where('idDoc', $value->idDoc)
+            ->where('estado', 'Activo')
+            ->where('rol', 'tribunal')
+            ->count();
+        }
+
+        foreach ($profesionales as $key => $value) {
+            $value->cantTutP = Asignacion::where('idDoc', $value->idDoc)
+            ->where('estado', 'Activo')
+            ->where('rol', 'tutor')
+            ->count();
+        }
+
+        return view('docentes.maindoc', compact(['docentes', 'profesionales']));
     }
     /**
      * Show the form for creating a new resource.
@@ -69,7 +105,7 @@ class DocenteController extends Controller
         ]);
     }
 
-    /**
+        /**
      * Display the specified resource.
      *
      * @param  int  $id

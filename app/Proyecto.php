@@ -24,4 +24,8 @@ class Proyecto extends Model
     public function proyecto_has_area(){
         return $this->hasMany('App\Proyecto_has_area', 'idProyecto', 'idProyecto');
     }
+
+    public function asignacion(){
+        return $this->hasMany('App\asignacion', 'idProyecto', 'idProyecto');
+    }
 }

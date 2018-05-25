@@ -3,21 +3,22 @@
 @section('content')
 {{ csrf_field() }}
 <h1 class="text-center">ESTUDIANTES</h1>
-
-<div class="form-group row">
-    <div class="col-sm-6">
+<h3 class="text-center">Estudiantes con Proyecto Vigente</h3>
+<div class="row">
+    
+    <div class="col-md-6">
+        <label class="sr-only" for="search_estudent">Estudiante</label>
+        <div class="md-form input-group mb-3">
+            <input type="text" class="form-control pl-0 rounded-0" id="search_estudent" placeholder="Buscar estudiante...">
+        </div>
+    </div>
+    <div class="col-md-3">
+        
+    </div>
+    <div class="col-md-3">
         <button type="button" class="btn btn-indigo" id="btn-modal-add" data-toggle="modal" data-target="#modal-estudiante">
             Nuevo Estudiante
         </button>
-    </div>
-    <div class="col-sm-6">
-        <label class="sr-only" for="search_estudent">Estudiante</label>
-        <div class="md-form input-group mb-3">
-            <div class="input-group-prepend">
-                <span class="input-group-text md-addon">Buscar</span>
-            </div>
-            <input type="text" class="form-control pl-0 rounded-0" id="search_estudent" placeholder="Estudiante">
-        </div>
     </div>
 </div>
 <!-- es para mostrar mensaje para cuando hay errores -->
@@ -29,30 +30,30 @@
     </script>
 @endif
 <hr>
-<h3 class="text-center">ESTUDIANTES con proyecto Vigente</h3>
+
 <div class="tablaScroll5">
     <table class="table table-striped table-sm tablaScroll5">
         <thead>
             <tr>
-                <th style="width: 7%" class="text-center">CI</th>
-              	<th style="width: 17%" class="text-center">Apellidos</th>
-              	<th style="width: 17%" class="text-center">Nombre</th>
-              	<th style="width: 25%" class="text-center">Email</th>
-              	<th style="width: 8%" class="text-center">Telefono</th>
-              	<th style="width: 10%" class="text-center">Carrera</th>
-              	<th style="width: 16%" class="text-center"></th>
+                <th style="width: 8%" class="text-center">CI</th>
+              	<th style="width: 17%" >Apellidos</th>
+              	<th style="width: 15%" >Nombre</th>
+              	<th style="width: 20%" >Email</th>
+              	<th style="width: 8%" >Telefono</th>
+              	<th style="width: 10%" >Carrera</th>
+              	<th style="width: 22%" class="text-center">Herramientas</th>
             </tr>
         </thead>
         <tbody class="tabla1">
         	@foreach($estudiantes_v as $estudiante)
             <tr data-id="{{ $estudiante->idEstudiante }}">
-                <td style="width: 7%" class="text-center">{{ $estudiante->ciEst }}</td>
-                <td style="width: 17%" class="text-center">{{ $estudiante->apellidoEst }}</td>
-                <td style="width: 17%" class="text-center">{{ $estudiante->nombreEst }}</td>
-                <td style="width: 25%" class="text-center">{{ $estudiante->emailEst }}</td>
-                <td style="width: 8%" class="text-center">{{ $estudiante->telefono }}</td>
-                <td style="width: 10%" class="text-center">{{ $estudiante->carrera->nombreCarrera }}</td>
-                <td style="width: 16%" class="text-center">
+                <td style="width: 8%" class="text-center">{{ $estudiante->ciEst }}</td>
+                <td style="width: 17%" >{{ $estudiante->apellidoEst }}</td>
+                <td style="width: 15%" >{{ $estudiante->nombreEst }}</td>
+                <td style="width: 20%" >{{ $estudiante->emailEst }}</td>
+                <td style="width: 8%" >{{ $estudiante->telefono }}</td>
+                <td style="width: 10%" >{{ $estudiante->carrera->nombreCarrera }}</td>
+                <td style="width: 22%" class="text-center">
                 	<a class="btn-floating btn-sm btn-indigo btn-modal-show" data-toggle="tooltip" data-placement="top" title="ver"><i class="fa fa-eye mt-2 ml-1 fa-lg"></i></a>
                 	<a class="btn-floating btn-sm btn-info btn-modal-edit" data-toggle="tooltip" data-placement="top" title="editar"><i class="fa fa-edit mt-2 ml-1 fa-lg"></i></a>
     				<a class="btn-floating btn-sm btn-danger btn-modal-delete" data-toggle="tooltip" data-placement="top" title="eliminar"><i class="fa fa-trash mt-2 ml-1 fa-lg"></i></a>
@@ -63,30 +64,38 @@
         </tbody>
     </table>
 </div>
-<h3 class="text-center">ESTUDIANTES con proyecto Terminado</h3>
+<h3 class="text-center">Estudiantes con Proyecto Terminado</h3>
+<div class="row">
+<div class="col-md-6">
+        <label class="sr-only" for="search_estudent">Estudiante</label>
+        <div class="md-form input-group mb-3">
+            <input type="text" class="form-control pl-0 rounded-0" id="search_estudent2" placeholder="Buscar estudiante...">
+        </div>
+    </div>
+    </div>
 <div class="tablaScroll5">
     <table class="table table-striped table-sm tablaScroll5">
         <thead>
             <tr>
-                <th style="width: 7%;" class="text-center">CI</th>
-                <th style="width: 20%;" class="text-center">Apellidos</th>
-                <th style="width: 20%;" class="text-center">Nombre</th>
-                <th style="width: 25%;" class="text-center">Email</th>
-                <th style="width: 8%;" class="text-center">Telefono</th>
-                <th style="width: 15%;" class="text-center">Carrera</th>
-                <th style="width: 5%;" class="text-center"></th>
+                <th style="width: 10%;" class="text-center">CI</th>
+                <th style="width: 15%;" >Apellidos</th>
+                <th style="width: 15%;" >Nombre</th>
+                <th style="width: 25%;" >Email</th>
+                <th style="width: 10%;" >Telefono</th>
+                <th style="width: 15%;" >Carrera</th>
+                <th style="width: 10%;" class="text-center">Ver</th>
             </tr>
         </thead>
-        <tbody class="tabla1">
+        <tbody class="tabla2">
             @foreach($estudiantes_t as $estudiante)
             <tr data-id="{{ $estudiante->idEstudiante }}">
-                <td style="width: 7%;" class="text-center">{{ $estudiante->ciEst }}</td>
-                <td style="width: 20%;" class="text-center">{{ $estudiante->apellidoEst }}</td>
-                <td style="width: 20%;" class="text-center">{{ $estudiante->nombreEst }}</td>
-                <td style="width: 25%;" class="text-center">{{ $estudiante->emailEst }}</td>
-                <td style="width: 8%;" class="text-center">{{ $estudiante->telefono }}</td>
-                <td style="width: 15%;" class="text-center">{{ $estudiante->carrera->nombreCarrera }}</td>
-                <td style="width: 5%;" class="text-center">
+                <td style="width: 10%;" class="text-center">{{ $estudiante->ciEst }}</td>
+                <td style="width: 15%;" >{{ $estudiante->apellidoEst }}</td>
+                <td style="width: 15%;" >{{ $estudiante->nombreEst }}</td>
+                <td style="width: 25%;" >{{ $estudiante->emailEst }}</td>
+                <td style="width: 10%;" >{{ $estudiante->telefono }}</td>
+                <td style="width: 15%;" >{{ $estudiante->carrera->nombreCarrera }}</td>
+                <td style="width: 10%;" class="text-center">
                     <a class="btn-floating btn-sm btn-indigo btn-modal-show" data-toggle="tooltip" data-placement="top" title="ver"><i class="fa fa-eye mt-2 ml-1 fa-lg"></i></a>
                 </td>
             </tr>
@@ -406,6 +415,14 @@
           $("#search_estudent").on("keyup", function() {
             var value = $(this).val().toLowerCase();
             $(".tabla1 tr").filter(function() {
+              $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
+            });
+          });
+        });
+        $(document).ready(function(){
+          $("#search_estudent2").on("keyup", function() {
+            var value = $(this).val().toLowerCase();
+            $(".tabla2 tr").filter(function() {
               $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
             });
           });
