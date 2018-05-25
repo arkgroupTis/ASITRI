@@ -54,14 +54,17 @@ class EstudianteController extends Controller
         foreach ($proyectos as $proy) {
             $array1->push($proy->idProyecto);
         }
-        $tutores = Asignacion::where('rol','=','tutor')->select('idDoc')->get();
+        $tutores = Asignacion::where('rol','=','tutor')->where('estado','=','activo')
+        ->groupby('idDoc')->select('idDoc')->get();
+        dd($tutores);
         $array2 = collect([]);
         foreach ($tutores as $proy) {
             $array2->push($proy->idDoc);
         }
-        $res[2] = Docente::whereNotIn('idDoc', $array2)->paginate(500);
-        $res[1] = Estudiante::whereNotIn('idEstudiante',$array)->paginate(500);
-        $res[0] = Proyecto::whereNotIn('idProyecto',$array1)->paginate(500);
+        dd($array2);
+        $res[2] = Docente::whereNotIn('idDoc', $array2)->get();
+        $res[1] = Estudiante::whereNotIn('idEstudiante',$array)->get();
+        $res[0] = Proyecto::whereNotIn('idProyecto',$array1)->get();
         return view('estudiante.proyecto_est', compact('res'));
     }
     /**
@@ -82,6 +85,7 @@ class EstudianteController extends Controller
      */
     public function store(Request $request)
     {
+        
         $this->validate($request, [
             'ciEst' => 'required|string',
             'nombreEst' => 'required|string',
@@ -95,12 +99,12 @@ class EstudianteController extends Controller
             'apellidoEst' => $request['apellidoEst'],
             'emailEst' => $request['emailEst'],
             'telefono' => $request['telefono'],
-            'idProyecto' => NULL,
             'idCarrera' => $request['idCarrera'],
         ]);
-        return response()->json([
-            'message' => 'Se agrego correctamente!',
-        ]);
+        // return response()->json([
+        //     'message' => 'Se agrego correctamente!',
+        // ]);
+
     }
 
     /**

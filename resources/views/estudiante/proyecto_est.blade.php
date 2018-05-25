@@ -3,7 +3,7 @@
 @section('content')
 {{ csrf_field() }}
 
-<h1 class="text-center"> Asignacion de Proyectos</h1>
+<h1 class="text-center"><font color="#212121"> Asignacion de Proyectos </font></h1>
 <label></label>
 <div>
 	<div class="row">
@@ -32,7 +32,7 @@
         <select class="mdb-select colorful-select dropdown-primary col-md-6" id="estudiante2">
             <option value=""></option>
             @foreach($res[1] as $estudiante)
-            <option> {{ $estudiante-> apellidoEst}} {{ $estudiante-> nombreEst}} </option>
+            <option value="{{ $estudiante-> idEstudiante}}"> {{ $estudiante-> apellidoEst}} {{ $estudiante-> nombreEst}} </option>
             @endforeach
         </select>
         <!--/Blue select-->
@@ -44,7 +44,7 @@
         <select class="mdb-select colorful-select dropdown-primary col-md-6" id="tutor1">
             <option value=""></option>
             @foreach($res[2] as $docente)
-            <option> {{ $docente-> apePaternoDoc}} {{ $docente-> apeMaternoDoc}} {{ $docente-> nombreDoc}} </option>
+            <option value="{{ $docente-> idDoc}}"> {{ $docente-> apePaternoDoc}} {{ $docente-> apeMaternoDoc}} {{ $docente-> nombreDoc}} </option>
             @endforeach
         </select>
         <!--/Blue select-->
@@ -52,18 +52,11 @@
         <select class="mdb-select colorful-select dropdown-primary col-md-6" id="tutor2">
             <option value=""></option>
             @foreach($res[2] as $docente)
-            <option> {{ $docente-> apePaternoDoc}} {{ $docente-> apeMaternoDoc}} {{ $docente-> nombreDoc}} </option>
+            <option value="{{ $docente-> idDoc}}"> {{ $docente-> apePaternoDoc}} {{ $docente-> apeMaternoDoc}} {{ $docente-> nombreDoc}} </option>
             @endforeach
         </select>
         <!--/Blue select-->
 </div>
-    <div class="form-row">
-        <label class="col-md-2">Estado del Proyecto:</label>
-        <select class="mdb-select colorful-select dropdown-primary" id="estadoProyecto">
-            <option value="activo">Activo</option>
-            <option value="inactivo">Inactivo</option>
-        </select>
-    </div>
 	<label class="col-md-5"></label>
 	<button class="btn btn-success" id="asignar">Asignar</button>
 </div>
@@ -79,24 +72,24 @@
             data: {
                 '_token': $('input[name=_token]').val(),
                 'idProyecto': $('#idProyecto').val(),
-                'idEstudiante': $('#estudiante1').val(),
-                'estado': $('#estadoProyecto').val(),
+                'estudiante1': $('#estudiante1').val(),
+                'estudiante2': $('#estudiante2').val(),
+                'tutor1': $('#tutor1').val(),
+                'tutor2': $('#tutor2').val(),
             },
             success : function(data) {
                 toastr.success(data.message);
                 location.reload(true);
-                console.log(data);
-                clear();
+                //console.log(data);
             },
             error : function(xhr, status) {
                 toastr.error('Disculpe, existio un problema!');
-                clear();
             },
+            
         });
     });
     function clear() 
     {
-        $('#idProyecto').;
     }
 </script>
 @endsection
