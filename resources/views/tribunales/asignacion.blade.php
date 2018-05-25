@@ -40,10 +40,16 @@
         <tbody>
         @foreach($docentes as $docente)
             <tr>
-                <td>{{ $docente->apePaternoDoc .' '. $docente->apeMaternoDoc .' '. $docente->nombreDoc }}</td>
-                <td>{{ $docente->nombreArea }}</td>
-                <td>{{ $docente->cant }}</td>
-                <td>
+                <td><h4>{{ $docente->apePaternoDoc .' '. $docente->apeMaternoDoc .' '. $docente->nombreDoc }}</h4></td>
+                <td style="width: 50%;">
+                    <h5>
+                    @foreach($docente->areas as $area)
+                        <span class="badge cyan">{{ $area }}</span> 
+                    @endforeach
+                    </h5>
+                </td>
+                <td style="width: 8%;">{{ $docente->cant }}</td>
+                <td style="width: 10%;">
                     @if(!$docente->tribunal)
                     <a href="/estudiante/proyecto/{{$proyecto->idProyecto}}/{{$docente->idDoc}}/asignacion" class="btn-floating btn-sm btn-indigo" onClick="alert('Se asignara el tribunal a este proyecto!')" data-toggle="tooltip" data-placement="top" title="Asignar"><i class="fas fa-plus-circle mt-1 ml-1 fa-2x"></i></i></a>
                     @else
