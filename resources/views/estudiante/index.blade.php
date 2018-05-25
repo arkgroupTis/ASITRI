@@ -5,7 +5,7 @@
 <h1 class="text-center">ESTUDIANTES</h1>
 
 <div class="form-group row">
-    <div class="col-sm-3">
+    <div class="col-sm-6">
         <button type="button" class="btn btn-indigo" id="btn-modal-add" data-toggle="modal" data-target="#modal-estudiante">
             Nuevo Estudiante
         </button>
@@ -34,25 +34,25 @@
     <table class="table table-striped table-sm tablaScroll5">
         <thead>
             <tr>
-                <th style="width: 10%" class="text-center">CI</th>
-              	<th style="width: 10%" class="text-center">Apellidos</th>
-              	<th style="width: 10%" class="text-center">Nombre</th>
-              	<th style="width: 20%" class="text-center">Email</th>
-              	<th style="width: 10%" class="text-center">Telefono</th>
+                <th style="width: 7%" class="text-center">CI</th>
+              	<th style="width: 17%" class="text-center">Apellidos</th>
+              	<th style="width: 17%" class="text-center">Nombre</th>
+              	<th style="width: 25%" class="text-center">Email</th>
+              	<th style="width: 8%" class="text-center">Telefono</th>
               	<th style="width: 10%" class="text-center">Carrera</th>
-              	<th style="width: 30%" class="text-center">acciones</th>
+              	<th style="width: 16%" class="text-center"></th>
             </tr>
         </thead>
         <tbody class="tabla1">
         	@foreach($estudiantes_v as $estudiante)
             <tr data-id="{{ $estudiante->idEstudiante }}">
-                <td style="width: 10%" class="text-center">{{ $estudiante->ciEst }}</td>
-                <td style="width: 10%" class="text-center">{{ $estudiante->apellidoEst }}</td>
-                <td style="width: 10%" class="text-center">{{ $estudiante->nombreEst }}</td>
-                <td style="width: 20%" class="text-center">{{ $estudiante->emailEst }}</td>
-                <td style="width: 10%" class="text-center">{{ $estudiante->telefono }}</td>
+                <td style="width: 7%" class="text-center">{{ $estudiante->ciEst }}</td>
+                <td style="width: 17%" class="text-center">{{ $estudiante->apellidoEst }}</td>
+                <td style="width: 17%" class="text-center">{{ $estudiante->nombreEst }}</td>
+                <td style="width: 25%" class="text-center">{{ $estudiante->emailEst }}</td>
+                <td style="width: 8%" class="text-center">{{ $estudiante->telefono }}</td>
                 <td style="width: 10%" class="text-center">{{ $estudiante->carrera->nombreCarrera }}</td>
-                <td style="width: 30%" class="text-center">
+                <td style="width: 16%" class="text-center">
                 	<a class="btn-floating btn-sm btn-indigo btn-modal-show" data-toggle="tooltip" data-placement="top" title="ver"><i class="fa fa-eye mt-2 ml-1 fa-lg"></i></a>
                 	<a class="btn-floating btn-sm btn-info btn-modal-edit" data-toggle="tooltip" data-placement="top" title="editar"><i class="fa fa-edit mt-2 ml-1 fa-lg"></i></a>
     				<a class="btn-floating btn-sm btn-danger btn-modal-delete" data-toggle="tooltip" data-placement="top" title="eliminar"><i class="fa fa-trash mt-2 ml-1 fa-lg"></i></a>
@@ -68,25 +68,25 @@
     <table class="table table-striped table-sm tablaScroll5">
         <thead>
             <tr>
-                <th style="width: 8%;" class="text-center">CI</th>
-                <th class="text-center">Apellidos</th>
-                <th class="text-center">Nombre</th>
-                <th class="text-center">Email</th>
-                <th class="text-center">Telefono</th>
-                <th class="text-center">Carrera</th>
-                <th class="text-center">acciones</th>
+                <th style="width: 7%;" class="text-center">CI</th>
+                <th style="width: 20%;" class="text-center">Apellidos</th>
+                <th style="width: 20%;" class="text-center">Nombre</th>
+                <th style="width: 25%;" class="text-center">Email</th>
+                <th style="width: 8%;" class="text-center">Telefono</th>
+                <th style="width: 15%;" class="text-center">Carrera</th>
+                <th style="width: 5%;" class="text-center"></th>
             </tr>
         </thead>
         <tbody class="tabla1">
             @foreach($estudiantes_t as $estudiante)
             <tr data-id="{{ $estudiante->idEstudiante }}">
-                <td style="width: 8%;" class="text-center">{{ $estudiante->ciEst }}</td>
-                <td class="text-center">{{ $estudiante->apellidoEst }}</td>
-                <td class="text-center">{{ $estudiante->nombreEst }}</td>
-                <td class="text-center">{{ $estudiante->emailEst }}</td>
-                <td class="text-center">{{ $estudiante->telefono }}</td>
-                <td class="text-center">{{ $estudiante->carrera->nombreCarrera }}</td>
-                <td class="text-center">
+                <td style="width: 7%;" class="text-center">{{ $estudiante->ciEst }}</td>
+                <td style="width: 20%;" class="text-center">{{ $estudiante->apellidoEst }}</td>
+                <td style="width: 20%;" class="text-center">{{ $estudiante->nombreEst }}</td>
+                <td style="width: 25%;" class="text-center">{{ $estudiante->emailEst }}</td>
+                <td style="width: 8%;" class="text-center">{{ $estudiante->telefono }}</td>
+                <td style="width: 15%;" class="text-center">{{ $estudiante->carrera->nombreCarrera }}</td>
+                <td style="width: 5%;" class="text-center">
                     <a class="btn-floating btn-sm btn-indigo btn-modal-show" data-toggle="tooltip" data-placement="top" title="ver"><i class="fa fa-eye mt-2 ml-1 fa-lg"></i></a>
                 </td>
             </tr>

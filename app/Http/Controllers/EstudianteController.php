@@ -19,19 +19,19 @@ class EstudianteController extends Controller
      */
     public function index()
     {
-        $estudiantes_t = Estudiante::orderBy('estudiante.apellidoEst', 'asc')
+        $estudiantes_t = Estudiante::orderBy('apellidoEst', 'asc')
         ->join('proyecto_estudiante', 'estudiante.idEstudiante', '=', 'proyecto_estudiante.idEstudiante')
-        ->where('proyecto_estudiante.estado', 'inactivo')
-        ->where('proyecto_estudiante.estado', '!=', 'activo')
+        ->where('estado', 'inactivo')
         ->get();
         $idEst = collect([]);
         foreach ($estudiantes_t as $est) {
             $idEst->push($est->idEstudiante);
         }
         $estudiantes_v = Estudiante::orderBy('apellidoEst', 'asc')
-        ->whereNotIn('idEstudiante', $idEst)
+        // ->join('proyecto_estudiante', 'estudiante.idEstudiante', '=', 'proyecto_estudiante.idEstudiante')
+        ->whereNotIn('estudiante.idEstudiante', $idEst)
         ->get();
-        dd([$estudiantes_t, $estudiantes_v]);
+        // dd([$idEst, $estudiantes_v]);
         return view('estudiante.index', compact(['estudiantes_v', 'estudiantes_t']));
     }
     public function create_sub()
