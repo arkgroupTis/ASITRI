@@ -59,8 +59,7 @@ class DocenteController extends Controller
             'telefonoDoc' => $request['telefonoDoc'],
             'tituloDoc' => $request['tituloDoc'],
             'cargaHoraria' => $request['cargaHoraria'],
-            'codigoDoc' => $request['codigoDoc'],
-            'tipo' => $request['tipo']
+            'tipo' => $request['tipo'],
         ]);
 
 
