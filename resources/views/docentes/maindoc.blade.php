@@ -40,7 +40,7 @@
         	<tr data-id="{{ $docente->idDoc }}">
 	            <td style="width: 15%" class="text-center"> {{ $docente->ciDoc }} </td>
 	            <td style="width: 40%" class="text-center"> {{ $docente->apePaternoDoc }} {{ $docente->apeMaternoDoc }} {{ $docente->nombreDoc }} </td>
-	            <td style="width: 10%" class="text-center"> {{ $docente->tituloDoc }} </td>
+	            <td style="width: 10%" class="text-center"> {{ $docente->tipo }} </td>
 
 	            <td style="width: 5%" class="text-center">3</td>
 

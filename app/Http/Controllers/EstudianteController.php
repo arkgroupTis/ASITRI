@@ -21,8 +21,20 @@ class EstudianteController extends Controller
      */
     public function index()
     {
-        $estudiantes = Estudiante::orderBy('apellidoEst', 'asc')->paginate(500);
-        return view('estudiante.index', compact('estudiantes'));
+        $estudiantes_t = Estudiante::orderBy('apellidoEst', 'asc')
+        ->join('proyecto_estudiante', 'estudiante.idEstudiante', '=', 'proyecto_estudiante.idEstudiante')
+        ->where('estado', 'inactivo')
+        ->get();
+        $idEst = collect([]);
+        foreach ($estudiantes_t as $est) {
+            $idEst->push($est->idEstudiante);
+        }
+        $estudiantes_v = Estudiante::orderBy('apellidoEst', 'asc')
+        // ->join('proyecto_estudiante', 'estudiante.idEstudiante', '=', 'proyecto_estudiante.idEstudiante')
+        ->whereNotIn('estudiante.idEstudiante', $idEst)
+        ->get();
+        // dd([$idEst, $estudiantes_v]);
+        return view('estudiante.index', compact(['estudiantes_v', 'estudiantes_t']));
     }
     public function create_sub()
     {

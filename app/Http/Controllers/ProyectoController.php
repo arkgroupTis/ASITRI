@@ -37,10 +37,6 @@ class ProyectoController extends Controller
      */
     public function create()
     {
-        return view('proyectos/create');
-    }
-    public function create_sub()
-    {
         $estudiantes = Estudiante::orderBy('apellidoEst', 'asc')->paginate(500);
         $docentes = Docente::orderBy('apePaternoDoc', 'asc')->paginate(500);
         $areas = Area::orderby('nombreArea','asc')->paginate(500);
@@ -63,6 +59,7 @@ class ProyectoController extends Controller
     public function store(Request $request)
     {
 
+        $mytime = \Carbon\Carbon::now();
         Proyecto::create([
             'titulo' => $request['nombreProy'],
             'objetivos'=>$request['objetivos'],
@@ -73,7 +70,7 @@ class ProyectoController extends Controller
             'sesionDeConsejo'=>$request['sesion'],
             'idModalidad'=>$request['modalidad'],
             //'estadoProyecto'=>$request['estadoProyecto'],
-            'fechaRegistroProy'=>$request['fechaRegistro'],
+            'fechaRegistroProy'=>$mytime,
 
             //area
             //estudiante1
@@ -82,15 +79,17 @@ class ProyectoController extends Controller
             //tutor2
         ]);
         $id = Proyecto::max('idProyecto');
-        $ida = $request['area'];
+        $areas = $request['area'];
         
-        //dd($id, $ida);
-        //dd($ida);
-
-        Proyecto_has_area::create([
+        
+        //dd([$id, $ida, $mytime->toDateString()]);
+            foreach ($areas as $area) {
+             Proyecto_has_area::create([
             'idProyecto' => $id,
-            'idArea' => $ida,
-        ]);  
+            'idArea' => $area,
+        ]);
+               }   
+         
        
         return response()->json([
             'message' => 'Se agrego correctamente!',
@@ -167,7 +166,7 @@ class ProyectoController extends Controller
         $docentes = Docente::select('docente.idDoc', 'nombreDoc', 'apePaternoDoc', 'apeMaternoDoc', 'nombreArea')
         ->join('tiene', 'docente.idDoc', '=', 'tiene.idDoc')
         ->join('area', 'tiene.idArea', '=', 'area.idArea')
-        ->whereIn('area.nombreArea', $area)
+        // ->whereIn('area.nombreArea', $area)
         ->orderBy('apePaternoDoc', 'asc')
         ->paginate(5);
         foreach ($docentes as $key => $value) {
