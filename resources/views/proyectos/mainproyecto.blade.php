@@ -25,9 +25,9 @@
 		<table class="table table-striped tablaScroll4">
 		  <thead>
 		    <tr>
-		      <th style="width: 10%"><font size="3">Codigo Proyecto</font></th>
+		      <th style="width: 15%"><font size="3">Codigo Proyecto</font></th>
 		      <th style="width: 40%"><font size="3">Nombre Proyecto</font></th>
-		      <th style="width: 40%"><font size="3">Area Proyecto</font></th>
+		      <th style="width: 35%"><font size="3">Area Proyecto</font></th>
 		      <th style="width: 10%"><font size="3">Detalles</font></th>
 
 		    </tr>
@@ -36,9 +36,9 @@
 
 		  	@foreach($proyectos as $proyecto)
 		  	<tr data-id="{{ $proyecto->idProyecto }}">
-	            <td style="width: 10%"> {{ $proyecto->idProyecto }} </td>
+	            <td style="width: 15%" class="text-center"> {{ $proyecto->idProyecto }} </td>
 	            <td style="width: 40%"> {{ $proyecto->titulo }} </td>
-	            <td style="width: 40%"> 
+	            <td style="width: 35%"> 
                 @foreach($proyecto->proyecto_has_area as $pha)
                     {{ $pha->area->nombreArea }}, 
                 @endforeach 

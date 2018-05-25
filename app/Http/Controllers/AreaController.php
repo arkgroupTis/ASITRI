@@ -16,8 +16,15 @@ class AreaController extends Controller
      */
     public function index()
     {
-        $areas = Area::orderBy('idArea', 'asc')->paginate(500);
-        return view('areas.edit', compact('areas'));
+        $areas = Area::orderBy('idArea', 'asc')
+        ->where('clasificacion', 'area')
+        ->get();
+
+        $subareas = Area::orderBy('idArea', 'asc')
+        ->where('clasificacion', 'subarea')
+        ->get();
+        return view('areas.edit', compact(['areas', 'subareas']));
+        
     }
     /**
      * Show the form for creating a new resource.

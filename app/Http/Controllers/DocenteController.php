@@ -18,8 +18,14 @@ class DocenteController extends Controller
      */
     public function index()
     {
-        $docentes = Docente::orderBy('apePaternoDoc', 'asc')->paginate(500);
-        return view('docentes.maindoc', compact('docentes'));
+        $docentes = Docente::orderBy('apePaternoDoc', 'asc')
+        ->where('tipo', 'docente')
+        ->get();
+
+        $profesionales = Docente::orderBy('apePaternoDoc', 'asc')
+        ->where('tipo', 'profesional')
+        ->get();
+        return view('docentes.maindoc', compact(['docentes', 'profesionales']));
     }
     /**
      * Show the form for creating a new resource.
