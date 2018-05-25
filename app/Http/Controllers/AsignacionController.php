@@ -36,7 +36,7 @@ class AsignacionController extends Controller
                 {
 
                     if ($value2->estado== 'Activo') {
-                        dd($value2->proyecto);
+                        
                         $titulos->push($value2->proyecto->titulo);
                     }
                 }

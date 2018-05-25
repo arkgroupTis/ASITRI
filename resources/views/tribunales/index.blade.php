@@ -23,7 +23,7 @@
                 <td>{{ $tribunal->cantidad}}</td>
                 <td>
                     @foreach($tribunal->proyecto as $aux)
-                    # {{ $aux}} <br>
+                    - {{ $aux}} <br>
                     @endforeach
                 </td>
             </tr>
