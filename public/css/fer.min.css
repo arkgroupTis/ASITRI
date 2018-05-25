@@ -60,7 +60,7 @@
 .tablaScroll3 > tbody > tr > td,.tablaScroll3 > thead > tr > th 
 {
     /* Este valor varia segun la siguiente formula: 100%/# de celdas */
-    width: 25%;
+    width: 33.3%;
     float: left;
 }
 /*--------------------------------------------------------------*/

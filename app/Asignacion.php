@@ -14,7 +14,7 @@ class Asignacion extends Model
     public $timestamps = false;
 
     public function proyecto(){
-    	return $this->hasOne(Proyecto::class, 'idProyecto', 'idProyecto');
+        return $this->hasOne(Proyecto::class, 'idProyecto', 'idProyecto');
     }
 
     public function docente(){

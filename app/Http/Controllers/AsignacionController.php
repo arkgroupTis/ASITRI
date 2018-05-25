@@ -26,23 +26,24 @@ class AsignacionController extends Controller
         ->get();
         foreach ($tribunales as $key => $value) 
         {
-                $value->cantidad = Asignacion::where([
-                    'rol' => 'tribunal', 
-                    'estado' => 'Activo',
-                    'idDoc' => $value->idDoc
-                ])->count();
-                $titulos = collect([]);
-                foreach ($value->asignacion as $key => $value2) 
+            $value->cantidad = Asignacion::where([
+                'rol' => 'tribunal', 
+                'estado' => 'Activo',
+                'idDoc' => $value->idDoc
+            ])->count();
+            $titulos = collect([]);
+            foreach ($value->asignacion as $key => $value2) 
+            {
+
+                if ($value2->estado== 'Activo') 
                 {
-
-                    if ($value2->estado== 'Activo') {
-                        
-                        $titulos->push($value2->proyecto->titulo);
-                    }
+                    $titulos->push($value2->proyecto->titulo);
                 }
-                $value->proyecto = $titulos;
-
+            }
+            $value->proyecto = $titulos;
+            $value->i = 1;
         }
+
         return view('tribunales.index', compact(['tribunales']));
     }
 
