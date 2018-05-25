@@ -12,8 +12,16 @@ class Docente extends Model
     protected $fillable = ['ciDoc','nombreDoc', 'apePaternoDoc', 'apeMaternoDoc', 'emailDoc', 'telefonoDoc', 'tituloDoc', 'cargaHoraria'];
     //ya no guarda el created_at, updated_at 
     public $timestamps = false;
-
+    
+    public function pertenece(){
+        return $this->hasMany('App\pertenece', 'idDoc', 'idDoc');
+    }
+    
+    public function asignacion(){
+        return $this->hasMany('App\asignacion', 'idDoc', 'idDoc');
+    }
+    
     public function tiene(){
-        return $this->hasMany('App\Tiene', 'idDoc', 'idDoc');
+        return $this->hasMany('App\tiene', 'idDoc', 'idDoc');
     }
 }
