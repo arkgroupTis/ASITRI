@@ -28,24 +28,30 @@
 		<table class="table table-striped tablaScroll4">
 		  <thead>
 		    <tr>
-		      <th style="width: 15%" class="text-center"><font size="3">Codigo Docente</font></th>
+		      <th style="width: 10%" class="text-center"><font size="3">Codigo </font></th>
 		      <th style="width: 20%" class="text-center"><font size="3">Nombre Docente</font></th>
-		      <th style="width: 20%" class="text-center"><font size="3">Areas</font></th>
-		      <th style="width: 5%" class="text-center"><font size="3">N</font></th>
-		      <th style="width: 30%" class="text-center"><font size="3">Detalles</font></th>
+		      <th style="width: 50%" class="text-center"><font size="3">Areas</font></th>
+		      <th style="width: 5%" class="text-center"><font size="3">Trib</font></th>
+              <th style="width: 5%" class="text-center"><font size="3">Tut</font></th>
+		      <th style="width: 10%" class="text-center"><font size="3">Detalles</font></th>
 
 		    </tr>
 		  </thead>
 		  <tbody id="table1">
 		    @foreach($docentes as $docente)
         	<tr data-id="{{ $docente->idDoc }}">
-	            <td style="width: 15%" class="text-center"> {{ $docente->ciDoc }} </td>
+	            <td style="width: 10%" class="text-center"> {{ $docente->ciDoc }} </td>
 	            <td style="width: 20%" class="text-center"> {{ $docente->apePaternoDoc }} {{ $docente->apeMaternoDoc }} {{ $docente->nombreDoc }} </td>
-	            <td style="width: 20%" class="text-center"> 
-                            
+	            <td style="width: 50%" class="text-center"> 
+                @foreach($docente->tiene as $pha)
+                    {{ $pha->area->nombreArea }}, 
+                @endforeach 
+                
+                          
                 </td>
-	            <td style="width: 5%" class="text-center">3</td>
-	            <td style="width: 30%" class="text-center">
+	            <td style="width: 5%" class="text-center">{{ $docente->cantTrib }}</td>
+                <td style="width: 5%" class="text-center">{{ $docente->cantTut }}</td>
+	            <td style="width: 10%" class="text-center">
 	            	<a class="btn-floating btn-sm btn-indigo btn-modal-show" data-toggle="tooltip" data-placement="top" title="ver"><i class="fa fa-eye mt-2 ml-1 fa-lg"></i></a>
 	            </td>
         	</tr>
@@ -73,24 +79,29 @@
 		<table class="table table-striped tablaScroll4">
 		  <thead>
 		    <tr>
-		      <th style="width: 15%" class="text-center"><font size="3">Codigo Profesional</font></th>
-		      <th style="width: 40%" class="text-center"><font size="3">Nombre Profesional</font></th>
-		      <th style="width: 10%" class="text-center"><font size="3">Areas</font></th>
-		      <th style="width: 5%" class="text-center"><font size="3">N</font></th>
-		      <th style="width: 30%" class="text-center"><font size="3">Detalles</font></th>
+		      <th style="width: 10%" class="text-center"><font size="3">Codigo</font></th>
+		      <th style="width: 20%" class="text-center"><font size="3">Nombre Profesional</font></th>
+		      <th style="width: 50%" class="text-center"><font size="3">Areas</font></th>
+		      <th style="width: 5%" class="text-center"><font size="3">Trib</font></th>
+              <th style="width: 5%" class="text-center"><font size="3">Tut</font></th>
+		      <th style="width: 10%" class="text-center"><font size="3">Detalles</font></th>
 
 		    </tr>
 		  </thead>
 		  <tbody id="table2">
 		    @foreach($profesionales as $profesional)
         	<tr data-id="{{ $docente->idDoc }}">
-	            <td style="width: 15%" class="text-center"> {{ $profesional->ciDoc }} </td>
-	            <td style="width: 40%" class="text-center"> {{ $profesional->apePaternoDoc }} {{ $profesional->apeMaternoDoc }} {{ $profesional->nombreDoc }} </td>
-	            <td style="width: 10%" class="text-center"> {{ $profesional->tipo }} </td>
+	            <td style="width: 10%" class="text-center"> {{ $profesional->ciDoc }} </td>
+	            <td style="width: 20%" class="text-center"> {{ $profesional->apePaternoDoc }} {{ $profesional->apeMaternoDoc }} {{ $profesional->nombreDoc }} </td>
+	            <td style="width: 50%" class="text-center"> 
+                @foreach($profesional->tiene as $pha)
+                    {{ $pha->area->nombreArea }}, 
+                @endforeach
+                </td>
 
-	            <td style="width: 5%" class="text-center">3</td>
-
-	            <td style="width: 30%" class="text-center">
+	            <td style="width: 5%" class="text-center">{{ $profesional->cantTribP }}</td>
+                <td style="width: 5%" class="text-center">{{ $profesional->cantTutP }}</td>
+	            <td style="width: 10%" class="text-center">
 	            	<a class="btn-floating btn-sm btn-indigo btn-modal-show" data-toggle="tooltip" data-placement="top" title="ver"><i class="fa fa-eye mt-2 ml-1 fa-lg"></i></a>
 	            </td>
         	</tr>

@@ -170,10 +170,18 @@ class ProyectoController extends Controller
         ->orderBy('apePaternoDoc', 'asc')
         ->paginate(5);
         foreach ($docentes as $key => $value) {
-            $value->cant = Asignacion::where('idDoc', $value->idDoc)->where('estado', 'activo')->where('rol', 'tribunal')->count();
-            $value->tribunal = Asignacion::where('idDoc', $value->idDoc)->where('idProyecto', $idProyecto)->where('estado', 'activo')->where('rol', 'tribunal')->count();
+            $value->cant = Asignacion::where('idDoc', $value->idDoc)
+            ->where('estado', 'activo')
+            ->where('rol', 'tribunal')
+            ->count();
+
+            $value->tribunal = Asignacion::where('idDoc', $value->idDoc)
+            ->where('idProyecto', $idProyecto)->where('estado', 'activo')
+            ->where('rol', 'tribunal')
+            ->count();
         }
-        return view('tribunales.asignacion')->with([
+        return view('tribunales.asignacion')
+        ->with([
             'proyecto' => $proyecto,
             'docentes' => $docentes,
         ]);
