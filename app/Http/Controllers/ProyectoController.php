@@ -39,7 +39,12 @@ class ProyectoController extends Controller
     {
         $estudiantes = Estudiante::orderBy('apellidoEst', 'asc')->paginate(500);
         $docentes = Docente::orderBy('apePaternoDoc', 'asc')->paginate(500);
-        $areas = Area::orderby('nombreArea','asc')->paginate(500);
+        $areas = Area::orderby('nombreArea','asc')
+        ->where('clasificacion','area')
+        ->get();
+        $subareas = Area::orderby('nombreArea','asc')
+        ->where('clasificacion','subarea')
+        ->get();
         $modalidades = Modalidad::orderby('nombreMod','asc')->paginate(500);
         
 
@@ -47,6 +52,7 @@ class ProyectoController extends Controller
         $res[1]=$docentes;
         $res[2]=$areas;
         $res[3]=$modalidades;
+        $res[4]=$subareas;
         return view('proyectos.create', compact('res'));
     }
 
@@ -60,15 +66,42 @@ class ProyectoController extends Controller
     {
 
         $mytime = \Carbon\Carbon::now();
-        Proyecto::create([
-            'titulo' => $request['nombreProy'],
+
+
+
+        /*$this->validate($request, [
+            'titulo' => 'required|string',
+            'objetivos' => 'required|string',
+            'descripcion' => 'required|string',
+            'periodo' => 'required|string',
+            'idModalidad' => 'required|integer',
+
+        
+        ]);*/
+
+        //PARA IMPRIMIR DATOS//
+        /*return response()->json([
+            'titulo' => $request['titulo'],
             'objetivos'=>$request['objetivos'],
             'descripcion'=>$request['descripcion'],
             'fechaIni'=>$request['fechaIni'],
             'fechaFin'=>$request['fechaFin'],
             'periodo'=>$request['periodo'],
-            'sesionDeConsejo'=>$request['sesion'],
-            'idModalidad'=>$request['modalidad'],
+            'sesionDeConsejo'=>$request['sesionDeConsejo'],
+            'idModalidad'=>$request['idModalidad'],
+            //'estadoProyecto'=>$request['estadoProyecto'],
+            'fechaRegistroProy'=>$mytime,
+        ]);*/
+
+       Proyecto::create([
+            'titulo' => $request['titulo'],
+            'objetivos'=>$request['objetivos'],
+            'descripcion'=>$request['descripcion'],
+            'fechaIni'=>$request['fechaIni'],
+            'fechaFin'=>$request['fechaFin'],
+            'periodo'=>$request['periodo'],
+            'sesionDeConsejo'=>$request['sesionDeConsejo'],
+            'idModalidad'=>$request['idModalidad'],
             //'estadoProyecto'=>$request['estadoProyecto'],
             'fechaRegistroProy'=>$mytime,
 
@@ -80,6 +113,7 @@ class ProyectoController extends Controller
         ]);
         $id = Proyecto::max('idProyecto');
         $areas = $request['area'];
+        $subareas = $request['subarea'];
         
         
         //dd([$id, $ida, $mytime->toDateString()]);
@@ -88,12 +122,20 @@ class ProyectoController extends Controller
             'idProyecto' => $id,
             'idArea' => $area,
         ]);
-               }   
-         
-       
-        return response()->json([
-            'message' => 'Se agrego correctamente!',
+               }
+
+               foreach ($subareas as $subarea) {
+             Proyecto_has_area::create([
+            'idProyecto' => $id,
+            'idArea' => $subarea,
         ]);
+               }    
+         
+        return redirect('proyectos');
+
+       /* return response()->json([
+            'message' => 'Se agrego correctamente!',
+        ]);*/
     }
     
 
