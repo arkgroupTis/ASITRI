@@ -44,5 +44,5 @@ Route::group(['middleware' => ['auth']], function () {
 	Route::get('/tribunales/asignacion', 'AsignacionController@asignacion');
 
 	Route::resource('/docentes', 'DocenteController');
-	Route::resource('/renuncia', 'RenunciaController');
+	Route::resource('/email', 'EmailController');
 });

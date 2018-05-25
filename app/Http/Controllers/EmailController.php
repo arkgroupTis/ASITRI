@@ -5,9 +5,12 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 
 use App\Http\Requests;
+use Mail;
+use Session;
+use Redirect;
 use App\Http\Controllers\Controller;
 
-class RenunciaController extends Controller
+class EmailController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -16,7 +19,7 @@ class RenunciaController extends Controller
      */
     public function index()
     {
-        //
+        return view('emails.notificacion');
     }
 
     /**
@@ -37,7 +40,12 @@ class RenunciaController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        Mail::send('emails.notificacion', ['message' => 'te ganaste un coche ultimo modelo'], function($msj){
+            $msj->subject('Correo de prueba, no te asustes');
+            $msj->to('kennydaltonc@yahoo.com');
+        } );
+        Session::flash('message', 'Mensaje enviado correctamente');
+        return Redirect::to('/email');
     }
 
     /**

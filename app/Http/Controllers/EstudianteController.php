@@ -9,7 +9,9 @@ use App\Http\Controllers\Controller;
 use App\Estudiante;
 use App\Proyecto;
 use App\Docente;
-
+use App\Proyecto_estudiante;
+use App\Asignacion;
+use DB;
 class EstudianteController extends Controller
 {
     /**
@@ -41,9 +43,31 @@ class EstudianteController extends Controller
     }
     public function proyc_est()
     {
-        $res[2] = Docente::orderBy('apePaternoDoc', 'asc')->paginate(500);
-        $res[1] = Estudiante::orderBy('apellidoEst', 'asc')->paginate(500);
-        $res[0] = Proyecto::orderBy('titulo', 'asc')->paginate(500);
+
+        $proyc_est = Proyecto_estudiante::select('idEstudiante')->get();
+        $array = collect([]);
+        foreach ($proyc_est as $proy) {
+            $array->push($proy->idEstudiante);
+        }
+        $proyectos = Proyecto_estudiante::select('idProyecto')->get();
+        $array1 = collect([]);
+        foreach ($proyectos as $proy) {
+            $array1->push($proy->idProyecto);
+        }
+        $tutores = Asignacion::select(DB::raw('count(*) as user_count, idDoc'))
+        ->where('rol','=','tutor')
+        ->where('estado','=','Activo')
+        ->groupby('idDoc')
+        ->get();
+        $array2 = collect([]);
+        foreach ($tutores as $proy) {
+            if($proy->user_count<10)
+            {$array2->push($proy->idDoc);}
+        }
+        dd($array2);
+        $res[2] = Docente::whereNotIn('idDoc',$array2)->get();
+        $res[1] = Estudiante::whereNotIn('idEstudiante',$array)->get();
+        $res[0] = Proyecto::whereNotIn('idProyecto',$array1)->get();
         return view('estudiante.proyecto_est', compact('res'));
     }
     /**
@@ -64,6 +88,7 @@ class EstudianteController extends Controller
      */
     public function store(Request $request)
     {
+        
         $this->validate($request, [
             'ciEst' => 'required|string',
             'nombreEst' => 'required|string',
@@ -77,12 +102,12 @@ class EstudianteController extends Controller
             'apellidoEst' => $request['apellidoEst'],
             'emailEst' => $request['emailEst'],
             'telefono' => $request['telefono'],
-            'idProyecto' => NULL,
             'idCarrera' => $request['idCarrera'],
         ]);
-        return response()->json([
-            'message' => 'Se agrego correctamente!',
-        ]);
+        // return response()->json([
+        //     'message' => 'Se agrego correctamente!',
+        // ]);
+
     }
 
     /**
