@@ -11,7 +11,7 @@ use App\Proyecto;
 use App\Docente;
 use App\Proyecto_estudiante;
 use App\Asignacion;
-
+use DB;
 class EstudianteController extends Controller
 {
     /**
@@ -54,15 +54,18 @@ class EstudianteController extends Controller
         foreach ($proyectos as $proy) {
             $array1->push($proy->idProyecto);
         }
-        $tutores = Asignacion::where('rol','=','tutor')->where('estado','=','activo')
-        ->groupby('idDoc')->select('idDoc')->get();
-        dd($tutores);
+        $tutores = Asignacion::select(DB::raw('count(*) as user_count, idDoc'))
+        ->where('rol','=','tutor')
+        ->where('estado','=','Activo')
+        ->groupby('idDoc')
+        ->get();
         $array2 = collect([]);
         foreach ($tutores as $proy) {
-            $array2->push($proy->idDoc);
+            if($proy->user_count<10)
+            {$array2->push($proy->idDoc);}
         }
         dd($array2);
-        $res[2] = Docente::whereNotIn('idDoc', $array2)->get();
+        $res[2] = Docente::whereNotIn('idDoc',$array2)->get();
         $res[1] = Estudiante::whereNotIn('idEstudiante',$array)->get();
         $res[0] = Proyecto::whereNotIn('idProyecto',$array1)->get();
         return view('estudiante.proyecto_est', compact('res'));
