@@ -6,7 +6,18 @@
 <!-- Horizontal material form -->
 <form id="miForm">
     <!-- Grid row -->
-    <h1>Nueva Area</h1>
+    <h1 class="text-center">Nueva Area \ Sub Area</h1>
+    </div>
+    <div class="form-group row">
+		      <label class="control-label" class="col-sm-2 col-form-label">Clasificacion: </label>
+		      <div class="col-sm-4" >
+		        <select class="mdb-select colorful-select dropdown-primary col-md-12" name="clasificacion" id="clasificacion">
+			    <option value="area">Area</option>
+				<option value="subarea">Sub Area</option>
+			</select>
+		</div>
+    </div>    
+    
     <div class="form-group row">
         <!-- Material input -->
         <label for="nombre" class="col-sm-2 col-form-label">Nombre:</label>
