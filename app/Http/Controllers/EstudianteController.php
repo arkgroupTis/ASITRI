@@ -9,6 +9,8 @@ use App\Http\Controllers\Controller;
 use App\Estudiante;
 use App\Proyecto;
 use App\Docente;
+use App\Proyecto_estudiante;
+use App\Asignacion;
 
 class EstudianteController extends Controller
 {
@@ -29,9 +31,25 @@ class EstudianteController extends Controller
     }
     public function proyc_est()
     {
+
+        $proyc_est = Proyecto_estudiante::select('idEstudiante')->get();
+        $array = collect([]);
+        foreach ($proyc_est as $proy) {
+            $array->push($proy->idEstudiante);
+        }
+        $proyectos = Proyecto_estudiante::select('idProyecto')->get();
+        $array1 = collect([]);
+        foreach ($proyectos as $proy) {
+            $array1->push($proy->idProyecto);
+        }
+        $tutores = Asignacion::select('idDoc')->get();
+        $array2 = collect([]);
+        foreach ($tutores as $proy) {
+            $array2->push($proy->idProyecto);
+        }
         $res[2] = Docente::orderBy('apePaternoDoc', 'asc')->paginate(500);
-        $res[1] = Estudiante::orderBy('apellidoEst', 'asc')->paginate(500);
-        $res[0] = Proyecto::orderBy('titulo', 'asc')->paginate(500);
+        $res[1] = Estudiante::whereNotIn('idEstudiante',$array)->paginate(500);
+        $res[0] = Proyecto::whereNotIn('idProyecto',$array1)->paginate(500);
         return view('estudiante.proyecto_est', compact('res'));
     }
     /**

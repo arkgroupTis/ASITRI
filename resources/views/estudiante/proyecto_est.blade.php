@@ -67,7 +67,6 @@
 	<label class="col-md-5"></label>
 	<button class="btn btn-success" id="asignar">Asignar</button>
 </div>
-
 @endsection
 @section('script')
 <script>
@@ -76,6 +75,7 @@
         $.ajax({
             type: 'POST',
             url: '/proyecto_estudiante',
+
             data: {
                 '_token': $('input[name=_token]').val(),
                 'idProyecto': $('#idProyecto').val(),
@@ -84,17 +84,19 @@
             },
             success : function(data) {
                 toastr.success(data.message);
+                location.reload(true);
                 console.log(data);
                 clear();
             },
             error : function(xhr, status) {
                 toastr.error('Disculpe, existio un problema!');
+                clear();
             },
         });
     });
     function clear() 
     {
-        document.getElementById("miForm").reset();
+        $('#idProyecto').;
     }
 </script>
 @endsection
