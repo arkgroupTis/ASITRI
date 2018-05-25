@@ -54,12 +54,12 @@ class EstudianteController extends Controller
         foreach ($proyectos as $proy) {
             $array1->push($proy->idProyecto);
         }
-        $tutores = Asignacion::select('idDoc')->get();
+        $tutores = Asignacion::where('rol','=','tutor')->select('idDoc')->get();
         $array2 = collect([]);
         foreach ($tutores as $proy) {
-            $array2->push($proy->idProyecto);
+            $array2->push($proy->idDoc);
         }
-        $res[2] = Docente::orderBy('apePaternoDoc', 'asc')->paginate(500);
+        $res[2] = Docente::whereNotIn('idDoc', $array2)->paginate(500);
         $res[1] = Estudiante::whereNotIn('idEstudiante',$array)->paginate(500);
         $res[0] = Proyecto::whereNotIn('idProyecto',$array1)->paginate(500);
         return view('estudiante.proyecto_est', compact('res'));
