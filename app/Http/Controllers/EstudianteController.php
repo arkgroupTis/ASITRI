@@ -61,10 +61,9 @@ class EstudianteController extends Controller
         ->get();
         $array2 = collect([]);
         foreach ($tutores as $proy) {
-            if($proy->user_count<10)
+            if($proy->user_count>10)
             {$array2->push($proy->idDoc);}
         }
-        dd($array2);
         $res[2] = Docente::whereNotIn('idDoc',$array2)->get();
         $res[1] = Estudiante::whereNotIn('idEstudiante',$array)->get();
         $res[0] = Proyecto::whereNotIn('idProyecto',$array1)->get();
