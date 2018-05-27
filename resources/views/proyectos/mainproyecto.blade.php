@@ -18,7 +18,9 @@
     		<input class="form-control" id="Search1" type="text" placeholder="Search..">	
     	</div>
     	<div class="col-md-3" align="right">
-    		<a href="/estudianteproyecto" class="btn btn-default">NUEVO PROYECTO</a>
+            <button class="btn btn-indigo">
+    		    <a href="/create"><font color="white" size="2">NUEVO PROYECTO</font></a>
+            </button>
     	</div>    	
     </div>
 	<div class="tablaScroll4">
@@ -45,7 +47,9 @@
                 @endforeach 
                 </td>
                 <td style="width: 10%"> 
-                w
+                @foreach($proyecto->proyecto_estudiante as $pha)
+                    {{ $pha->estado }}, 
+                @endforeach
                  </td>
 	            <td style="width: 10%"><a class="btn-floating btn-sm btn-indigo btn-modal-show" data-toggle="tooltip" data-placement="top" title="ver"><i class="fa fa-eye mt-2 ml-2 fa-lg"></i></a></td>
 	            

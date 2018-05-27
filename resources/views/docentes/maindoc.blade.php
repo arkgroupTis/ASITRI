@@ -19,7 +19,7 @@
     	</div>
         <div class="col-md-4">
             <button class="btn btn-indigo">
-                <a href="/newdoc"><font color="white" size="2">Nuevo Docente/Profesional</font></a>
+                <a href="/docenteNuevo"><font color="white" size="2">Nuevo Docente/Profesional</font></a>
             </button>
         </div>
 	</div>

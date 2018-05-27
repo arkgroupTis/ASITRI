@@ -60,15 +60,10 @@
                         </ul>
                     </div>
                 </li>
-                <li>
-                    <a href="/renuncia" class="collapsible-header waves-effect arrow-r">
-                        <i class="fa fa-eye"></i> 
-                            Renuncia Tribunal
-                    </a>
-                </li>
+
                 <li>
                     <a class="collapsible-header waves-effect arrow-r">
-                        <i class="fa fa-hand-pointer-o"></i> 
+                    <i class="fa fa-eye"></i>
                         Areas
                         <i class="fa fa-angle-down rotate-icon"></i>
                     </a>
@@ -83,6 +78,7 @@
                         </ul>
                     </div>
                 </li>
+
                 <li>
                     <a class="collapsible-header waves-effect arrow-r">
                         <i class="fas fa-graduation-cap"></i>
@@ -95,7 +91,10 @@
                                 <a href="/tribunales" class="waves-effect">Tribunales</a>
                             </li>
                             <li>
-                                <a href="/tribunales/asignacion" class="waves-effect">Asignacion de Tribunales</a>
+                    <a href="/renuncia" class="collapsible-header waves-effect arrow-r">
+                         
+                            Renuncia Tribunal
+                    </a>
                             </li>
                         </ul>
                     </div>  

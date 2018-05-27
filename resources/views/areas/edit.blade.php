@@ -17,7 +17,7 @@
     	</div>
 			<div class="col-md-3" algin="center" >
 			  <button class="btn btn-indigo">
-          <a href="/newdoc"><font color="white" size="2">Nueva Area/Sub Area</font></a>
+          <a href="/areaNueva"><font color="white" size="2">Nueva Area/Sub Area</font></a>
 				</button>
 			</div>   	
     </div>

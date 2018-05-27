@@ -17,6 +17,7 @@ Route::get('/', function () {
 Route::auth();
 Route::group(['middleware' => ['auth']], function () {
     Route::resource('/areas', 'AreaController');
+	Route::get('/areaNueva', 'AreaController@create');
 
 	Route::resource('/proyectos','ProyectoController');
 
@@ -44,5 +45,6 @@ Route::group(['middleware' => ['auth']], function () {
 	Route::get('/tribunales/asignacion', 'AsignacionController@asignacion');
 
 	Route::resource('/docentes', 'DocenteController');
+	Route::get('/docenteNuevo', 'DocenteController@create');
 	Route::resource('/email', 'EmailController');
 });
