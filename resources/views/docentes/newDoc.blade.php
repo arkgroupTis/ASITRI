@@ -124,9 +124,20 @@
                 </div>
         </div>  
 
-    <button class="btn  btn-primary btn-md" id="add">GUARDAR</button>
-    <button class="btn  btn-info btn-md">CANCELAR</button>
-
+    <!-- <button class="btn  btn-primary btn-md" id="add">GUARDAR</button>
+    <button class="btn  btn-info btn-md">CANCELAR</button> -->
+    <div class="group form-row" style=margin-top:60px;></div>
+    <div class="form-row">
+        <div class="col-md-8" ></div>
+        
+            <button type="reset" class="btn btn-red btn-rounded">
+                <font color="white" size="3">CANCELAR</font>
+			</button>
+            <!-- <button class="btn  btn-primary btn-md" id="add">GUARDAR</button> -->
+            <button class="btn btn-light-green btn-rounded" id="add">
+                <font color="white" size="3">GUARDAR</font>
+			</button>
+    </div>
 
 </form>
 @endsection

@@ -52,10 +52,10 @@
                     <div class="collapsible-body">
                         <ul>
                             <li>
-                                <a href="/docentes" class="waves-effect">Docente & Profesionales</a>
+                                <a href="/docentes" class="waves-effect">Docentes & Profesionales</a>
                             </li>
                             <li>
-                                <a href="/docentes/create" class="waves-effect">Nuevo Docente</a>
+                                <a href="/docentes/create" class="waves-effect">Nuevo Docente/Profesional</a>
                             </li>
                         </ul>
                     </div>
@@ -70,10 +70,10 @@
                     <div class="collapsible-body">
                         <ul>
                             <li>
-                                <a href="/areas" class="waves-effect">Catalogo Areas</a>
+                                <a href="/areas" class="waves-effect">Areas & Sub Areas</a>
                             </li>
                             <li>
-                                <a href="/areas/create" class="waves-effect">Nueva Area</a>
+                                <a href="/areas/create" class="waves-effect">Nueva Area/Sub Area</a>
                             </li>
                         </ul>
                     </div>
@@ -90,12 +90,7 @@
                             <li>
                                 <a href="/tribunales" class="waves-effect">Tribunales</a>
                             </li>
-                            <li>
-                    <a href="/renuncia" class="collapsible-header waves-effect arrow-r">
-                         
-                               Renuncia Tribunal
-                    </a>
-                            </li>
+                            
                         </ul>
                     </div>  
                 </li>

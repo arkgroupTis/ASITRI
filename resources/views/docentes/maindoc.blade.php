@@ -11,24 +11,22 @@
 	    		
                 <label class="sr-only" ></label>
                 <div class="md-form input-group mb-3">
-                <input type="text" class="form-control pl-0 rounded-0" id="Search1" type="text" placeholder="Buscar docentes...">
+                <input type="text" class="form-control pl-0 rounded-0" id="Search1" type="text" placeholder="Buscar Docentes...">
                 </div>
 	    </div>    	
-        <div class="col-md-2" >
-    			
-    	</div>
+        <div class="col-md-2" ></div>
         <div class="col-md-4">
-            <button class="btn btn-indigo">
-                <a href="/docenteNuevo"><font color="white" size="2">Nuevo Docente/Profesional</font></a>
-            </button>
-        </div>
-	</div>
+            <button class="btn btn-teal btn-rounded">
+                <a href="/docenteNuevo"><font color="white" size="3">Nuevo Docente/Profesional</font></a>
+			</button>
+        
+	 </div>
 
 	<div class="tablaScroll4">
 		<table class="table table-striped tablaScroll4">
 		  <thead>
 		    <tr>
-		      <th style="width: 10%" class="text-center"><font size="3">Codigo </font></th>
+		      <th style="width: 10%" class="text-center"><font size="3">CI</font></th>
 		      <th style="width: 20%" class="text-center"><font size="3">Nombre Docente</font></th>
 		      <th style="width: 50%" class="text-center"><font size="3">Areas</font></th>
 		      <th style="width: 5%" class="text-center"><font size="3">Trib</font></th>
@@ -46,13 +44,12 @@
                 @foreach($docente->tiene as $pha)
                     {{ $pha->area->nombreArea }}, 
                 @endforeach 
-                
-                          
+      
                 </td>
 	            <td style="width: 5%" class="text-center">{{ $docente->cantTrib }}</td>
                 <td style="width: 5%" class="text-center">{{ $docente->cantTut }}</td>
 	            <td style="width: 10%" class="text-center">
-	            	<a class="btn-floating btn-sm btn-indigo btn-modal-show" data-toggle="tooltip" data-placement="top" title="ver"><i class="fa fa-eye mt-2 ml-1 fa-lg"></i></a>
+	            	<a class="btn-floating btn-sm btn-mdb-color btn-modal-show" data-toggle="tooltip" data-placement="top" title="ver"><i class="fa fa-eye mt-2 ml-1 fa-lg"></i></a>
 	            </td>
         	</tr>
         	@endforeach
@@ -60,19 +57,18 @@
 		</table>
     </div>
     </div>
+
+    <div class="group form-row" style=margin-top:60px;></div>
     <h2 class="text-center">Profesionales</h2>
 
     <div class="row">
-        
 		<div class="col-md-6">
         <label class="sr-only" ></label>
                 <div class="md-form input-group mb-3">
-	    		<input class="form-control pl-0 rounded-0" id="Search2" type="text" placeholder="Buscar profesionales...">	
+	    		<input class="form-control pl-0 rounded-0" id="Search2" type="text" placeholder="Buscar Profesionales...">	
 	    </div>    
         </div> 	
         <div class="col-md-2" >
-    			
-    	
 	</div>
 
     <div class="tablaScroll4">
@@ -102,7 +98,7 @@
 	            <td style="width: 5%" class="text-center">{{ $profesional->cantTribP }}</td>
                 <td style="width: 5%" class="text-center">{{ $profesional->cantTutP }}</td>
 	            <td style="width: 10%" class="text-center">
-	            	<a class="btn-floating btn-sm btn-indigo btn-modal-show" data-toggle="tooltip" data-placement="top" title="ver"><i class="fa fa-eye mt-2 ml-1 fa-lg"></i></a>
+	            	<a class="btn-floating btn-sm btn-mdb-color btn-modal-show" data-toggle="tooltip" data-placement="top" title="ver"><i class="fa fa-eye mt-2 ml-1 fa-lg"></i></a>
 	            </td>
         	</tr>
         	@endforeach
@@ -134,35 +130,32 @@
                         <table class="table table-bordered">
                             <tbody>
                                 <tr>
-                                    <th scope="row">CI</th>
+                                    <th scope="row">CI : </th>
                                     <td id="td-ci"></td>
                                 </tr>
                                 <tr>
-                                    <th scope="row">Apellidos</th>
+                                    <th scope="row">Apellidos : </th>
                                     <td id="td-apellido"></td>
                                 </tr>
                                 <tr>
-                                    <th scope="row">Nombres</th>
+                                    <th scope="row">Nombres : </th>
                                     <td id="td-nombre"></td>
                                 </tr>
                                 <tr>
-                                    <th scope="row">Email</th>
+                                    <th scope="row">Email : </th>
                                     <td id="td-email"></td>
                                 </tr>
                                 <tr>
-                                    <th scope="row">Telefono</th>
+                                    <th scope="row">Telefono : </th>
                                     <td id="td-telefono"></td>
                                 </tr>
+                                
                                 <tr>
-                                    <th scope="row">Proyecto</th>
-                                    <td id="td-proyecto"></td>
-                                </tr>
-                                <tr>
-                                    <th scope="row">Carga Horaria</th>
+                                    <th scope="row">Carga Horaria : </th>
                                     <td id="td-cargahoraria"></td>
                                 </tr>
                                 <tr>
-                                    <th scope="row">Titulo Docente</th>
+                                    <th scope="row">Titulo Docente : </th>
                                     <td id="td-titulo"></td>
                                 </tr>
                             </tbody>

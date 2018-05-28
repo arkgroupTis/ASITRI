@@ -4,23 +4,24 @@
 	<h1 align="center">PROYECTOS</h1>
 <div class="container">
 	<div class="form-row">
-		<div class="col-md-3">
-        <!--Blue select-->
-        <select class="mdb-select colorful-select dropdown-primary">
-        	<option>Seleccione una Categoria</option>
-            <option value="1">Tipo</option>
-            <option value="2">Cantidad de Proyectos</option>
-            <option value="3">Codigo</option>
-        </select>
-        <!--/Blue select-->
-    	</div>
-    	<div class="col-md-6" align="center">
-    		<input class="form-control" id="Search1" type="text" placeholder="Search..">	
-    	</div>
+		
+		<div class="col-md-6">
+	    		
+                <label class="sr-only" ></label>
+                <div class="md-form input-group mb-3">
+                <input type="text" class="form-control pl-0 rounded-0" id="Search1" type="text" placeholder="Buscar Proyectos...">
+                </div>
+	    </div>    	
+        <div class="col-md-3" ></div>
+
+    	
     	<div class="col-md-3" align="right">
-            <button class="btn btn-indigo">
+            <!-- <button class="btn btn-indigo">
     		    <a href="/create"><font color="white" size="2">NUEVO PROYECTO</font></a>
-            </button>
+            </button> -->
+			<button class="btn btn-teal btn-rounded">
+                <a href="/create"><font color="white" size="3">NUEVO PROYECTO</font></a>
+			</button>
     	</div>    	
     </div>
 	<div class="tablaScroll4">
@@ -53,7 +54,7 @@
                  </td>
 	            
 	            <td style="width: 10%">
-				<a class="btn-floating btn-sm btn-indigo btn-modal-show"  href="/proyect/{{ $proyecto->idProyecto }}" data-toggle="tooltip" data-placement="top" title="ver">
+				<a class="btn-floating btn-sm btn-mdb-color btn-modal-show"  href="/proyect/{{ $proyecto->idProyecto }}" data-toggle="tooltip" data-placement="top" title="ver">
 				<i class="fa fa-eye mt-2 ml-2 fa-lg"></i></a></td>
 				
         	</tr>

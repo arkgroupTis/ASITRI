@@ -9,7 +9,7 @@
     	<div class="col-md-6" >
 			<label class="sr-only" ></label>
         <div class="md-form input-group mb-3">
-    		<input class="form-control pl-0 rounded-0" id="Search1" type="text" placeholder="Buscar areas...">	
+    		<input class="form-control pl-0 rounded-0" id="Search1" type="text" placeholder="Buscar Areas...">	
 				</div>
     	</div>
 			<div class="col-md-3" >
@@ -66,13 +66,13 @@
     </table>
 </div>
 
-
+<div class="group form-row" style=margin-top:60px;></div>
 <h3 class="text-center">Sub Areas</h3>
 <div class="form-row">
 <div class="col-md-6">
 				<label class="sr-only" ></label>
         <div class="md-form input-group mb-3">
-    		<input class="form-control pl-0 rounded-0" id="Search2" type="text" placeholder="Buscar sub areas...">	
+    		<input class="form-control pl-0 rounded-0" id="Search2" type="text" placeholder="Buscar Sub Areas...">	
     	</div>
 			</div>
 			</div>

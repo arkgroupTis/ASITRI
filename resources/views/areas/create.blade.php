@@ -7,6 +7,7 @@
 <form id="miForm">
     <!-- Grid row -->
     <h1 class="text-center">Nueva Area \ Sub Area</h1>
+    <div class="group form-row" style=margin-top:50px;></div>
     </div>
     <div class="form-group row">
     <label for="nombre" class="col-sm-2 col-form-label">Clasificacion:</label>
@@ -39,8 +40,19 @@
             </div>
         </div>
     </div>
-            <button type="reset" class="btn btn-danger btn-md">Cancelar</button>
-            <button class="btn  btn-primary btn-md" id="add">GUARDAR</button>
+            <!-- <button type="reset" class="btn btn-danger btn-md">Cancelar</button> -->
+            <div class="group form-row" style=margin-top:60px;></div>
+            <div class="form-row">
+            <div class="col-md-8" ></div>
+        
+            <button type="reset" class="btn btn-red btn-rounded">
+                <font color="white" size="3">CANCELAR</font>
+			</button>
+            <!-- <button class="btn  btn-primary btn-md" id="add">GUARDAR</button> -->
+            <button class="btn btn-light-green btn-rounded" id="add">
+                <font color="white" size="3">GUARDAR</font>
+			</button>
+            </div>
     <!-- Grid row -->
 </form>
 <!-- Horizontal material form -->

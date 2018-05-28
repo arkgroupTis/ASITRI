@@ -16,9 +16,12 @@
         
     </div>
     <div class="col-md-3">
-        <button type="button" class="btn btn-indigo" id="btn-modal-add" data-toggle="modal" data-target="#modal-estudiante">
+        <!-- <button type="button" class="btn btn-indigo" id="btn-modal-add" data-toggle="modal" data-target="#modal-estudiante">
             Nuevo Estudiante
-        </button>
+        </button> -->
+        <button type="button" class="btn btn-cyan btn-rounded" id="btn-modal-add" data-toggle="modal" data-target="#modal-estudiante">
+                <font color="white" size="3">Nuevo Estudiante</font>
+			</button>
     </div>
 </div>
 <!-- es para mostrar mensaje para cuando hay errores -->
