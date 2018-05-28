@@ -32,6 +32,7 @@ class ProyectoController extends Controller
         return view('proyectos.mainproyecto', compact('proyectos'));
     }
 
+    
     /**
      * Show the form for creating a new resource.
      *
@@ -200,6 +201,17 @@ class ProyectoController extends Controller
         }
         
     }
+
+    public function detalles($id)
+    {
+        
+        $proyectos = Proyecto::where('idProyecto', $id);
+        
+        return view('proyectos.detalles', compact('proyectos'));
+        
+    }
+
+    
 
     public function posiblesTribunales($idProyecto){
         $proyecto = Proyecto::where('idProyecto', $idProyecto)->firstOrFail();

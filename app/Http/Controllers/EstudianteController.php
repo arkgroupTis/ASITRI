@@ -21,6 +21,8 @@ class EstudianteController extends Controller
      */
     public function index()
     {
+        $estudiantes = Estudiante::orderBy('id', 'des');
+
         $estudiantes_t = Estudiante::orderBy('apellidoEst', 'asc')
         ->join('proyecto_estudiante', 'estudiante.idEstudiante', '=', 'proyecto_estudiante.idEstudiante')
         ->where('estado', 'inactivo')
@@ -29,12 +31,24 @@ class EstudianteController extends Controller
         foreach ($estudiantes_t as $est) {
             $idEst->push($est->idEstudiante);
         }
+
+        
+
+
         $estudiantes_v = Estudiante::orderBy('apellidoEst', 'asc')
         // ->join('proyecto_estudiante', 'estudiante.idEstudiante', '=', 'proyecto_estudiante.idEstudiante')
         ->whereNotIn('estudiante.idEstudiante', $idEst)
         ->get();
         // dd([$idEst, $estudiantes_v]);
         return view('estudiante.index', compact(['estudiantes_v', 'estudiantes_t']));
+
+        foreach ($estudiantes_v as $key => $value) {
+            $value->estadoE = Proyecto_estudiante::where('idEstudiante', $value->idEstudiante)
+            ->where('estado', 'activo')
+            ->where('estado', 'cancelado')
+            ->where('estado', 'inactivo')
+            ->echo ("asignado");
+        }
     }
     public function create_sub()
     {

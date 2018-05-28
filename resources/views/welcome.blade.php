@@ -12,7 +12,7 @@
             <div class="container">
                 <!-- Brand -->
                 <a class="navbar-brand" href="#">
-                    <strong>MDB</strong>
+                    <strong>Asignacion de Tribunales</strong>
                 </a>
                 <!-- Collapse -->
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
@@ -23,33 +23,12 @@
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     <!-- Left -->
                     <ul class="navbar-nav mr-auto">
-                        <li class="nav-item active">
-                            <a class="nav-link" href="#">Home
-                                <span class="sr-only">(current)</span>
-                            </a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="#">About MDB</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="#">Free download</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="#">Free tutorials</a>
-                        </li>
+                        
+                        
                     </ul>
                     <!-- Right -->
                     <ul class="navbar-nav nav-flex-icons">
-                        <li class="nav-item">
-                            <a href="#" class="nav-link">
-                                <i class="fa fa-facebook"></i>
-                            </a>
-                        </li>
-                        <li class="nav-item">
-                            <a href="#" class="nav-link">
-                                <i class="fa fa-twitter"></i>
-                            </a>
-                        </li>
+                        
                         @if(auth()->guest())
                         <li class="nav-item">
                             <a href="{{url('login')}}" class="nav-link border border-light rounded">

@@ -17,6 +17,7 @@ Route::get('/', function () {
 Route::auth();
 Route::group(['middleware' => ['auth']], function () {
     Route::resource('/areas', 'AreaController');
+	Route::get('/areaNueva', 'AreaController@create');
 
 	Route::resource('/proyectos','ProyectoController');
 
@@ -26,6 +27,8 @@ Route::group(['middleware' => ['auth']], function () {
 	Route::post('/create', 'ProyectoController@store');
 
 	Route::resource('/proyectos', 'proyectoController');
+	Route::get('/proyectos/{id}', 'ProyectoController@show');
+	Route::get('/proyect/{id}', 'ProyectoController@detalles');
 
 	Route::resource('/estudiante', 'EstudianteController');
 
@@ -38,11 +41,14 @@ Route::group(['middleware' => ['auth']], function () {
 	Route::get('/estudiante/proyecto/{id}/renuncia', 'ProyectoController@renunciaTribunales');
 	Route::get('/estudiante/proyecto/{idProy}/{idDoc}/asignacion', 'ProyectoController@asignarTribunal');
 	Route::post('/estudiante/proyecto/renuncia', 'ProyectoController@renunciaTribunal');
+	
+	
 
 	Route::resource('/tribunales', 'AsignacionController');
 
 	Route::get('/tribunales/asignacion', 'AsignacionController@asignacion');
 
 	Route::resource('/docentes', 'DocenteController');
+	Route::get('/docenteNuevo', 'DocenteController@create');
 	Route::resource('/email', 'EmailController');
 });

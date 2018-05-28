@@ -36,11 +36,11 @@
         <thead>
             <tr>
                 <th style="width: 8%" class="text-center">CI</th>
-              	<th style="width: 17%" >Apellidos</th>
+              	<th style="width: 20%" >Apellidos</th>
               	<th style="width: 15%" >Nombre</th>
-              	<th style="width: 20%" >Email</th>
-              	<th style="width: 8%" >Telefono</th>
-              	<th style="width: 10%" >Carrera</th>
+              	<th style="width: 10%" >Telefono</th>
+              	<th style="width: 18%" >Carrera</th>
+                <th style="width: 7%" >Proyecto</th>
               	<th style="width: 22%" class="text-center">Herramientas</th>
             </tr>
         </thead>
@@ -48,11 +48,15 @@
         	@foreach($estudiantes_v as $estudiante)
             <tr data-id="{{ $estudiante->idEstudiante }}">
                 <td style="width: 8%" class="text-center">{{ $estudiante->ciEst }}</td>
-                <td style="width: 17%" >{{ $estudiante->apellidoEst }}</td>
+                <td style="width: 20%" >{{ $estudiante->apellidoEst }}</td>
                 <td style="width: 15%" >{{ $estudiante->nombreEst }}</td>
-                <td style="width: 20%" >{{ $estudiante->emailEst }}</td>
-                <td style="width: 8%" >{{ $estudiante->telefono }}</td>
-                <td style="width: 10%" >{{ $estudiante->carrera->nombreCarrera }}</td>
+                <td style="width: 10%" >{{ $estudiante->telefono }}</td>
+                <td style="width: 18%" >{{ $estudiante->carrera->nombreCarrera }}</td>
+                <td style="width: 7%" >
+                @foreach($estudiante->proyecto_estudiante as $pha)
+                    {{ $pha->estado }}, 
+                @endforeach
+                </td>
                 <td style="width: 22%" class="text-center">
                 	<a class="btn-floating btn-sm btn-indigo btn-modal-show" data-toggle="tooltip" data-placement="top" title="ver"><i class="fa fa-eye mt-2 ml-1 fa-lg"></i></a>
                 	<a class="btn-floating btn-sm btn-info btn-modal-edit" data-toggle="tooltip" data-placement="top" title="editar"><i class="fa fa-edit mt-2 ml-1 fa-lg"></i></a>
