@@ -27,6 +27,8 @@ Route::group(['middleware' => ['auth']], function () {
 	Route::post('/create', 'ProyectoController@store');
 
 	Route::resource('/proyectos', 'proyectoController');
+	Route::get('/proyectos/{id}', 'ProyectoController@show');
+	Route::get('/proyect/{id}', 'ProyectoController@detalles');
 
 	Route::resource('/estudiante', 'EstudianteController');
 
@@ -39,6 +41,8 @@ Route::group(['middleware' => ['auth']], function () {
 	Route::get('/estudiante/proyecto/{id}/renuncia', 'ProyectoController@renunciaTribunales');
 	Route::get('/estudiante/proyecto/{idProy}/{idDoc}/asignacion', 'ProyectoController@asignarTribunal');
 	Route::post('/estudiante/proyecto/renuncia', 'ProyectoController@renunciaTribunal');
+	
+	
 
 	Route::resource('/tribunales', 'AsignacionController');
 
