@@ -106,57 +106,7 @@
                     </a>
                 </li>
                 <hr class="white">
-                <li>
-                    <a class="collapsible-header waves-effect arrow-r">
-                        <i class="fa fa-envelope-o"></i> 
-                        Contact me
-                        <i class="fa fa-angle-down rotate-icon"></i>
-                    </a>
-                    <div class="collapsible-body">
-                        <ul>
-                            <li>
-                                <a href="#" class="waves-effect">
-                                    FAQ
-                                </a>
-                            </li>
-                            <li>
-                                <a href="#" class="waves-effect">
-                                    Write a message
-                                </a>
-                            </li>
-                            <li>
-                                <a href="#" class="waves-effect">
-                                    FAQ
-                                </a>
-                            </li>
-                            <li>
-                                <a href="#" class="waves-effect">
-                                    Write a message
-                                </a>
-                            </li>
-                            <li>
-                                <a href="#" class="waves-effect">
-                                    FAQ
-                                </a>
-                            </li>
-                            <li>
-                                <a href="#" class="waves-effect">
-                                    Write a message
-                                </a>
-                            </li>
-                            <li>
-                                <a href="#" class="waves-effect">
-                                    FAQ
-                                </a>
-                            </li>
-                            <li>
-                                <a href="#" class="waves-effect">
-                                    Write a message
-                                </a>
-                            </li>
-                        </ul>
-                    </div>
-                </li>
+                
             </ul>
         </li>
         <!--/. Side navigation links -->

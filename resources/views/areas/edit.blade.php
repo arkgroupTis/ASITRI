@@ -16,8 +16,8 @@
     			
     	</div>
 			<div class="col-md-3" algin="center" >
-			  <button class="btn btn-indigo">
-          <a href="/areaNueva"><font color="white" size="2">Nueva Area/Sub Area</font></a>
+			  <button class="btn btn-teal btn-rounded">
+          <a href="/areaNueva"><font color="white" size="3">Nueva Area/Sub Area</font></a>
 				</button>
 			</div>   	
     </div>
