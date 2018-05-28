@@ -71,7 +71,7 @@ class ProyectoController extends Controller
 
 
 
-        /*$this->validate($request, [
+        $this->validate($request, [
             'titulo' => 'required|string',
             'objetivos' => 'required|string',
             'descripcion' => 'required|string',
@@ -79,7 +79,7 @@ class ProyectoController extends Controller
             'idModalidad' => 'required|integer',
 
         
-        ]);*/
+        ]);
 
         //PARA IMPRIMIR DATOS//
         /*return response()->json([
@@ -133,11 +133,11 @@ class ProyectoController extends Controller
         ]);
                }    
          
-        return redirect('proyectos');
+        //return redirect('proyectos');
 
-       /* return response()->json([
+       return response()->json([
             'message' => 'Se agrego correctamente!',
-        ]);*/
+        ]);
     }
     
 

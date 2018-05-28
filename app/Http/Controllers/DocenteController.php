@@ -9,6 +9,7 @@ use App\Http\Controllers\Controller;
 use App\Docente;
 use App\Area;
 use App\Asignacion;
+use App\Tiene;
 
 class DocenteController extends Controller
 {
@@ -85,7 +86,16 @@ class DocenteController extends Controller
             'telefonoDoc' => 'required|integer',
             'tituloDoc' => 'required|string',
             'tipo' => 'required|string'
+
         ]);
+            if( $request['tipo'] == "docente"){
+                $this->validate($request, [
+                'cargaHoraria' => 'required|string'
+        ]);
+                
+            }
+
+
             Docente::create([
             'ciDoc' => $request['ciDoc'],
             'nombreDoc' => $request['nombreDoc'],
@@ -98,7 +108,15 @@ class DocenteController extends Controller
             'tipo' => $request['tipo'],
         ]);
 
-
+        $id = Docente::max('idDoc');
+        $areas = $request['area'];
+        
+            foreach ($areas as $area) {
+             Tiene::create([
+            'idDoc' => $id,
+            'idArea' => $area,
+        ]);
+               }
             
         return response()->json([
             'message' => 'Se agrego correctamente!',

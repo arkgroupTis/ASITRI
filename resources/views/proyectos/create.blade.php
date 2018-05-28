@@ -109,7 +109,7 @@
 </form>
 @endsection
 @section('script')
-<!--<script>
+<script>
     $(document).on('click', '#add', function(e) {
         e.preventDefault();
         $.ajax({
