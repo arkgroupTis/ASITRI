@@ -52,9 +52,11 @@
                 <option value="Magister">Magister</option>-->
 			</select>
 		</div>
+
         <div class="col-md-4">
             <label class="control-label">Carga Horaria: </label>
-                 <select class="mdb-select colorful-select dropdown-primary" name="carga" id="carga">
+                 <select class="mdb-select colorful-select dropdown-primary" name="carga" id="carga" >
+                <option value=""></option>
                 <option value="Tiempo Parcial">Tiempo Parcial</option>
                 <option value="Tiempo Completo">Tiempo Completo</option>
             </select>
@@ -113,7 +115,8 @@
        <label>Area: </label>
         <div class="form-row">
                 <div class="col-md-12">
-                <select class="mdb-select colorful-select dropdown-primary col-md-12" name="area" id="area">
+                <select class="mdb-select colorful-select dropdown-primary" multiple name="area[]" id="area" required>
+                    <option active disabled>Seleccionar un Area</option>
                     @foreach($areas as $area)
                     <option value="{{ $area-> idArea}}"> {{ $area-> nombreArea}}</option>
                     @endforeach
@@ -151,7 +154,6 @@
             },
             success : function(data) {
                 toastr.success(data.message);
-                
                 clear();
             },
             error : function(xhr, status) {
