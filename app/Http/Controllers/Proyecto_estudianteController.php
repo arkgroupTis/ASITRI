@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
 use App\Proyecto_estudiante;
+use App\Asignacion;
 class Proyecto_estudianteController extends Controller
 {
     /**
@@ -37,19 +38,40 @@ class Proyecto_estudianteController extends Controller
      */
     public function store(Request $request)
     {
+        
         $this->validate($request, [
             'idProyecto' => 'required|integer',
-            'idEstudiante' => 'required|integer',
-            'estado' => 'required|string',
+            'estudiante1' => 'required|integer',
+            'tutor1' => 'required|integer',
         ]);
         Proyecto_estudiante::create([
             'idProyecto' => $request->idProyecto,
-            'idEstudiante' => $request->idEstudiante,
-            'estado' => $request->estado,
+            'idEstudiante' => $request->estudiante1,
+            'estado' => 'activo',
         ]);
+        if(!empty($request->estudiante2))
+        {Proyecto_estudiante::create([
+            'idProyecto' => $request->idProyecto,
+            'idEstudiante' => $request->estudiante2,
+            'estado' => 'activo',
+        ]);}
+        Asignacion::create([
+            'idProyecto' => $request->idProyecto,
+            'idDoc' => $request->tutor1,
+            'rol' => 'tutor',
+            'estado' => 'Activo',
+        ]);
+        if(!empty($request->tutor2))
+        {Asignacion::create([
+            'idProyecto' => $request->idProyecto,
+            'idDoc' => $request->tutor2,
+            'rol' => 'tutor',
+            'estado' => 'activo',
+        ]);}
         return response()->json([
             'message' => 'Se agrego correctamente!',
         ]);
+
     }
 
     /**

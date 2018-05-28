@@ -26,8 +26,9 @@
 		  <thead>
 		    <tr>
 		      <th style="width: 15%"><font size="3">Codigo Proyecto</font></th>
-		      <th style="width: 40%"><font size="3">Nombre Proyecto</font></th>
+		      <th style="width: 30%"><font size="3">Nombre Proyecto</font></th>
 		      <th style="width: 35%"><font size="3">Area Proyecto</font></th>
+              <th style="width: 10%"><font size="3">Estado</font></th>
 		      <th style="width: 10%"><font size="3">Detalles</font></th>
 
 		    </tr>
@@ -37,12 +38,15 @@
 		  	@foreach($proyectos as $proyecto)
 		  	<tr data-id="{{ $proyecto->idProyecto }}">
 	            <td style="width: 15%" class="text-center"> {{ $proyecto->idProyecto }} </td>
-	            <td style="width: 40%"> {{ $proyecto->titulo }} </td>
+	            <td style="width: 30%"> {{ $proyecto->titulo }} </td>
 	            <td style="width: 35%"> 
                 @foreach($proyecto->proyecto_has_area as $pha)
                     {{ $pha->area->nombreArea }}, 
                 @endforeach 
                 </td>
+                <td style="width: 10%"> 
+                w
+                 </td>
 	            <td style="width: 10%"><a class="btn-floating btn-sm btn-indigo btn-modal-show" data-toggle="tooltip" data-placement="top" title="ver"><i class="fa fa-eye mt-2 ml-2 fa-lg"></i></a></td>
 	            
         	</tr>

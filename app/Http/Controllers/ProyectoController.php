@@ -3,7 +3,9 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-
+use Mail;
+use Session;
+use Redirect;
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
 use App\Proyecto;
@@ -69,7 +71,7 @@ class ProyectoController extends Controller
 
 
 
-        /*$this->validate($request, [
+        $this->validate($request, [
             'titulo' => 'required|string',
             'objetivos' => 'required|string',
             'descripcion' => 'required|string',
@@ -77,7 +79,7 @@ class ProyectoController extends Controller
             'idModalidad' => 'required|integer',
 
         
-        ]);*/
+        ]);
 
         //PARA IMPRIMIR DATOS//
         /*return response()->json([
@@ -131,11 +133,11 @@ class ProyectoController extends Controller
         ]);
                }    
          
-        return redirect('proyectos');
+        //return redirect('proyectos');
 
-       /* return response()->json([
+       return response()->json([
             'message' => 'Se agrego correctamente!',
-        ]);*/
+        ]);
     }
     
 
@@ -205,22 +207,21 @@ class ProyectoController extends Controller
         foreach ($proyecto->proyecto_has_area as $areas) {
             $area->push($areas->area->nombreArea);
         }
-        $docentes = Docente::select('docente.idDoc', 'nombreDoc', 'apePaternoDoc', 'apeMaternoDoc', 'nombreArea')
-        ->join('tiene', 'docente.idDoc', '=', 'tiene.idDoc')
-        ->join('area', 'tiene.idArea', '=', 'area.idArea')
+        $docentes = Docente::select('docente.idDoc', 'nombreDoc', 'apePaternoDoc', 'apeMaternoDoc')
+        ->where('tipo', 'docente')
+        // ->join('tiene', 'docente.idDoc', '=', 'tiene.idDoc')
+        // ->join('area', 'tiene.idArea', '=', 'area.idArea')
         // ->whereIn('area.nombreArea', $area)
         ->orderBy('apePaternoDoc', 'asc')
-        ->paginate(5);
-        foreach ($docentes as $key => $value) {
-            $value->cant = Asignacion::where('idDoc', $value->idDoc)
-            ->where('estado', 'activo')
-            ->where('rol', 'tribunal')
-            ->count();
-
-            $value->tribunal = Asignacion::where('idDoc', $value->idDoc)
-            ->where('idProyecto', $idProyecto)->where('estado', 'activo')
-            ->where('rol', 'tribunal')
-            ->count();
+        ->paginate(10);
+        foreach ($docentes as $key => $docente) {
+            $areas = collect([]);
+            foreach ($docente->tiene as $tiene) {
+                $areas->push($tiene->area->nombreArea);
+            }
+            $docente->areas = $areas;
+            $docente->cant = Asignacion::where('idDoc', $docente->idDoc)->where('estado', 'activo')->where('rol', 'tribunal')->count();
+            $docente->tribunal = Asignacion::where('idDoc', $docente->idDoc)->where('idProyecto', $idProyecto)->where('estado', 'activo')->where('rol', 'tribunal')->count();
         }
         return view('tribunales.asignacion')
         ->with([
@@ -231,18 +232,24 @@ class ProyectoController extends Controller
 
     public function renunciaTribunales($idProyecto){
         $proyecto = Proyecto::where('idProyecto', $idProyecto)->firstOrFail();
-        $docentes = Docente::select('docente.idDoc', 'nombreDoc', 'apePaternoDoc', 'apeMaternoDoc', 'nombreArea')
-        ->join('tiene', 'docente.idDoc', '=', 'tiene.idDoc')
-        ->join('area', 'tiene.idArea', '=', 'area.idArea')
+        $docentes = Docente::select('docente.idDoc', 'nombreDoc', 'apePaternoDoc', 'apeMaternoDoc')
         ->join('asignacion', 'docente.idDoc', '=', 'asignacion.idDoc')
         ->where([
             ['asignacion.rol', '=', 'tribunal'],
             ['asignacion.idProyecto', '=', $proyecto->idProyecto],
             ['asignacion.estado', '=', 'activo'],
         ])->paginate(5);
-        foreach ($docentes as $key => $value) {
-            $value->cant = Asignacion::where('idDoc', $value->idDoc)->where('estado', 'activo')->where('rol', 'tribunal')->count();
-            $value->tribunal = 1;
+        $areas = collect([]);
+        foreach ($docentes as $key => $docente) {
+            foreach ($docente->tiene as $tiene) {
+                // dd($tiene->area->clasificacion);
+                if ($tiene->area->clasificacion == 'area') {
+                    $areas->push($tiene->area->nombreArea);
+                }
+            }
+            $docente->areas = $areas;
+            $docente->cant = Asignacion::where('idDoc', $docente->idDoc)->where('estado', 'activo')->where('rol', 'tribunal')->count();
+            $docente->tribunal = 1;// como es renuncia, quiere decir que si es tribunal
         }
         return view('tribunales.asignacion')->with([
             'proyecto' => $proyecto,
@@ -251,21 +258,32 @@ class ProyectoController extends Controller
     }
 
     public function asignarTribunal($idProyecto, $idDoc){
+        $docente = Docente::where('idDoc', $idDoc)->first();
+            Mail::send('emails.notificacion', ['message' => 'usted es afortunado, se gano un auto cero kilometros y Bs 1'], function($msj) use ($docente) {
+                $msj->subject('Correo de prueba, no te asustes');
+                $msj->to($docente->emailDoc, $docente->nombreDoc);
+            });
+
         //controlar solo tres tribunales
-        $count_tribu = Asignacion::where([
-            ['rol', '=', 'tribunal'],
-            ['idProyecto', '=', $idProyecto],
-            ['estado', '=', 'activo'],
-        ])->count();
-        if ($count_tribu < 3) {//controla la cantidad de tribunales
-            Asignacion::create([
-                'rol' => 'tribunal',
-                'idProyecto' => $idProyecto,
-                'idDoc' => $idDoc,
-                'estado' => 'activo',
-            ]);
-        }
-        return back();
+        // $count_tribu = Asignacion::where([
+        //     ['rol', '=', 'tribunal'],
+        //     ['idProyecto', '=', $idProyecto],
+        //     ['estado', '=', 'Activo'],
+        // ])->count();
+        // if ($count_tribu < 3) {//controla la cantidad de tribunales
+        //     Asignacion::create([
+        //         'rol' => 'tribunal',
+        //         'idProyecto' => $idProyecto,
+        //         'idDoc' => $idDoc,
+        //         'estado' => 'Activo',
+        //     ]);
+        //     // $docente = Docente::where('idDoc', $idDoc)->first();
+        //     // Mail::send('emails.notificacion', ['message' => 'usted es afortunado, se gano un auto cero kilometros y Bs 1'], function($msj) use ($docente) {
+        //     //     $msj->subject('Correo de prueba, no te asustes');
+        //     //     $msj->to($docente->emailDoc, $docente->nombreDoc);
+        //     // });
+        // }
+        // return back();
     }
     public function renunciaTribunal(Request $request){
         $Asig = Asignacion::where('idProyecto', $request->idProyecto)
