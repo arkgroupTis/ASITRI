@@ -25,7 +25,7 @@
             <ul class="collapsible collapsible-accordion">
                 <li>
                     <a class="collapsible-header waves-effect arrow-r">
-                        <i class="fas fa-folder-open"></i> 
+                    <i class="fas fa-file-alt"></i>
                         Proyectos
                         <i class="fa fa-angle-down rotate-icon"></i>
                     </a>
@@ -45,7 +45,7 @@
                 </li>
                 <li>
                     <a class="collapsible-header waves-effect arrow-r">
-                        <i class="fas fa-graduation-cap"></i>
+                    <i class="fas fa-user"></i>
                         Docentes & Profesionales
                         <i class="fa fa-angle-down rotate-icon"></i>
                     </a>
@@ -60,16 +60,11 @@
                         </ul>
                     </div>
                 </li>
-                <li>
-                    <a href="/renuncia" class="collapsible-header waves-effect arrow-r">
-                        <i class="fa fa-eye"></i> 
-                            Renuncia Tribunal
-                    </a>
-                </li>
+
                 <li>
                     <a class="collapsible-header waves-effect arrow-r">
-                        <i class="fa fa-hand-pointer-o"></i> 
-                        Areas
+                    <i class="fa fa-university"></i>
+                        Areas & Sub Areas
                         <i class="fa fa-angle-down rotate-icon"></i>
                     </a>
                     <div class="collapsible-body">
@@ -83,10 +78,11 @@
                         </ul>
                     </div>
                 </li>
+
                 <li>
                     <a class="collapsible-header waves-effect arrow-r">
-                        <i class="fas fa-graduation-cap"></i>
-                        Tribunales
+                    <i class="fas fa-balance-scale"></i> 
+                           Tribunales
                         <i class="fa fa-angle-down rotate-icon"></i>
                     </a>
                     <div class="collapsible-body">  
@@ -95,15 +91,18 @@
                                 <a href="/tribunales" class="waves-effect">Tribunales</a>
                             </li>
                             <li>
-                                <a href="/tribunales/asignacion" class="waves-effect">Asignacion de Tribunales</a>
+                    <a href="/renuncia" class="collapsible-header waves-effect arrow-r">
+                         
+                               Renuncia Tribunal
+                    </a>
                             </li>
                         </ul>
                     </div>  
                 </li>
                 <li>
                     <a class="collapsible-header waves-effect arrow-r" href="/estudiante">
-                        <i class="fa fa-eye"></i> 
-                        Estudiantes
+                    <i class="fa fa-graduation-cap"></i>
+                            Estudiantes
                     </a>
                 </li>
                 <hr class="white">

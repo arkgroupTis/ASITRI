@@ -13,6 +13,7 @@
                 <!-- Brand -->
                 <a class="navbar-brand" href="#">
                     <strong>ASIGNACION DE TRIBUNALES</strong>
+
                 </a>
                 <!-- Collapse -->
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
@@ -31,16 +32,7 @@
                     </ul>
                     <!-- Right -->
                     <ul class="navbar-nav nav-flex-icons">
-                        <li class="nav-item">
-                            <a href="#" class="nav-link">
-                                <i class="fa fa-facebook"></i>
-                            </a>
-                        </li>
-                        <li class="nav-item">
-                            <a href="#" class="nav-link">
-                                <i class="fa fa-twitter"></i>
-                            </a>
-                        </li>
+                        
                         @if(auth()->guest())
                         <li class="nav-item">
                             <a href="{{url('login')}}" class="nav-link border border-light rounded">
