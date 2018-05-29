@@ -140,6 +140,7 @@
             success : function(data) {
                 toastr.success(data.message);
                 clear();
+                location.reload();
                 //console.log(data)
             },
             error : function(xhr, status) {
