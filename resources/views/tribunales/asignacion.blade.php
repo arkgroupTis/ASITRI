@@ -16,14 +16,14 @@
     </div>
 </div>
 <div class="row">
-    <div class="col-sm-6"></div>
+    
     <div class="col-sm-6">
         <label class="sr-only" for="search_docente">Docente</label>
         <div class="md-form input-group mb-3">
-            <div class="input-group-prepend">
-                <span class="input-group-text md-addon">Buscar</span>
-            </div>
-            <input type="text" class="form-control pl-0 rounded-0" id="search_docente" placeholder="Docente">
+        <label class="sr-only" ></label>
+                <div class="md-form input-group mb-3">
+                <input type="text" class="form-control pl-0 rounded-0" id="search_docente" type="text" placeholder="Buscar Docentes/Profesionales...">
+                </div>
         </div>
     </div>
 </div>
@@ -31,21 +31,29 @@
     <table class="table table-bordered table-striped table-sm">
         <thead>
             <tr>
-                <th>Docente </th>
-                <th>Area</th>
-                <th>Proyectos</th>
-                <th>acciones</th>
+                <th style="width: 20%" ><font size="3">Docente </font></th>
+                <th style="width: 50%" ><font size="3">Areas</font></th>
+                <th style="width: 5%" class="text-center" ><font size="3">Trib</font></th>
+                <th style="width: 5%" class="text-center" ><font size="3">Tut</font></th>
+                <th style="width: 10%" class="text-center" ><font size="3">Asignar</font></th>
             </tr>
         </thead>
-        <tbody>
+        <tbody id="table2">
         @foreach($docentes as $docente)
             <tr>
-                <td>{{ $docente->apePaternoDoc .' '. $docente->apeMaternoDoc .' '. $docente->nombreDoc }}</td>
-                <td>{{ $docente->nombreArea }}</td>
-                <td>{{ $docente->cant }}</td>
-                <td>
+                <td style="width: 20%" >{{ $docente->apePaternoDoc .' '. $docente->apeMaternoDoc .' '. $docente->nombreDoc }}</td>
+                <td style="width: 50%" >
+                @foreach($docente->tiene as $pha)
+                    {{ $pha->area->nombreArea }}, 
+                @endforeach 
+                </td>
+
+                <td style="width: 5%" class="text-center">{{ $docente->cantTrib }}</td>
+                <td style="width: 5%" class="text-center">{{ $docente->cantTut }}</td>
+
+                <td style="width: 10%" class="text-center" >
                     @if(!$docente->tribunal)
-                    <a href="/estudiante/proyecto/{{$proyecto->idProyecto}}/{{$docente->idDoc}}/asignacion" class="btn-floating btn-sm btn-indigo" onClick="alert('Se asignara el tribunal a este proyecto!')" data-toggle="tooltip" data-placement="top" title="Asignar"><i class="fas fa-plus-circle mt-1 ml-1 fa-2x"></i></i></a>
+                    <a href="/estudiante/proyecto/{{$proyecto->idProyecto}}/{{$docente->idDoc}}/asignacion" class="btn-floating btn-sm btn-light-green" onClick="alert('Se asignara el tribunal a este proyecto!')" data-toggle="tooltip" data-placement="top" title="Asignar"><i class="fas fa-plus-circle mt-1 ml-1 fa-2x"></i></i></a>
                     @else
                     <span class="badge badge-success">asignado</span>
                     <a data-id="{{$docente->idDoc}}" class="btn-floating btn-sm btn-danger btn-modal-renuncia" data-toggle="tooltip" data-placement="top" title="Renuncia"><i class="fa fa-times mt-2 ml-2 fa-lg"></i></a>
@@ -76,14 +84,7 @@
                 <div class="form-row">
                     <div class="col-md-12">
                         <!--Blue select-->
-                        <select class="mdb-select colorful-select dropdown-default" id="motivo_select">
-                            <option value="" selected disabled>Seleccionar una opcion</option>
-                            <option value="1">Option 1</option>
-                            <option value="2">Option 2</option>
-                            <option value="3">Option 3</option>
-                            <option value="4">Option 4</option>
-                            <option value="otro">Otro</option>
-                        </select>
+                        
                         <label>Motivo de Renuncia</label>
                         <!--/Blue select-->
                     </div>
@@ -120,6 +121,14 @@
 @endsection
 @section('script')
 <script>
+    $(document).ready(function(){
+		  $("#search_docente").on("keyup", function() {
+		    var value = $(this).val().toLowerCase();
+		    $("#table2 tr").filter(function() {
+		      $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
+		    });
+		  });
+		});
     // SCRIPT PARA LA RENUNCIA DE TRIBUNAL
     var idDoc = null;
     $(document).on('click', '.btn-modal-renuncia', function() {

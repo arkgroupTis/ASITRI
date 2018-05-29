@@ -16,7 +16,7 @@
 	    </div>    	
         <div class="col-md-2" ></div>
         <div class="col-md-4">
-            <button class="btn btn-teal btn-rounded">
+            <button class="btn btn-cyan btn-rounded">
                 <a href="/docenteNuevo"><font color="white" size="3">Nuevo Docente/Profesional</font></a>
 			</button>
         

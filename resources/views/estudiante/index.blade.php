@@ -61,16 +61,18 @@
                 @endforeach
                 </td>
                 <td style="width: 22%" class="text-center">
-                	<a class="btn-floating btn-sm btn-indigo btn-modal-show" data-toggle="tooltip" data-placement="top" title="ver"><i class="fa fa-eye mt-2 ml-1 fa-lg"></i></a>
-                	<a class="btn-floating btn-sm btn-info btn-modal-edit" data-toggle="tooltip" data-placement="top" title="editar"><i class="fa fa-edit mt-2 ml-1 fa-lg"></i></a>
-    				<a class="btn-floating btn-sm btn-danger btn-modal-delete" data-toggle="tooltip" data-placement="top" title="eliminar"><i class="fa fa-trash mt-2 ml-1 fa-lg"></i></a>
-                    <a class="btn-floating btn-sm btn-info" href="/estudiante/{{ $estudiante->idEstudiante }}/proyecto" data-toggle="tooltip" data-placement="top" title="ver proyecto"><i class="fa fa-eye mt-2 ml-1 fa-lg"></i></a>
+                	<a class="btn-floating btn-sm btn-mdb-color btn-modal-show" data-toggle="tooltip" data-placement="top" title="ver"><i class="fa fa-eye mt-2 ml-1 fa-lg"></i></a>
+                	<a class="btn-floating btn-sm btn-blue btn-modal-edit" data-toggle="tooltip" data-placement="top" title="editar"><i class="fa fa-edit mt-2 ml-1 fa-lg"></i></a>
+    				<a class="btn-floating btn-sm btn-pink btn-modal-delete" data-toggle="tooltip" data-placement="top" title="eliminar"><i class="fa fa-trash mt-2 ml-1 fa-lg"></i></a>
+                    <a class="btn-floating btn-sm btn-light-green" href="/estudiante/{{ $estudiante->idEstudiante }}/proyecto" data-toggle="tooltip" data-placement="top" title="ver proyecto"><i class="fa fa-plus mt-2 ml-1 fa-lg"></i></a>
                 </td>
             </tr>
     		@endforeach
         </tbody>
     </table>
 </div>
+<div class="group form-row" style=margin-top:55px;></div>
+
 <h3 class="text-center">Estudiantes con Proyecto Terminado</h3>
 <div class="row">
 <div class="col-md-6">
@@ -103,7 +105,7 @@
                 <td style="width: 10%;" >{{ $estudiante->telefono }}</td>
                 <td style="width: 15%;" >{{ $estudiante->carrera->nombreCarrera }}</td>
                 <td style="width: 10%;" class="text-center">
-                    <a class="btn-floating btn-sm btn-indigo btn-modal-show" data-toggle="tooltip" data-placement="top" title="ver"><i class="fa fa-eye mt-2 ml-1 fa-lg"></i></a>
+                    <a class="btn-floating btn-sm btn-mdb-color btn-modal-show" data-toggle="tooltip" data-placement="top" title="ver"><i class="fa fa-eye mt-2 ml-1 fa-lg"></i></a>
                 </td>
             </tr>
             @endforeach

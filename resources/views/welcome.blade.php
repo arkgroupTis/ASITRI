@@ -66,7 +66,7 @@
                 <div class="carousel-item active">
                     <div class="view" style="background-image: url('/img/fondo1.jpg'); background-repeat: no-repeat; background-size: cover;">
                         <!-- Mask & flexbox options-->
-                        <div class="mask rgba-black-light d-flex justify-content-center align-items-center">
+                        <div class="mask rgba-blue-grey-light d-flex justify-content-center align-items-center">
                             <!-- Content -->
                             <div class="text-center white-text mx-5 wow fadeIn">
                                 <h1 class="mb-4">
@@ -154,28 +154,28 @@
             <!-- Social icons -->
             <div class="pb-4">
                 <a href="#">
-                    <i class="fa fa-facebook mr-3"></i>
+                    <i class="fab fa-facebook mr-3"></i>
                 </a>
                 <a href="#">
-                    <i class="fa fa-twitter mr-3"></i>
+                    <i class="fab fa-twitter mr-3"></i>
                 </a>
                 <a href="#">
-                    <i class="fa fa-youtube mr-3"></i>
+                    <i class="fab fa-youtube mr-3"></i>
                 </a>
                 <a href="#">
-                    <i class="fa fa-google-plus mr-3"></i>
+                    <i class="fab fa-google-plus mr-3"></i>
                 </a>
                 <a href="#">
-                    <i class="fa fa-dribbble mr-3"></i>
+                    <i class="fab fa-dribbble mr-3"></i>
                 </a>
                 <a href="#">
-                    <i class="fa fa-pinterest mr-3"></i>
+                    <i class="fab fa-pinterest mr-3"></i>
                 </a>
                 <a href="#">
-                    <i class="fa fa-github mr-3"></i>
+                    <i class="fab fa-github mr-3"></i>
                 </a>
                 <a href="#">
-                    <i class="fa fa-codepen mr-3"></i>
+                    <i class="fab fa-codepen mr-3"></i>
                 </a>
             </div>
             <!-- Social icons -->
