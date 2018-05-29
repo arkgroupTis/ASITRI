@@ -166,6 +166,8 @@
             success : function(data) {
                 toastr.success(data.message);
                 clear();
+                location.reload();
+
             },
             error : function(xhr, status) {
                 toastr.error('Disculpe, existio un problema!');
@@ -175,6 +177,7 @@
     function clear() 
     {
         document.getElementById("miForm").reset();
+
     }
 </script>
 
