@@ -9,7 +9,7 @@ class Docente extends Model
     //le damos el nombre a la tabla
     protected $table = 'docente';
     protected $primaryKey = 'idDoc';
-    protected $fillable = ['ciDoc','nombreDoc', 'apePaternoDoc', 'apeMaternoDoc', 'emailDoc', 'telefonoDoc', 'tituloDoc', 'cargaHoraria'];
+    protected $fillable = ['ciDoc','nombreDoc', 'apePaternoDoc', 'apeMaternoDoc', 'emailDoc', 'telefonoDoc', 'tituloDoc', 'cargaHoraria', 'tipo'];
     //ya no guarda el created_at, updated_at 
     public $timestamps = false;
     

@@ -27,7 +27,26 @@ class DocenteController extends Controller
         $profesionales = Docente::orderBy('apePaternoDoc', 'asc')
         ->where('tipo', 'profesional')
         ->get();
-        
+
+        $proDoc = Docente::orderBy('apePaternoDoc', 'asc')
+        ->where('tipo', 'profesional')
+        ->where('tipo', 'docente')
+        ->get();
+
+        foreach ($proDoc as $key => $value) {
+            $value->cantTr = Asignacion::where('idDoc', $value->idDoc)
+            ->where('estado', 'Activo')
+            ->where('rol', 'tribunal')
+            ->count();
+        }
+
+        foreach ($proDoc as $key => $value) {
+            $value->cantTu = Asignacion::where('idDoc', $value->idDoc)
+            ->where('estado', 'Activo')
+            ->where('rol', 'tutor')
+            ->count();
+        }
+
         foreach ($docentes as $key => $value) {
             $value->cantTrib = Asignacion::where('idDoc', $value->idDoc)
             ->where('estado', 'Activo')
