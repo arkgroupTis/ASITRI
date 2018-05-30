@@ -18,7 +18,7 @@
     <!-- Grid column -->
     <div class="col-lg-3 col-md-6 mb-1">
         <a href="/docentes">
-        <img src="/img/docente.jpg" class="img-fluid z-depth-1" alt="Responsive image">
+        <img src="/img/docente.JPG" class="img-fluid z-depth-1" alt="Responsive image">
         </a>
         <h3 class="text-center"><a href="/docentes"><p class="white-text">Docentes</p></a></h3>
     </div>
@@ -27,7 +27,7 @@
         <!-- Grid column -->
         <div class="col-lg-3 col-md-6 mb-1">
     <a href="/estudiante">
-        <img src="/img/estudiante.jpg" class="img-fluid z-depth-1" alt="Responsive image">
+        <img src="/img/estudiante.JPG" class="img-fluid z-depth-1" alt="Responsive image">
         </a>
         <h3 class="text-center"><a href="/estudiante"><p class="white-text">Estudiantes</p></a></h3>
     </div>
@@ -36,7 +36,7 @@
     <!-- Grid column -->
     <div class="col-lg-3 col-md-6 mb-1">
         <a href="/proyectos">
-        <img src="/img/tesis.jpg" class="img-fluid z-depth-1" alt="Responsive image">
+        <img src="/img/tesis.JPG" class="img-fluid z-depth-1" alt="Responsive image">
         </a>
         <h3 class="text-center"><a href="/proyectos"><p class="white-text">Proyectos</p></a></h3>
     </div>
@@ -53,7 +53,7 @@
     <!-- Grid column -->
     <div class="col-lg-3 col-md-6 mb-3">
         <a href="/areas">
-        <img src="/img/area.jpg" class="img-fluid z-depth-1" alt="Responsive image">
+        <img src="/img/area.JPG" class="img-fluid z-depth-1" alt="Responsive image">
         </a>
         <h3 class="text-center"><a href="/areas"><p class="white-text">Areas</p></a></h3>
     </div>
@@ -62,7 +62,7 @@
     <!-- Grid column -->
     <div class="col-lg-3 col-md-6 mb-3">
         <a href="/tribunales">
-        <img src="/img/tribunal.jpg" class="img-fluid z-depth-1" alt="Responsive image">
+        <img src="/img/tribunal.JPG" class="img-fluid z-depth-1" alt="Responsive image">
         </a>
         <h3 class="text-center"><a href="/tribunales"><p class="white-text">Tribunales</p></a></h3>
     </div>
@@ -71,7 +71,7 @@
     <!-- Grid column -->
     <div class="col-lg-3 col-md-6 mb-3" >
 
-        <img src="/img/info.jpg" class="img-fluid z-depth-1" alt="Responsive image">
+        <img src="/img/info.JPG" class="img-fluid z-depth-1" alt="Responsive image">
         <h3 class="text-center" ><p class="white-text">Informacion</p></h3>
     </div>
     <!-- Grid column -->

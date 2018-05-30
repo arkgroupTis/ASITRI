@@ -18,6 +18,6 @@ class Estudiante extends Model
     }
 
     public function proyecto_estudiante(){
-        return $this->hasMany('App\proyecto_estudiante', 'idEstudiante', 'idEstudiante');
+        return $this->hasMany('App\Proyecto_estudiante', 'idEstudiante', 'idEstudiante');
     }
 }
