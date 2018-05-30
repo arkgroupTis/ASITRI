@@ -158,6 +158,7 @@
                'area': $('#area').val(),
                'subarea': $('#subarea').val(),
 
+<<<<<<< HEAD
            },
            success : function(data) {
                toastr.success(data.message);
@@ -173,6 +174,24 @@
    {
        document.getElementById("miForm").reset();
    }
+=======
+            },
+            success : function(data) {
+                toastr.success(data.message);
+                clear();
+                location.reload();
+                //console.log(data)
+            },
+            error : function(xhr, status) {
+                toastr.error('Disculpe, existio un problema!');
+            },
+        });
+    });
+    function clear() 
+    {
+        document.getElementById("miForm").reset();
+    }
+>>>>>>> ebe8692fde9b62fb0d68fa4cea0efa01c190995b
 </script>
 
 @endsection

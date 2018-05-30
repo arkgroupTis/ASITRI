@@ -192,6 +192,7 @@
 @endsection
 @section('script')
 <script>
+<<<<<<< HEAD
    $(document).on('click', '#add', function(e) {
        e.preventDefault();
        $.ajax({
@@ -225,6 +226,44 @@
    {
        document.getElementById("miForm").reset();
    }
+=======
+    $(document).on('click', '#add', function(e) {
+        e.preventDefault();
+        $.ajax({
+            type: 'POST',
+            url: '/docentes',
+            data: {
+                '_token': $('input[name=_token]').val(),
+                'ciDoc': $('#ci').val(),
+                'nombreDoc': $('#name').val(),
+                'apePaternoDoc': $('#apePaterno').val(),
+                'apeMaternoDoc': $('#apMaterno').val(),
+                'emailDoc': $('#email').val(),
+                'telefonoDoc': $('#telefono').val(),
+                'tituloDoc': $('#tituloDoc').val(),
+                'cargaHoraria': $('#carga').val(),
+
+                'tipo': $('#tipo').val(),
+                'area': $('#area').val(),
+
+            },
+            success : function(data) {
+                toastr.success(data.message);
+                clear();
+                location.reload();
+
+            },
+            error : function(xhr, status) {
+                toastr.error('Disculpe, existio un problema!');
+            },
+        });
+    });
+    function clear() 
+    {
+        document.getElementById("miForm").reset();
+
+    }
+>>>>>>> ebe8692fde9b62fb0d68fa4cea0efa01c190995b
 </script>
 
 @endsection
