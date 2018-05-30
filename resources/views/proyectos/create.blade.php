@@ -95,27 +95,6 @@
        <label class="col-sm-2 col-form-label">Modalidad: </label>
        <div class="col-md-4">
 
-<<<<<<< HEAD
-           <select class="mdb-select colorful-select dropdown-primary col-md-12" id="modalidad" name="idModalidad">
-               @foreach($res[3] as $modalidad)
-               <option value="{{ $modalidad-> idModalidad}}"> {{ $modalidad-> nombreMod}} </option>
-               @endforeach
-           </select>
-       </div>
- </div>
- <div class="group form-row" style=margin-top:60px;></div>
-           <div class="form-row">
-           <div class="col-md-8" ></div>
-      
-           <button type="reset" class="btn btn-red btn-rounded">
-               <font color="white" size="3">CANCELAR</font>
-            </button>
-           <!-- <button class="btn  btn-primary btn-md" id="add">GUARDAR</button> -->
-           <button class="btn btn-light-green btn-rounded" id="add">
-               <font color="white" size="3">GUARDAR</font>
-            </button>
-           </div>
-=======
             <select class="mdb-select colorful-select dropdown-primary col-md-12" id="modalidad" name="idModalidad">
                 @foreach($res[3] as $modalidad)
                 <option value="{{ $modalidad-> idModalidad}}"> {{ $modalidad-> nombreMod}} </option>
@@ -135,7 +114,6 @@
                 <font color="white" size="3">GUARDAR</font>
 			</button>
             </div>
->>>>>>> c72130a35d62dec474a3098475d6a58853233fa0
 </form>
 @endsection
 @section('script')
@@ -158,23 +136,6 @@
                'area': $('#area').val(),
                'subarea': $('#subarea').val(),
 
-<<<<<<< HEAD
-           },
-           success : function(data) {
-               toastr.success(data.message);
-               clear();
-               //console.log(data)
-           },
-           error : function(xhr, status) {
-               toastr.error('Disculpe, existio un problema!');
-           },
-       });
-   });
-   function clear()
-   {
-       document.getElementById("miForm").reset();
-   }
-=======
             },
             success : function(data) {
                 toastr.success(data.message);
@@ -191,7 +152,6 @@
     {
         document.getElementById("miForm").reset();
     }
->>>>>>> ebe8692fde9b62fb0d68fa4cea0efa01c190995b
 </script>
 
 @endsection

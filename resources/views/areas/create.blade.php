@@ -1,12 +1,10 @@
 @extends('layouts.app')
-@extends('layouts.app')
 
 
 @section('content')
 {{ csrf_field() }}
 <!-- Horizontal material form -->
 <form id="miForm">
-<<<<<<< HEAD
    <!-- Grid row -->
    <h1 class="text-center">Nueva Area \ Sub Area</h1>
    <div class="group form-row" style=margin-top:50px;></div>
@@ -18,29 +16,6 @@
          	   <option value="area">Area</option>
                 <option value="subarea">Sub Area</option>
             </select>
-=======
-    <!-- Grid row -->
-    <h1 class="text-center">Nueva Area \ Sub Area</h1>
-    <div class="group form-row" style=margin-top:50px;></div>
-    </div>
-    <div class="form-group row">
-    <label for="nombre" class="col-sm-2 col-form-label">Clasificacion:</label>
-		      <div class="col-sm-10" >
-		        <select class="mdb-select colorful-select dropdown-primary md-form mt-0" name="clasificacion" id="clasificacion">
-			    <option value="area">Area</option>
-				<option value="subarea">Sub Area</option>
-			</select>
-		</div>
-    </div>    
-    
-    <div class="form-group row">
-        <!-- Material input -->
-        <label for="nombre" class="col-sm-2 col-form-label">Nombre:</label>
-        <div class="col-sm-10">
-            <div class="md-form mt-0">
-                <input type="text" class="form-control" id="nombre" placeholder="Nombre">
-            </div>
->>>>>>> c72130a35d62dec474a3098475d6a58853233fa0
         </div>
    </div>   
   
@@ -55,7 +30,6 @@
    </div>
    <!-- Grid row -->
 
-<<<<<<< HEAD
    <!-- Grid row -->
    <div class="form-group row">
        <!-- Material input -->
@@ -80,32 +54,6 @@
             </button>
            </div>
    <!-- Grid row -->
-=======
-    <!-- Grid row -->
-    <div class="form-group row">
-        <!-- Material input -->
-        <label for="descripcion" class="col-sm-2 col-form-label">Descripcion:</label>
-        <div class="col-sm-10">
-            <div class="md-form mt-0">
-              <textarea type="text" id="descripcion" class="form-control md-textarea" rows="3" placeholder="Descripcion"></textarea>
-            </div>
-        </div>
-    </div>
-            <!-- <button type="reset" class="btn btn-danger btn-md">Cancelar</button> -->
-            <div class="group form-row" style=margin-top:60px;></div>
-            <div class="form-row">
-            <div class="col-md-8" ></div>
-        
-            <button type="reset" class="btn btn-red btn-rounded">
-                <font color="white" size="3">CANCELAR</font>
-			</button>
-            <!-- <button class="btn  btn-primary btn-md" id="add">GUARDAR</button> -->
-            <button class="btn btn-light-green btn-rounded" id="add">
-                <font color="white" size="3">GUARDAR</font>
-			</button>
-            </div>
-    <!-- Grid row -->
->>>>>>> c72130a35d62dec474a3098475d6a58853233fa0
 </form>
 <!-- Horizontal material form -->
 @endsection

@@ -1,43 +1,6 @@
 @extends('layouts.app')
 @section('content')
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-<<<<<<< HEAD
-  <h1 class="text-center">Areas \ Sub Areas</h1>
-  <h1 class="text-center">   </h1>
-  <h3 class="text-center">Areas</h3>
-  <div class="form-row">
-    
-     <div class="col-md-6" >
-      <label class="sr-only" ></label>
-       <div class="md-form input-group mb-3">
-       <input class="form-control pl-0 rounded-0" id="Search1" type="text" placeholder="Buscar Areas...">  
-        </div>
-     </div>
-      <div class="col-md-3" >
-         
-     </div>
-      <div class="col-md-3" algin="center" >
-   	 <button class="btn btn-cyan btn-rounded">
-         <a href="/areaNueva"><font color="white" size="3">Nueva Area/Sub Area</font></a>
-        </button>
-      </div>    
-   </div>
-  <!--<div class="tablaScroll3">
-    <table class="table table-striped tablaScroll3">
- 	 <thead>
- 	   <tr>
- 	     <th style="width: 15%"><font size="3">Codigo Area</font></th>
- 	     <th style="width: 55%"><font size="3">Descripcion</font></th>
- 	     <th style="width: 30%"><font size="3">Area</font></th>
- 	   </tr>
- 	 </thead>
- 	 <tbody id="table1">
- 	   @foreach($areas as $area)
-   	     <tr>
-   	       <td style="width: 15%">{{$area -> idArea}}</td>
-     	     <td style="width: 55%">{{$area -> descripcionArea}}</td>
-     	     <td style="width: 30%">{{$area -> nombreArea}}</td>
-=======
 	<h1 class="text-center">Areas \ Sub Areas</h1>
 	<h1 class="text-center">   </h1>
 	<h3 class="text-center">Areas</h3>
@@ -73,7 +36,6 @@
 			  			<td style="width: 15%">{{$area -> idArea}}</td>
 				    	<td style="width: 55%">{{$area -> descripcionArea}}</td>
 				    	<td style="width: 30%">{{$area -> nombreArea}}</td>
->>>>>>> c72130a35d62dec474a3098475d6a58853233fa0
 
      	   </tr>
  	   @endforeach
@@ -108,21 +70,12 @@
 <h3 class="text-center">Sub Areas</h3>
 <div class="form-row">
 <div class="col-md-6">
-<<<<<<< HEAD
-        <label class="sr-only" ></label>
-       <div class="md-form input-group mb-3">
-       <input class="form-control pl-0 rounded-0" id="Search2" type="text" placeholder="Buscar Sub Areas...">  
-     </div>
-      </div>
-      </div>
-=======
 				<label class="sr-only" ></label>
         <div class="md-form input-group mb-3">
     		<input class="form-control pl-0 rounded-0" id="Search2" type="text" placeholder="Buscar Sub Areas...">	
     	</div>
 			</div>
 			</div>
->>>>>>> c72130a35d62dec474a3098475d6a58853233fa0
 <div class="tablaScroll5">
    <table class="table table-striped table-sm tablaScroll5">
        <thead>
