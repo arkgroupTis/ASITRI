@@ -3,6 +3,7 @@
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
   <h1 align="center">PROYECTOS</h1>
 <div class="container">
+<<<<<<< HEAD
   <div class="form-row">
     
     <div class="col-md-6">
@@ -13,6 +14,38 @@
                </div>
       </div>      
        <div class="col-md-3" ></div>
+=======
+	<div class="form-row">
+		
+		<div class="col-md-6">
+	    		
+                <label class="sr-only" ></label>
+                <div class="md-form input-group mb-3">
+                <input type="text" class="form-control pl-0 rounded-0" id="Search1" type="text" placeholder="Buscar Proyectos...">
+                </div>
+	    </div>    	
+        <div class="col-md-3" ></div>
+
+    	
+    	<div class="col-md-3" align="right">
+            <!-- <button class="btn btn-indigo">
+    		    <a href="/create"><font color="white" size="2">NUEVO PROYECTO</font></a>
+            </button> -->
+			<button class="btn btn-cyan btn-rounded">
+                <a href="/create"><font color="white" size="3">NUEVO PROYECTO</font></a>
+			</button>
+    	</div>    	
+    </div>
+	<div class="tablaScroll4">
+		<table class="table table-striped tablaScroll4">
+		  <thead>
+		    <tr>
+		      <th style="width: 15%"><font size="3">Codigo Proyecto</font></th>
+		      <th style="width: 30%"><font size="3">Nombre Proyecto</font></th>
+		      <th style="width: 35%"><font size="3">Area Proyecto</font></th>
+              <th style="width: 10%"><font size="3">Estado</font></th>
+		      <th style="width: 10%"><font size="3">Detalles</font></th>
+>>>>>>> c72130a35d62dec474a3098475d6a58853233fa0
 
      
      <div class="col-md-3" align="right">
@@ -52,6 +85,7 @@
                    {{ $pha->estado }},
                @endforeach
                 </td>
+<<<<<<< HEAD
              
               <td style="width: 10%">
         <a class="btn-floating btn-sm btn-mdb-color btn-modal-show"  href="/proyect/{{ $proyecto->idProyecto }}" data-toggle="tooltip" data-placement="top" title="ver">
@@ -63,6 +97,24 @@
  	 </tbody>
     </table>
    </div>
+=======
+                <td style="width: 10%"> 
+                @foreach($proyecto->proyecto_estudiante as $pha)
+                    {{ $pha->estado }}, 
+                @endforeach
+                 </td>
+	            
+	            <td style="width: 10%">
+				<a class="btn-floating btn-sm btn-mdb-color btn-modal-show"  href="/proyect/{{ $proyecto->idProyecto }}" data-toggle="tooltip" data-placement="top" title="ver">
+				<i class="fa fa-eye mt-2 ml-2 fa-lg"></i></a></td>
+				
+        	</tr>
+		  	@endforeach
+		    
+		  </tbody>
+		</table>
+    </div>
+>>>>>>> c72130a35d62dec474a3098475d6a58853233fa0
 </div>
 
               

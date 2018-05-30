@@ -52,6 +52,7 @@
                <option value="Magister">Magister</option>-->
             </select>
         </div>
+<<<<<<< HEAD
 
        <div class="col-md-4">
            <label class="control-label">Carga Horaria: </label>
@@ -138,6 +139,54 @@
                <font color="white" size="3">GUARDAR</font>
             </button>
    </div>
+=======
+        <!-- Grid column -->
+
+        <!-- Grid column -->
+        <div class="col-md-3">
+            <!-- Material input -->
+            <div class="md-form form-group">
+                <input type="text" class="form-control" id="ci">
+                <label >CI: </label>
+            </div>
+        </div>
+
+        <div class="col-md-3">
+            <!-- Material input -->
+            <div class="md-form form-group">
+                <input type="text" class="form-control" id="telefono">
+                <label >Telefono/Celular: </label>
+            </div>
+        </div>
+        <!-- Grid column -->
+    </div>
+       <label>Area: </label>
+        <div class="form-row">
+                <div class="col-md-12">
+                <select class="mdb-select colorful-select dropdown-primary" multiple name="area[]" id="area" required>
+                    <option active disabled>Seleccionar un Area</option>
+                    @foreach($areas as $area)
+                    <option value="{{ $area-> idArea}}"> {{ $area-> nombreArea}}</option>
+                    @endforeach
+                </select>
+                </div>
+        </div>  
+
+    <!-- <button class="btn  btn-primary btn-md" id="add">GUARDAR</button>
+    <button class="btn  btn-info btn-md">CANCELAR</button> -->
+    <div class="group form-row" style=margin-top:60px;></div>
+    <div class="form-row">
+        <div class="col-md-8" ></div>
+        
+            <button type="reset" class="btn btn-red btn-rounded">
+                <font color="white" size="3">CANCELAR</font>
+			</button>
+            <!-- <button class="btn  btn-primary btn-md" id="add">GUARDAR</button> -->
+            <button class="btn btn-light-green btn-rounded" id="add">
+                <font color="white" size="3">GUARDAR</font>
+			</button>
+    </div>
+>>>>>>> c72130a35d62dec474a3098475d6a58853233fa0
 
 </form>
 @endsection

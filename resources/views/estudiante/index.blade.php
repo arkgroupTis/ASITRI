@@ -5,6 +5,7 @@
 <h1 class="text-center">ESTUDIANTES</h1>
 <h3 class="text-center">Estudiantes con Proyecto Vigente</h3>
 <div class="row">
+<<<<<<< HEAD
   
    <div class="col-md-6">
        <label class="sr-only" for="search_estudent">Estudiante</label>
@@ -23,6 +24,26 @@
                <font color="white" size="3">Nuevo Estudiante</font>
             </button>
    </div>
+=======
+    
+    <div class="col-md-6">
+        <label class="sr-only" for="search_estudent">Estudiante</label>
+        <div class="md-form input-group mb-3">
+            <input type="text" class="form-control pl-0 rounded-0" id="search_estudent" placeholder="Buscar estudiante...">
+        </div>
+    </div>
+    <div class="col-md-3">
+        
+    </div>
+    <div class="col-md-3">
+        <!-- <button type="button" class="btn btn-indigo" id="btn-modal-add" data-toggle="modal" data-target="#modal-estudiante">
+            Nuevo Estudiante
+        </button> -->
+        <button type="button" class="btn btn-cyan btn-rounded" id="btn-modal-add" data-toggle="modal" data-target="#modal-estudiante">
+                <font color="white" size="3">Nuevo Estudiante</font>
+			</button>
+    </div>
+>>>>>>> c72130a35d62dec474a3098475d6a58853233fa0
 </div>
 <!-- es para mostrar mensaje para cuando hay errores -->
 @if($errors->has())
@@ -35,6 +56,7 @@
 <hr>
 
 <div class="tablaScroll5">
+<<<<<<< HEAD
    <table class="table table-striped table-sm tablaScroll5">
        <thead>
            <tr>
@@ -70,6 +92,43 @@
            @endforeach
        </tbody>
    </table>
+=======
+    <table class="table table-striped table-sm tablaScroll5">
+        <thead>
+            <tr>
+                <th style="width: 8%" class="text-center">CI</th>
+              	<th style="width: 20%" >Apellidos</th>
+              	<th style="width: 15%" >Nombre</th>
+              	<th style="width: 10%" >Telefono</th>
+              	<th style="width: 18%" >Carrera</th>
+                <th style="width: 7%" >Proyecto</th>
+              	<th style="width: 22%" class="text-center">Herramientas</th>
+            </tr>
+        </thead>
+        <tbody class="tabla1">
+        	@foreach($estudiantes_v as $estudiante)
+            <tr data-id="{{ $estudiante->idEstudiante }}">
+                <td style="width: 8%" class="text-center">{{ $estudiante->ciEst }}</td>
+                <td style="width: 20%" >{{ $estudiante->apellidoEst }}</td>
+                <td style="width: 15%" >{{ $estudiante->nombreEst }}</td>
+                <td style="width: 10%" >{{ $estudiante->telefono }}</td>
+                <td style="width: 18%" >{{ $estudiante->carrera->nombreCarrera }}</td>
+                <td style="width: 7%" >
+                @foreach($estudiante->proyecto_estudiante as $pha)
+                    {{ $pha->estado }}, 
+                @endforeach
+                </td>
+                <td style="width: 22%" class="text-center">
+                	<a class="btn-floating btn-sm btn-mdb-color btn-modal-show" data-toggle="tooltip" data-placement="top" title="ver"><i class="fa fa-eye mt-2 ml-1 fa-lg"></i></a>
+                	<a class="btn-floating btn-sm btn-blue btn-modal-edit" data-toggle="tooltip" data-placement="top" title="editar"><i class="fa fa-edit mt-2 ml-1 fa-lg"></i></a>
+    				<a class="btn-floating btn-sm btn-pink btn-modal-delete" data-toggle="tooltip" data-placement="top" title="eliminar"><i class="fa fa-trash mt-2 ml-1 fa-lg"></i></a>
+                    <a class="btn-floating btn-sm btn-light-green" href="/estudiante/{{ $estudiante->idEstudiante }}/proyecto" data-toggle="tooltip" data-placement="top" title="ver proyecto"><i class="fa fa-plus mt-2 ml-1 fa-lg"></i></a>
+                </td>
+            </tr>
+    		@endforeach
+        </tbody>
+    </table>
+>>>>>>> c72130a35d62dec474a3098475d6a58853233fa0
 </div>
 <div class="group form-row" style=margin-top:55px;></div>
 
@@ -83,6 +142,7 @@
    </div>
    </div>
 <div class="tablaScroll5">
+<<<<<<< HEAD
    <table class="table table-striped table-sm tablaScroll5">
        <thead>
            <tr>
@@ -111,6 +171,36 @@
            @endforeach
        </tbody>
    </table>
+=======
+    <table class="table table-striped table-sm tablaScroll5">
+        <thead>
+            <tr>
+                <th style="width: 10%;" class="text-center">CI</th>
+                <th style="width: 15%;" >Apellidos</th>
+                <th style="width: 15%;" >Nombre</th>
+                <th style="width: 25%;" >Email</th>
+                <th style="width: 10%;" >Telefono</th>
+                <th style="width: 15%;" >Carrera</th>
+                <th style="width: 10%;" class="text-center">Ver</th>
+            </tr>
+        </thead>
+        <tbody class="tabla2">
+            @foreach($estudiantes_t as $estudiante)
+            <tr data-id="{{ $estudiante->idEstudiante }}">
+                <td style="width: 10%;" class="text-center">{{ $estudiante->ciEst }}</td>
+                <td style="width: 15%;" >{{ $estudiante->apellidoEst }}</td>
+                <td style="width: 15%;" >{{ $estudiante->nombreEst }}</td>
+                <td style="width: 25%;" >{{ $estudiante->emailEst }}</td>
+                <td style="width: 10%;" >{{ $estudiante->telefono }}</td>
+                <td style="width: 15%;" >{{ $estudiante->carrera->nombreCarrera }}</td>
+                <td style="width: 10%;" class="text-center">
+                    <a class="btn-floating btn-sm btn-mdb-color btn-modal-show" data-toggle="tooltip" data-placement="top" title="ver"><i class="fa fa-eye mt-2 ml-1 fa-lg"></i></a>
+                </td>
+            </tr>
+            @endforeach
+        </tbody>
+    </table>
+>>>>>>> c72130a35d62dec474a3098475d6a58853233fa0
 </div>
 
 

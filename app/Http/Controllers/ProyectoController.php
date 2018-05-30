@@ -232,7 +232,16 @@ class ProyectoController extends Controller
                 $areas->push($tiene->area->nombreArea);
             }
             $docente->areas = $areas;
-            $docente->cant = Asignacion::where('idDoc', $docente->idDoc)->where('estado', 'activo')->where('rol', 'tribunal')->count();
+            $docente->cantTrib = Asignacion::where('idDoc', $docente->idDoc)
+            ->where('estado', 'activo')
+            ->where('rol', 'tribunal')
+            ->count();
+
+            $docente->cantTut = Asignacion::where('idDoc', $docente->idDoc)
+            ->where('estado', 'activo')
+            ->where('rol', 'tutor')
+            ->count();
+
             $docente->tribunal = Asignacion::where('idDoc', $docente->idDoc)->where('idProyecto', $idProyecto)->where('estado', 'activo')->where('rol', 'tribunal')->count();
         }
         return view('tribunales.asignacion')
