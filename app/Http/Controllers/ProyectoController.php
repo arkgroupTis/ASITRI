@@ -248,11 +248,32 @@ class ProyectoController extends Controller
 
             $docente->tribunal = Asignacion::where('idDoc', $docente->idDoc)->where('idProyecto', $idProyecto)->where('estado', 'Activo')->where('rol', 'tribunal')->count();
         }
+
         $ids = collect([]);
         foreach ($docentes as $docente) {
             $ids->push($docente->idDoc);
         }
-        $extras = Docente::select('docente.idDoc', 'nombreDoc', 'apePaternoDoc', 'apeMaternoDoc')->whereNotIn('idDoc',$ids)->get();
+        $extras = Docente::select('docente.idDoc', 'nombreDoc', 'apePaternoDoc', 'apeMaternoDoc')
+        ->whereNotIn('docente.idDoc',$ids)
+        ->get();
+        foreach ($extras as $key => $docente) {
+            $areas = collect([]);
+            foreach ($docente->tiene as $tiene) {
+                $areas->push($tiene->area->nombreArea);
+            }
+            $docente->areas = $areas;
+            $docente->cantTrib = Asignacion::where('idDoc', $docente->idDoc)
+            ->where('estado', 'Activo')
+            ->where('rol', 'tribunal')
+            ->count();
+
+            $docente->cantTut = Asignacion::where('idDoc', $docente->idDoc)
+            ->where('estado', 'Activo')
+            ->where('rol', 'tutor')
+            ->count();
+
+            $docente->tribunal = Asignacion::where('idDoc', $docente->idDoc)->where('idProyecto', $idProyecto)->where('estado', 'Activo')->where('rol', 'tribunal')->count();
+        }
         return view('tribunales.asignacion')
         ->with([
             'proyecto' => $proyecto,

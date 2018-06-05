@@ -31,7 +31,7 @@
                 <th style="width: 10%" class="text-center" ><font size="3">Asignar</font></th>
             </tr>
         </thead>
-        <tbody id="table2">
+        <tbody id="table1">
         @foreach($docentes as $docente)
             <tr>
                 <td style="width: 20%" >{{ $docente->apePaternoDoc .' '. $docente->apeMaternoDoc .' '. $docente->nombreDoc }}</td>
@@ -59,6 +59,9 @@
 </div>
 <br>
 <h2>Otros</h2>
+<div class="md-form input-group mb-3">
+    <input type="text" class="form-control pl-0 rounded-0" id="search_docente2" type="text" placeholder="Buscar Docentes/Profesionales...">
+</div>
 <div class="row">
     <table class="table table-striped table-sm tablaScroll4">
         <thead>
@@ -155,11 +158,19 @@
     $(document).ready(function(){
 		  $("#search_docente").on("keyup", function() {
 		    var value = $(this).val().toLowerCase();
-		    $("#table2 tr").filter(function() {
+		    $("#table1 tr").filter(function() {
 		      $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
 		    });
 		  });
 		});
+    $(document).ready(function(){
+          $("#search_docente2").on("keyup", function() {
+            var value = $(this).val().toLowerCase();
+            $("#table2 tr").filter(function() {
+              $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
+            });
+          });
+        });
     // SCRIPT PARA LA RENUNCIA DE TRIBUNAL
     var idDoc = null;
     $(document).on('click', '.btn-modal-renuncia', function() {
