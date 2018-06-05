@@ -4,7 +4,7 @@
         <li>
             <div class="logo-wrapper waves-light">
                 <a href="#">
-                    <img src="/img/logo-transparent.png" class="img-fluid flex-center">
+                    <img src="/img/fd.png" class="img-fluid flex-center">
                 </a>
             </div>
         </li>
@@ -25,7 +25,7 @@
             <ul class="collapsible collapsible-accordion">
                 <li>
                     <a class="collapsible-header waves-effect arrow-r">
-                        <i class="fas fa-folder-open"></i> 
+                    <i class="fas fa-file-alt"></i>
                         Proyectos
                         <i class="fa fa-angle-down rotate-icon"></i>
                     </a>
@@ -45,119 +45,54 @@
                 </li>
                 <li>
                     <a class="collapsible-header waves-effect arrow-r">
-                        <i class="fas fa-graduation-cap"></i>
+                    <i class="fas fa-user"></i>
                         Docentes & Profesionales
                         <i class="fa fa-angle-down rotate-icon"></i>
                     </a>
                     <div class="collapsible-body">
                         <ul>
                             <li>
-                                <a href="/docentes" class="waves-effect">Docente & Profesionales</a>
+                                <a href="/docentes" class="waves-effect">Docentes & Profesionales</a>
                             </li>
                             <li>
-                                <a href="/docentes/create" class="waves-effect">Nuevo Docente</a>
+                                <a href="/docentes/create" class="waves-effect">Nuevo Docente/Profesional</a>
                             </li>
                         </ul>
                     </div>
                 </li>
-                <li>
-                    <a href="/renuncia" class="collapsible-header waves-effect arrow-r">
-                        <i class="fa fa-eye"></i> 
-                            Renuncia Tribunal
-                    </a>
-                </li>
+
                 <li>
                     <a class="collapsible-header waves-effect arrow-r">
-                        <i class="fa fa-hand-pointer-o"></i> 
-                        Areas
+                    <i class="fa fa-university"></i>
+                        Areas & Sub Areas
                         <i class="fa fa-angle-down rotate-icon"></i>
                     </a>
                     <div class="collapsible-body">
                         <ul>
                             <li>
-                                <a href="/areas" class="waves-effect">Catalogo Areas</a>
+                                <a href="/areas" class="waves-effect">Areas & Sub Areas</a>
                             </li>
                             <li>
-                                <a href="/areas/create" class="waves-effect">Nueva Area</a>
+                                <a href="/areas/create" class="waves-effect">Nueva Area/Sub Area</a>
                             </li>
                         </ul>
                     </div>
                 </li>
+
                 <li>
-                    <a class="collapsible-header waves-effect arrow-r">
-                        <i class="fas fa-graduation-cap"></i>
-                        Tribunales
-                        <i class="fa fa-angle-down rotate-icon"></i>
+                    <a class="waves-effect" href="/tribunales">
+                    <i class="fas fa-balance-scale"></i> 
+                           Tribunales
                     </a>
-                    <div class="collapsible-body">  
-                        <ul>
-                            <li>
-                                <a href="/tribunales" class="waves-effect">Tribunales</a>
-                            </li>
-                            <li>
-                                <a href="/tribunales/asignacion" class="waves-effect">Asignacion de Tribunales</a>
-                            </li>
-                        </ul>
-                    </div>  
                 </li>
                 <li>
                     <a class="collapsible-header waves-effect arrow-r" href="/estudiante">
-                        <i class="fa fa-eye"></i> 
-                        Estudiantes
+                    <i class="fa fa-graduation-cap"></i>
+                            Estudiantes
                     </a>
                 </li>
                 <hr class="white">
-                <li>
-                    <a class="collapsible-header waves-effect arrow-r">
-                        <i class="fa fa-envelope-o"></i> 
-                        Contact me
-                        <i class="fa fa-angle-down rotate-icon"></i>
-                    </a>
-                    <div class="collapsible-body">
-                        <ul>
-                            <li>
-                                <a href="#" class="waves-effect">
-                                    FAQ
-                                </a>
-                            </li>
-                            <li>
-                                <a href="#" class="waves-effect">
-                                    Write a message
-                                </a>
-                            </li>
-                            <li>
-                                <a href="#" class="waves-effect">
-                                    FAQ
-                                </a>
-                            </li>
-                            <li>
-                                <a href="#" class="waves-effect">
-                                    Write a message
-                                </a>
-                            </li>
-                            <li>
-                                <a href="#" class="waves-effect">
-                                    FAQ
-                                </a>
-                            </li>
-                            <li>
-                                <a href="#" class="waves-effect">
-                                    Write a message
-                                </a>
-                            </li>
-                            <li>
-                                <a href="#" class="waves-effect">
-                                    FAQ
-                                </a>
-                            </li>
-                            <li>
-                                <a href="#" class="waves-effect">
-                                    Write a message
-                                </a>
-                            </li>
-                        </ul>
-                    </div>
-                </li>
+                
             </ul>
         </li>
         <!--/. Side navigation links -->

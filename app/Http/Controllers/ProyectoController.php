@@ -32,6 +32,7 @@ class ProyectoController extends Controller
         return view('proyectos.mainproyecto', compact('proyectos'));
     }
 
+    
     /**
      * Show the form for creating a new resource.
      *
@@ -71,7 +72,7 @@ class ProyectoController extends Controller
 
 
 
-        /*$this->validate($request, [
+        $this->validate($request, [
             'titulo' => 'required|string',
             'objetivos' => 'required|string',
             'descripcion' => 'required|string',
@@ -79,7 +80,7 @@ class ProyectoController extends Controller
             'idModalidad' => 'required|integer',
 
         
-        ]);*/
+        ]);
 
         //PARA IMPRIMIR DATOS//
         /*return response()->json([
@@ -133,11 +134,11 @@ class ProyectoController extends Controller
         ]);
                }    
          
-        return redirect('proyectos');
+        //return redirect('proyectos');
 
-       /* return response()->json([
+       return response()->json([
             'message' => 'Se agrego correctamente!',
-        ]);*/
+        ]);
     }
     
 
@@ -191,7 +192,11 @@ class ProyectoController extends Controller
     }
 
     public function proyectoEstudiante($idEstudiante){
-        $proy_est = Proyecto_estudiante::where('idEstudiante', $idEstudiante)->where('estado', 'activo')->first();
+        $proy_est = Proyecto_estudiante::where('idEstudiante', $idEstudiante)
+        ->where('Proyecto_estudiante.estado', 'activo')
+        ->join('asignacion','Proyecto_estudiante.idProyecto','=','asignacion.idProyecto')
+        ->first();
+        //dd($proy_est);
         if ($proy_est) {
             return view('proyectos.motivo', compact('proy_est'));
         }
@@ -201,6 +206,17 @@ class ProyectoController extends Controller
         
     }
 
+    public function detalles($id)
+    {
+        
+        $proyectos = Proyecto::where('idProyecto', $id);
+        
+        return view('proyectos.detalles', compact('proyectos'));
+        
+    }
+
+    
+
     public function posiblesTribunales($idProyecto){
         $proyecto = Proyecto::where('idProyecto', $idProyecto)->firstOrFail();
         $area = collect([]);
@@ -209,24 +225,39 @@ class ProyectoController extends Controller
         }
         $docentes = Docente::select('docente.idDoc', 'nombreDoc', 'apePaternoDoc', 'apeMaternoDoc')
         ->where('tipo', 'docente')
-        // ->join('tiene', 'docente.idDoc', '=', 'tiene.idDoc')
-        // ->join('area', 'tiene.idArea', '=', 'area.idArea')
-        // ->whereIn('area.nombreArea', $area)
+        ->join('tiene', 'docente.idDoc', '=', 'tiene.idDoc')
+        ->join('area', 'tiene.idArea', '=', 'area.idArea')
+        ->whereIn('area.nombreArea', $area)
         ->orderBy('apePaternoDoc', 'asc')
-        ->paginate(10);
+        ->get();
         foreach ($docentes as $key => $docente) {
             $areas = collect([]);
             foreach ($docente->tiene as $tiene) {
                 $areas->push($tiene->area->nombreArea);
             }
             $docente->areas = $areas;
-            $docente->cant = Asignacion::where('idDoc', $docente->idDoc)->where('estado', 'activo')->where('rol', 'tribunal')->count();
-            $docente->tribunal = Asignacion::where('idDoc', $docente->idDoc)->where('idProyecto', $idProyecto)->where('estado', 'activo')->where('rol', 'tribunal')->count();
+            $docente->cantTrib = Asignacion::where('idDoc', $docente->idDoc)
+            ->where('estado', 'Activo')
+            ->where('rol', 'tribunal')
+            ->count();
+
+            $docente->cantTut = Asignacion::where('idDoc', $docente->idDoc)
+            ->where('estado', 'Activo')
+            ->where('rol', 'tutor')
+            ->count();
+
+            $docente->tribunal = Asignacion::where('idDoc', $docente->idDoc)->where('idProyecto', $idProyecto)->where('estado', 'Activo')->where('rol', 'tribunal')->count();
         }
+        $ids = collect([]);
+        foreach ($docentes as $docente) {
+            $ids->push($docente->idDoc);
+        }
+        $extras = Docente::select('docente.idDoc', 'nombreDoc', 'apePaternoDoc', 'apeMaternoDoc')->whereNotIn('idDoc',$ids)->get();
         return view('tribunales.asignacion')
         ->with([
             'proyecto' => $proyecto,
             'docentes' => $docentes,
+            'extras' => $extras,
         ]);
     }
 

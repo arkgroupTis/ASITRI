@@ -8,21 +8,25 @@
     </style>
 </head>
 
-<body style="background-image: url('/img/fondo1.jpg'); background-repeat: no-repeat; background-size: cover; background-position: center center;">
+<body style="background-image: url('/img/fondo.jpg'); background-repeat: no-repeat; background-size: cover; background-position: center center;">
     <br>
     <br>
     <br>
     <!--Grid row-->
-    <div class="row wow fadeIn aling-items-center" style="margin-right: 0px;margin-left:0px;">
-        <div class="col-md"></div>
-        <div class="col-md-5">
+
+    <div class="row wow fadeIn aling-items-center" style="margin-right:0px; margin-left:0px; margin-top:0px;">
+        <div class="col-md-8 ">
+            <img src="/img/asd.jpg" class="img-fluid z-depth-1-half" alt="">
+        </div>
+        
+        <div class="col-md-4">
             <!--Form with header-->
-            <div class="card z-depth-5">
+            <div class="card bg-transparent">
                 <div class="card-body">
                     <form class="form-horizontal" role="form" method="POST" action="{{ url('/login') }}">
                         {{ csrf_field() }}
                         <!--Header-->
-                        <div class="form-header peach-gradient">
+                        <div class="form-header  blue-grey darken-3">
                             <h3>
                                 <i class="fa fa-lock white-text"></i> Login:
                             </h3>
@@ -46,18 +50,19 @@
                         <br>
 
                         <div class="text-center">
-                            <button class="btn btn-deep-orange waves-effect waves-light">Login</button>
+                            <button class="btn btn-  blue-grey darken-3 waves-effect waves-light">Login</button>
                         </div>
                     </form>
                     <!-- Form -->
                 </div>
                 <!--Footer-->
                 <div class="modal-footer">
-                    <a href="/">Ir Welcome</a>
-                    <div class="footer-copyright py-3">
+                    
+                    <div class="footer-copyright py-3 text-center" alig="center">
                         © 2018 Copyright:
                         <a href="#"> ArkGroup.com </a>
                     </div>
+                    
                 </div>
             </div>
             <!--/Form with header-->

@@ -16,4 +16,8 @@ class Estudiante extends Model
     public function carrera(){
     	return $this->hasOne(Carrera::class, 'idCarrera', 'idCarrera');
     }
+
+    public function proyecto_estudiante(){
+        return $this->hasMany('App\Proyecto_estudiante', 'idEstudiante', 'idEstudiante');
+    }
 }
