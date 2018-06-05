@@ -314,32 +314,32 @@ class ProyectoController extends Controller
     }
 
     public function asignarTribunal($idProyecto, $idDoc){
-        $docente = Docente::where('idDoc', $idDoc)->first();
-            Mail::send('emails.notificacion', ['message' => 'usted es afortunado, se gano un auto cero kilometros y Bs 1'], function($msj) use ($docente) {
-                $msj->subject('Correo de prueba, no te asustes');
-                $msj->to($docente->emailDoc, $docente->nombreDoc);
-            });
+        // $docente = Docente::where('idDoc', $idDoc)->first();
+            // Mail::send('emails.notificacion', ['message' => 'usted es afortunado, se gano un auto cero kilometros y Bs 1'], function($msj) use ($docente) {
+            //     $msj->subject('Correo de prueba, no te asustes');
+            //     $msj->to($docente->emailDoc, $docente->nombreDoc);
+            // });
 
-        //controlar solo tres tribunales
-        // $count_tribu = Asignacion::where([
-        //     ['rol', '=', 'tribunal'],
-        //     ['idProyecto', '=', $idProyecto],
-        //     ['estado', '=', 'Activo'],
-        // ])->count();
-        // if ($count_tribu < 3) {//controla la cantidad de tribunales
-        //     Asignacion::create([
-        //         'rol' => 'tribunal',
-        //         'idProyecto' => $idProyecto,
-        //         'idDoc' => $idDoc,
-        //         'estado' => 'Activo',
-        //     ]);
-        //     // $docente = Docente::where('idDoc', $idDoc)->first();
-        //     // Mail::send('emails.notificacion', ['message' => 'usted es afortunado, se gano un auto cero kilometros y Bs 1'], function($msj) use ($docente) {
-        //     //     $msj->subject('Correo de prueba, no te asustes');
-        //     //     $msj->to($docente->emailDoc, $docente->nombreDoc);
-        //     // });
-        // }
-        // return back();
+        // controlar solo tres tribunales
+        $count_tribu = Asignacion::where([
+            ['rol', '=', 'tribunal'],
+            ['idProyecto', '=', $idProyecto],
+            ['estado', '=', 'Activo'],
+        ])->count();
+        if ($count_tribu < 3) {//controla la cantidad de tribunales
+            Asignacion::create([
+                'rol' => 'tribunal',
+                'idProyecto' => $idProyecto,
+                'idDoc' => $idDoc,
+                'estado' => 'Activo',
+            ]);
+            // $docente = Docente::where('idDoc', $idDoc)->first();
+            // Mail::send('emails.notificacion', ['message' => 'usted es afortunado, se gano un auto cero kilometros y Bs 1'], function($msj) use ($docente) {
+            //     $msj->subject('Correo de prueba, no te asustes');
+            //     $msj->to($docente->emailDoc, $docente->nombreDoc);
+            // });
+        }
+        return back();
     }
     public function renunciaTribunal(Request $request){
         $Asig = Asignacion::where('idProyecto', $request->idProyecto)
@@ -357,7 +357,8 @@ class ProyectoController extends Controller
         );
         Renuncia::create([
             'fechaRenuncia' => $request->idProyecto,
-            'motivosRenuncia' => $request->motivo,
+            'motivosRenuncia' => $request->motivo_select,
+            'descripcion' => $request->motivo,
             'idAsig' => $Asig->idAsig,
         ]);
         return response()->json([
