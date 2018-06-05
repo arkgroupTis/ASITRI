@@ -182,8 +182,12 @@
     // SCRIPT PARA LA RENUNCIA DE TRIBUNAL
     var idDoc = null;
     $(document).on('click', '.btn-modal-renuncia', function() {
+        var dt = new Date();
+        var month = dt.getMonth()+1;
+        var day = dt.getDate();
+        var year = dt.getFullYear();
         $('#motivo').val('');
-        $('#date-picker-renuncia').val('');
+        $('#date-picker-renuncia').val(day + '-' + month + '-' + year);
         idDoc = $(this).data('id');
         $('#modal-renuncia').modal('show');
     });
