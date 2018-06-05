@@ -15,20 +15,13 @@
         <p class="lead"><b>Proyecto:</b> {{ $proyecto->titulo }}</p>
     </div>
 </div>
-<div class="row">
-    
-    <div class="col-sm-6">
-        <label class="sr-only" for="search_docente">Docente</label>
-        <div class="md-form input-group mb-3">
-        <label class="sr-only" ></label>
-                <div class="md-form input-group mb-3">
-                <input type="text" class="form-control pl-0 rounded-0" id="search_docente" type="text" placeholder="Buscar Docentes/Profesionales...">
-                </div>
-        </div>
+<br>
+<h2>Recomendados</h2>
+    <div class="md-form input-group mb-3">
+    <input type="text" class="form-control pl-0 rounded-0" id="search_docente" type="text" placeholder="Buscar Docentes/Profesionales...">
     </div>
-</div>
 <div class="row">
-    <table class="table table-bordered table-striped table-sm">
+    <table class="table table-striped table-sm tablaScroll4">
         <thead>
             <tr>
                 <th style="width: 20%" ><font size="3">Docente </font></th>
@@ -63,7 +56,45 @@
         @endforeach
         </tbody>
     </table>
-    {{ $docentes->links() }}
+</div>
+<br>
+<h2>Otros</h2>
+<div class="row">
+    <table class="table table-striped table-sm tablaScroll4">
+        <thead>
+            <tr>
+                <th style="width: 20%" ><font size="3">Docente </font></th>
+                <th style="width: 50%" ><font size="3">Areas</font></th>
+                <th style="width: 5%" class="text-center" ><font size="3">Trib</font></th>
+                <th style="width: 5%" class="text-center" ><font size="3">Tut</font></th>
+                <th style="width: 10%" class="text-center" ><font size="3">Asignar</font></th>
+            </tr>
+        </thead>
+        <tbody id="table2">
+        @foreach($extras as $docente)
+            <tr>
+                <td style="width: 20%" >{{ $docente->apePaternoDoc .' '. $docente->apeMaternoDoc .' '. $docente->nombreDoc }}</td>
+                <td style="width: 50%" >
+                @foreach($docente->tiene as $pha)
+                    {{ $pha->area->nombreArea }}, 
+                @endforeach 
+                </td>
+
+                <td style="width: 5%" class="text-center">{{ $docente->cantTrib }}</td>
+                <td style="width: 5%" class="text-center">{{ $docente->cantTut }}</td>
+
+                <td style="width: 10%" class="text-center" >
+                    @if(!$docente->tribunal)
+                    <a href="/estudiante/proyecto/{{$proyecto->idProyecto}}/{{$docente->idDoc}}/asignacion" class="btn-floating btn-sm btn-light-green" onClick="alert('Se asignara el tribunal a este proyecto!')" data-toggle="tooltip" data-placement="top" title="Asignar"><i class="fas fa-plus-circle mt-1 ml-1 fa-2x"></i></i></a>
+                    @else
+                    <span class="badge badge-success">asignado</span>
+                    <a data-id="{{$docente->idDoc}}" class="btn-floating btn-sm btn-danger btn-modal-renuncia" data-toggle="tooltip" data-placement="top" title="Renuncia"><i class="fa fa-times mt-2 ml-2 fa-lg"></i></a>
+                    @endif
+                </td>
+            </tr>
+        @endforeach
+        </tbody>
+    </table>
 </div>
 <!-- Modal renuncia renuncia -->
 <div class="modal fade" id="modal-renuncia" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
