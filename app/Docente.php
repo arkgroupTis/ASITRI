@@ -14,14 +14,14 @@ class Docente extends Model
     public $timestamps = false;
     
     public function pertenece(){
-        return $this->hasMany('App\pertenece', 'idDoc', 'idDoc');
+        return $this->hasMany('App\Pertenece', 'idDoc', 'idDoc');
     }
     
     public function asignacion(){
-        return $this->hasMany('App\asignacion', 'idDoc', 'idDoc');
+        return $this->hasMany('App\Asignacion', 'idDoc', 'idDoc');
     }
     
     public function tiene(){
-        return $this->hasMany('App\tiene', 'idDoc', 'idDoc');
+        return $this->hasMany('App\Tiene', 'idDoc', 'idDoc');
     }
 }
