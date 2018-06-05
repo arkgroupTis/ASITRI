@@ -156,11 +156,14 @@ class EstudianteController extends Controller
      */
     public function update(Request $request, $id)
     {
+        /*return response()->json([
+            'message' => $id,
+        ]);*/
         $this->validate($request, [
             'ciEst' => 'required|string',
             'nombreEst' => 'required|string',
             'apellidoEst' => 'required|string',
-            'emailEst' => 'required|email',
+            //'emailEst' => 'required|email',
             'telefono' => 'integer',
         ]);
         Estudiante::where('idEstudiante', $id)->update(
