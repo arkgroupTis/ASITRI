@@ -193,11 +193,13 @@ class ProyectoController extends Controller
 
     public function proyectoEstudiante($idEstudiante){
         $proy_est = Proyecto_estudiante::where('idEstudiante', $idEstudiante)->where('estado', 'activo')->first();
+        $tutor1 = Asignacion::where('idProyecto', $proy_est->idProyecto)->where('rol', 'tutor')->skip(0)->first();
+        $tutor2 = Asignacion::where('idProyecto', $proy_est->idProyecto)->where('rol', 'tutor')->skip(1)->first();
         if ($proy_est) {
-            return view('proyectos.motivo', compact('proy_est'));
+            return view('proyectos.motivo', compact('proy_est','tutor1','tutor2'));
         }
         else {
-            return view('proyectos.motivo', compact('proy_est'));
+            return view('proyectos.motivo', compact('proy_est','tutor1','tutor2'));
         }
         
     }

@@ -5,6 +5,7 @@
     <div class="col-sm-8">
         <div class="jumbotron">
             <h1 class="h1-responsive">Estudiante</h1>
+
             <p class="lead"><b>Nombre:</b> {{ $proy_est->estudiante->nombreEst }}</p>
             <p class="lead"><b>Apellido:</b> {{ $proy_est->estudiante->apellidoEst }}</p>
             <p class="lead"><b
@@ -13,6 +14,16 @@
             <h1 class="h1-responsive">Proyecto</h1>
         
             <p class="lead"><b>Titulo:</b> {{ $proy_est->proyecto->titulo }}</p>
+            <p class="lead"><b>Tutor1:</b> {{ $tutor1->docente->apePaternoDoc }} {{ $tutor1->docente->apeMaternoDoc }} {{ $tutor1->docente->nombreDoc }} <br>
+              <b>Tutor2:</b> 
+              @if(empty($tutor2))
+                No existe
+              @endif
+              @if(!empty($tutor2))
+                {{ $tutor2->docente->apePaternoDoc }} {{ $tutor2->docente->apeMaternoDoc }} {{ $tutor2->docente->nombreDoc }}  
+              @endif
+              
+            </p>
             <p class="lead"><b>Objetivos:</b>{{ $proy_est->proyecto->objetivos }}</p>
             <p class="lead"><b>Descripcion:</b> {{ $proy_est->proyecto->descripcion }}</p>
             <p class="lead"><b>Area:</b> 
