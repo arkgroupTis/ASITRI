@@ -322,7 +322,8 @@ class ProyectoController extends Controller
         );
         Renuncia::create([
             'fechaRenuncia' => $request->idProyecto,
-            'motivosRenuncia' => $request->motivo,
+            'motivosRenuncia' => $request->motivo_select,
+            'descripcion' => $request->motivo,
             'idAsig' => $Asig->idAsig,
         ]);
         return response()->json([
