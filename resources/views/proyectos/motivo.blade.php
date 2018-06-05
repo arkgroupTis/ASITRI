@@ -5,6 +5,7 @@
     <div class="col-sm-8">
         <div class="jumbotron">
             <h1 class="h1-responsive">Estudiante</h1>
+
             <p class="lead"><b>Nombre:</b> {{ $proy_est->estudiante->nombreEst }}</p>
             <p class="lead"><b>Apellido:</b> {{ $proy_est->estudiante->apellidoEst }}</p>
             <p class="lead"><b
@@ -13,6 +14,42 @@
             <h1 class="h1-responsive">Proyecto</h1>
         
             <p class="lead"><b>Titulo:</b> {{ $proy_est->proyecto->titulo }}</p>
+            <p class="lead"><b>Tutor 1:</b> {{ $tutor1->docente->apePaternoDoc }} {{ $tutor1->docente->apeMaternoDoc }} {{ $tutor1->docente->nombreDoc }} <br>
+              <b>Tutor 2:</b> 
+              @if(empty($tutor2))
+                No existe
+              @endif
+              @if(!empty($tutor2))
+                {{ $tutor2->docente->apePaternoDoc }} {{ $tutor2->docente->apeMaternoDoc }} {{ $tutor2->docente->nombreDoc }}  
+              @endif
+              
+            </p>
+            <p class="lead">
+                <b>Tribunal 1:</b>
+                @if(empty($tribunal1))
+                    No existe
+                @endif
+                @if(!empty($tribunal1))
+                    {{ $tribunal1->docente->apePaternoDoc }} {{ $tribunal1->docente->apeMaternoDoc }} {{ $tribunal1->docente->nombreDoc }}  
+                @endif
+                <br>
+                <b>Tribunal 2:</b>
+                @if(empty($tribunal2))
+                    No existe
+                @endif
+                @if(!empty($tribunal2))
+                    {{ $tribunal2->docente->apePaternoDoc }} {{ $tribunal2->docente->apeMaternoDoc }} {{ $tribunal2->docente->nombreDoc }}  
+                @endif
+                <br>
+                <b>Tribunal 3:</b>
+                @if(empty($tribunal3))
+                    No existe
+                @endif
+                @if(!empty($tribunal3))
+                    {{ $tribunal3->docente->apePaternoDoc }} {{ $tribunal3->docente->apeMaternoDoc }} {{ $tribunal3->docente->nombreDoc }}  
+                @endif
+                <br>
+            </p>
             <p class="lead"><b>Objetivos:</b>{{ $proy_est->proyecto->objetivos }}</p>
             <p class="lead"><b>Descripcion:</b> {{ $proy_est->proyecto->descripcion }}</p>
             <p class="lead"><b>Area:</b> 

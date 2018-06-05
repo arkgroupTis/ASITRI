@@ -20,6 +20,7 @@
     <div class="md-form input-group mb-3">
     <input type="text" class="form-control pl-0 rounded-0" id="search_docente" type="text" placeholder="Buscar Docentes/Profesionales...">
     </div>
+</div>
 <div class="row">
     <table class="table table-striped table-sm tablaScroll4">
         <thead>
