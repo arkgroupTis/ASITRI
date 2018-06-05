@@ -21,9 +21,9 @@
         <label class="sr-only" for="search_docente">Docente</label>
         <div class="md-form input-group mb-3">
         <label class="sr-only" ></label>
-                <div class="md-form input-group mb-3">
-                <input type="text" class="form-control pl-0 rounded-0" id="search_docente" type="text" placeholder="Buscar Docentes/Profesionales...">
-                </div>
+        <div class="md-form input-group mb-3">
+            <input type="text" class="form-control pl-0 rounded-0" id="search_docente" type="text" placeholder="Buscar Docentes/Profesionales...">
+            </div>
         </div>
     </div>
 </div>
@@ -53,7 +53,7 @@
 
                 <td style="width: 10%" class="text-center" >
                     @if(!$docente->tribunal)
-                    <a href="/estudiante/proyecto/{{$proyecto->idProyecto}}/{{$docente->idDoc}}/asignacion" class="btn-floating btn-sm btn-light-green" onClick="alert('Se asignara el tribunal a este proyecto!')" data-toggle="tooltip" data-placement="top" title="Asignar"><i class="fas fa-plus-circle mt-1 ml-1 fa-2x"></i></i></a>
+                    <a href="/estudiante/proyecto/{{$proyecto->idProyecto}}/{{$docente->idDoc}}/asignacion" class="btn-floating btn-sm btn-light-green" onClick="if (! confirm('Se asignara el tribunal a este proyecto!')) return false;" data-toggle="tooltip" data-placement="top" title="Asignar"><i class="fas fa-plus-circle mt-1 ml-1 fa-2x"></i></i></a>
                     @else
                     <span class="badge badge-success">asignado</span>
                     <a data-id="{{$docente->idDoc}}" class="btn-floating btn-sm btn-danger btn-modal-renuncia" data-toggle="tooltip" data-placement="top" title="Renuncia"><i class="fa fa-times mt-2 ml-2 fa-lg"></i></a>
@@ -89,6 +89,13 @@
                         <!--/Blue select-->
                     </div>
                     <div class="col-md-12">
+                        <select class="mdb-select colorful-select dropdown-primary" id="motivo_select">
+                            <option value="" disabled selected>Seleccionar una opcion!</option>
+                            <option value="option 1">Option 1</option>
+                            <option value="option 2">Option 2</option>
+                            <option value="option 3">Option 3</option>
+                            <option value="option 4">Option 4</option>
+                        </select>
                         <div class="md-form form-group">
                             <textarea type="text" id="motivo" class="form-control md-textarea" rows="3"></textarea>
                         </div>
@@ -139,21 +146,7 @@
     });
     $(document).on('click', '#modal-guardar-btn', function(e) {
         e.preventDefault();
-        var motivo = null;
         if ($('#motivo_select').val() != null) {
-            if ($('#motivo_select').val() == "otro") {
-                if ($('#motivo').val()=="") {
-                    toastr.error('describir un motivo!');
-                } else {
-                    motivo = $('#motivo').val();
-                }
-            } else {
-                motivo = $('#motivo_select').val();
-            }
-        } else {
-            toastr.error('seleccionar un motivo!');
-        }
-        if (motivo != null) {
             $.ajax({
                 type: 'POST',
                 url: '/estudiante/proyecto/renuncia',
@@ -161,7 +154,8 @@
                     '_token': $('input[name=_token]').val(),
                     'idProyecto': {{$proyecto->idProyecto}},
                     'idDoc': idDoc,
-                    'motivo': motivo,
+                    'motivo_select': $('#motivo_select').val(),
+                    'motivo': $('#motivo').val(),
                     'fecha': $('#date-picker-renuncia').val(),
                 },
                 success : function(data) {
@@ -169,6 +163,8 @@
                     location.reload();
                 },
             });
+        } else {
+            toastr.error('seleccionar un motivo!');
         }
     });
 </script>
