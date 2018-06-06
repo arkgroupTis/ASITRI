@@ -1,6 +1,5 @@
 @extends('layouts.app')
 @section('content')
-{{ csrf_field() }}
 <div class="row">
     @if($proy_est)
     <div class="col-sm-8">
@@ -74,84 +73,9 @@
             <a href="/estudiante/proyecto/{{$proy_est?$proy_est->idProyecto:1}}/tribunales" class="btn cyan btn-lg btn-block btn-rounded" role="button">Asignar Tribunales</a>
             <a href="/estudiante/proyecto/{{$proy_est?$proy_est->idProyecto:1}}/renuncia" class="btn cyan btn-lg btn-block btn-rounded" role="button">Renuncia de Tribunal</a>
             <a href="#" class="btn cyan btn-lg btn-block btn-rounded" role="button">Seguimiento</a>
-            <a class="btn cyan btn-lg btn-block btn-rounded" role="button" id="btn-defensa"><font color="white">Defensa</font></a>
-        </div>
-    </div>
-<div class="modal fade" id="modal-defensa" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" >
-   <div class="modal-dialog modal-" role="document">
-       <!--Content-->
-       <div class="modal-content">
-           <!--Header-->
-           <div class="modal-header" style="background-color: grey">
-               <h3 class="heading lead" style="color: white">Fecha defensa</h3>
-              
-               <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-               <span aria-hidden="true" class="white-text">&times;</span>
-               </button>
-            </div>
-           <!--Body-->
-           <div class="modal-body" align="center">
-            <br>
-            <br>
-            <br>
-               
-               <!-- Grid row -->
-               <div class="row col-md-9">
-                   <!-- Grid column -->
-                   <label>La fecha de defensa que se elija sera la finalizacion de su proyecto</label>
-                   <!-- Grid column -->
-               </div>
-               <!-- Grid row -->
-            <br>
-            <br>
-            <brS>
-               <div class="col-md-12">
-                        <div class="md-form form-group">
-                            <input type="date" id="date-picker-defensa" class="form-control">
-                        </div>
-                    </div>
-            <br>
-           </div>
-          
-           <!--Footer-->
-           <div class="modal-footer">
-               <button class="btn btn-danger" data-dismiss="modal">Cerrar</button>
-               <button class="btn btn-indigo" id="modal-guardar-btn">Guardar</button>
-           </div>
+            <a href="#" class="btn cyan btn-lg btn-block btn-rounded" role="button">Defensa</a>
         </div>
     </div>
 </div>
 
-@endsection
-
-@section('script')
-<script>
-    
-     $(document).on('click', '#btn-defensa', function() {
-        $.get('/proyectos/{{$proy_est->idProyecto}}', function(data){
-           
-           $('#date-picker-defensa').val(data.proyecto.fechaFin);
-            console.log(data);
-       });
-
-        $('#modal-defensa').modal('show');
-    });
-    $(document).on('click', '#modal-guardar-btn', function(e) {
-        e.preventDefault();
-    
-            $.ajax({
-                type: 'POST',
-                url: '/estudiante/proyecto/defensa',
-                data: {
-                    '_token': $('input[name=_token]').val(),
-                    'idProyecto': {{$proy_est->idProyecto}},
-                    'fecha': $('#date-picker-defensa').val(),
-                },
-                success : function(data) {
-                    location.reload();
-                },
-            });
-            $('#modal-defensa').modal('hide');
-    });
-</script>
 @endsection
