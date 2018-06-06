@@ -67,6 +67,14 @@ class AreaController extends Controller
      */
     public function show($id)
     {
+        $docente = Area::join('tiene', 'area.idArea','=','tiene.idArea')
+        ->where('tiene.idArea','=',$id)
+        ->join('docente','tiene.idDoc','=','docente.idDoc')
+        ->get();
+        return response()->json([
+            'area' => Area::where('idArea', $id)->firstOrFail(),
+            'docente' => $docente
+        ]);
         //
     }
 
