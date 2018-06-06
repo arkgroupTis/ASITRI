@@ -1,6 +1,11 @@
 @extends('layouts.app')
 @section('content')
 {{ csrf_field() }}
+@php 
+    $hoy = getdate();
+    $hoy = date("Y-m-d");
+    print_r($hoy);
+@endphp
 <h1 class="text-center">Tribunales - Asignacion</h1>
 
 <div class="row z-depth-1-half">
@@ -118,10 +123,7 @@
                 <!-- Grid row -->
                 <div class="form-row">
                     <div class="col-md-12">
-                        <!--Blue select-->
-                        
                         <label>Motivo de Renuncia</label>
-                        <!--/Blue select-->
                     </div>
                     <div class="col-md-12">
                         <select class="mdb-select colorful-select dropdown-primary" id="motivo_select">
@@ -135,18 +137,15 @@
                             <textarea type="text" id="motivo" class="form-control md-textarea" rows="3"></textarea>
                         </div>
                     </div>
-
-                    <!-- Grid column -->
                     <div class="col-md-12">
-                        <!-- Material input -->
+                        <label for="date-picker-renuncia">Fecha de Renuncia</label>
+                    </div>
+                    <div class="col-md-12">
                         <div class="md-form form-group">
-                            <input placeholder="Selected date" type="text" id="date-picker-renuncia" class="form-control datepicker">
-                            <label for="date-picker-renuncia">Fecha de Renuncia</label>
+                            <input type="date" id="date-picker-renuncia" class="form-control">
                         </div>
                     </div>
-                    <!-- Grid column -->
                 </div>
-                <!-- Grid row -->              
             </div>
             
             <!--Footer-->
@@ -183,7 +182,7 @@
     var idDoc = null;
     $(document).on('click', '.btn-modal-renuncia', function() {
         $('#motivo').val('');
-        $('#date-picker-renuncia').val('');
+        $('#date-picker-renuncia').val('{{date("Y-m-d")}}');
         idDoc = $(this).data('id');
         $('#modal-renuncia').modal('show');
     });

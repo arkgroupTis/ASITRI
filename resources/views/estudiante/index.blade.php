@@ -63,7 +63,7 @@
                 <td style="width: 22%" class="text-center">
                 	<a class="btn-floating btn-sm btn-mdb-color btn-modal-show" data-toggle="tooltip" data-placement="top" title="ver"><i class="fa fa-eye mt-2 ml-1 fa-lg"></i></a>
                 	<a class="btn-floating btn-sm btn-blue btn-modal-edit" data-toggle="tooltip" data-placement="top" title="editar"><i class="fa fa-edit mt-2 ml-1 fa-lg"></i></a>
-    				<a class="btn-floating btn-sm btn-pink btn-modal-delete" data-toggle="tooltip" data-placement="top" title="eliminar"><i class="fa fa-trash mt-2 ml-1 fa-lg"></i></a>
+    				<!--<a class="btn-floating btn-sm btn-pink btn-modal-delete" data-toggle="tooltip" data-placement="top" title="eliminar"><i class="fa fa-trash mt-2 ml-1 fa-lg"></i></a>-->
                     <a class="btn-floating btn-sm btn-light-green" href="/estudiante/{{ $estudiante->idEstudiante }}/proyecto" data-toggle="tooltip" data-placement="top" title="ver proyecto"><i class="fa fa-plus mt-2 ml-1 fa-lg"></i></a>
                 </td>
             </tr>
@@ -192,7 +192,7 @@
                    <!-- Grid column -->
                    <div class="col-md-6">
                        <!-- Material input -->
-                       <div class="md-form form-group">
+                       <div class="md-form form-group" id="carreradiv">
                             <select class="mdb-select colorful-select dropdown-primary col-md-12" id="carrera">
                                <option value="" selected disabled>Seleccionar una opcion</option>
                                <option value="1">Ingenieria en Sistemas</option>
@@ -340,6 +340,7 @@
        $('#apellidos').val('');
        $('#email').val('');
        $('#telefono').val('');
+       $('#carreradiv').removeAttr('hidden');
    });
    // SCRIPT PARA AGREGAR ESTUDIANTE EN EL MODAL
    $(document).on('click', '#modal-agregar-btn', function(e) {
@@ -357,6 +358,7 @@
                'idCarrera': $('#carrera').val(),
            },
            success : function(data) {
+              //console.log(data);
                toastr.success(data.message);
                location.reload();
            },
@@ -388,6 +390,7 @@
        });
        type_ = 'PUT';
        url_ = '/estudiante/'+$($(this).parents("tr")).data('id');
+       $('#carreradiv').attr('hidden', 'hidden');
 
        $('#modal-estudiante').modal('show');
    });
@@ -411,6 +414,8 @@
                '_token': $('input[name=_token]').val(),
            },
            success : function(data) {
+              //console.log(data);
+
                row_tr.remove();
                toastr.success(data.message);
            },
