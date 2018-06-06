@@ -47,11 +47,12 @@ class AreaController extends Controller
         $this->validate($request, [
             'nombreArea' => 'required|string',
             'descripcionArea' => 'required|string',
+            'clasificacion' => 'required|string',
         ]);
         Area::create([
             'nombreArea' => $request['nombreArea'],
             'descripcionArea' => $request['descripcionArea'],
-            'cod_subarea' => $request['cod_subarea'],
+            'clasificacion' => $request['clasificacion'],
         ]);
         return response()->json([
             'message' => 'Se agrego correctamente!',
