@@ -30,7 +30,7 @@ Route::group(['middleware' => ['auth']], function () {
 	Route::get('/proyectos/{id}', 'ProyectoController@show');
 
 	
-	Route::resource('/proyect/{id}', 'ProyectoController@detalles');
+	Route::get('/proyecto/detalle/{id}', 'ProyectoController@detalles');
 
 	Route::resource('/estudiante', 'EstudianteController');
 

@@ -22,7 +22,7 @@
 			<button class="btn btn-cyan btn-rounded">
                 <a href="/create"><font color="white" size="3">NUEVO PROYECTO</font></a>
 			</button>
-    	</div>    	
+    	</div>
     </div>
 	<div class="tablaScroll4">
 		<table class="table table-striped tablaScroll4">
@@ -33,9 +33,6 @@
 		      <th style="width: 35%"><font size="3">Area Proyecto</font></th>
               <th style="width: 10%"><font size="3">Estado</font></th>
 		      <th style="width: 10%"><font size="3">Acciones</font></th>
-
-     
-     
  	   </tr>
  	 </thead>
     
@@ -56,7 +53,7 @@
                @endforeach
                 </td>
   	            <td style="width: 10%">
-        				<a class="btn-floating btn-sm btn-mdb-color btn-modal-show"  href="/proyect/{{ $proyecto->idProyecto }}" data-toggle="tooltip" data-placement="top" title="ver">
+        				<a class="btn-floating btn-sm btn-mdb-color"  href="/proyecto/detalle/{{ $proyecto->idProyecto }}" data-toggle="tooltip" data-placement="top" title="ver">
         				<i class="fa fa-eye mt-2 ml-2 fa-lg"></i></a>
                 <a class="btn-floating btn-sm btn-blue btn-modal-edit" data-toggle="tooltip" data-placement="top" title="editar"><i class="fa fa-edit mt-2 ml-1 fa-lg"></i></a>
               </td>
@@ -79,21 +76,6 @@
  	   });
  	 });
     });
-
-    $(document).on('click', '.btn-modal-show', function() {
-       $.get('/proyectos/'+$($(this).parents("tr")).data('id'), function(data){
-           $('#td-idProy').text(data.proyecto.idProyecto);
-           $('#td-titulo').text(data.proyecto.titulo);
-           $('#td-objetivos').text(data.proyecto.objetivos);
-           $('#td-descripcion').text(data.proyecto.descripcion);
-           $('#td-fechaIni').text(data.proyecto.fechaIni);
-           $('#td-fechaFin').text(data.proyecto.fechaFin);
-           $('#td-periodo').text(data.proyecto.periodo);
-           $('#td-sesion').text(data.proyecto.sesionDeConsejo);
-           $('#td-modalidad').text(data.proyecto.idModalidad);
-       });
-       $('#modal-show').modal('show');
-     });
 
   </script>
   

@@ -223,13 +223,58 @@ class ProyectoController extends Controller
 
     public function detalles($idProyecto)
     {
-
         
-        $proy_es = Proyecto::where('idProyecto', $idProyecto);
-        dd($proy_es);
-            return view('proyectos.detalles', compact('proy_es'));
-            
-        
+        $proy_est = Proyecto::
+        where('Proyecto.idProyecto', $idProyecto)
+        ->groupby('Proyecto.idProyecto')
+        ->get();
+        if($proy_est)
+        {
+            $proy_est = Proyecto::
+            where('Proyecto.idProyecto', $idProyecto)
+            ->join('Proyecto_estudiante','Proyecto.idProyecto','=','Proyecto_estudiante.idProyecto')
+            ->groupby('Proyecto.idProyecto')
+            ->first();
+            if(is_null($proy_est))
+            {
+                //dd('tiene contenido');
+                $proy_est = Proyecto::
+                where('Proyecto.idProyecto', $idProyecto)
+                ->groupby('Proyecto.idProyecto')
+                ->get();
+            }
+            else
+            {
+                //dd('no tiene contenido');
+                $proy_est = Proyecto::
+                where('Proyecto.idProyecto', $idProyecto)
+                ->join('Asignacion','Proyecto.idProyecto','=','Asignacion.idProyecto')
+                ->join('Proyecto_estudiante','Proyecto.idProyecto','=','Proyecto_estudiante.idProyecto')
+                ->groupby('Proyecto.idProyecto')
+                ->get();
+            }
+        }
+        $estudiantes = Proyecto::where('Proyecto.idProyecto', $idProyecto)
+            ->join('proyecto_estudiante','Proyecto.idProyecto','=','Proyecto_estudiante.idProyecto')
+            ->get();
+        $tutores = Asignacion::select('idDoc')
+            ->where('idProyecto', $idProyecto)
+            ->where('rol','tutor')
+            ->get();
+            //dd($tutores);
+        $tribunales = Asignacion::select('idDoc')
+            ->where('idProyecto', $idProyecto)
+            ->where('rol','tribunal')
+            ->get();
+        $areas = Proyecto_has_area::where('idProyecto',$idProyecto)
+        ->join('Area','Proyecto_has_area.idArea','=','Area.idArea')
+        ->where('clasificacion','=','area')
+        ->get();
+        $subareas = Proyecto_has_area::where('idProyecto',$idProyecto)
+        ->join('Area','Proyecto_has_area.idArea','=','Area.idArea')
+        ->where('clasificacion','=','subarea')
+        ->get();
+            return view('proyectos.detalles', compact('proy_est','areas','subareas','estudiantes','tutores','tribunales'));
     }
 
     

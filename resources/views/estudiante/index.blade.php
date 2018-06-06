@@ -55,7 +55,7 @@
                 <td style="width: 15%" >{{ $estudiante->nombreEst }}</td>
                 <td style="width: 10%" >{{ $estudiante->telefono }}</td>
                 <td style="width: 18%" >{{ $estudiante->carrera->nombreCarrera }}</td>
-                <td style="width: 7%" >
+                <td style="width: 7%; text-transform: capitalize;" >
                 @foreach($estudiante->proyecto_estudiante as $pha)
                     {{ $pha->estado }}, 
                 @endforeach
