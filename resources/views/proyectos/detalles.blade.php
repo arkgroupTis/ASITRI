@@ -3,40 +3,21 @@
     
 <h1 align="center">Detalles del Proyecto</h1>
 
-<div class="container">
-    <div class="form-group row">
-			<label for="buscador" class="col-sm-3 col-form-label col-form-label-lg">Codigo Proyecto :</label>
-            
-            <tr>
-			  			<td >
-                          @foreach($proyectos as $proyecto)
-                          {{ $proyecto->idProyecto }}
-                          @endforeach
-                          </td>
-			</tr>
-    </div> 
-    <div class="form-group row">
-			<label for="buscador" class="col-sm-3 col-form-label col-form-label-lg">Nombre Proyecto :</label>
-    </div>
-    <div class="form-group row">
-			<label for="buscador" class="col-sm-3 col-form-label col-form-label-lg">Areas Proyecto :</label>
-    </div>
-    <div class="form-group row">
-			<label for="buscador" class="col-sm-3 col-form-label col-form-label-lg">Sub Areas Proyecto :</label>
-    </div>
-    <div class="form-group row">
-			<label for="buscador" class="col-sm-3 col-form-label col-form-label-lg">Estudiantes :</label>
-    </div>
-    <div class="form-group row">
-			<label for="buscador" class="col-sm-3 col-form-label col-form-label-lg">Tutor :</label>
-    </div>
-    <div class="form-group row">
-			<label for="buscador" class="col-sm-3 col-form-label col-form-label-lg">Tribunales Asignados :</label>
-    </div>
-    <div class="form-group row">
-			<label for="buscador" class="col-sm-3 col-form-label col-form-label-lg">Estado Proyecto :</label>
-    </div>
+<div class="row">
+
+    <div class="jumbotron">
+    <p class="lead"><b>Codigo Proyecto:</b>
+    @foreach($proy_est as $proyecto)
+    {{ $proyecto->idProyecto }}
+    @endforeach
+    </p> 
+    <p class="lead"><b>Nombre Proyecto:</b></ps>
+    <p class="lead"><b>Areas Proyecto:</b></p>
+    <p class="lead"><b>Sub Areas Proyecto:</b></p>
+    
    
+    </div>
+    
 </div>
 
  

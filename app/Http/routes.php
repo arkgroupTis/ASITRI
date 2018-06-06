@@ -28,7 +28,9 @@ Route::group(['middleware' => ['auth']], function () {
 
 	Route::resource('/proyectos', 'ProyectoController');
 	Route::get('/proyectos/{id}', 'ProyectoController@show');
-	Route::get('/proyect/{id}', 'ProyectoController@detalles');
+
+	
+
 
 	Route::resource('/estudiante', 'EstudianteController');
 
