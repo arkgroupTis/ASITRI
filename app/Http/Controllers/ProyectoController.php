@@ -196,11 +196,23 @@ class ProyectoController extends Controller
         ->where('Proyecto_estudiante.estado', 'activo')
         ->join('asignacion','Proyecto_estudiante.idProyecto','=','asignacion.idProyecto')
         ->first();
-        $tutor1 = Asignacion::where('idProyecto', $proy_est->idProyecto)->where('rol', 'tutor')->skip(0)->first();
-        $tutor2 = Asignacion::where('idProyecto', $proy_est->idProyecto)->where('rol', 'tutor')->skip(1)->first();
-        $tribunal1 = Asignacion::where('idProyecto', $proy_est->idProyecto)->where('rol', 'tribunal')->skip(0)->first();;
-        $tribunal2 = Asignacion::where('idProyecto', $proy_est->idProyecto)->where('rol', 'tribunal')->skip(1)->first();;
-        $tribunal3 = Asignacion::where('idProyecto', $proy_est->idProyecto)->where('rol', 'tribunal')->skip(2)->first();;
+        if(empty($proy_est))
+        {
+            $tutor1 = null;
+            $tutor2 = null;
+            $tribunal1 = null;
+            $tribunal2 = null;
+            $tribunal3 = null;
+        }
+        else
+        {
+            $tutor1 = Asignacion::where('idProyecto', $proy_est->idProyecto)->where('rol', 'tutor')->skip(0)->first();
+            $tutor2 = Asignacion::where('idProyecto', $proy_est->idProyecto)->where('rol', 'tutor')->skip(1)->first();
+            $tribunal1 = Asignacion::where('idProyecto', $proy_est->idProyecto)->where('rol', 'tribunal')->skip(0)->first();;
+            $tribunal2 = Asignacion::where('idProyecto', $proy_est->idProyecto)->where('rol', 'tribunal')->skip(1)->first();;
+            $tribunal3 = Asignacion::where('idProyecto', $proy_est->idProyecto)->where('rol', 'tribunal')->skip(2)->first();;
+        }
+        
         if ($proy_est) {
             return view('proyectos.motivo', compact('proy_est','tutor1','tutor2','tribunal1' ,'tribunal2' ,'tribunal3'));
         }

@@ -91,6 +91,26 @@
                             Estudiantes
                     </a>
                 </li>
+                <li>
+                    <a class="collapsible-header waves-effect arrow-r">
+                    <i class="fas fa-file-alt"></i>
+                        Reportes
+                        <i class="fa fa-angle-down rotate-icon"></i>
+                    </a>
+                    <div class="collapsible-body">
+                        <ul>
+                            <li>
+                                <a href="/proyectos" class="waves-effect">Proyectos</a>
+                            </li>
+                            <li>
+                                <a href="/proyectos/create" class="waves-effect">Semestre</a>
+                            </li>
+                            <li>
+                                <a href="/proyecto_est" class="waves-effect">Asignar Proyecto</a>
+                            </li>
+                        </ul>
+                    </div>
+                </li>
                 <hr class="white">
                 
             </ul>
