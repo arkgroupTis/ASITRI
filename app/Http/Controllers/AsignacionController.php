@@ -20,7 +20,7 @@ class AsignacionController extends Controller
     public function index()
     {
         $tribunales = Docente::orderBy('apePaternoDoc', 'asc')
-        ->join('asignacion','Docente.idDoc', '=', 'asignacion.idDoc')
+        ->join('asignacion','docente.idDoc', '=', 'asignacion.idDoc')
         ->where('asignacion.rol', '=' , 'tribunal')
         ->groupBy('docente.idDoc')
         ->get();

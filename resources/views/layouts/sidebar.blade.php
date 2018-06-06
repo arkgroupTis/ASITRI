@@ -4,7 +4,7 @@
         <li>
             <div class="logo-wrapper waves-light">
                 <a href="#">
-                    <img src="/img/logo-transparent.png" class="img-fluid flex-center">
+                    <img src="/img/fd.png" class="img-fluid flex-center">
                 </a>
             </div>
         </li>
@@ -52,10 +52,10 @@
                     <div class="collapsible-body">
                         <ul>
                             <li>
-                                <a href="/docentes" class="waves-effect">Docente & Profesionales</a>
+                                <a href="/docentes" class="waves-effect">Docentes & Profesionales</a>
                             </li>
                             <li>
-                                <a href="/docentes/create" class="waves-effect">Nuevo Docente</a>
+                                <a href="/docentes/create" class="waves-effect">Nuevo Docente/Profesional</a>
                             </li>
                         </ul>
                     </div>
@@ -70,34 +70,20 @@
                     <div class="collapsible-body">
                         <ul>
                             <li>
-                                <a href="/areas" class="waves-effect">Catalogo Areas</a>
+                                <a href="/areas" class="waves-effect">Areas & Sub Areas</a>
                             </li>
                             <li>
-                                <a href="/areas/create" class="waves-effect">Nueva Area</a>
+                                <a href="/areas/create" class="waves-effect">Nueva Area/Sub Area</a>
                             </li>
                         </ul>
                     </div>
                 </li>
 
                 <li>
-                    <a class="collapsible-header waves-effect arrow-r">
+                    <a class="waves-effect" href="/tribunales">
                     <i class="fas fa-balance-scale"></i> 
                            Tribunales
-                        <i class="fa fa-angle-down rotate-icon"></i>
                     </a>
-                    <div class="collapsible-body">  
-                        <ul>
-                            <li>
-                                <a href="/tribunales" class="waves-effect">Tribunales</a>
-                            </li>
-                            <li>
-                    <a href="/renuncia" class="collapsible-header waves-effect arrow-r">
-                         
-                               Renuncia Tribunal
-                    </a>
-                            </li>
-                        </ul>
-                    </div>  
                 </li>
                 <li>
                     <a class="collapsible-header waves-effect arrow-r" href="/estudiante">
@@ -105,58 +91,28 @@
                             Estudiantes
                     </a>
                 </li>
-                <hr class="white">
                 <li>
                     <a class="collapsible-header waves-effect arrow-r">
-                        <i class="fa fa-envelope-o"></i> 
-                        Contact me
+                    <i class="fas fa-file-alt"></i>
+                        Reportes
                         <i class="fa fa-angle-down rotate-icon"></i>
                     </a>
                     <div class="collapsible-body">
                         <ul>
                             <li>
-                                <a href="#" class="waves-effect">
-                                    FAQ
-                                </a>
+                                <a href="/proyectos" class="waves-effect">Proyectos</a>
                             </li>
                             <li>
-                                <a href="#" class="waves-effect">
-                                    Write a message
-                                </a>
+                                <a href="/proyectos/create" class="waves-effect">Semestre</a>
                             </li>
                             <li>
-                                <a href="#" class="waves-effect">
-                                    FAQ
-                                </a>
-                            </li>
-                            <li>
-                                <a href="#" class="waves-effect">
-                                    Write a message
-                                </a>
-                            </li>
-                            <li>
-                                <a href="#" class="waves-effect">
-                                    FAQ
-                                </a>
-                            </li>
-                            <li>
-                                <a href="#" class="waves-effect">
-                                    Write a message
-                                </a>
-                            </li>
-                            <li>
-                                <a href="#" class="waves-effect">
-                                    FAQ
-                                </a>
-                            </li>
-                            <li>
-                                <a href="#" class="waves-effect">
-                                    Write a message
-                                </a>
+                                <a href="/proyecto_est" class="waves-effect">Asignar Proyecto</a>
                             </li>
                         </ul>
                     </div>
                 </li>
+                <hr class="white">
+                
             </ul>
         </li>
         <!--/. Side navigation links -->

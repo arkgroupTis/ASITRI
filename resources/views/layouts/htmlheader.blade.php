@@ -14,7 +14,7 @@
 <link href="{{ asset('css/style.min.css') }}" rel="stylesheet">
 
 <!-- Favicon-->
-<link rel="shortcut icon" href="img/favicon.ico">
+<link rel="shortcut icon" href="/A.ico">
 
 <!-- Css de Fer -->
 <link href="{{ asset('css/fer.min.css') }}" rel="stylesheet">
