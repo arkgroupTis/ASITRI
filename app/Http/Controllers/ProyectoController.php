@@ -210,12 +210,14 @@ class ProyectoController extends Controller
         
     }
 
-    public function detalles($id)
+    public function detalles($idProyecto)
     {
+
         
-        $proyectos = Proyecto::where('idProyecto', $id);
-        
-        return view('proyectos.detalles', compact('proyectos'));
+        $proy_es = Proyecto::where('idProyecto', $idProyecto);
+        dd($proy_es);
+            return view('proyectos.detalles', compact('proy_es'));
+            
         
     }
 
