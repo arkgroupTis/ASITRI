@@ -63,15 +63,17 @@
        e.preventDefault();
        $.ajax({
            type: 'POST',
-           url: '/areasCatalogo',
+           url: '/areas',
            data: {
                '_token': $('input[name=_token]').val(),
                'nombreArea': $('#nombre').val(),
                'descripcionArea': $('#descripcion').val(),
+               'clasificacion': $('#clasificacion').val(),
            },
            success : function(data) {
                toastr.success(data.message);
-               lacation.reload();
+               console.log(data);
+               location.reload();
            },
            error : function(xhr, status) {
                toastr.error('Disculpe, existio un problema!');
