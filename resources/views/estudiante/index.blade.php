@@ -116,7 +116,7 @@
 
 <!-- Modal agregar y modificar estudiante -->
 <div class="modal fade" id="modal-estudiante" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-   <div class="modal-dialog modal-notify modal-info modal-lg" role="document">
+   <div class="modal-dialog modal-lg" role="document">
        <!--Content-->
        <div class="modal-content">
            <!--Header-->
@@ -323,7 +323,9 @@
            $('#td-nombre').text(data.estudiante.nombreEst);
            $('#td-email').text(data.estudiante.emailEst);
            $('#td-telefono').text(data.estudiante.telefono);
-           $('#td-carrera').text(data.estudiante.idCarrera);
+           if(data.estudiante.idCarrera=='1')
+           $('#td-carrera').text("Ingenieria Informatica");
+            else $('#td-carrera').text("Ingenieria de Sistemas");
        });
        $('#modal-show').modal('show');
    });
@@ -389,6 +391,7 @@
        type_ = 'PUT';
        url_ = '/estudiante/'+$($(this).parents("tr")).data('id');
        $('#carreradiv').attr('hidden', 'hidden');
+
        $('#modal-estudiante').modal('show');
    });
 

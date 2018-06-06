@@ -32,7 +32,7 @@
 		      <th style="width: 30%"><font size="3">Nombre Proyecto</font></th>
 		      <th style="width: 35%"><font size="3">Area Proyecto</font></th>
               <th style="width: 10%"><font size="3">Estado</font></th>
-		      <th style="width: 10%"><font size="3">Detalles</font></th>
+		      <th style="width: 10%"><font size="3">Acciones</font></th>
 
      
      
@@ -50,17 +50,16 @@
                    {{ $pha->area->nombreArea }},
                @endforeach
                </td>
-               <td style="width: 10%">
+               <td style="width: 10%;text-transform: capitalize;">
                @foreach($proyecto->proyecto_estudiante as $pha)
-                   {{ $pha->estado }},
+                   {{ $pha->estado }}
                @endforeach
                 </td>
-               
-	            
-	            <td style="width: 10%">
-				<a class="btn-floating btn-sm btn-mdb-color btn-modal-show"  href="/proyect/{{ $proyecto->idProyecto }}" data-toggle="tooltip" data-placement="top" title="ver">
-				<i class="fa fa-eye mt-2 ml-2 fa-lg"></i></a></td>
-				
+  	            <td style="width: 10%">
+        				<a class="btn-floating btn-sm btn-mdb-color btn-modal-show"  href="/proyect/{{ $proyecto->idProyecto }}" data-toggle="tooltip" data-placement="top" title="ver">
+        				<i class="fa fa-eye mt-2 ml-2 fa-lg"></i></a>
+                <a class="btn-floating btn-sm btn-blue btn-modal-edit" data-toggle="tooltip" data-placement="top" title="editar"><i class="fa fa-edit mt-2 ml-1 fa-lg"></i></a>
+              </td>
         	</tr>
 		  	@endforeach
 		    
@@ -68,7 +67,8 @@
 		</table>
     </div>
 </div>
-
+@endsection
+@section('script')
               
   <script>
     $(document).ready(function(){
@@ -99,6 +99,3 @@
   
 
 @endsection
-
-</body>
-</html>

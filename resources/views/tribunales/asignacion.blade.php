@@ -15,20 +15,56 @@
         <p class="lead"><b>Proyecto:</b> {{ $proyecto->titulo }}</p>
     </div>
 </div>
-<div class="row">
-    
-    <div class="col-sm-6">
-        <label class="sr-only" for="search_docente">Docente</label>
-        <div class="md-form input-group mb-3">
-        <label class="sr-only" ></label>
-                <div class="md-form input-group mb-3">
-                <input type="text" class="form-control pl-0 rounded-0" id="search_docente" type="text" placeholder="Buscar Docentes/Profesionales...">
-                </div>
-        </div>
-    </div>
+<br>
+<h2>Recomendados</h2>
+<div class="md-form input-group mb-3">
+    <input type="text" class="form-control pl-0 rounded-0" id="search_docente" type="text" placeholder="Buscar Docentes/Profesionales...">
+
 </div>
 <div class="row">
-    <table class="table table-bordered table-striped table-sm">
+    <table class="table table-striped table-sm tablaScroll4">
+        <thead>
+            <tr>
+                <th style="width: 20%" ><font size="3">Docente </font></th>
+                <th style="width: 50%" ><font size="3">Areas</font></th>
+                <th style="width: 5%" class="text-center" ><font size="3">Trib</font></th>
+                <th style="width: 5%" class="text-center" ><font size="3">Tut</font></th>
+                <th style="width: 10%" class="text-center" ><font size="3">Asignar</font></th>
+            </tr>
+        </thead>
+        <tbody id="table1">
+        @foreach($docentes as $docente)
+            <tr>
+                <td style="width: 20%" >{{ $docente->apePaternoDoc .' '. $docente->apeMaternoDoc .' '. $docente->nombreDoc }}</td>
+                <td style="width: 50%" >
+                @foreach($docente->tiene as $pha)
+                    {{ $pha->area->nombreArea }}, 
+                @endforeach 
+                </td>
+
+                <td style="width: 5%" class="text-center">{{ $docente->cantTrib }}</td>
+                <td style="width: 5%" class="text-center">{{ $docente->cantTut }}</td>
+
+                <td style="width: 10%" class="text-center" >
+                    @if(!$docente->tribunal)
+                    <a href="/estudiante/proyecto/{{$proyecto->idProyecto}}/{{$docente->idDoc}}/asignacion" class="btn-floating btn-sm btn-light-green" onClick="if (! confirm('Se asignara el tribunal a este proyecto!')) return false;" data-toggle="tooltip" data-placement="top" title="Asignar"><i class="fas fa-plus-circle mt-1 ml-1 fa-2x"></i></i></a>
+                    @else
+                    <span class="badge badge-success">asignado</span>
+                    <a data-id="{{$docente->idDoc}}" class="btn-floating btn-sm btn-danger btn-modal-renuncia" data-toggle="tooltip" data-placement="top" title="Renuncia"><i class="fa fa-times mt-2 ml-2 fa-lg"></i></a>
+                    @endif
+                </td>
+            </tr>
+        @endforeach
+        </tbody>
+    </table>
+</div>
+<br>
+<h2>Otros</h2>
+<div class="md-form input-group mb-3">
+    <input type="text" class="form-control pl-0 rounded-0" id="search_docente2" type="text" placeholder="Buscar Docentes/Profesionales...">
+</div>
+<div class="row">
+    <table class="table table-striped table-sm tablaScroll4">
         <thead>
             <tr>
                 <th style="width: 20%" ><font size="3">Docente </font></th>
@@ -39,7 +75,7 @@
             </tr>
         </thead>
         <tbody id="table2">
-        @foreach($docentes as $docente)
+        @foreach($extras as $docente)
             <tr>
                 <td style="width: 20%" >{{ $docente->apePaternoDoc .' '. $docente->apeMaternoDoc .' '. $docente->nombreDoc }}</td>
                 <td style="width: 50%" >
@@ -63,7 +99,6 @@
         @endforeach
         </tbody>
     </table>
-    {{ $docentes->links() }}
 </div>
 <!-- Modal renuncia renuncia -->
 <div class="modal fade" id="modal-renuncia" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
@@ -89,6 +124,13 @@
                         <!--/Blue select-->
                     </div>
                     <div class="col-md-12">
+                        <select class="mdb-select colorful-select dropdown-primary" id="motivo_select">
+                            <option value="" disabled selected>Seleccionar una opcion!</option>
+                            <option value="option 1">Option 1</option>
+                            <option value="option 2">Option 2</option>
+                            <option value="option 3">Option 3</option>
+                            <option value="option 4">Option 4</option>
+                        </select>
                         <div class="md-form form-group">
                             <textarea type="text" id="motivo" class="form-control md-textarea" rows="3"></textarea>
                         </div>
@@ -124,11 +166,19 @@
     $(document).ready(function(){
 		  $("#search_docente").on("keyup", function() {
 		    var value = $(this).val().toLowerCase();
-		    $("#table2 tr").filter(function() {
+		    $("#table1 tr").filter(function() {
 		      $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
 		    });
 		  });
 		});
+    $(document).ready(function(){
+          $("#search_docente2").on("keyup", function() {
+            var value = $(this).val().toLowerCase();
+            $("#table2 tr").filter(function() {
+              $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
+            });
+          });
+        });
     // SCRIPT PARA LA RENUNCIA DE TRIBUNAL
     var idDoc = null;
     $(document).on('click', '.btn-modal-renuncia', function() {
@@ -139,21 +189,7 @@
     });
     $(document).on('click', '#modal-guardar-btn', function(e) {
         e.preventDefault();
-        var motivo = null;
         if ($('#motivo_select').val() != null) {
-            if ($('#motivo_select').val() == "otro") {
-                if ($('#motivo').val()=="") {
-                    toastr.error('describir un motivo!');
-                } else {
-                    motivo = $('#motivo').val();
-                }
-            } else {
-                motivo = $('#motivo_select').val();
-            }
-        } else {
-            toastr.error('seleccionar un motivo!');
-        }
-        if (motivo != null) {
             $.ajax({
                 type: 'POST',
                 url: '/estudiante/proyecto/renuncia',
@@ -161,7 +197,8 @@
                     '_token': $('input[name=_token]').val(),
                     'idProyecto': {{$proyecto->idProyecto}},
                     'idDoc': idDoc,
-                    'motivo': motivo,
+                    'motivo_select': $('#motivo_select').val(),
+                    'motivo': $('#motivo').val(),
                     'fecha': $('#date-picker-renuncia').val(),
                 },
                 success : function(data) {
@@ -169,6 +206,8 @@
                     location.reload();
                 },
             });
+        } else {
+            toastr.error('seleccionar un motivo!');
         }
     });
 </script>

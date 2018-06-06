@@ -19,6 +19,12 @@ class EmailController extends Controller
      */
     public function index()
     {
+        Mail::send('emails.notificacion', ['message' => 'te ganaste un coche ultimo modelo'], function($msj){
+            $msj->subject('Correo de prueba, no te asustes');
+            $msj->to('dandiel2307@gmail.com');
+        } );
+        Session::flash('message', 'Mensaje enviado correctamente');
+        // return Redirect::to('/email');
         return view('emails.notificacion');
     }
 
@@ -42,7 +48,7 @@ class EmailController extends Controller
     {
         Mail::send('emails.notificacion', ['message' => 'te ganaste un coche ultimo modelo'], function($msj){
             $msj->subject('Correo de prueba, no te asustes');
-            $msj->to('kennydaltonc@yahoo.com');
+            $msj->to('dandiel2307@gmail.com');
         } );
         Session::flash('message', 'Mensaje enviado correctamente');
         return Redirect::to('/email');
