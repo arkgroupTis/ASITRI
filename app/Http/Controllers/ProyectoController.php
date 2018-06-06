@@ -406,4 +406,15 @@ class ProyectoController extends Controller
             'message' => 'todo okey!'.$request->motivo,
         ]);
     }
+
+    public function reporteGeneral()
+    {
+        $proyectos = Proyecto::orderBy('Proyecto.idProyecto', 'asc')
+        ->join('proyecto_estudiante', 'proyecto.idProyecto','=','proyecto_estudiante.idProyecto')
+        ->join('estudiante', 'proyecto_estudiante.idEstudiante','=','estudiante.idEstudiante')
+        ->join('carrera', 'estudiante.idCarrera','=','carrera.idCarrera')
+        ->get();
+        //dd($proyectos);                                                                               borrameD:
+        return view('proyectos.reporteGeneral', compact('proyectos'));
+    }
 }
