@@ -131,7 +131,7 @@
     });    
     $(document).on('click', '#modal-guardar-btn', function(e) {    
         e.preventDefault();    
-       
+    
             $.ajax({   
                 type: 'POST',  
                 url: '/estudiante/proyecto/defensa',   
