@@ -28,7 +28,6 @@
        <thead>
            <tr>
                <th style="width: 10%"  class="text-center">Codigo</th>
-               <th style="width: 10%" >Codigo</th>
                <th style="width: 20%" >Area</th>
                <th style="width: 60%" >Descripcion Area</th>
 							 <th style="width: 10%" class="text-center">Detalles</th>
