@@ -355,11 +355,20 @@ class ProyectoController extends Controller
     }
 
     public function asignarTribunal($idProyecto, $idDoc){
-        // $docente = Docente::where('idDoc', $idDoc)->first();
-            // Mail::send('emails.notificacion', ['message' => 'usted es afortunado, se gano un auto cero kilometros y Bs 1'], function($msj) use ($docente) {
-            //     $msj->subject('Correo de prueba, no te asustes');
-            //     $msj->to($docente->emailDoc, $docente->nombreDoc);
-            // });
+        $docente = Docente::where('idDoc', $idDoc)->first();
+        $proy = Proyecto::where('idProyecto', $idProyecto)->first();
+        $texto = "\nUniversidad Mayor de San Simon\n
+        Facultad de Ciencias y Tecnologia\n
+        Señor(a)\n
+        ".$docente->tituloDoc." ".$docente->nombreDoc."\n
+        Presente,\n
+        Por la presente tengo a bien comunicarle que usted ha sido designado al proyecto ".$proy->titulo.", nombrado en calidad de TRIBUNAL de la misma. Por lo que antecede, dígnese aceptar esta nominación al pie de la presente, por lo que desde ya la FCYT le desea éxitos en sus funciones.\n
+        Atentamente: ASITRI";
+        Mail::raw($texto, function ($m) use ($docente) {
+            // $m->from('hello@app.com', 'Your Application');
+            $m->subject('Asigacion de Tribunal');
+            $m->to($docente->emailDoc, $docente->nombreDoc); //'kennydaltonc@yahoo.com'
+        });
 
         // controlar solo tres tribunales
         $count_tribu = Asignacion::where([
@@ -374,11 +383,6 @@ class ProyectoController extends Controller
                 'idDoc' => $idDoc,
                 'estado' => 'Activo',
             ]);
-            // $docente = Docente::where('idDoc', $idDoc)->first();
-            // Mail::send('emails.notificacion', ['message' => 'usted es afortunado, se gano un auto cero kilometros y Bs 1'], function($msj) use ($docente) {
-            //     $msj->subject('Correo de prueba, no te asustes');
-            //     $msj->to($docente->emailDoc, $docente->nombreDoc);
-            // });
         }
         return back();
     }
