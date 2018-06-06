@@ -335,7 +335,7 @@ class ProyectoController extends Controller
             ['asignacion.rol', '=', 'tribunal'],
             ['asignacion.idProyecto', '=', $proyecto->idProyecto],
             ['asignacion.estado', '=', 'activo'],
-        ])->paginate(5);
+        ])->get();
         $areas = collect([]);
         foreach ($docentes as $key => $docente) {
             foreach ($docente->tiene as $tiene) {
@@ -351,6 +351,8 @@ class ProyectoController extends Controller
         return view('tribunales.asignacion')->with([
             'proyecto' => $proyecto,
             'docentes' => $docentes,
+            'extras' => null,
+            'tutor2'=> null,
         ]);
     }
 
