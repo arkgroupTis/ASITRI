@@ -6,8 +6,6 @@ use Illuminate\Http\Request;
 
 use App\Http\Requests;
 use Mail;
-use Session;
-use Redirect;
 use App\Http\Controllers\Controller;
 
 class EmailController extends Controller
@@ -19,13 +17,23 @@ class EmailController extends Controller
      */
     public function index()
     {
-        Mail::send('emails.notificacion', ['message' => 'te ganaste un coche ultimo modelo'], function($msj){
-            $msj->subject('Correo de prueba, no te asustes');
-            $msj->to('dandiel2307@gmail.com');
-        } );
-        Session::flash('message', 'Mensaje enviado correctamente');
-        // return Redirect::to('/email');
-        return view('emails.notificacion');
+        $docente = \App\Docente::first();
+        // dd($docente->emailDoc);
+        // Mail::send(['text' => 'view'], ['user' => $docente], function ($m) use ($docente) {
+        //     $m->from('hello@app.com', 'Your Application');
+        //     $m->to($docente->emailDoc, $docente->nombreDoc);
+        // });
+        Mail::raw('hola buenas tardes, usted se gano un avion y Bs 0.000001', function ($m) use ($docente) {
+            $m->from('hello@app.com', 'Your Application');
+            $m->to($docente->emailDoc, $docente->nombreDoc); //'kennydaltonc@yahoo.com'
+        });
+
+        // Mail::send('emails.notificacion', ['message' => 'te ganaste un coche ultimo modelo'], function($msj){
+        //     $msj->subject('Correo de prueba, no te asustes');
+        //     $msj->to('dandiel2307@gmail.com');
+        // } );
+        return "si se envio el correo";
+        // return view('emails.notificacion');
     }
 
     /**
