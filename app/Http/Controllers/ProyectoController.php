@@ -191,11 +191,11 @@ class ProyectoController extends Controller
         //
     }
 
+    
     public function proyectoEstudiante($idEstudiante){
         $proy_est = Proyecto_estudiante::where('idEstudiante', $idEstudiante)
-        ->where('Proyecto_estudiante.estado', 'activo')
-        ->join('asignacion','Proyecto_estudiante.idProyecto','=','asignacion.idProyecto')
         ->first();
+        
         $tutor1 = Asignacion::where('idProyecto', $proy_est->idProyecto)->where('rol', 'tutor')->skip(0)->first();
         $tutor2 = Asignacion::where('idProyecto', $proy_est->idProyecto)->where('rol', 'tutor')->skip(1)->first();
         $tribunal1 = Asignacion::where('idProyecto', $proy_est->idProyecto)->where('rol', 'tribunal')->skip(0)->first();;
@@ -223,17 +223,35 @@ class ProyectoController extends Controller
 
     public function posiblesTribunales($idProyecto){
         $proyecto = Proyecto::where('idProyecto', $idProyecto)->firstOrFail();
+        $proy_est = Proyecto_estudiante::where('idProyecto', $idProyecto)
+        ->first();
+        $tutor1 = Asignacion::where('idProyecto', $proy_est->idProyecto)->where('rol', 'tutor')->skip(0)->first();
+        $tutor2 = Asignacion::where('idProyecto', $proy_est->idProyecto)->where('rol', 'tutor')->skip(1)->first();
         $area = collect([]);
-        foreach ($proyecto->proyecto_has_area as $areas) {
+        foreach ($proyecto->proyecto_has_area as $areas) 
+        {
             $area->push($areas->area->nombreArea);
         }
-        $docentes = Docente::select('docente.idDoc', 'nombreDoc', 'apePaternoDoc', 'apeMaternoDoc')
-        ->where('tipo', 'docente')
-        ->join('tiene', 'docente.idDoc', '=', 'tiene.idDoc')
-        ->join('area', 'tiene.idArea', '=', 'area.idArea')
-        ->whereIn('area.nombreArea', $area)
-        ->orderBy('apePaternoDoc', 'asc')
-        ->get();
+        if (!is_null($tutor2)) {
+            $docentes = Docente::select('docente.idDoc', 'nombreDoc', 'apePaternoDoc', 'apeMaternoDoc')
+            ->where('tipo', 'docente')
+            ->where('docente.idDoc','!=',$tutor1->idDoc)
+            ->where('docente.idDoc','!=',$tutor2->idDoc)
+            ->join('tiene', 'docente.idDoc', '=', 'tiene.idDoc')
+            ->join('area', 'tiene.idArea', '=', 'area.idArea')
+            ->whereIn('area.nombreArea', $area)
+            ->orderBy('apePaternoDoc', 'asc')
+            ->get();    
+        }
+        else {
+            $docentes = Docente::select('docente.idDoc', 'nombreDoc', 'apePaternoDoc', 'apeMaternoDoc')
+            ->where('tipo', 'docente')
+            ->where('docente.idDoc','!=',$tutor1->idDoc)
+            ->join('tiene', 'docente.idDoc', '=', 'tiene.idDoc')
+            ->join('area', 'tiene.idArea', '=', 'area.idArea')
+            ->whereIn('area.nombreArea', $area)
+            ->orderBy('apePaternoDoc', 'asc')
+            ->get();}
         foreach ($docentes as $key => $docente) {
             $areas = collect([]);
             foreach ($docente->tiene as $tiene) {
@@ -257,9 +275,18 @@ class ProyectoController extends Controller
         foreach ($docentes as $docente) {
             $ids->push($docente->idDoc);
         }
-        $extras = Docente::select('docente.idDoc', 'nombreDoc', 'apePaternoDoc', 'apeMaternoDoc')
-        ->whereNotIn('docente.idDoc',$ids)
-        ->get();
+        if(!is_null($tutor2))
+        {   
+            $extras = Docente::select('docente.idDoc', 'nombreDoc', 'apePaternoDoc', 'apeMaternoDoc')
+                ->where('docente.idDoc','!=',$tutor1->idDoc)
+                ->where('docente.idDoc','!=',$tutor2->idDoc)
+                ->whereNotIn('docente.idDoc',$ids)
+                ->get();
+        }
+        else{$extras = Docente::select('docente.idDoc', 'nombreDoc', 'apePaternoDoc', 'apeMaternoDoc')
+                ->where('docente.idDoc','!=',$tutor1->idDoc)
+                ->whereNotIn('docente.idDoc',$ids)
+                ->get();}
         foreach ($extras as $key => $docente) {
             $areas = collect([]);
             foreach ($docente->tiene as $tiene) {
@@ -283,6 +310,7 @@ class ProyectoController extends Controller
             'proyecto' => $proyecto,
             'docentes' => $docentes,
             'extras' => $extras,
+            'tutor2'=>$tutor2,
         ]);
     }
 
