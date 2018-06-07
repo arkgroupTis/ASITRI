@@ -254,17 +254,17 @@ class ProyectoController extends Controller
                 ->get();
             }
         }
-        $estudiantes = Proyecto::where('Proyecto.idProyecto', $idProyecto)
-            ->join('proyecto_estudiante','Proyecto.idProyecto','=','Proyecto_estudiante.idProyecto')
+        $estudiantes = Proyecto_estudiante::where('idProyecto', $idProyecto)
+            ->join('Estudiante','Proyecto_estudiante.idEstudiante','=','Estudiante.idEstudiante')
             ->get();
-        $tutores = Asignacion::select('idDoc')
-            ->where('idProyecto', $idProyecto)
+        $tutores = Asignacion::where('idProyecto', $idProyecto)
             ->where('rol','tutor')
+            ->join('Docente','Asignacion.idDoc','=','Docente.idDoc')
             ->get();
             //dd($tutores);
-        $tribunales = Asignacion::select('idDoc')
-            ->where('idProyecto', $idProyecto)
+        $tribunales = Asignacion::where('idProyecto', $idProyecto)
             ->where('rol','tribunal')
+            ->join('Docente','Asignacion.idDoc','=','Docente.idDoc')
             ->get();
         $areas = Proyecto_has_area::where('idProyecto',$idProyecto)
         ->join('Area','Proyecto_has_area.idArea','=','Area.idArea')
