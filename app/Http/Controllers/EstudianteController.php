@@ -138,6 +138,7 @@ class EstudianteController extends Controller
         ->join('proyecto', 'proyecto_estudiante.idProyecto', '=', 'proyecto.idProyecto')
         ->join('asignacion', 'proyecto.idProyecto', '=', 'asignacion.idProyecto')
         ->where('rol', '=' ,'tribunal')
+        ->where('estado', '=' ,'Activo')
         ->join('docente', 'asignacion.idDoc', '=', 'docente.idDoc')
         ->get();
         $tutores = Estudiante::select('docente.apeMaternoDoc','docente.apePaternoDoc','docente.nombreDoc')
@@ -146,6 +147,7 @@ class EstudianteController extends Controller
         ->join('proyecto', 'proyecto_estudiante.idProyecto', '=', 'proyecto.idProyecto')
         ->join('asignacion', 'proyecto.idProyecto', '=', 'asignacion.idProyecto')
         ->where('rol', '=' ,'tutor')
+
         ->join('docente', 'asignacion.idDoc', '=', 'docente.idDoc')
         ->get();
         $titulo = Estudiante::select('proyecto.titulo')
