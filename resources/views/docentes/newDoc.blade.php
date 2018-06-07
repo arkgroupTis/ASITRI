@@ -12,7 +12,7 @@
       
        <div class="col-md-4">
            <!-- Material input -->
-           <div class="md-form form-group col-md-6" >
+           <div class="md-form form-group col-md-12" >
                <input type="text" class="form-control" id="name">
                <label >Nombre: </label>
            </div>
@@ -20,14 +20,14 @@
 
        <div class="col-md-4">
            <!-- Material input -->
-           <div class="md-form form-group col-md-6">
+           <div class="md-form form-group col-md-12">
                <input type="text" class="form-control" id="apePaterno">
                <label >Apellido Paterno: </label>
            </div>
        </div>
        <div class="col-md-4">
            <!-- Material input -->
-           <div class="md-form form-group col-md-6">
+           <div class="md-form form-group col-md-12">
                <input type="text" class="form-control" id="apMaterno">
                <label >Apellido Materno: </label>
            </div>
