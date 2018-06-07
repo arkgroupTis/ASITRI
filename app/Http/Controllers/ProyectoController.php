@@ -413,6 +413,17 @@ class ProyectoController extends Controller
         ]);
     }
 
+    public function reporteGeneral()
+    {
+        $proyectos = Proyecto::orderBy('Proyecto.idProyecto', 'asc')
+        ->join('proyecto_estudiante', 'proyecto.idProyecto','=','proyecto_estudiante.idProyecto')
+        ->join('estudiante', 'proyecto_estudiante.idEstudiante','=','estudiante.idEstudiante')
+        ->join('carrera', 'estudiante.idCarrera','=','carrera.idCarrera')
+        ->get();
+        
+        return view('proyectos.reporteGeneral', compact('proyectos'));
+    }
+
     public function defensa(Request $request){
         Proyecto::where('idProyecto', $request->idProyecto)
         ->update(

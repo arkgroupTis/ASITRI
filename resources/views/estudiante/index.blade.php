@@ -341,7 +341,7 @@
             });            
            $('#td-tutores').empty();
            $('#td-tutores').append(aux2);
-           var aux = "";
+            var aux = "";
             data.tribunales.forEach( function(valor, indice)
             {
                 aux = aux + (indice+1) + ". " + valor.apePaternoDoc + " " + valor.apeMaternoDoc + " " + valor.nombreDoc + '<br>';

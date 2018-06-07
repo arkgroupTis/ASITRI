@@ -55,4 +55,6 @@ Route::group(['middleware' => ['auth']], function () {
 	Route::resource('/docentes', 'DocenteController');
 	Route::get('/docenteNuevo', 'DocenteController@create');
 	Route::resource('/email', 'EmailController');
+
+	Route::get('/reporteGeneral', 'ProyectoController@reporteGeneral');
 });
