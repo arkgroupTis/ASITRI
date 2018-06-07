@@ -423,7 +423,7 @@ class ProyectoController extends Controller
 
 
         return response()->json([
-            'message' => 'todo okey!'.$request->motivo,
+            'message' => 'todo okey!',
         ]);
     }
 }
