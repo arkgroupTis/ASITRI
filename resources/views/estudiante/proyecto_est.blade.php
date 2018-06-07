@@ -52,7 +52,7 @@
         <select class="mdb-select colorful-select dropdown-primary col-md-6" id="tutor2">
             <option value=""></option>
             @foreach($res[2] as $docente)
-            <option value="{{ $docente-> idDoc}}"> {{ $docente-> apePaternoDoc}} {{ $docente-> apeMaternoDoc}} {{ $docente-> nombreDoc}} </option>
+            <option value="{{ $docente-> idDoc}}"> {{ $docente-> idDoc}} {{ $docente-> apePaternoDoc}} {{ $docente-> apeMaternoDoc}} {{ $docente-> nombreDoc}} </option>
             @endforeach
         </select>
         <!--/Blue select-->

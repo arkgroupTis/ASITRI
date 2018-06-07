@@ -72,14 +72,18 @@ class EstudianteController extends Controller
         $tutores = Asignacion::select(DB::raw('count(*) as user_count, idDoc'))
         ->where('rol','=','tutor')
         ->where('estado','=','Activo')
-        ->groupby('idDoc')
+        //->groupby('idDoc')
         ->get();
+        //dd($tutores);
         $array2 = collect([]);
         foreach ($tutores as $proy) {
             if($proy->user_count>10)
-            {$array2->push($proy->idDoc);}
+            {
+                $array2->push($proy->idDoc);
+                
+            }
         }
-        $res[2] = Docente::whereNotIn('idDoc',$array2)->get();
+        $res[2] = Docente::orderby('apePaternoDoc', 'asc')->whereNotIn('idDoc',$array2)->get();
         $res[1] = Estudiante::whereNotIn('idEstudiante',$array)->get();
         $res[0] = Proyecto::whereNotIn('idProyecto',$array1)->get();
         return view('estudiante.proyecto_est', compact('res'));
