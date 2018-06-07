@@ -100,13 +100,7 @@
                     <div class="collapsible-body">
                         <ul>
                             <li>
-                                <a href="/proyectos" class="waves-effect">Proyectos</a>
-                            </li>
-                            <li>
-                                <a href="/proyectos/create" class="waves-effect">Semestre</a>
-                            </li>
-                            <li>
-                                <a href="/proyecto_est" class="waves-effect">Asignar Proyecto</a>
+                                <a href="/reporteGeneral" class="waves-effect">Reporte General</a>
                             </li>
                         </ul>
                     </div>

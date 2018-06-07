@@ -103,7 +103,10 @@
                 <td style="width: 15%;" >{{ $estudiante->nombreEst }}</td>
                 <td style="width: 25%;" >{{ $estudiante->emailEst }}</td>
                 <td style="width: 10%;" >{{ $estudiante->telefono }}</td>
-                <td style="width: 15%;" >{{ $estudiante->carrera->nombreCarrera }}</td>
+
+                
+
+                <td style="width: 15%;" >{{ $estudiante->carrera->nombreCarrera}}</td>
                 <td style="width: 10%;" class="text-center">
                     <a class="btn-floating btn-sm btn-mdb-color btn-modal-show" data-toggle="tooltip" data-placement="top" title="ver"><i class="fa fa-eye mt-2 ml-1 fa-lg"></i></a>
                 </td>
@@ -240,6 +243,18 @@
                        <table class="table table-bordered">
                            <tbody>
                                <tr>
+                                   <th scope="row">Titulo</th>
+                                   <td id="td-titulo"></td>
+                               </tr>
+                               <tr>
+                                   <th scope="row">Tutores</th>
+                                   <td id="td-tutores"></td>
+                               </tr>
+                               <tr>
+                                   <th scope="row">Tribunales</th>
+                                   <td id="td-tribunales"></td>
+                               </tr>
+                               <tr>
                                    <th scope="row">CI</th>
                                    <td id="td-ci"></td>
                                </tr>
@@ -318,7 +333,24 @@
    // SCRIPT PARA MOSTRAR ESTUDIANTE EN EL MODAL
    $(document).on('click', '.btn-modal-show', function() {
        $.get('/estudiante/'+$($(this).parents("tr")).data('id'), function(data){
+           $('#td-titulo').text(data.titulo.titulo);
+           var aux2 = "";
+            data.tutores.forEach( function(valor, indice)
+            {
+                aux2 = aux2 + (indice+1) + ". " + valor.apePaternoDoc + " " + valor.apeMaternoDoc + " " + valor.nombreDoc + '<br>';
+            });            
+           $('#td-tutores').empty();
+           $('#td-tutores').append(aux2);
+            var aux = "";
+            data.tribunales.forEach( function(valor, indice)
+            {
+                aux = aux + (indice+1) + ". " + valor.apePaternoDoc + " " + valor.apeMaternoDoc + " " + valor.nombreDoc + '<br>';
+            });
+           $('#td-tribunales').empty();
+           $('#td-tribunales').append(aux);
+           
            $('#td-ci').text(data.estudiante.ciEst);
+           //console.log(data.tribunales);
            $('#td-apellido').text(data.estudiante.apellidoEst);
            $('#td-nombre').text(data.estudiante.nombreEst);
            $('#td-email').text(data.estudiante.emailEst);

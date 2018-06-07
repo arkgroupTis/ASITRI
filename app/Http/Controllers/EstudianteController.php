@@ -32,6 +32,7 @@ class EstudianteController extends Controller
             $idEst->push($est->idEstudiante);
         }
 
+
         
 
 
@@ -131,8 +132,33 @@ class EstudianteController extends Controller
      */
     public function show($id)
     {
+        $tribunales = Estudiante::select('docente.apeMaternoDoc','docente.apePaternoDoc','docente.nombreDoc')
+        ->join('proyecto_estudiante', 'estudiante.idEstudiante', '=', 'proyecto_estudiante.idEstudiante')
+        ->where('proyecto_estudiante.idEstudiante' , '=', $id)
+        ->join('proyecto', 'proyecto_estudiante.idProyecto', '=', 'proyecto.idProyecto')
+        ->join('asignacion', 'proyecto.idProyecto', '=', 'asignacion.idProyecto')
+        ->where('rol', '=' ,'tribunal')
+        ->join('docente', 'asignacion.idDoc', '=', 'docente.idDoc')
+        ->get();
+        $tutores = Estudiante::select('docente.apeMaternoDoc','docente.apePaternoDoc','docente.nombreDoc')
+        ->join('proyecto_estudiante', 'estudiante.idEstudiante', '=', 'proyecto_estudiante.idEstudiante')
+        ->where('proyecto_estudiante.idEstudiante' , '=', $id)
+        ->join('proyecto', 'proyecto_estudiante.idProyecto', '=', 'proyecto.idProyecto')
+        ->join('asignacion', 'proyecto.idProyecto', '=', 'asignacion.idProyecto')
+        ->where('rol', '=' ,'tutor')
+        ->join('docente', 'asignacion.idDoc', '=', 'docente.idDoc')
+        ->get();
+        $titulo = Estudiante::select('proyecto.titulo')
+        ->join('proyecto_estudiante', 'estudiante.idEstudiante', '=', 'proyecto_estudiante.idEstudiante')
+        ->where('proyecto_estudiante.idEstudiante' , '=', $id)
+        ->join('proyecto', 'proyecto_estudiante.idProyecto', '=', 'proyecto.idProyecto')
+        ->firstOrFail();
         return response()->json([
             'estudiante' => Estudiante::where('idEstudiante', $id)->firstOrFail(),
+            'titulo' => $titulo,
+            'tutores' => $tutores,
+            'tribunales' => $tribunales
+            //->where('estado', 'terminado')
         ]);
     }
 
