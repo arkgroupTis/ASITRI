@@ -407,7 +407,7 @@ class ProyectoController extends Controller
         $texto = "\nUniversidad Mayor de San Simon\n
         Facultad de Ciencias y Tecnologia\n
         Señor(a)\n
-        ".$docente->tituloDoc." ".$docente->nombreDoc."\n
+        ".$docente->tituloDoc." ".$docente->nombreDoc." ".$docente->apePaternoDoc." ".$docente->apeMaternoDoc."\n
         Presente,\n
         Por la presente tengo a bien comunicarle que usted ha sido designado al proyecto ".$proy->titulo.", nombrado en calidad de TRIBUNAL de la misma. Por lo que antecede, dígnese aceptar esta nominación al pie de la presente, por lo que desde ya la FCYT le desea éxitos en sus funciones.\n
         Atentamente: ASITRI";
