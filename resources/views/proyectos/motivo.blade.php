@@ -72,8 +72,7 @@
     <div class="col-sm-4" {{$proy_est?'':'hidden'}}>
         <div class="jumbotron">
             <a href="/estudiante/proyecto/{{$proy_est?$proy_est->idProyecto:1}}/tribunales" class="btn cyan btn-lg btn-block btn-rounded" role="button">Asignar Tribunales</a>
-            <a href="/estudiante/proyecto/{{$proy_est?$proy_est->idProyecto:1}}/renuncia" class="btn cyan btn-lg btn-block btn-rounded" role="button">Renuncia de Tribunal</a>
-            <a href="#" class="btn cyan btn-lg btn-block btn-rounded" role="button">Seguimiento</a>
+            
             <a class="btn cyan btn-lg btn-block btn-rounded" role="button" id="btn-defensa"><font color="white">Defensa</a>
         </div>
     </div>

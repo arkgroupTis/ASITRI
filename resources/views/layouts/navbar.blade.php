@@ -6,9 +6,10 @@
     <!-- Breadcrumb-->
     <div class="breadcrumb-dn mr-auto">
         <a href="{{url()->previous()}}" class="btn btn-sm"><i class="fa fa-arrow-left fa-lg"></i></a>
-        ASITRI 
         <a class="btn btn-sm" id="btn-expand" onclick="launchIntoFullscreen(document.documentElement);"><i class="fas fa-expand fa-lg"></i></a>
+        <a href="/home" class="btn btn-sm"><i class="fa fa-th-large fa-lg"></i></a>
         <a class="btn btn-sm d-none" id="btn-compress" onclick="exitFullscreen();"><i class="fas fa-compress fa-lg"></i></a>
+     
     </div>
     <ul class="nav navbar-nav nav-flex-icons ml-auto">
         <li class="nav-item dropdown">
