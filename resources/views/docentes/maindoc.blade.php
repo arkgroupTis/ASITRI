@@ -86,7 +86,7 @@
      	 </thead>
      	 <tbody id="table2">
      	   @foreach($profesionales as $profesional)
-           <tr data-id="{{ $docente->idDoc }}">
+           <tr data-id="{{ $profesional->idDoc }}">
  	           <td style="width: 10%" class="text-center"> {{ $profesional->ciDoc }} </td>
  	           <td style="width: 20%" class="text-center"> {{ $profesional->apePaternoDoc }} {{ $profesional->apeMaternoDoc }} {{ $profesional->nombreDoc }} </td>
  	           <td style="width: 50%" class="text-center">

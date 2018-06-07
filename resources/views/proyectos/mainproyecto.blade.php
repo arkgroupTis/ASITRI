@@ -28,11 +28,11 @@
 		<table class="table table-striped tablaScroll4">
 		  <thead>
 		    <tr>
-		      <th style="width: 15%"><font size="3">Codigo Proyecto</font></th>
-		      <th style="width: 30%"><font size="3">Nombre Proyecto</font></th>
+		      <th style="width: 10%"  class="text-center"><font size="3">Codigo</font></th>
+		      <th style="width: 35%"><font size="3">Nombre Proyecto</font></th>
 		      <th style="width: 35%"><font size="3">Area Proyecto</font></th>
               <th style="width: 10%"><font size="3">Estado</font></th>
-		      <th style="width: 10%"><font size="3">Acciones</font></th>
+		      <th style="width: 10%"><font size="3"  class="text-center">Acciones</font></th>
  	   </tr>
  	 </thead>
     
@@ -40,8 +40,8 @@
 
  	   @foreach($proyectos as $proyecto)
  	   <tr data-id="{{ $proyecto->idProyecto }}">
-              <td style="width: 15%" class="text-center"> {{ $proyecto->idProyecto }} </td>
-              <td style="width: 30%"> {{ $proyecto->titulo }} </td>
+              <td style="width: 10%" class="text-center"> {{ $proyecto->idProyecto }} </td>
+              <td style="width: 35%"> {{ $proyecto->titulo }} </td>
               <td style="width: 35%">
                @foreach($proyecto->proyecto_has_area as $pha)
                    {{ $pha->area->nombreArea }},
@@ -52,10 +52,9 @@
                    {{ $pha->estado }}
                @endforeach
                 </td>
-  	            <td style="width: 10%">
+  	            <td style="width: 10%"  class="text-center">
         				<a class="btn-floating btn-sm btn-mdb-color"  href="/proyecto/detalle/{{ $proyecto->idProyecto }}" data-toggle="tooltip" data-placement="top" title="ver">
         				<i class="fa fa-eye mt-2 ml-2 fa-lg"></i></a>
-                <a class="btn-floating btn-sm btn-blue btn-modal-edit" data-toggle="tooltip" data-placement="top" title="editar"><i class="fa fa-edit mt-2 ml-1 fa-lg"></i></a>
               </td>
         	</tr>
 		  	@endforeach

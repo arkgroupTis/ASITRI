@@ -128,10 +128,10 @@
                     <div class="col-md-12">
                         <select class="mdb-select colorful-select dropdown-primary" id="motivo_select">
                             <option value="" disabled selected>Seleccionar una opcion!</option>
-                            <option value="option 1">Option 1</option>
-                            <option value="option 2">Option 2</option>
-                            <option value="option 3">Option 3</option>
-                            <option value="option 4">Option 4</option>
+                            <option value="option 1">Baja disponibilidad de tiempo</option>
+                            <option value="option 2">Motivos de Salud</option>
+                            <option value="option 3">Viajes o vacaciones programadas</option>
+                            <option value="option 4">Otros...</option>
                         </select>
                         <div class="md-form form-group">
                             <textarea type="text" id="motivo" class="form-control md-textarea" rows="3"></textarea>

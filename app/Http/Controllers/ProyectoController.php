@@ -225,56 +225,63 @@ class ProyectoController extends Controller
     {
         
         $proy_est = Proyecto::
-        where('Proyecto.idProyecto', $idProyecto)
-        ->groupby('Proyecto.idProyecto')
+        where('proyecto.idProyecto', $idProyecto)
+        ->groupby('proyecto.idProyecto')
         ->get();
         if($proy_est)
         {
             $proy_est = Proyecto::
-            where('Proyecto.idProyecto', $idProyecto)
-            ->join('Proyecto_estudiante','Proyecto.idProyecto','=','Proyecto_estudiante.idProyecto')
-            ->groupby('Proyecto.idProyecto')
+            where('proyecto.idProyecto', $idProyecto)
+            ->join('proyecto_estudiante','proyecto.idProyecto','=','proyecto_estudiante.idProyecto')
+            ->groupby('proyecto.idProyecto')
             ->first();
             if(is_null($proy_est))
             {
                 //dd('tiene contenido');
                 $proy_est = Proyecto::
-                where('Proyecto.idProyecto', $idProyecto)
-                ->groupby('Proyecto.idProyecto')
+                where('proyecto.idProyecto', $idProyecto)
+                ->groupby('proyecto.idProyecto')
                 ->get();
             }
             else
             {
                 //dd('no tiene contenido');
                 $proy_est = Proyecto::
-                where('Proyecto.idProyecto', $idProyecto)
-                ->join('Asignacion','Proyecto.idProyecto','=','Asignacion.idProyecto')
-                ->join('Proyecto_estudiante','Proyecto.idProyecto','=','Proyecto_estudiante.idProyecto')
-                ->groupby('Proyecto.idProyecto')
+                where('proyecto.idProyecto', $idProyecto)
+                ->join('asignacion','proyecto.idProyecto','=','asignacion.idProyecto')
+                ->join('proyecto_estudiante','proyecto.idProyecto','=','proyecto_estudiante.idProyecto')
+                ->groupby('proyecto.idProyecto')
                 ->get();
             }
         }
-        $estudiantes = Proyecto::where('Proyecto.idProyecto', $idProyecto)
-            ->join('proyecto_estudiante','Proyecto.idProyecto','=','Proyecto_estudiante.idProyecto')
+        $estudiantes = Proyecto_estudiante::where('idProyecto', $idProyecto)
+            ->join('estudiante','proyecto_estudiante.idEstudiante','=','estudiante.idEstudiante')
             ->get();
-        $tutores = Asignacion::select('idDoc')
-            ->where('idProyecto', $idProyecto)
+        $tutores = Asignacion::where('idProyecto', $idProyecto)
             ->where('rol','tutor')
+            ->join('docente','asignacion.idDoc','=','docente.idDoc')
             ->get();
             //dd($tutores);
-        $tribunales = Asignacion::select('idDoc')
-            ->where('idProyecto', $idProyecto)
+        $tribunales = Asignacion::where('idProyecto', $idProyecto)
             ->where('rol','tribunal')
+            ->where('estado','Activo')
+            ->join('docente','asignacion.idDoc','=','docente.idDoc')
             ->get();
+        $terminados = Asignacion::where('idProyecto', $idProyecto)
+            ->where('rol','tribunal')
+            ->where('estado','Terminado')
+            ->join('docente','asignacion.idDoc','=','docente.idDoc')
+            ->get();
+            
         $areas = Proyecto_has_area::where('idProyecto',$idProyecto)
-        ->join('Area','Proyecto_has_area.idArea','=','Area.idArea')
+        ->join('area','proyecto_has_area.idArea','=','area.idArea')
         ->where('clasificacion','=','area')
         ->get();
         $subareas = Proyecto_has_area::where('idProyecto',$idProyecto)
-        ->join('Area','Proyecto_has_area.idArea','=','Area.idArea')
+        ->join('area','proyecto_has_area.idArea','=','area.idArea')
         ->where('clasificacion','=','subarea')
         ->get();
-            return view('proyectos.detalles', compact('proy_est','areas','subareas','estudiantes','tutores','tribunales'));
+            return view('proyectos.detalles', compact('proy_est','areas','subareas','estudiantes','tutores','tribunales','terminados'));
     }
 
     
@@ -444,7 +451,7 @@ class ProyectoController extends Controller
         ->where('rol', 'tribunal')
         ->update(
             array(
-                'estado' => 'inactivo',
+                'estado' => 'Terminado',
             )
         );
         Renuncia::create([
@@ -460,7 +467,7 @@ class ProyectoController extends Controller
 
     public function reporteGeneral()
     {
-        $proyectos = Proyecto::orderBy('Proyecto.idProyecto', 'asc')
+        $proyectos = Proyecto::orderBy('proyecto.idProyecto', 'asc')
         ->join('proyecto_estudiante', 'proyecto.idProyecto','=','proyecto_estudiante.idProyecto')
         ->join('estudiante', 'proyecto_estudiante.idEstudiante','=','estudiante.idEstudiante')
         ->join('carrera', 'estudiante.idCarrera','=','carrera.idCarrera')

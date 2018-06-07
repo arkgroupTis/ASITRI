@@ -12,13 +12,13 @@
             </p> 
             <p><b>Nombre Proyecto:</b>{{ $proyecto->titulo }}</ps>
         @endforeach
-        <p class="lead"><b>Areas Proyecto:</b></p>
+        <p><b>Areas Proyecto:</b></p>
         @foreach($areas as $area)
-        {{$area -> nombreArea}} <br>
+            {{$area -> nombreArea}} <br>
         @endforeach
-        <p class="lead"><b>Sub Areas Proyecto:</b></p>
+        <p><b>Sub Areas Proyecto:</b></p>
        @foreach($subareas as $subarea)
-        {{$subarea -> nombreArea}} <br>
+            {{$subarea -> nombreArea}} <br>
         @endforeach
     </div>
     <div class="col-md-4">
@@ -34,7 +34,7 @@
             </p> 
             </p> 
             <p><b>Fecha Fin:</b>
-            {{ $proyecto->fechafin }}
+            {{ $proyecto->fechaFin }}
             </p> 
 
         @endforeach
@@ -50,62 +50,46 @@
             <p><b>Modalidad:</b>
             {{ $proyecto->modalidad->nombreMod }}
             </p>
-            <p style="txt"><b>Estado:</b>
+            <p style="text-transform: capitalize;"><b>Estado:</b>
             {{ $proyecto->estado }}
             </p>  
         @endforeach
     </div>
-    <h3>Tutores y Tribunales</h3>
 </div>
-
+<br>
+<h3>Tutores y Tribunales</h3>
 <div class="row">
-    @if($estudiantes)
     <div class="col-md-4">
-            
-        <p><b>Estudiante 1:</b>
-        {{ $estudiantes[0]->proyecto_estudiante[0]->estudiante->nombreEst." ".$estudiantes[0]->proyecto_estudiante[0]->estudiante->apellidoEst }}
-        </p>
-        {{dd($estudiantes[1])}}
-        @if($estudiantes[1])
-        <p><b>Estudiante 2:</b>
-        {{ $estudiantes[1]->proyecto_estudiante[1]->estudiante->nombreEst." ".$estudiantes[1]->proyecto_estudiante[1]->estudiante->apellidoEst }}
-        </p>
+        <h4>Estudiante(s)</h4>
+        @if($estudiantes)
+            @foreach($estudiantes as $estudiante)
+                {{$estudiante->nombreEst." ".$estudiante->apellidoEst}}<br>
+            @endforeach 
+        @endif       
+    </div>
+    <div class="col-md-4">
+        <h4>Tutore(s)</h4>
+        @if($tutores)
+            @foreach($tutores as $estudiante)
+                {{$estudiante->nombreDoc." ".$estudiante->apePaternoDoc." ".$estudiante->apeMaternoDoc}}<br>
+            @endforeach        
         @endif
     </div>
-    @endif
-    @if($tutores)
     <div class="col-md-4">
-        <p><b>Tutor 1:</b>
-        {{ $tutores[0]->Docente->nombreDoc ." ". $tutores[0]->Docente->apePaternoDoc ." ".$tutores[0]->Docente->apeMaternoDoc}}
-        </p>
-        @if($tutores[1])
-        <p><b>Tutor 2:</b>
-        {{ $tutores[1]->Docente->nombreDoc ." ". $tutores[1]->Docente->apePaternoDoc ." ".$tutores[1]->Docente->apeMaternoDoc }}
-        </p>
+        <h4>Tribunale(s) Actuales</h4>
+        @if($tribunales)
+            @foreach($tribunales as $estudiante)
+                {{$estudiante->nombreDoc." ".$estudiante->apePaternoDoc." ".$estudiante->apeMaternoDoc}}<br>
+            @endforeach        
+        @endif
+        <h4>Tribunale(s) Renunciantes</h4>
+        @if($terminados)
+            @foreach($terminados as $terminado)
+                {{$terminado->nombreDoc." ".$terminado->apePaternoDoc." ".$terminado->apeMaternoDoc}}<br>
+            @endforeach        
         @endif
     </div>
-    @endif
-    @if($tribunales)
-    <div class="col-md-4">
-        <p><b>Tribunal 1:</b>
-        {{ $tribunales[0]->Docente->nombreDoc ." ". $tribunales[0]->Docente->apePaternoDoc ." ".$tribunales[0]->Docente->apeMaternoDoc }}
-        </p>
-        @if($tribunales[1])
-        <p><b>Tribunal 2:</b>
-        {{ $tribunales[1]->Docente->nombreDoc ." ". $tribunales[1]->Docente->apePaternoDoc ." ".$tribunales[1]->Docente->apeMaternoDoc }}
-        </p>
-        @endif
-        @if($tribunales[2])
-        <p><b>Tribunal 3:</b>
-        {{ $tribunales[2]->Docente->nombreDoc ." ". $tribunales[2]->Docente->apePaternoDoc ." ".$tribunales[0]->Docente->apeMaternoDoc }}
-        </p>
-        @endif
-    </div>
-    @endif
 </div>
 
-    
-      
-   
 
 @endsection
