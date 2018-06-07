@@ -55,7 +55,7 @@ return [
     |
     */
 
-    'from' => ['address' => 'arkgroup.bo@gmail.com', 'name' => 'daniel probando correo'],
+    'from' => ['address' => 'arkgroup.bo@gmail.com', 'name' => 'Designacion de Tribunal - UMSS'],
 
     /*
     |--------------------------------------------------------------------------
