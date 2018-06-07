@@ -39,8 +39,10 @@ Route::group(['middleware' => ['auth']], function () {
 	Route::get('/estudiante/{id}/proyecto', 'ProyectoController@proyectoEstudiante');
 	Route::get('/estudiante/proyecto/{id}/tribunales', 'ProyectoController@posiblesTribunales');
 	Route::get('/estudiante/proyecto/{id}/renuncia', 'ProyectoController@renunciaTribunales');
+	Route::get('/estudiante/proyecto/{id}/defensa', 'ProyectoController@defensa');
 	Route::get('/estudiante/proyecto/{idProy}/{idDoc}/asignacion', 'ProyectoController@asignarTribunal');
 	Route::post('/estudiante/proyecto/renuncia', 'ProyectoController@renunciaTribunal');
+
 	
 	
 

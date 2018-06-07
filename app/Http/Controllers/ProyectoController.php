@@ -404,4 +404,18 @@ class ProyectoController extends Controller
             'message' => 'todo okey!'.$request->motivo,
         ]);
     }
+
+    public function defensa(Request $request){
+        Proyecto::where('idProyecto', $request->idProyecto)
+        ->update(
+            array(
+                'fechaFin' => $request->fecha,
+            )
+        );
+
+
+        return response()->json([
+            'message' => 'todo okey!'.$request->motivo,
+        ]);
+    }
 }
