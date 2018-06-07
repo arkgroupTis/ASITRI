@@ -333,18 +333,18 @@
    // SCRIPT PARA MOSTRAR ESTUDIANTE EN EL MODAL
    $(document).on('click', '.btn-modal-show', function() {
        $.get('/estudiante/'+$($(this).parents("tr")).data('id'), function(data){
-           $('#td-titulo').text(data.titulo.titulo);
+           $('#td-titulo').text(data.titulo);
            var aux2 = "";
             data.tutores.forEach( function(valor, indice)
             {
-                aux2 = aux2 + (indice+1) + ". " + valor.apePaternoDoc + " " + valor.apeMaternoDoc + " " + valor.nombreDoc + '<br>';
+                aux2 = aux2 + (indice+1) + ". " + valor + '<br>';
             });            
            $('#td-tutores').empty();
            $('#td-tutores').append(aux2);
             var aux = "";
             data.tribunales.forEach( function(valor, indice)
             {
-                aux = aux + (indice+1) + ". " + valor.apePaternoDoc + " " + valor.apeMaternoDoc + " " + valor.nombreDoc + '<br>';
+                aux = aux + (indice+1) + ". " + valor + '<br>';
             });
            $('#td-tribunales').empty();
            $('#td-tribunales').append(aux);

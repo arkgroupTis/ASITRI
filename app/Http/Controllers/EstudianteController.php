@@ -136,6 +136,7 @@ class EstudianteController extends Controller
      */
     public function show($id)
     {
+        /*
         $tribunales = Estudiante::select('docente.apeMaternoDoc','docente.apePaternoDoc','docente.nombreDoc')
         ->join('proyecto_estudiante', 'estudiante.idEstudiante', '=', 'proyecto_estudiante.idEstudiante')
         ->where('proyecto_estudiante.idEstudiante' , '=', $id)
@@ -159,11 +160,29 @@ class EstudianteController extends Controller
         ->where('proyecto_estudiante.idEstudiante' , '=', $id)
         ->join('proyecto', 'proyecto_estudiante.idProyecto', '=', 'proyecto.idProyecto')
         ->firstOrFail();
+        */
+
+        $estudiante = Estudiante::where('idEstudiante', $id)->firstOrFail();
+        $titulo = "";
+        $tutores = collect([]);
+        $tribunales = collect([]);
+        // dd($estudiante->proyecto_estudiante);
+        foreach ($estudiante->proyecto_estudiante as $pe) {
+            $titulo = $pe->proyecto->titulo;
+            foreach ($pe->proyecto->asignacion as $asig) {
+                if ($asig->rol == "tutor") {
+                    $tutores->push($asig->docente->nombreDoc." ".$asig->docente->apePaternoDoc." ".$asig->docente->apeMaternoDoc);
+                }
+                if ($asig->rol == "tribunal") {
+                    $tribunales->push($asig->docente->nombreDoc." ".$asig->docente->apePaternoDoc." ".$asig->docente->apeMaternoDoc);
+                }
+            }
+        }
         return response()->json([
-            'estudiante' => Estudiante::where('idEstudiante', $id)->firstOrFail(),
-            'titulo' => $titulo,
-            'tutores' => $tutores,
-            'tribunales' => $tribunales
+            'estudiante' => $estudiante,
+            'titulo' => $titulo,//$titulo?$titulo:'NULL',
+            'tutores' => $tutores,//$tutores?$tutores:'NULL',
+            'tribunales' => $tribunales,//$tribunales?$tribunales:'NULL',
             //->where('estado', 'terminado')
         ]);
     }
