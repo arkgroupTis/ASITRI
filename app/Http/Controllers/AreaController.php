@@ -47,11 +47,12 @@ class AreaController extends Controller
         $this->validate($request, [
             'nombreArea' => 'required|string',
             'descripcionArea' => 'required|string',
+            'clasificacion' => 'required|string',
         ]);
         Area::create([
             'nombreArea' => $request['nombreArea'],
             'descripcionArea' => $request['descripcionArea'],
-            'cod_subarea' => $request['cod_subarea'],
+            'clasificacion' => $request['clasificacion'],
         ]);
         return response()->json([
             'message' => 'Se agrego correctamente!',
@@ -66,6 +67,14 @@ class AreaController extends Controller
      */
     public function show($id)
     {
+        $docente = Area::join('tiene', 'area.idArea','=','tiene.idArea')
+        ->where('tiene.idArea','=',$id)
+        ->join('docente','tiene.idDoc','=','docente.idDoc')
+        ->get();
+        return response()->json([
+            'area' => Area::where('idArea', $id)->firstOrFail(),
+            'docente' => $docente
+        ]);
         //
     }
 

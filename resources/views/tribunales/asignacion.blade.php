@@ -1,11 +1,7 @@
 @extends('layouts.app')
 @section('content')
 {{ csrf_field() }}
-@php 
-    $hoy = getdate();
-    $hoy = date("Y-m-d");
-    print_r($hoy);
-@endphp
+
 <h1 class="text-center">Tribunales - Asignacion</h1>
 
 <div class="row z-depth-1-half">
@@ -64,6 +60,7 @@
     </table>
 </div>
 <br>
+@if($extras)
 <h2>Otros</h2>
 <div class="md-form input-group mb-3">
     <input type="text" class="form-control pl-0 rounded-0" id="search_docente2" type="text" placeholder="Buscar Docentes/Profesionales...">
@@ -105,6 +102,7 @@
         </tbody>
     </table>
 </div>
+@endif
 <!-- Modal renuncia renuncia -->
 <div class="modal fade" id="modal-renuncia" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
     <div class="modal-dialog modal-notify modal-danger modal-lg" role="document">
