@@ -10,10 +10,7 @@
     "ASITRI" es un sistema que se encarga de la Asignacion de Tribunales a proyectos de grado
     de la Universidad Mayor de San Simon
     </p></td>
-    <h3 ><p class="white-text">INFORMACION</p></h3>
-    <td><p class="white-text text-justify">
-    Y aqui continuara mas informacion o algo asi
-    </p></td>
+    
     </div>
     <!-- Grid column -->
     <div class="col-lg-3 col-md-6 mb-1">
@@ -48,8 +45,9 @@
 
 </div>
 <div class="row">
-    <div class="col-lg-3 col-md-3 mb-3"></div>
+    <div class="col-lg-3 col-md-3 mb-3">
     
+    </div>
     <!-- Grid column -->
     <div class="col-lg-3 col-md-6 mb-3">
         <a href="/areas">
@@ -70,9 +68,10 @@
 
     <!-- Grid column -->
     <div class="col-lg-3 col-md-6 mb-3" >
-
+    <a href="/reporteGeneral">
         <img src="/img/info.JPG" class="img-fluid z-depth-1" alt="Responsive image">
-        <h3 class="text-center" ><p class="white-text">Informacion</p></h3>
+        </a>
+        <h3 class="text-center" ><a href="/reporteGeneral"><p class="white-text">Reportes</p></a></h3>
     </div>
     <!-- Grid column -->
 
