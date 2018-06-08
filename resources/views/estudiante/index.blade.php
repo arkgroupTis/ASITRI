@@ -139,7 +139,7 @@
                        <!-- Material input -->
                        <div class="md-form form-group">
                            <input type="text" class="form-control validate" id="nombre" placeholder="Nombre">
-                           <label for="nombre">Nombre:</label>
+                           <label for="nombre">Nombre <b class="h5 red-text">*</b></label>
                        </div>
                    </div>
                    <!-- Grid column -->
@@ -149,7 +149,7 @@
                        <!-- Material input -->
                        <div class="md-form form-group">
                            <input type="text" class="form-control validate" id="apellidos" placeholder="Apellidos">
-                           <label for="apellidos">Apellidos:</label>
+                           <label for="apellidos">Apellidos <b class="h5 red-text">*</b></label>
                        </div>
                    </div>
                    <!-- Grid column -->
@@ -163,7 +163,7 @@
                        <!-- Material input -->
                        <div class="md-form form-group">
                            <input type="text" class="form-control validate" id="ci" placeholder="CI">
-                           <label for="ci">CI:</label>
+                           <label for="ci">CI <b class="h5 red-text">*</b></label>
                        </div>
                    </div>
                    <!-- Grid column -->
@@ -173,7 +173,7 @@
                        <!-- Material input -->
                        <div class="md-form form-group">
                             <input type="number" class="form-control validate" id="telefono" placeholder="Telefono">
-                            <label for="telefono">Telefono:</label>
+                            <label for="telefono">Telefono <b class="h5 red-text">*</b></label>
                        </div>
                    </div>
                    <!-- Grid column -->
@@ -187,7 +187,7 @@
                        <!-- Material input -->
                        <div class="md-form form-group">
                            <input type="email" class="form-control validate" id="email" placeholder="Email">
-                           <label for="email">Email</label>
+                           <label for="email">Email <b class="h5 red-text">*</b></label>
                        </div>
                    </div>
                    <!-- Grid column -->
@@ -201,7 +201,7 @@
                                <option value="1">Ingenieria en Sistemas</option>
                                <option value="2">Ingenieria Informatica</option>
                            </select>
-                           <label for="carrera">Carrera:</label>
+                           <label for="carrera">Carrera <b class="h5 red-text">*</b></label>
                        </div>
                    </div>
                    <!-- Grid column -->
