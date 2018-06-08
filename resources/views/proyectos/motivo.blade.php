@@ -88,12 +88,13 @@
                 </button>
             </div>
             <div class="modal-body" align="center" style="color: black">
+                <p class="red-text text-left">*Obligatorio</p>
                 <br>
                 <br>
                 <br>
                 
                 <div class="row col-md-9">
-                    <h3>La fecha de defensa que se elija sera la finalizacion de su proyecto</h3>
+                    <h3>La fecha de defensa que se elija sera la finalizacion de su proyecto <b class="h5 red-text">*</b></h3>
                 </div>
                 <br>
                 <br>

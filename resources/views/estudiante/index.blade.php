@@ -119,12 +119,12 @@
 
 <!-- Modal agregar y modificar estudiante -->
 <div class="modal fade" id="modal-estudiante" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-   <div class="modal-dialog modal-lg" role="document">
+   <div class="modal-dialog modal-notify modal-primary modal-lg" role="document">
        <!--Content-->
        <div class="modal-content">
            <!--Header-->
            <div class="modal-header">
-               <p class="heading lead">Nuevo Estudiante</p>
+               <p class="heading lead">Estudiante</p>
               
                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                <span aria-hidden="true" class="white-text">&times;</span>
@@ -132,6 +132,7 @@
             </div>
            <!--Body-->
            <div class="modal-body">
+              <p class="red-text">*Obligatorio</p>
                <!-- Grid row -->
                <div class="form-row">
                    <!-- Grid column -->

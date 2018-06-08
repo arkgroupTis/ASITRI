@@ -9,8 +9,9 @@
    <h1 class="text-center">Nueva Area \ Sub Area</h1>
    <div class="group form-row" style=margin-top:50px;></div>
    </div>
+   <p class="red-text">*Obligatorio</p>
    <div class="form-group row">
-   <label for="nombre" class="col-sm-2 col-form-label">Clasificacion:</label>
+   <label for="nombre" class="col-sm-2 col-form-label">Clasificacion <b class="h5 red-text">*</b></label>
      	     <div class="col-sm-10" >
      	       <select class="mdb-select colorful-select dropdown-primary md-form mt-0" name="clasificacion" id="clasificacion">
          	   <option value="area">Area</option>
@@ -21,7 +22,7 @@
   
    <div class="form-group row">
        <!-- Material input -->
-       <label for="nombre" class="col-sm-2 col-form-label">Nombre:</label>
+       <label for="nombre" class="col-sm-2 col-form-label">Nombre <b class="h5 red-text">*</b></label>
        <div class="col-sm-10">
            <div class="md-form mt-0">
                <input type="text" class="form-control" id="nombre" placeholder="Nombre">
@@ -33,7 +34,7 @@
    <!-- Grid row -->
    <div class="form-group row">
        <!-- Material input -->
-       <label for="descripcion" class="col-sm-2 col-form-label">Descripcion:</label>
+       <label for="descripcion" class="col-sm-2 col-form-label">Descripcion <b class="h5 red-text">*</b></label>
        <div class="col-sm-10">
            <div class="md-form mt-0">
              <textarea type="text" id="descripcion" class="form-control md-textarea" rows="3" placeholder="Descripcion"></textarea>

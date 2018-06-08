@@ -120,10 +120,11 @@
             </div>
             <!--Body-->
             <div class="modal-body">
+                <p class="red-text">*Obligatorio</p>
                 <!-- Grid row -->
                 <div class="form-row">
                     <div class="col-md-12">
-                        <label>Motivo de Renuncia</label>
+                        <label>Motivo de Renuncia <b class="h5 red-text">*</b></label>
                     </div>
                     <div class="col-md-12">
                         <select class="mdb-select colorful-select dropdown-primary" id="motivo_select">
@@ -138,7 +139,7 @@
                         </div>
                     </div>
                     <div class="col-md-12">
-                        <label for="date-picker-renuncia">Fecha de Renuncia</label>
+                        <label for="date-picker-renuncia">Fecha de Renuncia <b class="h5 red-text">*</b></label>
                     </div>
                     <div class="col-md-12">
                         <div class="md-form form-group">
