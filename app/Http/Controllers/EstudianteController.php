@@ -136,6 +136,32 @@ class EstudianteController extends Controller
      */
     public function show($id)
     {
+        /*
+        $tribunales = Estudiante::select('docente.apeMaternoDoc','docente.apePaternoDoc','docente.nombreDoc')
+        ->join('proyecto_estudiante', 'estudiante.idEstudiante', '=', 'proyecto_estudiante.idEstudiante')
+        ->where('proyecto_estudiante.idEstudiante' , '=', $id)
+        ->join('proyecto', 'proyecto_estudiante.idProyecto', '=', 'proyecto.idProyecto')
+        ->join('asignacion', 'proyecto.idProyecto', '=', 'asignacion.idProyecto')
+        ->where('rol', '=' ,'tribunal')
+        ->where('estado', '=' ,'Activo')
+        ->join('docente', 'asignacion.idDoc', '=', 'docente.idDoc')
+        ->get();
+        $tutores = Estudiante::select('docente.apeMaternoDoc','docente.apePaternoDoc','docente.nombreDoc')
+        ->join('proyecto_estudiante', 'estudiante.idEstudiante', '=', 'proyecto_estudiante.idEstudiante')
+        ->where('proyecto_estudiante.idEstudiante' , '=', $id)
+        ->join('proyecto', 'proyecto_estudiante.idProyecto', '=', 'proyecto.idProyecto')
+        ->join('asignacion', 'proyecto.idProyecto', '=', 'asignacion.idProyecto')
+        ->where('rol', '=' ,'tutor')
+
+        ->join('docente', 'asignacion.idDoc', '=', 'docente.idDoc')
+        ->get();
+        $titulo = Estudiante::select('proyecto.titulo')
+        ->join('proyecto_estudiante', 'estudiante.idEstudiante', '=', 'proyecto_estudiante.idEstudiante')
+        ->where('proyecto_estudiante.idEstudiante' , '=', $id)
+        ->join('proyecto', 'proyecto_estudiante.idProyecto', '=', 'proyecto.idProyecto')
+        ->firstOrFail();
+        */
+
         $estudiante = Estudiante::where('idEstudiante', $id)->firstOrFail();
         $titulo = "";
         $tutores = collect([]);
