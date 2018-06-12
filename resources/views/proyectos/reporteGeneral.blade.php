@@ -1,17 +1,20 @@
 @extends('layouts.app')
 @section('content')
+
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
   <h1 align="center">REPORTE PROYECTOS</h1>
-<div class="container">
 	<div class="form-row">
 		
-		<div class="col-md-6">
+		<div class="col-md-6 noPrint">
 	    		
                 <label class="sr-only" ></label>
                 <div class="md-form input-group mb-3">
                 <input type="text" class="form-control pl-0 rounded-0" id="Search1" type="text" placeholder="Buscar Proyectos...">
                 </div>
-	    </div>    	
+	 </div> 
+   <div class="col-md-6 text-right noPrint">
+     <button type="button" class="btn btn-secondary" id="btn-imprimir">Imprimir</button>
+   </div>
         
 	<div >
 		<table class="table table-striped">
@@ -46,6 +49,33 @@
 		</table>
     </div>
 </div>
+<style type="text/css">
+    @media print {
+        .side-nav, .page-footer, .noPrint {display:none;}
+        .div-copia {display: "";}
+    }
+    @media screen {
+        .div-copia {display: none;}
+    }
+    @page 
+    {
+        size:  auto;   /* auto es el valor inicial */
+        margin: 0mm;  /* afecta el margen en la configuración de impresión */
+    }
+    @page :left {
+        margin-left: 3cm;
+        margin-right: 2cm;
+        margin-top: 2cm;
+        margin-bottom: 2cm;
+    }
+
+    @page :right {
+        margin-left: 2cm;
+        margin-right: 3cm;
+        margin-top: 2cm;
+        margin-bottom: 2cm;
+    }
+</style>
 @endsection
 @section('script')
               
@@ -59,7 +89,13 @@
  	 });
     });
 
-  </script>
   
+  
+document.getElementById("btn-imprimir").onclick = function() {imprimir()};
 
+    function imprimir() {
+      console.log('le diste clic');
+      window.print();
+    }
+</script>
 @endsection
