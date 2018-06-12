@@ -1,11 +1,6 @@
 @extends('layouts.app')
 @section('content')
 {{ csrf_field() }}
-@php 
-    $hoy = getdate();
-    $hoy = date("Y-m-d");
-    print_r($hoy);
-@endphp
 <h1 class="text-center">Tribunales - Asignacion</h1>
 
 <div class="row z-depth-1-half">
@@ -195,7 +190,7 @@
                 url: '/estudiante/proyecto/renuncia',
                 data: {
                     '_token': $('input[name=_token]').val(),
-                    'idProyecto': {{$proyecto->idProyecto}},
+                    'idProyecto': '{{$proyecto->idProyecto}}',
                     'idDoc': idDoc,
                     'motivo_select': $('#motivo_select').val(),
                     'motivo': $('#motivo').val(),
@@ -206,6 +201,7 @@
                     location.reload();
                 },
             });
+            $('#modal-renuncia').modal('hide');
         } else {
             toastr.error('seleccionar un motivo!');
         }
