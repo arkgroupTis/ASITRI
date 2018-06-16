@@ -199,8 +199,8 @@
                        <div class="md-form form-group" id="carreradiv">
                             <select class="mdb-select colorful-select dropdown-primary col-md-12" id="carrera">
                                <option value="" selected disabled>Seleccionar una opcion</option>
-                               <option value="1">Ingenieria en Sistemas</option>
-                               <option value="2">Ingenieria Informatica</option>
+                               <option value="2">Ingenieria en Sistemas</option>
+                               <option value="1">Ingenieria Informatica</option>
                            </select>
                            <label for="carrera">Carrera <b class="h5 red-text">*</b></label>
                        </div>
