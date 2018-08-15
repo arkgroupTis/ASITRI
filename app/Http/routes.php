@@ -57,3 +57,7 @@ Route::group(['middleware' => ['auth']], function () {
 
 	Route::get('/reporteGeneral', 'ProyectoController@reporteGeneral');
 });
+
+
+Route::get('/probando', 'HomeController@probandoGet');
+Route::post('/probandopost', 'HomeController@probandoPost');

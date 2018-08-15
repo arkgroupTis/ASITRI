@@ -17,7 +17,7 @@ class HomeController extends Controller
      */
     public function __construct()
     {
-        $this->middleware('auth');
+        // $this->middleware('auth');
     }
 
     /**
@@ -51,5 +51,18 @@ class HomeController extends Controller
         }
 
         return view('home');
+    }
+
+    public function probandoGet()
+    {
+        return view('formulario');
+    }
+
+    public function probandoPost(Request $request)
+    {
+        // dd($request->var);
+        foreach ($request->var as $key => $value) {
+            print_r($key." => ".$value);
+        }
     }
 }
